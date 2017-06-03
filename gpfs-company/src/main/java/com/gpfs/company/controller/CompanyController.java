@@ -33,7 +33,7 @@ public class CompanyController {
 	    Company company1=new Company();
 	    company1.setName(name);
 	    company1.setTin(tin);
-	    repo.save(company1)
+	    repo.save(company1);
 	    return "Ok";
 	}
 }

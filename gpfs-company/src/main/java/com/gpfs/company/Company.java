@@ -1,9 +1,11 @@
 package com.gpfs.company;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+@Entity(name = "company")
 public class Company {
 
 @Id
