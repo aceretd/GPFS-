@@ -12,5 +12,6 @@
   </parent>
   <modules>
   	<module>gpfs-app</module>
+  	<module>gpfs-company</module>
   </modules>
 </project>
