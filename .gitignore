@@ -1,0 +1,40 @@
+# generated files
+bin
+target
+webapp-build
+generated
+overlays
+id_file
+selenium_standalone_*
+*.log
+lib
+
+# generated files frontend
+bower_components
+libs
+node_modules
+
+# Eclipse Ignores
+.classpath
+.metadata
+.checkstyle
+*.eclipse.jdt.core.prefs
+
+# IDEA Ignores
+*.iml
+*.ipr
+*.iws
+.idea
+
+# Generated File Repositories
+temp
+terminal
+nlic-app/nlic-repository/*
+nlic-app/nlic-repository/
+nlic-app/nlic-repository-temp/
+
+# MAC ignores
+.DS_Store
+main-built.js
+/nlic-app/nlic-repository/
+/nlic-app/nlic-repository-temp
