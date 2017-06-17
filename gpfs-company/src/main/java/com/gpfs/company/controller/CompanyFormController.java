@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import static org.springframework.web.bind.annotation.RequestMethod.*;
 
 @Controller
-@RequestMapping("/company")
+@RequestMapping("/companyform")
 public class CompanyFormController {
 
 	@RequestMapping(method = GET)

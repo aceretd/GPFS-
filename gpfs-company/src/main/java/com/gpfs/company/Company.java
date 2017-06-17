@@ -8,26 +8,25 @@ import javax.persistence.Id;
 @Entity(name = "company")
 public class Company {
 
-@Id
-@GeneratedValue
+	@Id
+	@GeneratedValue
+	Long id;
 
-Long id;
-
-@Column(name= "company_name")
-String name; 
-@Column(name= "tin")
-String tin;
-public String getName() {
-	return name;
-}
-public void setName(String name) {
-	this.name = name;
-}
-public String getTin() {
-	return tin;
-}
-public void setTin(String tin) {
-	this.tin = tin;
-}
+	@Column(name= "company_name")
+	String name; 
+	@Column(name= "tin")
+	String tin;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getTin() {
+		return tin;
+	}
+	public void setTin(String tin) {
+		this.tin = tin;
+	}
 }
 
