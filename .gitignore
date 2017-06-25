@@ -31,12 +31,6 @@ node_modules
 # Generated File Repositories
 temp
 terminal
-nlic-app/nlic-repository/*
-nlic-app/nlic-repository/
-nlic-app/nlic-repository-temp/
 
 # MAC ignores
 .DS_Store
-main-built.js
-/nlic-app/nlic-repository/
-/nlic-app/nlic-repository-temp
