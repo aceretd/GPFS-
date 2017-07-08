@@ -6,7 +6,7 @@ import javax.persistence.MappedSuperclass;
 import org.hibernate.annotations.Type;
 
 @MappedSuperclass
-public abstract class Answer {
+public abstract class AnswerTemplate {
 
 	@Column(name = "template")
 	@Type(type = "text")
