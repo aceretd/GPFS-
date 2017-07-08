@@ -19,5 +19,6 @@
   	<module>gpfs-company</module>
   	<module>gpfs-question</module>
   	<module>gpfs-core</module>
+  	<module>gpfs-coa</module>
   </modules>
 </project>
