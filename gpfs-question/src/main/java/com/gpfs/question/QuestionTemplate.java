@@ -18,7 +18,7 @@ import org.hibernate.annotations.Type;
  */
 @Entity(name = "question")
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Question {
+public abstract class QuestionTemplate {
 
 	@Id
 	@GeneratedValue
