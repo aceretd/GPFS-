@@ -10,12 +10,14 @@ public class Company {
 
 	@Id
 	@GeneratedValue
-	Long id;
+	private Long id;
 
 	@Column(name= "company_name")
-	String name; 
+	private String name;
+
 	@Column(name= "tin")
-	String tin;
+	private String tin;
+
 	public String getName() {
 		return name;
 	}
@@ -28,5 +30,12 @@ public class Company {
 	public void setTin(String tin) {
 		this.tin = tin;
 	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 }
 

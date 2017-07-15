@@ -6,19 +6,14 @@
 		<artifactId>gpfs</artifactId>
 		<version>1.0</version>
 	</parent>
-	<artifactId>gpfs-company</artifactId>
-	<name>GPFS :: Company</name>
+	<artifactId>gpfs-question</artifactId>
+	<name>GPFS :: Question</name>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>gpfs</groupId>
 			<artifactId>gpfs-core</artifactId>
 			<version>${project.version}</version>
 		</dependency>
-
 	</dependencies>
 </project>

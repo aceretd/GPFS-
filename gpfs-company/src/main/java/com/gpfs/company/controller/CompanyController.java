@@ -1,17 +1,21 @@
 package com.gpfs.company.controller;
 
-import static org.springframework.web.bind.annotation.RequestMethod.*;
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.gpfs.company.Company;
 import com.gpfs.java.repo.CompanyRepo;
+
+
 @RestController
 public class CompanyController {
 
@@ -19,12 +23,9 @@ public class CompanyController {
 	CompanyRepo repo; 
 
 	@RequestMapping(value = "/companies", method = GET)
-	public List getlistofcompanies() {
-		List companies=new ArrayList();
-		Company company1=new Company();
-		company1.setName("test name");
-		companies.add(company1);
-		return companies;
+	public ResponseEntity<List<Company>> getlistofcompanies() {
+		List<Company> companies = repo.findAll();
+		return new ResponseEntity<>(companies, HttpStatus.OK);
 	}
 
 	@RequestMapping(value = "/savecompany", method = POST)
