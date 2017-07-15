@@ -1,0 +1,10 @@
+databaseChangeLog:
+- changeSet:
+    id: loadquestions
+    author: mark
+    changes:
+    - loadData:
+        encoding: UTF-8
+        file: db/data/questions.csv
+        schemaName: public
+        tableName: question
