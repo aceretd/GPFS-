@@ -4,7 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class MultipleChoiceAnswer extends Answer {
+public class MultipleChoiceAnswerTemplate extends AnswerTemplate {
 
 	@Column(name = "answer")
 	private String answer;

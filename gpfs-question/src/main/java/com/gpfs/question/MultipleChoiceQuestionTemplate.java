@@ -7,16 +7,16 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 
 @Entity(name = "question_mc")
-public class MultipleChoiceQuestion extends Question {
+public class MultipleChoiceQuestionTemplate extends QuestionTemplate {
 
 	@ElementCollection
 	@CollectionTable(name = "question_mc_answers")
-	private List<MultipleChoiceAnswer> answers;
+	private List<MultipleChoiceAnswerTemplate> answers;
 
-	public List<MultipleChoiceAnswer> getAnswers() {
+	public List<MultipleChoiceAnswerTemplate> getAnswers() {
 		return answers;
 	}
-	public void setAnswers(List<MultipleChoiceAnswer> answers) {
+	public void setAnswers(List<MultipleChoiceAnswerTemplate> answers) {
 		this.answers = answers;
 	}
 

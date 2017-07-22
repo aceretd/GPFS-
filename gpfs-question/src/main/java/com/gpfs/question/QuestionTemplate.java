@@ -17,12 +17,15 @@ import org.hibernate.annotations.Type;
  * @author mbmartinez
  */
 @Entity(name = "question")
-@Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Question {
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public abstract class QuestionTemplate {
 
 	@Id
 	@GeneratedValue
 	private Long id;
+
+	@Column(name = "section_reference")
+	private String sectionReference;
 
 	@Column(name = "series", nullable = false, unique = true)
 	private int series;
@@ -67,6 +70,14 @@ public abstract class Question {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getSectionReference() {
+		return sectionReference;
+	}
+
+	public void setSectionReference(String sectionReference) {
+		this.sectionReference = sectionReference;
 	}
 
 }

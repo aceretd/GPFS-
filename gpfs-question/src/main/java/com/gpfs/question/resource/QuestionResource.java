@@ -10,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import static org.springframework.web.bind.annotation.RequestMethod.*;
-import com.gpfs.question.Question;
+import com.gpfs.question.QuestionTemplate;
 import com.gpfs.question.service.QuestionService;
 
 @RestController
@@ -21,7 +21,7 @@ public class QuestionResource {
 	private QuestionService service;
 
 	@RequestMapping(method = GET)
-	public ResponseEntity<Page<Question>> findAll(Pageable page) {
+	public ResponseEntity<Page<QuestionTemplate>> findAll(Pageable page) {
 		return new ResponseEntity<>(service.findAll(page), OK);
 	}
 
