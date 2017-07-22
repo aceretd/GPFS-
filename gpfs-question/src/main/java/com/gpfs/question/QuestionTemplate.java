@@ -1,11 +1,13 @@
 package com.gpfs.question;
 
+import java.util.List;
+
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 
 import org.hibernate.annotations.Type;
 
@@ -17,8 +19,7 @@ import org.hibernate.annotations.Type;
  * @author mbmartinez
  */
 @Entity(name = "question")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public abstract class QuestionTemplate {
+public class QuestionTemplate {
 
 	@Id
 	@GeneratedValue
@@ -39,6 +40,26 @@ public abstract class QuestionTemplate {
 	 */
 	@Column(name = "act_condition")
 	private String activationCondition;
+
+	/**
+	 * Only used by enumeration questions
+	 */
+	@Column(name = "max_answers")
+	private int maximumAnswers = 0;
+
+	/**
+	 * Only used by MC questions
+	 */
+	@ElementCollection
+	@CollectionTable(name = "question_mc_answers")
+	private List<MultipleChoiceAnswerTemplate> answers;
+
+	/**
+	 * Not used by yes/no and MC questions
+	 */
+	@Column(name = "template")
+	@Type(type = "text")
+	private String template;
 
 	public int getSeries() {
 		return series;
