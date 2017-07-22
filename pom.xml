@@ -20,5 +20,6 @@
   	<module>gpfs-question</module>
   	<module>gpfs-core</module>
   	<module>gpfs-coa</module>
+  	<module>gpfs-gpfs</module>
   </modules>
 </project>
