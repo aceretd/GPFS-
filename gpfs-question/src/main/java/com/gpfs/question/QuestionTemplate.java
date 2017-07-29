@@ -6,6 +6,8 @@ import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
@@ -35,6 +37,10 @@ public class QuestionTemplate {
 	@Type(type = "text")
 	private String question;
 
+	@Enumerated(EnumType.STRING)
+	@Column(name = "type")
+	private QuestionType type;
+
 	/**
 	 * If this expression evaluates to false, this question is skipped
 	 */
@@ -53,6 +59,10 @@ public class QuestionTemplate {
 	@ElementCollection
 	@CollectionTable(name = "question_mc_answers")
 	private List<MultipleChoiceAnswerTemplate> answers;
+
+	@Column(name = "help_text")
+	@Type(type = "text")
+	private String helpText;
 
 	/**
 	 * Not used by yes/no and MC questions
@@ -99,6 +109,46 @@ public class QuestionTemplate {
 
 	public void setSectionReference(String sectionReference) {
 		this.sectionReference = sectionReference;
+	}
+
+	public QuestionType getType() {
+		return type;
+	}
+
+	public void setType(QuestionType type) {
+		this.type = type;
+	}
+
+	public int getMaximumAnswers() {
+		return maximumAnswers;
+	}
+
+	public void setMaximumAnswers(int maximumAnswers) {
+		this.maximumAnswers = maximumAnswers;
+	}
+
+	public List<MultipleChoiceAnswerTemplate> getAnswers() {
+		return answers;
+	}
+
+	public void setAnswers(List<MultipleChoiceAnswerTemplate> answers) {
+		this.answers = answers;
+	}
+
+	public String getHelpText() {
+		return helpText;
+	}
+
+	public void setHelpText(String helpText) {
+		this.helpText = helpText;
+	}
+
+	public String getTemplate() {
+		return template;
+	}
+
+	public void setTemplate(String template) {
+		this.template = template;
 	}
 
 }
