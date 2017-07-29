@@ -167,8 +167,17 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
             }
         })
 
-        // UI Features 
+        // GPFS
+        .state('company_list', {
+        	url: '/company_list',
+        	templateUrl: 'views/company_list.html',
+        	data: {
+        		pageTitle: 'company list',
+        		specialClass: 'page-header-fixed'
+        	}
+        })
 
+        // UI Features 
         .state('ui_colors', {
             url: "/ui_colors",
             templateUrl: "views/ui_colors.html",

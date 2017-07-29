@@ -1,10 +1,20 @@
 databaseChangeLog:
 - changeSet:
+    id: loadcompanies
+    author: mark
+    changes:
+    - loadData:
+        encoding: UTF-8
+        file: db/data/company.csv
+        schemaName: public
+        tableName: company
+        quotchar: "\""
     id: loadquestions
     author: mark
     changes:
     - loadData:
         encoding: UTF-8
-        file: db/data/identification_questions.csv
+        file: db/data/question.csv
         schemaName: public
-        tableName: question_ident
+        tableName: question
+        quotchar: "\""

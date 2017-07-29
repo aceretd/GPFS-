@@ -1,4 +1,4 @@
-package com.gpfs.company;
+package com.gpfs.company.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

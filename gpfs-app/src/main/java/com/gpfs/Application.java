@@ -10,7 +10,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
 
 @SpringBootApplication
 @Configuration
-@EnableJpaRepositories
+@EnableJpaRepositories(repositoryImplementationPostfix = "CustomImpl")
 @Controller
 public class Application {
 

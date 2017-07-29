@@ -34,6 +34,16 @@
 			<artifactId>gpfs-gpfs</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>gpfs</groupId>
+			<artifactId>gpfs-security</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-joda</artifactId>
+		</dependency>
 
 		<!-- DB -->
 		<dependency>
