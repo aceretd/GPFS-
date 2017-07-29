@@ -30,8 +30,8 @@ public class QuestionTemplate {
 	@Column(name = "section_reference")
 	private String sectionReference;
 
-	@Column(name = "series", nullable = false, unique = true)
-	private int series;
+	@Column(name = "note", nullable = false)
+	private int note;
 
 	@Column(name = "question")
 	@Type(type = "text")
@@ -64,20 +64,16 @@ public class QuestionTemplate {
 	@Type(type = "text")
 	private String helpText;
 
+	@Column(name = "sample_answer")
+	@Type(type = "text")
+	private String sampleAnswer;
+
 	/**
 	 * Not used by yes/no and MC questions
 	 */
 	@Column(name = "template")
 	@Type(type = "text")
 	private String template;
-
-	public int getSeries() {
-		return series;
-	}
-
-	public void setSeries(int series) {
-		this.series = series;
-	}
 
 	public String getQuestion() {
 		return question;
@@ -149,6 +145,22 @@ public class QuestionTemplate {
 
 	public void setTemplate(String template) {
 		this.template = template;
+	}
+
+	public int getNote() {
+		return note;
+	}
+
+	public void setNote(int note) {
+		this.note = note;
+	}
+
+	public String getSampleAnswer() {
+		return sampleAnswer;
+	}
+
+	public void setSampleAnswer(String sampleAnswer) {
+		this.sampleAnswer = sampleAnswer;
 	}
 
 }
