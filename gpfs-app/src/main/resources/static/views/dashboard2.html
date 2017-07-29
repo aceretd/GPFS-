@@ -1,0 +1,291 @@
+<div class="page-container">
+    <!-- Start page content wrapper -->
+    <div class="page-content-wrapper animated fadeInRight" ng-controller="dashboardTwo as chart">
+        <div class="page-content">
+        
+            <!-- Scatter Chart-->
+            <div class="col-lg-4 top20">
+                <div class="chartdiv-container margin-bottom-10">
+                    <h4>Total Revenue</h4>
+                    <div class="row text-center">
+                        <div class="col-xs-6">
+                            <h3 class="desh-3-chart-text">7,653</h3>
+                            <p class="text-muted text-overflow">Total Sales</p>
+                        </div>
+                        <div class="col-xs-6">
+                            <h3 class="desh-3-chart-text">852</h3>
+                            <p class="text-muted text-overflow">Open Compaign</p>
+                        </div>
+                    </div>
+                    <div class="demo-placeholder" line-chart line-data='[
+                                            { y: "2008", a: 50, b: 0 },
+                                            { y: "2009", a: 75, b: 50 },
+                                            { y: "2010", a: 30, b: 80 },
+                                            { y: "2011", a: 50, b: 50 },
+                                            { y: "2012", a: 75, b: 10 },
+                                            { y: "2013", a: 50, b: 40 },
+                                            { y: "2014", a: 75, b: 50 },
+                                            { y: "2015", a: 100, b: 70 }
+                                        ]' line-xkey='y' line-ykeys='["a", "b"]' line-labels='["Serie A", "Serie B"]' line-colors='["#49b6d6", "#ddd"]'>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Scatter Chart-->
+            <div class="col-lg-4 top20">
+                <div class="chartdiv-container margin-bottom-10">
+                    <h4>Statistics</h4>
+                    <div class="row text-center">
+                        <div class="col-xs-4">
+                            <h3 class="desh-3-chart-text">1,507</h3>
+                            <p class="text-muted text-overflow">Total Sales</p>
+                        </div>
+                        <div class="col-xs-4">
+                            <h3 class="desh-3-chart-text">916</h3>
+                            <p class="text-muted text-overflow" title="Open Compaign">Open Compaign</p>
+                        </div>
+                        <div class="col-xs-4">
+                            <h3 class="desh-3-chart-text">22</h3>
+                            <p class="text-muted text-overflow">Daily Sales</p>
+                        </div>
+                    </div>
+                    <div class="demo-placeholder" bar-chart bar-data='[
+                                                        { y: "2010", a: 75 },
+                                                        { y: "2012", a: 30 },
+                                                        { y: "2013", a: 40 },
+                                                        { y: "2014", a: 32 },
+                                                        { y: "2015", a: 60 },
+                                                        { y: "2016", a: 93 },
+                                                        { y: "2017", a: 50 }
+                                        ]' , bar-x='y' bar-y='["a", "b"]' bar-labels='["Series A", "Series B"]' , resize: true, barSizeRatio: 0.2, barRatio: 0.1, bar-colors='["#49b6d6", "#cacaca"]'>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Area Chart-->
+            <div class="col-lg-4 top20">
+                <div class="chartdiv-container margin-bottom-10">
+                    <h4>Daily Sales </h4>
+                    <div class="row text-center">
+                        <div class="col-xs-6">
+                            <h3 class="desh-3-chart-text">8,459</h3>
+                            <p class="text-muted text-overflow">Total Sales</p>
+                        </div>
+                        <div class="col-xs-6">
+                            <h3 class="desh-3-chart-text">584</h3>
+                            <p class="text-muted text-overflow">Open Compaign</p>
+                        </div>
+                    </div>
+                    <div class="demo-placeholder" donut-chart donut-data='[
+                                            {label: "Download Sales", value: 12},
+                                            {label: "In-Store Sales",value: 30},
+                                            {label: "Mail-Order Sales", value: 20}
+                                        ]' donut-colors='["#71c3db","#e35b5a","#ddd"]' donut-formatter='"currency"'>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div>
+
+                <!-- begin col-3 -->
+                <div class="col-lg-3">
+                    <div class="widget red-bg box-shadow">
+                        <div class="row">
+                            <div class="col-xs-4 text-center">
+                                <i class="fa fa-bank fa-5x"></i>
+                            </div>
+                            <div class="col-xs-8 text-right">
+                                <span>Total Expenses</span>
+
+                                <h2 class="font-bold">$ 9,982</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- begin col-3 -->
+                <div class="col-lg-3">
+                    <div class="widget aqua-bg box-shadow">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <i class="fa fa-cloud fa-5x"></i>
+                            </div>
+                            <div class="col-xs-8 text-right">
+                                <span> Today degrees </span>
+
+                                <h2 class="font-bold">30'C</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- begin col-3 -->
+                <div class="col-lg-3">
+                    <div class="widget aqua-bg box-shadow">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <i class="fa fa-line-chart fa-5x"></i>
+                            </div>
+                            <div class="col-xs-8 text-right">
+                                <span> Other Stats</span>
+
+                                <h2 class="font-bold">290</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- begin col-3 -->
+                <div class="col-lg-3">
+                    <div class="widget red-bg box-shadow">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <i class="fa fa-shopping-cart fa-5x"></i>
+                            </div>
+                            <div class="col-xs-8 text-right">
+                                <span>PENDING ORDERS</span>
+
+                                <h2 class="font-bold">40</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Orders</h5>
+                            <div class="pull-right">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-xs btn-white active">Today</button>
+                                    <button type="button" class="btn btn-xs btn-white">Monthly</button>
+                                    <button type="button" class="btn btn-xs btn-white">Annual</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ibox-content collapse in">
+                            <div>
+                                <div class="widgets-container">
+                                    <div class="row">
+                                        <div class="col-sm-9">
+                                            <div class="flot-chart-box">
+                                                <div id="flot-dashboard-chart" flot class="demo-placeholder flot-chart-content" dataset="chart.flotData" options="chart.flotOptions"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <ul class="stat-list">
+                                                <li>
+                                                    <h2 class="no-margins">9,888</h2>
+                                                    <small>Total orders in Jan</small>
+                                                    <div class="stat-percent">58% <i class="fa fa-level-up text-navy"></i></div>
+                                                    <div class="progress progress-mini">
+                                                        <div class="progress-bar" style="width: 58%;"></div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <h2 class="no-margins">7,666</h2>
+                                                    <small>Total orders in Dec</small>
+                                                    <div class="stat-percent">48% <i class="fa fa-level-up text-navy"></i></div>
+                                                    <div class="progress progress-mini">
+                                                        <div class="progress-bar" style="width: 48%;"></div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <h2 class="no-margins ">4,422</h2>
+                                                    <small>Orders in Nov</small>
+                                                    <div class="stat-percent">60% <i class="fa fa-level-down text-navy"></i></div>
+                                                    <div class="progress progress-mini">
+                                                        <div class="progress-bar" style="width: 60%;"></div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <h2 class="no-margins ">9,180</h2>
+                                                    <small>Monthly income from orders</small>
+                                                    <div class="stat-percent">22% <i class="fa fa-bolt text-navy"></i></div>
+                                                    <div class="progress progress-mini">
+                                                        <div class="progress-bar" style="width: 22%;"></div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          
+
+            <div class="row bottom30">
+            <div class="col-lg-12">
+
+                <!-- start calendar box -->
+                <div class="col-lg-9">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Striped Table </h5>
+                            <!-- ibox-tools -->
+                            <div ibox-tools></div>
+                        </div>
+                        <div id="demo18" class="ibox-content collapse in">
+                            <div ng-controller="CalendarCtrl">
+                                <div class="ibox-content collapse in">
+                                    <div class="widgets-container">
+                                        <div class="widgets-container">
+                                            <div id='external-events'>
+                                                <strong>Click, Drop or Resize event on calendar!</strong>
+                                                <p>Message from functions:
+                                                    <br/>
+                                                    <div class="alert alert-warning" ng-show="alertMessage">
+                                                        {{alertMessage}}
+                                                    </div>
+                                                </p>
+                                            </div>
+                                            <!-- Drag a event list-->
+
+                                        </div>
+
+                                        <div ui-calendar="uiConfig.calendar" calendar="myCalendar1" class="calendar" ng-model="eventSources"></div>
+
+                                        <div style='clear:both'></div>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End calendar box -->
+
+
+                <div class="col-lg-3" ng-controller="sparklineChartCtrl as spark">
+                    <div class="widgets-container text-center">
+                        <div class="row">
+                            <div class="col-md-12 sparkline-chart ">
+                                <div sparkline spark-data="spark.pieCustomData" spark-options="spark.pieCustomOptions"> </div>
+                                <hr class="margin-bottom-10"> <span class="btn "> Last Month</span> </div>
+                            <div class="col-md-12 sparkline-chart ">
+                                <div sparkline spark-data="spark.barCustomData" spark-options="spark.barCustomOptions"> </div>
+                                <hr class="margin-bottom-10"> <span class="btn ">Next Month</span> </div>
+                            <div class="col-md-12 sparkline-chart ">
+                                <div sparkline spark-data="spark.lineCustomData" spark-options="spark.lineCustomOptions"> </div>
+                                <hr class="margin-bottom-10"> <span class="btn ">Update</span> </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div></div>
+
+
+        </div>
+    </div>
+</div>

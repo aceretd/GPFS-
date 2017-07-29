@@ -1,0 +1,227 @@
+<div class="page-container ">
+  <!-- Start page content wrapper -->
+  <div class="page-content-wrapper animated fadeInRight  ">
+    <div class="page-content" >
+      <div class="row wrapper border-bottom page-heading">
+        <div class="col-lg-12">
+          <form  action="index.html" method="get">
+            <div class="input-group">
+              <input type="text" placeholder="Search email" name="search" class="form-control input-sm">
+              <div class="input-group-btn">
+                <button class="btn btn-sm btn-primary aqua" type="submit"> Search </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="wrapper-content ">
+        <div class="row">
+          <div class="col-lg-2 padding-none">
+            <div class="ibox float-e-margins">
+              <div class="ibox-content mailbox-content">
+                <div class="file-manager"> <a href="#/mail_compose" class="btn btn-block aqua  ">Compose Mail</a>
+                  <div class="space-25"></div>
+                  <h5>Folders</h5>
+                  <ul class="folder-list m-b-md">
+                    <li><a href="#/mailbox"> <i class="fa fa-inbox "></i> Inbox <span class="label badge-primary pull-right">22</span> </a></li>
+                    <li><a href="#/mailbox"> <i class="fa fa-envelope-o"></i> Send Mail</a></li>
+                    <li><a href="#/mailbox"> <i class="fa fa-certificate"></i> Important</a></li>
+                    <li><a href="#/mailbox"> <i class="fa fa-file-text-o"></i> Drafts <span class="label label-danger pull-right">50</span></a></li>
+                    <li><a href="#/mailbox"> <i class="fa fa-rocket"></i> Spam </a></li>
+                    <li><a href="#/mailbox"> <i class="fa fa-trash-o"></i> Trash</a></li>
+                  </ul>
+                  <h5 class="tag-title">online friend</h5>
+                  <ul class="inbox-contacts-list">
+                    <li> <a href="javascript:;"> <img alt="" class="img-circle" src="images/teem/placeholders.jpg"> <span class="contact-name">Jordan Belfort</span> <span class="contact-status green-bg"></span> </a> </li>
+                    <li> <a href="javascript:;"> <img alt="" class="img-circle" src="images/teem/placeholders.jpg"> <span class="contact-name">Robert Angier</span> <span class="contact-status red-bg"></span> </a> </li>
+                    <li> <a href="javascript:;"> <img alt="" class="img-circle" src="images/teem/placeholders.jpg"> <span class="contact-name">Olivia Wenscombe</span> <span class="contact-status green-bg"></span> </a> </li>
+                    <li> <a href="javascript:;"> <img alt="" class="img-circle" src="images/teem/placeholders.jpg"> <span class="contact-name">Alex Smith</span> <span class="contact-status green-bg"></span> </a> </li>
+                    <li> <a href="javascript:;"> <img alt="" class="img-circle" src="images/teem/placeholders.jpg"> <span class="contact-name">Alex Smith</span> <span class="contact-status green-bg"></span> </a> </li>
+                    <li> <a href="javascript:;"> <img alt="" class="img-circle" src="images/teem/placeholders.jpg"> <span class="contact-name">Ariadne </span> <span class="contact-status orange-bg "></span> </a> </li>
+                    <li> <a href="javascript:;"> <img alt="" class="img-circle" src="images/teem/placeholders.jpg"> <span class="contact-name">Andy Smith </span> <span class="contact-status red-darker-bg"></span> </a> </li>
+                  </ul>
+                  <h5 class="tag-title">Labels</h5>
+                  <ul class="tag-list">
+                    <li><a href=""><i class="fa fa-tag"></i> Label-1</a></li>
+                    <li><a href=""><i class="fa fa-tag"></i> Label-2</a></li>
+                    <li><a href=""><i class="fa fa-tag"></i> Label-3</a></li>
+                    <li><a href=""><i class="fa fa-tag"></i> Label-4</a></li>
+                    <li><a href=""><i class="fa fa-tag"></i> Label-5</a></li>
+                    <li><a href=""><i class="fa fa-tag"></i> Label-6</a></li>
+                    <li><a href=""><i class="fa fa-tag"></i> Label-7</a></li>
+                    <li><a href=""><i class="fa fa-tag"></i> Label-8</a></li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-10 ">
+            <div class="mail-box-header">
+              <form class="pull-right mail-search" method="get" action="index.html">
+                <div class="input-group">
+                  <input class="form-control input-sm" name="search" placeholder="Search email" type="text">
+                  <div class="input-group-btn">
+                    <button class="btn btn-sm aqua" type="submit"> Search </button>
+                  </div>
+                </div>
+              </form>
+              <h2> Inbox (97) </h2>
+              <div class="mail-tools tooltip-demo ">
+                <div class="btn-group pull-right">
+                  <button class="btn btn-white btn-sm"><i class="fa fa-arrow-left"></i></button>
+                  <button class="btn btn-white btn-sm"><i class="fa fa-arrow-right"></i></button>
+                </div>
+                <button title="" data-placement="left" data-toggle="tooltip" class="btn btn-white btn-sm" data-original-title="Refresh inbox"><i class="fa fa-refresh"></i> Refresh</button>
+                <button title="" data-placement="top" data-toggle="tooltip" class="btn btn-white btn-sm" data-original-title="Mark as read"><i class="fa fa-eye"></i> </button>
+                <button title="" data-placement="top" data-toggle="tooltip" class="btn btn-white btn-sm" data-original-title="Mark as important"><i class="fa fa-exclamation"></i> </button>
+                <button title="" data-placement="top" data-toggle="tooltip" class="btn btn-white btn-sm" data-original-title="Move to trash"><i class="fa fa-trash-o"></i> </button>
+              </div>
+            </div>
+            <div class="mail-box">
+              <table class="table table-hover table-mail">
+                <tbody>
+                  <tr class="unread">
+                    <td class="check-mail"><input type="checkbox" iCheck ng-model="main.unCheck1">                    </td>
+                    <td class="mail-ontact"><a href="#/mail_detail">Danny Ryan</a></td>
+                    <td class="mail-subject"><a href="#/mail_detail">Lorem ipsum dolor noretek imit set.</a></td>
+                    <td ><i class="fa fa-paperclip"></i></td>
+                    <td class="text-right mail-date">6.10 AM</td>
+                  </tr>
+                  <tr class="unread">
+                    <td class="check-mail"><input type="checkbox" iCheck ng-model="main.unCheck2">                    </td>
+                    <td class="mail-ontact"><a href="#/mail_detail">Rusty Catton</a></td>
+                    <td class="mail-subject"><a href="#/mail_detail">Aldus PageMaker including versions of Lorem Ipsum.</a></td>
+                    <td ></td>
+                    <td class="text-right mail-date">8.22 PM</td>
+                  </tr>
+                  <tr class="read">
+                    <td class="check-mail"><input type="checkbox" iCheck ng-model="main.unCheck3">                    </td>
+                    <td class="mail-ontact"><a href="#/mail_detail">Facebook</a> </td>
+                    <td class="mail-subject"><a href="#/mail_detail">Many desktop publishing packages and web page editors.</a></td>
+                    <td ></td>
+                    <td class="text-right mail-date">Jan 16</td>
+                  </tr>
+                  <tr class="read">
+                    <td class="check-mail"><input type="checkbox" iCheck ng-model="main.unCheck4">                    </td>
+                    <td class="mail-ontact"><a href="#/mail_detail">Mailchip</a><span class="label label-warning pull-right">Clients</span></td>
+                    <td class="mail-subject"><a href="#/mail_detail">There are many variations of passages of Lorem Ipsum.</a></td>
+                    <td ></td>
+                    <td class="text-right mail-date">Mar 22</td>
+                  </tr>
+                  <tr class="read">
+                    <td class="check-mail"><input type="checkbox" iCheck ng-model="main.unCheck5">                    </td>
+                    <td class="mail-ontact"><a href="#/mail_detail">Dell World</a> <span class="label label-danger pull-right">Documents</span></td>
+                    <td class="mail-subject"><a href="#/mail_detail">Lorem ipsum dolor noretek imit set.</a></td>
+                    <td ><i class="fa fa-paperclip"></i></td>
+                    <td class="text-right mail-date">December 22</td>
+                  </tr>
+                  <tr class="read">
+                    <td class="check-mail"><input type="checkbox" iCheck ng-model="main.unCheck6">                    </td>
+                    <td class="mail-ontact"><a href="#/mail_detail">Monica Ryther</a></td>
+                    <td class="mail-subject"><a href="#/mail_detail">The standard chunk of Lorem Ipsum used.</a></td>
+                    <td ></td>
+                    <td class="text-right mail-date">Jun 12</td>
+                  </tr>
+                  <tr class="read">
+                    <td class="check-mail"><input type="checkbox" iCheck ng-model="main.unCheck7">                    </td>
+                    <td class="mail-ontact"><a href="#/mail_detail">Virgil Malloy</a></td>
+                    <td class="mail-subject"><a href="#/mail_detail">Contrary to popular belief.</a></td>
+                    <td ></td>
+                    <td class="text-right mail-date">May 28</td>
+                  </tr>
+                  <tr class="read">
+                    <td class="check-mail"><input type="checkbox" iCheck ng-model="main.unCheck8">                    </td>
+                    <td class="mail-ontact"><a href="#/mail_detail">Patrick Pertners</a> <span class="label label-info pull-right">Adv</span></td>
+                    <td class="mail-subject"><a href="#/mail_detail">If you are going to use a passage of Lorem </a></td>
+                    <td ></td>
+                    <td class="text-right mail-date">May 28</td>
+                  </tr>
+                  <tr class="read">
+                    <td class="check-mail"><input type="checkbox" iCheck ng-model="main.unCheck9">                    </td>
+                    <td class="mail-ontact"><a href="#/mail_detail">Michael Fox</a></td>
+                    <td class="mail-subject"><a href="#/mail_detail">Humour, or non-characteristic words etc.</a></td>
+                    <td ></td>
+                    <td class="text-right mail-date">Dec 9</td>
+                  </tr>
+                  <tr class="read">
+                    <td class="check-mail"><input type="checkbox" iCheck ng-model="main.unCheck10">                    </td>
+                    <td class="mail-ontact"><a href="#/mail_detail">Damien Ritz</a></td>
+                    <td class="mail-subject"><a href="#/mail_detail">Oor Lorem Ipsum is that it has a more-or-less normal.</a></td>
+                    <td ></td>
+                    <td class="text-right mail-date">Jun 11</td>
+                  </tr>
+                  <tr class="read">
+                    <td class="check-mail"><input type="checkbox" iCheck ng-model="main.unCheck11">                    </td>
+                    <td class="mail-ontact"><a href="#/mail_detail">Danny Ryan</a></td>
+                    <td class="mail-subject"><a href="#/mail_detail">Lorem ipsum dolor noretek imit set.</a></td>
+                    <td ><i class="fa fa-paperclip"></i></td>
+                    <td class="text-right mail-date">6.10 AM</td>
+                  </tr>
+                  <tr class="read">
+                    <td class="check-mail"><input type="checkbox" iCheck ng-model="main.unCheck12">                    </td>
+                    <td class="mail-ontact"><a href="#/mail_detail">Rusty Catton</a></td>
+                    <td class="mail-subject"><a href="#/mail_detail">Aldus PageMaker including versions of Lorem Ipsum.</a></td>
+                    <td ></td>
+                    <td class="text-right mail-date">8.22 PM</td>
+                  </tr>
+                  <tr class="read">
+                    <td class="check-mail"><input type="checkbox" iCheck ng-model="main.unCheck13">                    </td>
+                    <td class="mail-ontact"><a href="#/mail_detail">Mailchip</a></td>
+                    <td class="mail-subject"><a href="#/mail_detail">There are many variations of passages of Lorem Ipsum.</a></td>
+                    <td ></td>
+                    <td class="text-right mail-date">Mar 22</td>
+                  </tr>
+                  <tr class="read">
+                    <td class="check-mail"><input type="checkbox" iCheck ng-model="main.unCheck14">                    </td>
+                    <td class="mail-ontact"><a href="#/mail_detail">Dell World</a> </td>
+                    <td class="mail-subject"><a href="#/mail_detail">Lorem ipsum dolor noretek imit set.</a></td>
+                    <td ><i class="fa fa-paperclip"></i></td>
+                    <td class="text-right mail-date">December 22</td>
+                  </tr>
+                  <tr class="read">
+                    <td class="check-mail"><input type="checkbox" iCheck ng-model="main.unCheck15">                    </td>
+                    <td class="mail-ontact"><a href="#/mail_detail">Monica Ryther</a><span class="label label-warning pull-right">Clients</span></td>
+                    <td class="mail-subject"><a href="#/mail_detail">The standard chunk of Lorem Ipsum used.</a></td>
+                    <td ></td>
+                    <td class="text-right mail-date">Jun 12</td>
+                  </tr>
+                  <tr class="unread">
+                    <td class="check-mail"><input type="checkbox" iCheck ng-model="main.unCheck16">                    </td>
+                    <td class="mail-ontact"><a href="#/mail_detail">Virgil Malloy</a></td>
+                    <td class="mail-subject"><a href="#/mail_detail">Contrary to popular belief.</a></td>
+                    <td ></td>
+                    <td class="text-right mail-date">May 28</td>
+                  </tr>
+                  <tr class="read">
+                    <td class="check-mail"><input type="checkbox" iCheck ng-model="main.unCheck17">                    </td>
+                    <td class="mail-ontact"><a href="#/mail_detail">Patrick Pertners</a> </td>
+                    <td class="mail-subject"><a href="#/mail_detail">If you are going to use a passage of Lorem </a></td>
+                    <td ></td>
+                    <td class="text-right mail-date">May 28</td>
+                  </tr>
+                  <tr class="unread">
+                    <td class="check-mail"><input type="checkbox" iCheck ng-model="main.unCheck18">                    </td>
+                    <td class="mail-ontact"><a href="#/mail_detail">Michael Fox</a></td>
+                    <td class="mail-subject"><a href="#/mail_detail">Humour, or non-characteristic words etc.</a></td>
+                    <td ></td>
+                    <td class="text-right mail-date">Dec 9</td>
+                  </tr>
+                  <tr class="read">
+                    <td class="check-mail"><input type="checkbox" iCheck ng-model="main.unCheck19">                    </td>
+                    <td class="mail-ontact"><a href="#/mail_detail">Damien Ritz</a></td>
+                    <td class="mail-subject"><a href="#/mail_detail">Oor Lorem Ipsum is that it has a more-or-less normal.</a></td>
+                    <td ></td>
+                    <td class="text-right mail-date">Jun 11</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+</div>
+</div>
+</div>

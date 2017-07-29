@@ -1,0 +1,112 @@
+	<div class="page-container ">	
+		<!-- Start page content wrapper -->
+		<div class="page-content-wrapper animated fadeInRight  ">
+			<div class="page-content">
+				<div class="row wrapper border-bottom page-heading">
+					<div class="col-lg-12">
+						<h2>Flot Charts </h2>
+						<ol class="breadcrumb">
+							<li> <a href="#/dashboard1">Home</a> </li>
+							<li> <a>Graphs</a> </li>
+							<li class="active"> <strong>Flot Charts</strong> </li>
+						</ol>
+					</div>
+				</div>
+				<div class="wrapper-content " ng-controller="flotChartCtrl as charts">
+					<!-- Bar Chart-->
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="ibox float-e-margins">
+								<div class="ibox-title">
+									<h5>Bar Chart Example
+					                        <small>With custom colors.</small>
+					                    </h5>
+									<!-- ibox-tools -->
+<div ibox-tools></div>
+								</div>
+								<div class="ibox-content collapse in" id="demo">
+									<div class="demo-container">
+										
+                        <div flot class="flot-chart-content" dataset="charts.flotChartData" options="charts.flotBarOptions"></div>
+                 
+									</div>									
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- Line Cahrt-->
+					<div class="row">
+						<div class="col-lg-6">
+							<div class="ibox float-e-margins">
+								<div class="ibox-title">
+									<h5>Line Cahrt </h5>
+									<!-- ibox-tools -->
+<div ibox-tools></div>
+								</div>
+								<div class="ibox-content collapse in" id="demo2">
+									<div class="demo-container">
+									
+                        <div flot class="flot-chart-content" dataset="charts.flotChartData" options="charts.flotLineOptions"></div>
+                   
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--Categories Bar-->
+						<div class="col-lg-6">
+							<div class="ibox float-e-margins">
+								<div class="ibox-title">
+									<h5>Pie Chart</h5>
+									<!-- ibox-tools -->
+<div ibox-tools></div>
+								</div>
+								<div class="ibox-content collapse in" id="demo3">
+									<div class="demo-container">
+										
+                        <div flot class="flot-chart-content" dataset="charts.flotPieData" options="charts.flotPieOptions"></div>
+                    
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- trackingCurves Chart-->
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="ibox float-e-margins">
+								<div class="ibox-title">
+									<h5>Line Area</h5>
+									<!-- ibox-tools -->
+<div ibox-tools></div>
+								</div>
+								<div class="ibox-content collapse in" id="demo4">
+									<div class="demo-container">
+										<div flot class="flot-chart-content" dataset="charts.flotLineAreaData" options="charts.flotLineAreaOptions"></div>
+									</div>
+									<p id="hoverdata"></p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- realTime Chart-->
+					<div class="row">
+						<div class="col-lg-12">
+							<div class="ibox float-e-margins">
+								<div class="ibox-title">
+									<h5>Multiple Axes Line Chart Example</h5>
+									<!-- ibox-tools -->
+<div ibox-tools></div>
+								</div>
+								<div class="ibox-content collapse in" id="demo5">
+									<div class="demo-container">
+										<div flot class="flot-chart-content" dataset="charts.flotMultiData" options="charts.flotMultiOptions"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>					
+				</div>			
+
+			</div>
+		</div>
+	</div>

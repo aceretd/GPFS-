@@ -1,0 +1,790 @@
+<div class="page-container" >
+
+
+
+	<!-- Start page content wrapper -->
+       <div class="page-content-wrapper animated fadeInRight  ">
+            <div class="page-content">
+
+            <div class="row  border-bottom white-bg dashboard-header">                 
+                    <div class="col-sm-12" ng-controller="amChartsCtrl">
+                    <!-- graf -->
+                        <div class="amcharts-main-div" id="chartdiv1"><am-chart id="myFirstChart16" options="dashBoard"></am-chart></div>
+                    <!-- graf -->
+                    </div>
+                </div>
+
+
+
+
+
+   <div class="row top20">
+          <!--World Mape -->
+          <div class="col-lg-9">
+            <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                <h5>World Mape</h5>
+                </div>
+              <!-- / ibox-title -->
+              <div id="demo1" class="ibox-content collapse in">
+                <div class="widgets-container">
+                  <div class="row">
+                    <div ng-controller="dashboardMap as map">
+                        <div vector-map style="height: 400px;" my-map-data="map.data"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div><!--World Mape -->
+            
+        <div class="col-lg-3">
+        <div class="row" ng-controller="dashboardFore as chart">
+
+        <!-- begin col-3 -->
+                        <div class="col-lg-12" >
+                            <div class="widget margin-top-0 white-bg no-padding">
+                                <div class="widget-m">
+                                    <h1 class="top10">$ 325,984</h1>
+
+                                    <h3 class="font-bold no-margins">
+                                        Monthly income
+                                    </h3>
+                                    <small>Income form project Beta.</small>
+                                </div>
+                                <div class="flot-chart">
+                <div flot class="flot-chart-content" dataset="chart.flotChartData2" options="chart.flotChartOptions2"></div>
+            </div>
+                            </div>
+                        </div>
+                        <!-- begin col-3 -->
+                        <div class="col-lg-12">
+                            <div class="widget white-bg no-padding">
+                                <div class="widget-m">
+                                    <h1 class="top10">$ 30,999</h1>
+
+                                    <h3 class="font-bold no-margins">
+                                        Half-year revenue margin
+                                    </h3>
+                                    <small>Sales marketing.</small>
+                                </div>
+                                <div class="flot-chart">
+                <div flot class="flot-chart-content" dataset="chart.flotChartData3" options="chart.flotChartOptions3"></div>
+            </div>
+                            </div>
+                        </div>
+
+                         </div>      
+
+
+
+        </div>
+
+        </div>
+
+
+
+<div class="row">
+  <!-- projects list -->
+  <div class="clearfix"> </div>
+  <div class="col-lg-12 bottom35">
+    <div class="ibox float-e-margins">
+      <div class="ibox-title">
+        <h5>All projects assigned to this account</h5>
+        <div class="ibox-tools"> <a class="btn aqua btn-xs" href="">Create new project</a> </div>
+      </div>
+      <div class="ibox-content collapse in" id="demo1">
+        <div class="widgets-container">
+          <div class="row m-b-sm m-t-sm">
+            <div class="col-md-1">
+              <button class="red btn btn-outline btn-sm" id="loading-example-btn" type="button"><i class="fa fa-refresh"></i> Refresh</button>
+            </div>
+            <div class="col-md-11">
+              <div class="input-group">
+                <input id="search-projects" type="text" class="input-sm form-control" placeholder="Search">
+                <span class="input-group-btn">
+                <button class="btn btn-sm aqua" type="button"> Go!</button>
+                </span></div>
+            </div>
+          </div>
+          <!-- All projects assigned to this account -->
+          <div class="project-list" ng-controller="datatablesCtrl">
+          
+           
+<table id="proList" datatable="" dt-options="dtOptions" class="table table-hover responsive nowrap table-bordered">
+              <thead>
+                <tr>
+                  <th class="text-center"><span class="glyphicon glyphicon-user"> </span> </th>
+                  <th>User</th>
+                  <th class="text-center">Country</th>
+                  <th>Usage</th>
+                  <th class="text-center">Payment Method</th>
+                  <th>Activity</th>
+                  <th class="text-center">Satisfaction</th>
+                  <th class="text-center"><i class="fa fa-wrench"></i> </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-success"></span> </div></td>
+                  <td><div>Jordan Belfort</div>
+                    <div class="small text-muted"> <span>New</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/1.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>50%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-cc-mastercard" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>10 sec ago</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart.data" options="main.PieChart.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-danger"></span> </div></td>
+                  <td><div>Robert Angier</div>
+                    <div class="small text-muted"> <span>Recurring</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/2.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>10%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-info" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-cc-visa" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>5 minutes ago</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart2.data" options="main.PieChart2.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-warning"></span> </div></td>
+                  <td><div>Christina Plutzker</div>
+                    <div class="small text-muted"> <span>New</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/3.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>74%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-warning" role="progressbar" style="width: 74%" aria-valuenow="74" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-cc-stripe" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>1 hour ago</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart3.data" options="main.PieChart3.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-default"></span> </div></td>
+                  <td><div>Alex Smith </div>
+                    <div class="small text-muted"> <span>New</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/4.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>98%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-danger" role="progressbar" style="width: 98%" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-paypal" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>Last month</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart4.data" options="main.PieChart4.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-success"></span> </div></td>
+                  <td><div>Ariadne Angier</div>
+                    <div class="small text-muted"> <span>New</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/5.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>22%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-info" role="progressbar" style="width: 22%" aria-valuenow="22" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-google-wallet" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>Last week</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart5.data" options="main.PieChart5.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-danger"></span> </div></td>
+                  <td><div>Dejah Thoris</div>
+                    <div class="small text-muted"> <span>New</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/6.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>43%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-success" role="progressbar" style="width: 43%" aria-valuenow="43" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-cc-amex" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>Yesterday</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart6.data" options="main.PieChart6.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-success"></span> </div></td>
+                  <td><div>Jordan Belfort</div>
+                    <div class="small text-muted"> <span>New</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/7.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>50%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-cc-mastercard" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>10 sec ago</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart.data" options="main.PieChart.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-danger"></span> </div></td>
+                  <td><div>Robert Angier</div>
+                    <div class="small text-muted"> <span>Recurring</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/8.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>10%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-info" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-cc-visa" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>5 minutes ago</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart2.data" options="main.PieChart2.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-warning"></span> </div></td>
+                  <td><div>Christina Plutzker</div>
+                    <div class="small text-muted"> <span>New</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/9.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>74%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-warning" role="progressbar" style="width: 74%" aria-valuenow="74" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-cc-stripe" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>1 hour ago</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart3.data" options="main.PieChart3.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-default"></span> </div></td>
+                  <td><div>Alex Smith </div>
+                    <div class="small text-muted"> <span>New</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/10.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>98%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-danger" role="progressbar" style="width: 98%" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-paypal" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>Last month</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart4.data" options="main.PieChart4.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-success"></span> </div></td>
+                  <td><div>Ariadne Angier</div>
+                    <div class="small text-muted"> <span>New</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/11.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>22%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-info" role="progressbar" style="width: 22%" aria-valuenow="22" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-google-wallet" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>Last week</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart5.data" options="main.PieChart5.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-danger"></span> </div></td>
+                  <td><div>Dejah Thoris</div>
+                    <div class="small text-muted"> <span>New</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/12.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>43%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-success" role="progressbar" style="width: 43%" aria-valuenow="43" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-cc-amex" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>Yesterday</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart6.data" options="main.PieChart6.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-success"></span> </div></td>
+                  <td><div>Jordan Belfort</div>
+                    <div class="small text-muted"> <span>New</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/13.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>50%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-cc-mastercard" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>10 sec ago</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart.data" options="main.PieChart.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-danger"></span> </div></td>
+                  <td><div>Robert Angier</div>
+                    <div class="small text-muted"> <span>Recurring</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/14.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>10%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-info" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-cc-visa" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>5 minutes ago</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart2.data" options="main.PieChart2.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-warning"></span> </div></td>
+                  <td><div>Christina Plutzker</div>
+                    <div class="small text-muted"> <span>New</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/15.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>74%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-warning" role="progressbar" style="width: 74%" aria-valuenow="74" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-cc-stripe" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>1 hour ago</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart3.data" options="main.PieChart3.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-default"></span> </div></td>
+                  <td><div>Alex Smith </div>
+                    <div class="small text-muted"> <span>New</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/1.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>98%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-danger" role="progressbar" style="width: 98%" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-paypal" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>Last month</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart4.data" options="main.PieChart4.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-success"></span> </div></td>
+                  <td><div>Ariadne Angier</div>
+                    <div class="small text-muted"> <span>New</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/2.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>22%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-info" role="progressbar" style="width: 22%" aria-valuenow="22" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-google-wallet" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>Last week</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart5.data" options="main.PieChart5.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-danger"></span> </div></td>
+                  <td><div>Dejah Thoris</div>
+                    <div class="small text-muted"> <span>New</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/3.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>43%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-success" role="progressbar" style="width: 43%" aria-valuenow="43" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-cc-amex" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>Yesterday</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart6.data" options="main.PieChart6.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-success"></span> </div></td>
+                  <td><div>Jordan Belfort</div>
+                    <div class="small text-muted"> <span>New</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/4.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>50%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-cc-mastercard" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>10 sec ago</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart.data" options="main.PieChart.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-danger"></span> </div></td>
+                  <td><div>Robert Angier</div>
+                    <div class="small text-muted"> <span>Recurring</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/5.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>10%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-info" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-cc-visa" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>5 minutes ago</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart2.data" options="main.PieChart2.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-warning"></span> </div></td>
+                  <td><div>Christina Plutzker</div>
+                    <div class="small text-muted"> <span>New</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/6.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>74%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-warning" role="progressbar" style="width: 74%" aria-valuenow="74" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-cc-stripe" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>1 hour ago</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart3.data" options="main.PieChart3.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-default"></span> </div></td>
+                  <td><div>Alex Smith </div>
+                    <div class="small text-muted"> <span>New</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/7.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>98%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-danger" role="progressbar" style="width: 98%" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-paypal" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>Last month</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart4.data" options="main.PieChart4.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-success"></span> </div></td>
+                  <td><div>Ariadne Angier</div>
+                    <div class="small text-muted"> <span>New</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/8.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>22%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-info" role="progressbar" style="width: 22%" aria-valuenow="22" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-google-wallet" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>Last week</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart5.data" options="main.PieChart5.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-danger"></span> </div></td>
+                  <td><div>Dejah Thoris</div>
+                    <div class="small text-muted"> <span>New</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/9.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>43%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-success" role="progressbar" style="width: 43%" aria-valuenow="43" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-cc-amex" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>Yesterday</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart6.data" options="main.PieChart6.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-success"></span> </div></td>
+                  <td><div>Jordan Belfort</div>
+                    <div class="small text-muted"> <span>New</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/10.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>50%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-cc-mastercard" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>10 sec ago</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart.data" options="main.PieChart.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-danger"></span> </div></td>
+                  <td><div>Robert Angier</div>
+                    <div class="small text-muted"> <span>Recurring</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/11.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>10%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-info" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-cc-visa" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>5 minutes ago</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart2.data" options="main.PieChart2.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-warning"></span> </div></td>
+                  <td><div>Christina Plutzker</div>
+                    <div class="small text-muted"> <span>New</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/12.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>74%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-warning" role="progressbar" style="width: 74%" aria-valuenow="74" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-cc-stripe" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>1 hour ago</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart3.data" options="main.PieChart3.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-default"></span> </div></td>
+                  <td><div>Alex Smith </div>
+                    <div class="small text-muted"> <span>New</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/13.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>98%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-danger" role="progressbar" style="width: 98%" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-paypal" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>Last month</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart4.data" options="main.PieChart4.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-success"></span> </div></td>
+                  <td><div>Ariadne Angier</div>
+                    <div class="small text-muted"> <span>New</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/14.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>22%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-info" role="progressbar" style="width: 22%" aria-valuenow="22" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-google-wallet" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>Last week</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart5.data" options="main.PieChart5.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-danger"></span> </div></td>
+                  <td><div>Dejah Thoris</div>
+                    <div class="small text-muted"> <span>New</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/15.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>43%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-success" role="progressbar" style="width: 43%" aria-valuenow="43" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-cc-amex" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>Yesterday</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart6.data" options="main.PieChart6.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-success"></span> </div></td>
+                  <td><div>Jordan Belfort</div>
+                    <div class="small text-muted"> <span>New</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/1.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>50%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-cc-mastercard" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>10 sec ago</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart.data" options="main.PieChart.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-danger"></span> </div></td>
+                  <td><div>Robert Angier</div>
+                    <div class="small text-muted"> <span>Recurring</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/2.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>10%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-info" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-cc-visa" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>5 minutes ago</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart2.data" options="main.PieChart2.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-warning"></span> </div></td>
+                  <td><div>Christina Plutzker</div>
+                    <div class="small text-muted"> <span>New</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/3.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>74%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-warning" role="progressbar" style="width: 74%" aria-valuenow="74" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-cc-stripe" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>1 hour ago</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart3.data" options="main.PieChart3.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-default"></span> </div></td>
+                  <td><div>Alex Smith </div>
+                    <div class="small text-muted"> <span>New</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/4.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>98%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-danger" role="progressbar" style="width: 98%" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-paypal" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>Last month</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart4.data" options="main.PieChart4.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-success"></span> </div></td>
+                  <td><div>Ariadne Angier</div>
+                    <div class="small text-muted"> <span>New</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/5.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>22%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-info" role="progressbar" style="width: 22%" aria-valuenow="22" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-google-wallet" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>Last week</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart5.data" options="main.PieChart5.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+                <tr>
+                  <td class="text-center"><div class="avatar"> <img src="images/teem/placeholders.jpg" class="img-avatar" alt=""> <span class="avatar-status badge-danger"></span> </div></td>
+                  <td><div>Dejah Thoris</div>
+                    <div class="small text-muted"> <span>New</span>| Registered: Jan 5, 2017 </div></td>
+                  <td class="text-center"><img class="t-flag" src="images/flags/6.png" alt=""> </td>
+                  <td><div class="clearfix">
+                      <div class="float-left"> <strong>43%</strong> </div>
+                      <div class="float-right"> <small class="text-muted">Jun 15, 2017 - Jul 15, 2017</small> </div>
+                    </div>
+                    <div class="progress progress-mini">
+                      <div class="progress-bar bg-success" role="progressbar" style="width: 43%" aria-valuenow="43" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div></td>
+                  <td class="text-center"><i class="fa fa-cc-amex" style="font-size:24px"></i> </td>
+                  <td><div class="small text-muted">Last login</div>
+                    <strong>Yesterday</strong> </td>
+                  <td class="text-center"><div class="gaugejs-wrap sparkline" style="width:34px;height:34px"> <pie-chart data="main.PieChart6.data" options="main.PieChart6.options"></pie-chart></div></td>
+                  <td class="text-center"><button type="button" class="btn btn-link text-muted"><i class="fa fa-wrench"></i> </button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="clearfix"> </div>
+  <!-- End projects list -->
+</div>
+
+        
+			</div>
+		</div>
+	</div>

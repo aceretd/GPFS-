@@ -29,6 +29,11 @@
 			<artifactId>gpfs-question</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>gpfs</groupId>
+			<artifactId>gpfs-gpfs</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 
 		<!-- DB -->
 		<dependency>
