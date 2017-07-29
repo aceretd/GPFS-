@@ -1,0 +1,46 @@
+<div class="page-container">
+
+    <!-- Start page content wrapper -->
+    <div class="page-content-wrapper animated fadeInRight">
+        <div class="page-content">
+            <div class="row wrapper border-bottom page-heading">
+                <div class="col-lg-12">
+                    <h2> Colorpicke </h2>
+                    <ol class="breadcrumb">
+                        <li> <a href="index.html">Home</a> </li>
+                        <li> <a>Components</a> </li>
+                        <li class="active"> <strong>Colorpicker</strong> </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="wrapper-content ">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>Color picker <small>http://mjolnic.github.io/bootstrap-colorpicker/</small></h5>
+                            </div>
+                            <div class="ibox-content collapse in">
+                                <div class="widgets-container">
+                                    <label class="col-md-2 control-label">Simple input </label>
+                                    <div class="input-group date form_datetime col-md-5">
+                                        <input colorpicker type="text" ng-model="model.color1" class="form-control" />
+                                    </div>
+                                    <hr>
+                                    <label class="col-md-2 control-label">As a link</label>
+                                    <div id="cp3" class="input-group date form_datetime col-md-5 colorpicker-component">
+                                        <a colorpicker ng-model="model.color2">Normal link</a> Model: {{model.color2 | json}}
+                                        <br/> </div>
+                                    <hr>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

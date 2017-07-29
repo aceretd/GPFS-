@@ -1,0 +1,49 @@
+<div class="page-container ">
+    <!-- Start page content wrapper -->
+    <div class="page-content-wrapper animated fadeInRight" ng-controller="autocomplete">
+        <div class="page-content">
+            <div class="row wrapper border-bottom page-heading">
+                <div class="col-lg-12">
+                    <h2>Autocomplete </h2>
+                    <ol class="breadcrumb">
+                        <li> <a href="#/dashboard1">Home</a> </li>
+                        <li> <a>Components</a> </li>
+                        <li class="active"> <strong>Autocomplete</strong> </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="wrapper-content ">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>Autocomplete</h5>
+                            </div>
+                            <div class="ibox-content collapse in">
+                                <div class="widgets-container">
+                                    <div class="row">
+                                        <label class="col-md-3 control-label">Basic Auto Complete </label>
+                                        <div class="col-md-5 ">
+                                            <div class="input-group  ">
+                                                <!-- Basic Auto Complete -->
+                                                <autocomplete options="datas" place-holder="Search options..." on-select="onSelect" display-property="title" input-class="form-control" clear-input="false"></autocomplete>
+                                                
+                                                <span class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></span></div>
+                                                <p>{{selectedData.title}}</p>
+                                            <p class="help-block"> E.g: Albania, Azerbaijan, Brazil, Comoros from JSON source </p>
+                                            <input type="button" ng-click="clearInput()" value="Clear input" class="btn btn-default" />
+                                        </div>
+                                    </div>
+                                    <hr>
+
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

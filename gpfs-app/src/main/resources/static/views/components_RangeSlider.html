@@ -1,0 +1,65 @@
+	<div class="page-container ">
+
+		<!-- Start page content wrapper -->
+		<div class="page-content-wrapper animated fadeInRight  ">
+			<div class="page-content">
+				<div class="row wrapper border-bottom page-heading">
+					<div class="col-lg-12">
+						<h2> Components</h2>
+						<ol class="breadcrumb">
+							<li> <a href="#/dashboard1">Home</a> </li>
+							<li> <a>Components</a> </li>
+							<li class="active"> <strong>Ion Range Slider</strong> </li>
+						</ol>
+					</div>
+				</div>
+				<div class="wrapper-content ">
+					<div class="row"  data-ng-controller="ionSlider as slider">
+						<div class="col-lg-12">
+							<div class="ibox float-e-margins">
+								<div class="ibox-title">
+									<h5>Ion Range Slider</h5>
+								</div>
+								<div class="ibox-content collapse in">
+									<div class="widgets-container">
+										<div class="form-group">
+											<label class="col-md-2 control-label">Basic</label>
+											<div class="input-group col-md-10">
+											 <div ion-range-slider range-options="slider.ionSliderOptions1"></div>
+												<p>Start without params</p>
+											</div>
+										</div>
+										<hr>
+										<div class="form-group">
+											<label class="col-md-2 control-label">Set min max value</label>
+											<div class="input-group col-md-10">
+												<div ion-range-slider range-options="slider.ionSliderOptions2"></div>
+												<p>Set min value, max value and start point</p>
+											</div>
+										</div>
+										<hr>
+										<div class="form-group">
+											<label class="col-md-2 control-label">Range Type I</label>											
+											<div class="input-group col-md-10">
+												<div ion-range-slider range-options="slider.ionSliderOptions3"></div>
+											<p>Set type to double and specify range, also showing grid and adding prefix "$" </p>
+											</div>
+
+										</div>
+										<hr>
+										<div class="form-group">
+
+											<label class="col-md-2 control-label">Range Type II</label>
+											<div class="input-group col-md-10">
+												<div ion-range-slider range-options="slider.ionSliderOptions4"></div>
+												<p>Set up range with negative values</p>
+											</div>
+										</div>
+										 
+									</div>
+								</div>
+							</div>
+						</div>
+						
+</div>
+</div>

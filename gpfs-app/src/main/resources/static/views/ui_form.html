@@ -1,0 +1,434 @@
+<div class="page-container ">
+<!-- Start page content wrapper -->
+<div class="page-content-wrapper animated fadeInRight  ">
+  <div class="page-content" >
+    <div class="row wrapper border-bottom page-heading">
+      <div class="col-lg-12">
+        <h2> Form Stuff </h2>
+        <ol class="breadcrumb">
+          <li> <a href="#/dashboard1">Home</a> </li>
+          <li> <a>UI Features</a> </li>
+          <li class="active"> <strong> Form Stuff </strong> </li>
+        </ol>
+      </div>
+    </div>
+    <div class="wrapper-content ">
+      <div class="row">
+        <!-- Basic Form start -->
+        <div class="col-lg-6">
+          <div class="ibox float-e-margins">
+            <div class="widgets-container">
+              <h5>Basic Form </h5>
+              <hr>
+              <form>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input class="form-control m-t-xxs" id="exampleInputEmail1" placeholder="Enter email" type="email">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input name="password" class="password form-control m-t-xxs" id="exampleInputPassword1" placeholder="Password" type="password">
+                </div>
+                <div class="form-group">               
+                  <div class="form-check">
+                  <div class="i-checks">
+                            <input type="checkbox" iCheck ng-model="main.unCheck1">
+                            Check me out </div>
+                  </div>               
+              </div>
+                <button type="submit" class="btn aqua m-t-xs bottom15-xs">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <!-- Basic Form End -->
+        <!-- Horizontal Form start -->
+        <div class="col-lg-6">
+          <div class="widgets-container">
+            <h5>Horizontal Form</h5>
+            <hr>
+            <form class="form-horizontal m-t-xs">
+              <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-10">
+                  <input class="form-control" id="inputEmail3" placeholder="Email" type="email">
+                  <p class="help-block">Example block-level help text here.</p>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                <div class="col-sm-10">
+                  <input name="password" class="password form-control" id="inputPassword3" placeholder="Password" type="password">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <div class="form-check">
+                  <div class="i-checks">
+                            <input type="checkbox" iCheck ng-model="main.unCheck2">
+                            Check me out </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn blue m-t-xxs">Sign in</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!--Horizontal Form End -->
+        <!-- Visible labels Form start -->
+        <div class="col-lg-12 top20">
+          <div class="widgets-container">
+            <h5>Visible labels Form</h5>
+            <hr>
+            <form class="form-inline">
+              <div class="form-group">
+                <label for="exampleInputName2">Name</label>
+                <input class="form-control" id="exampleInputName2" placeholder="Jane Doe" type="text">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail2">Email</label>
+                <input class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com" type="email">
+              </div>
+              <button type="submit" class="btn aqua">Send invitation</button>
+            </form>
+            <h5 class="top30">Visible labels Form</h5>
+            <hr>
+            <form class="form-inline" >
+              <div class="form-group">
+                <label class="sr-only" for="exampleInputEmail22">Email address</label>
+                <div class="input-icon"> <i class="fa fa-envelope"></i>
+                  <input type="email" class="form-control" id="exampleInputEmail22" placeholder="Enter email">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="exampleInputPassword42">Password</label>
+                <div class="input-icon"> <i class="fa fa-user"></i>
+                  <input type="password" class="form-control" id="exampleInputPassword42" placeholder="Password">
+                </div>
+              </div>
+              <div class="form-group">
+              <div class="form-check">
+                  <div class="i-checks">
+                            <input type="checkbox" iCheck ng-model="main.unCheck3">
+                            Check me out </div>
+                  </div>
+                  </div>
+
+
+              <button type="submit" class="btn btn-default">Sign in</button>
+            </form>
+            <h5 class="top30">Column Sizing</h5>
+            <hr>
+            <form >
+              <div class="row">
+                <div class="col-md-2">
+                  <input class="form-control" placeholder=".col-md-2" type="text">
+                </div>
+                <div class="col-md-3">
+                  <input class="form-control" placeholder=".col-md-3" type="text">
+                </div>
+                <div class="col-md-4">
+                  <input class="form-control" placeholder=".col-md-4" type="text">
+                </div>
+                <div class="col-md-3">
+                  <input class="form-control" placeholder=".col-md-2" type="text">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!--Visible labels Form End -->
+        <!--All form elements  start -->
+        <div class="col-lg-12 top20 bottom20">
+          <div class="widgets-container">
+            <h5>All form elements </h5>
+            <hr>
+            <form method="get" class="form-horizontal">
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Normal</label>
+                <div class="col-sm-10">
+                  <input class="form-control" type="text">
+                </div>
+              </div>
+              <hr>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Help text</label>
+                <div class="col-sm-10">
+                  <input class="form-control" type="text">
+                  <span class="help-block bottom15-none">A block of help text that breaks onto a new line and may extend beyond one line.</span> </div>
+              </div>
+              <hr>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Password</label>
+                <div class="col-sm-10">
+                  <input class="form-control" name="password" type="password">
+                </div>
+              </div>
+              <hr>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Placeholder</label>
+                <div class="col-sm-10">
+                  <input placeholder="placeholder" class="form-control" type="text">
+                </div>
+              </div>
+              <hr>
+              <div class="form-group">
+                <label class="col-lg-2 control-label">Disabled</label>
+                <div class="col-lg-10">
+                  <input disabled="" placeholder="Disabled input here..." class="form-control" type="text">
+                </div>
+              </div>
+              <hr>
+              <div class="form-group">
+                <label class="col-lg-2 control-label">Static control</label>
+                <div class="col-lg-10">
+                  <p class="form-control-static">email@example.com</p>
+                </div>
+              </div>
+              <hr>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Checkboxes and radios <br>
+                <small class="text-navy">Normal Bootstrap elements</small></label>
+                <div class="col-sm-10">
+                  <div>
+                    <label>
+                    <input value="" type="checkbox">
+                    Option one is this and that—be sure to include why it's great </label>
+                  </div>
+                  <div>
+                    <label>
+                    <input checked="" value="option1" id="optionsRadios1" name="optionsRadios" type="radio">
+                    Option one is this and that—be sure to
+                    include why it's great </label>
+                  </div>
+                  <div>
+                    <label>
+                    <input value="option2" id="optionsRadios2" name="optionsRadios" type="radio">
+                    Option two can be something else and selecting it will
+                    deselect option one </label>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Inline checkboxes</label>
+                <div class="col-sm-10">
+                  <label class="checkbox-inline">
+                  <input value="option1" id="inlineCheckbox1" type="checkbox">
+                  a </label>
+                  <label class="checkbox-inline">
+                  <input value="option2" id="inlineCheckbox2" type="checkbox">
+                  b </label>
+                  <label class="checkbox-inline">
+                  <input value="option3" id="inlineCheckbox3" type="checkbox">
+                  c </label>
+                </div>
+              </div>
+              <hr>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Checkboxes &amp; radios <br>
+                <small class="text-navy">Custom elements</small></label>
+                <div class="col-md-10 form-inline">
+                         
+                            <label><input type="checkbox" iCheck ng-model="main.unCheck4">
+                            Checkbox 1</label> 
+                            <label><input type="checkbox" iCheck ng-model="main.unCheck5">
+                            Checkbox 2</label> 
+                            <label><input type="checkbox" iCheck ng-model="main.unCheck6">
+                            Checkbox 3</label>
+                   
+                  <hr>
+                  <label class="mt-radio">
+                  <input type="radio" iCheck  ng-model="main.unCheck7"  value="option1" id="optionsRadios22" name="optionsRadios">
+                  Option 1 </label>
+                  <label class="mt-radio">
+                  <input type="radio" iCheck ng-model="main.unCheck8"  value="option2" id="optionsRadios23" name="optionsRadios">
+                  Option 2 </label>
+                  <label class="mt-radio">
+                  <input type="radio" iCheck  ng-model="main.unCheck9" value="option2" id="ptionsRadios24" name="optionsRadios">
+                  Disabled </label>
+                </div>
+                <hr>
+              </div>
+              <hr>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Select</label>
+                <div class="col-sm-10">
+                  <select class="form-control bottom15" name="account">
+                    <option>option 1</option>
+                    <option>option 2</option>
+                    <option>option 3</option>
+                    <option>option 4</option>
+                  </select>
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <select class="form-control" multiple="">
+                        <option>option 1</option>
+                        <option>option 2</option>
+                        <option>option 3</option>
+                        <option>option 4</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <div class="form-group has-success">
+                <label class="col-sm-2 control-label">Input with success</label>
+                <div class="col-sm-10">
+                  <input class="form-control" type="text">
+                </div>
+              </div>
+              <hr>
+              <div class="form-group has-warning">
+                <label class="col-sm-2 control-label">Input with warning</label>
+                <div class="col-sm-10">
+                  <input class="form-control" type="text">
+                </div>
+              </div>
+              <hr>
+              <div class="form-group has-error">
+                <label class="col-sm-2 control-label">Input with error</label>
+                <div class="col-sm-10">
+                  <input class="form-control" type="text">
+                </div>
+              </div>
+              <hr>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Control sizing</label>
+                <div class="col-sm-10">
+                  <input placeholder=".input-lg" class="form-control input-lg bottom15" type="text">
+                  <input placeholder="Default input" class="form-control bottom15" type="text">
+                  <input placeholder=".input-sm" class="form-control input-sm" type="text">
+                </div>
+              </div>
+              <hr>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Input groups</label>
+                <div class="col-sm-10">
+                  <div class="input-group bottom15"><span class="input-group-addon">@</span>
+                    <input placeholder="Username" class="form-control" type="text">
+                  </div>
+                  <div class="input-group bottom15">
+                    <input class="form-control" type="text">
+                    <span class="input-group-addon">.00</span></div>
+                  <div class="input-group bottom15"><span class="input-group-addon">$</span>
+                    <input class="form-control" type="text">
+                    <span class="input-group-addon">.00</span></div>
+                  <div class="input-group bottom15"><span class="input-group-addon">
+                    <input type="checkbox">
+                    </span>
+                    <input class="form-control" type="text">
+                  </div>
+                  <div class="input-group"><span class="input-group-addon">
+                    <input type="radio">
+                    </span>
+                    <input class="form-control" type="text">
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Button addons</label>
+                <div class="col-sm-10">
+                  <div class="input-group bottom15"><span class="input-group-btn">
+                    <button type="button" class="btn aqua">Go!</button>
+                    </span>
+                    <input class="form-control" type="text">
+                  </div>
+                  <div class="input-group">
+                    <input class="form-control" type="text">
+                    <span class="input-group-btn">
+                    <button type="button" class="btn aqua">Go! </button>
+                    </span></div>
+                </div>
+              </div>
+              <hr>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">With dropdowns</label>
+                <div class="col-sm-10">
+                  <div class="input-group bottom15">
+                    <div class="input-group-btn">
+                      <button data-toggle="dropdown" class="btn aqua dropdown-toggle" type="button">Action <span class="caret"></span></button>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                      </ul>
+                    </div>
+                    <input class="form-control" type="text">
+                  </div>
+                  <div class="input-group">
+                    <input class="form-control" type="text">
+                    <div class="input-group-btn">
+                      <button data-toggle="dropdown" class="btn aqua dropdown-toggle" type="button">Action <span class="caret"></span></button>
+                      <ul class="dropdown-menu pull-right">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Segmented</label>
+                <div class="col-sm-10">
+                  <div class="input-group bottom15">
+                    <div class="input-group-btn">
+                      <button tabindex="-1" class="btn aqua" type="button">Action</button>
+                      <button data-toggle="dropdown" class="btn aqua dropdown-toggle" type="button"><span class="caret"></span></button>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                      </ul>
+                    </div>
+                    <input class="form-control" type="text">
+                  </div>
+                  <div class="input-group">
+                    <input class="form-control" type="text">
+                    <div class="input-group-btn">
+                      <button tabindex="-1" class="btn aqua" type="button">Action</button>
+                      <button data-toggle="dropdown" class="btn aqua dropdown-toggle" type="button"><span class="caret"></span></button>
+                      <ul class="dropdown-menu pull-right">
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Another action</a></li>
+                        <li><a href="#">Something else here</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Separated link</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <div class="form-group">
+                <div class="col-sm-4 col-sm-offset-2">
+                  <button class="btn btn-white" type="submit">Cancel</button>
+                  <button class="btn aqua" type="submit">Save changes</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <!--All form elements  End -->
+      </div>
+    </div>
+    
+
+  </div>
+</div>
+
+</div>

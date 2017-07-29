@@ -1,0 +1,139 @@
+<div class="page-container ">
+    <!-- Start page content wrapper -->
+    <div class="page-content-wrapper animated fadeInRight" ng-controller="sparklineChartCtrl as spark">
+        <div class="page-content">
+            <div class="row wrapper border-bottom page-heading">
+                <div class="col-lg-12">
+                    <h2> Sparkline Charts </h2>
+                    <ol class="breadcrumb">
+                        <li> <a href="#/dashboard1">Home</a> </li>
+                        <li> <a>Graphs</a> </li>
+                        <li class="active"> <strong> Sparkline Charts</strong> </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="wrapper-content ">
+                <div class="row">
+                    <!-- Scatter Chart-->
+                    <div class="col-lg-12">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>Sparkline Charts <small>With custom colors.</small></h5>
+                                <!-- ibox-tools -->
+<div ibox-tools></div>
+                            </div>
+                            <div class="ibox-content collapse in" id="demo1">
+                                <div>
+                                    <table class="table table-bordered white-bg">
+                                        <thead>
+                                            <tr>
+                                                <th>Graph</th>
+                                                <th>Type</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div sparkline spark-data="spark.inlineData" spark-options="spark.inlineOptions"></div>
+                                                </td>
+                                                <td>
+                                                    Inline line chart
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div sparkline spark-data="spark.barSmallData" spark-options="spark.barSmallOptions"></div>
+                                                </td>
+                                                <td>
+                                                    Bar chart
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div sparkline spark-data="spark.pieSmallData" spark-options="spark.pieSmallOptions"></div>
+                                                </td>
+                                                <td>
+                                                    Pie chart
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div sparkline spark-data="spark.longLineData" spark-options="spark.longLineOptions"></div>
+                                                </td>
+                                                <td>
+                                                    Long inline chart
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div sparkline spark-data="spark.tristateData" spark-options="spark.tristateOptions"></div>
+                                                </td>
+                                                <td>
+                                                    Tristate chart
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div sparkline spark-data="spark.discreteData" spark-options="spark.discreteOptions"></div>
+                                                </td>
+                                                <td>
+                                                    Discrete chart
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>Custom pie size example </h5>
+                                <!-- ibox-tools -->
+<div ibox-tools></div>
+                            </div>
+                            <div class="ibox-content collapse in" id="demo2">
+                                <div class="widgets-container text-center">
+                                    <div sparkline spark-data="spark.pieCustomData" spark-options="spark.pieCustomOptions"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>Custom bar size example</h5>
+                                <!-- ibox-tools -->
+<div ibox-tools></div>
+                            </div>
+                            <div class="ibox-content collapse in" id="demo3">
+                                <div class="widgets-container text-center">
+                                    <div sparkline spark-data="spark.barCustomData" spark-options="spark.barCustomOptions"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>Bar Charts</h5>
+                                <!-- ibox-tools -->
+<div ibox-tools></div>
+                            </div>
+                            <div class="ibox-content collapse in" id="demo4">
+                                <div class="widgets-container text-center">
+                                    <div sparkline spark-data="spark.lineCustomData" spark-options="spark.lineCustomOptions"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
