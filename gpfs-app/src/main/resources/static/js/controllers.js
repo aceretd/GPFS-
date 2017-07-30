@@ -34,7 +34,7 @@
  *
  */
  function MainCtrl($http, $scope, $location) { 
-
+	 $scope.dateFormat = 'yyyy-MMM-dd';
 
     // closed  page sidebar
     $scope.$on('$stateChangeSuccess', function(event, next, current) {

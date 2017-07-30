@@ -6,8 +6,8 @@
     angular.module('AdminUI', [
         'ui.router',                   // Routing
         'oc.lazyLoad',                // ocLazyLoad
-        'ui.bootstrap'               // Ui Bootstrap      
-      
+        'ui.bootstrap',               // Ui Bootstrap      
+        'ngResource'
     ])
 })();
 
