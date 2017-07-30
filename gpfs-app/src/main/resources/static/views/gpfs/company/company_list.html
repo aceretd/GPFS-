@@ -27,6 +27,8 @@
                             <th>Tin</th>
                             <th>Incorporation Date</th>
                             <th>Type</th>
+                            <th class="w50">Group of Entities</th>
+                            <th data-orderable="false"></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -35,9 +37,26 @@
                             <td>{{company.tin}}</td>
                             <td>{{company.incorporationDate | date: dateFormat}}</td>
                             <td>{{company.type}}</td>
+                            <td>
+                            	<span ng-if="company.groupOfEntities" class="fa fa-check"></span>
+                            </td>
+                            <td>
+			                    <div class="input-group-btn">
+			                      <button data-toggle="dropdown" class="btn btn-xs aqua dropdown-toggle" type="button">Action <span class="caret"></span></button>
+			                      <ul class="dropdown-menu">
+			                        <li><a href="#">View details</a></li>
+			                        <li><a href="#">Create GPFS</a></li>
+			                        <li><a href="#">View GPFS list</a></li>
+			                        <li class="divider"></li>
+			                        <li><a href="#">Delete company</a></li>
+			                      </ul>
+			                    </div>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
+                    <br>
+                   	<button type="button" class="btn aqua"><span class="fa fa-plus"></span> Add Company</button>
                 </div>
               </div>
             </div>
