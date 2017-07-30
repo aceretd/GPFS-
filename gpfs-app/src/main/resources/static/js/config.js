@@ -167,9 +167,9 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
             }
         })
 
-        // GPFS
+        // GPFS company
         .state('company_list', {
-        	url: '/company_list',
+        	url: '/company-list',
         	templateUrl: 'views/gpfs/company/company_list.html',
         	controller: 'CompanyListCtrl',
         	data: {
@@ -191,6 +191,31 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
                             serie: true,
                             name: 'datatables.buttons',
                             files: ['js/plugins/dataTables/angular-datatables.buttons.min.js']
+                        }
+                    ]);
+                }
+            }
+        })
+        .state('company_create', {
+        	url: '/company-create',
+        	templateUrl: 'views/gpfs/company/company_form.html',
+        	controller: 'CompanyFormCtrl',
+        	data: {
+        		pageTitle: 'company create',
+        		specialClass: 'page-header-fixed'
+        	},
+            resolve: {
+                loadPlugin: function($ocLazyLoad) {
+                    return $ocLazyLoad.load([{
+                            files: []
+                        },
+                        {
+                            name: 'datePicker',
+                            serie: true,
+                            files: ['js/plugins/moment/moment.min.js', 'css/plugins/datapicker/angular-datapicker.css', 'js/plugins/datapicker/angular-datepicker.js']
+                        },
+                        {
+                            files: ['css/plugins/iCheck/custom.css', 'js/plugins/iCheck/icheck.min.js']
                         }
                     ]);
                 }
