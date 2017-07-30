@@ -170,11 +170,31 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
         // GPFS
         .state('company_list', {
         	url: '/company_list',
-        	templateUrl: 'views/company_list.html',
+        	templateUrl: 'views/gpfs/company/company_list.html',
+        	controller: 'CompanyListCtrl',
         	data: {
         		pageTitle: 'company list',
         		specialClass: 'page-header-fixed'
-        	}
+        	},
+        	resolve: {
+                loadPlugin: function($ocLazyLoad) {
+                    return $ocLazyLoad.load([{
+                            serie: true,
+                            files: ['js/plugins/dataTables/datatables.min.js', 'css/plugins/dataTables/datatables.min.css']
+                        },
+                        {
+                            serie: true,
+                            name: 'datatables',
+                            files: ['js/plugins/dataTables/angular-datatables.min.js']
+                        },
+                        {
+                            serie: true,
+                            name: 'datatables.buttons',
+                            files: ['js/plugins/dataTables/angular-datatables.buttons.min.js']
+                        }
+                    ]);
+                }
+            }
         })
 
         // UI Features 
