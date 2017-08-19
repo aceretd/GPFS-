@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
+import org.hibernate.annotations.Type;
+
 @MappedSuperclass
 public class BaseEntity implements Serializable {
 
@@ -16,7 +18,8 @@ public class BaseEntity implements Serializable {
     @GeneratedValue
     private Long id;
 
-    @Column(name = "deleted")
+    @Column(name = "deleted", nullable = false)
+    @Type(type = "yes_no")
     private boolean deleted = false;
 
     public Long getId() {

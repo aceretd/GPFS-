@@ -13,6 +13,8 @@ import javax.persistence.Id;
 
 import org.hibernate.annotations.Type;
 
+import com.gpfs.core.model.BaseEntity;
+
 /**
  * Types of questions:
  * 1. Yes or no
@@ -21,11 +23,9 @@ import org.hibernate.annotations.Type;
  * @author mbmartinez
  */
 @Entity(name = "question")
-public class QuestionTemplate {
+public class QuestionTemplate extends BaseEntity {
 
-	@Id
-	@GeneratedValue
-	private Long id;
+	private static final long serialVersionUID = 1L;
 
 	@Column(name = "section_reference")
 	private String sectionReference;
@@ -89,14 +89,6 @@ public class QuestionTemplate {
 
 	public void setActivationCondition(String activationCondition) {
 		this.activationCondition = activationCondition;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
 	}
 
 	public String getSectionReference() {

@@ -1,0 +1,30 @@
+<div class="ibox-title">
+  Progress {{gpfs.percentCompleted}}%
+  <div class="progress">
+    <div style="width: {{gpfs.percentCompleted}}%" aria-valuemax="100" aria-valuemin="{{gpfs.percentCompleted}}" aria-valuenow="0" role="progressbar" class="progress-bar progress-bar-success"></div>
+  </div>
+  <h5>Fill up the Chart of Accounts</h5>
+  <div class="clearfix"></div>
+  <div>A list of the names of the accounts that a company has identified and made available for recording transactions in its general ledger</div>
+</div>
+<div class="ibox-content collapse in">
+  <div class="widgets-container">
+	<form ng-submit="next()" class="form-horizontal">
+		<div class="col-md-4">Company</div>
+		<div class="col-md-6">
+			<p class="form-control-static">{{gpfs.company.name}}</p>
+		</div>
+		<div class="col-md-4">Year {{initialYear}}</div>
+		<div class="col-md-6">
+			<select ng-options="year as year for year in years" ng-model="gpfs.year" class="form-control"></select>
+		</div>
+		<div class="clearfix"></div>
+		<div class="pull-right mt50">
+			<button type="button" class="btn btn-default">Back to list</button>
+			<button type="button" ng-click="back()" class="btn btn-default">Back</button>
+			<button type="submit" class="btn btn-primary">Next</button>
+		</div>
+	</form>
+	<div class="clearfix"></div>
+  </div>
+</div>

@@ -16,8 +16,43 @@
 		</dependency>
 		<dependency>
 			<groupId>gpfs</groupId>
+			<artifactId>gpfs-company</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>gpfs</groupId>
 			<artifactId>gpfs-question</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>gpfs</groupId>
+			<artifactId>gpfs-coa</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.mysema.maven</groupId>
+				<artifactId>maven-apt-plugin</artifactId>
+				<version>1.0.2</version>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>process</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>target/generated-sources/java</outputDirectory>
+							<processor>com.querydsl.apt.jpa.JPAAnnotationProcessor</processor>
+							<includes>
+								<include>com.gpfs.gpfs.model</include>
+							</includes>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>

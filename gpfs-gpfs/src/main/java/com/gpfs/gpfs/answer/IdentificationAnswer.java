@@ -1,4 +1,4 @@
-package com.gpfs.answer;
+package com.gpfs.gpfs.answer;
 
 public class IdentificationAnswer {
 

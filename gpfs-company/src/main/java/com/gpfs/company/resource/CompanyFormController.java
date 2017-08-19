@@ -1,4 +1,4 @@
-package com.gpfs.company.controller;
+package com.gpfs.company.resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

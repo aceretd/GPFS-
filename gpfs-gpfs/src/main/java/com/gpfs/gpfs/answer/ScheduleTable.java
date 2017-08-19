@@ -1,4 +1,4 @@
-package com.gpfs.answer;
+package com.gpfs.gpfs.answer;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;

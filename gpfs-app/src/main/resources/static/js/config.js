@@ -222,6 +222,41 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
             }
         })
 
+        // GPFS Creation
+        .state('gpfs', {
+        	url: '/gpfs/{companyId}',
+        	templateUrl: 'views/gpfs/gpfs/gpfs-00-root.html',
+        	abstract: true,
+        	controller: 'GpfsRootController',
+        	resolve: {
+        		company: function ($stateParams, CompanyService) {
+        			return CompanyService.findOne({id: $stateParams.companyId});
+        		}
+        	}
+        })
+        .state('gpfs.create', {
+        	url: '/create',
+        	templateUrl: 'views/gpfs/gpfs/gpfs-01-create.html'
+        })
+
+        // GPFS Update
+        .state('gpfs.update', {
+        	url: '/{year}',
+        	template: '<ui-view></ui-view>',
+        	abstract: true,
+        	controller: 'GpfsUpdateController',
+        	resolve: {
+    			gpfs: function ($stateParams, GpfsService) {
+    				return GpfsService.findByCompanyAndYear({companyId: $stateParams.companyId, year: $stateParams.year});
+    			}
+        	}
+        })
+        .state('gpfs.update.coa', {
+        	url: '/coa',
+        	templateUrl: 'views/gpfs/gpfs/gpfs-02-coa.html',
+        	controller: 'GpfsCoaController'
+        })
+
         // UI Features 
         .state('ui_colors', {
             url: "/ui_colors",

@@ -9,6 +9,7 @@ databaseChangeLog:
         schemaName: public
         tableName: company
         quotchar: "\""
+- changeSet:
     id: loadquestions
     author: mark
     changes:
