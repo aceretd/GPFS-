@@ -18,7 +18,7 @@ public class ChartOfAccountResource extends BaseResource<ChartOfAccountInfo, Cha
 
 	@RequestMapping(value = "/template", method = GET)
 	public ResponseEntity<ChartOfAccountInfo> getTemplate() {
-		return new ResponseEntity<ChartOfAccountInfo>(service.getTemplate(), OK);
+		return new ResponseEntity<ChartOfAccountInfo>(service.getTemplateInfo(), OK);
 	}
 
 }
