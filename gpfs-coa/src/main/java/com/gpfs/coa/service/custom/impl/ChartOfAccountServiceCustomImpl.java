@@ -19,9 +19,17 @@ public class ChartOfAccountServiceCustomImpl extends GpfsJpaServiceCustomImpl<Ch
 
 	private static final Logger LOG = LoggerFactory.getLogger(ChartOfAccountServiceCustomImpl.class);
 
-	@Override
-	public ChartOfAccount getTemplate() {
+	private ChartOfAccount getTemplate() {
 		ChartOfAccount coaTemplate = repo.findOne(1l);
+		return coaTemplate;
+	}
+
+	@Override
+	public ChartOfAccountInfo getTemplateInfo() {
+		LOG.info("Template requested!");
+
+		ChartOfAccountInfo coaTemplate = toDto(getTemplate());
+
 		coaTemplate.setId(null);
 		//TODO there has to be a better way
 		coaTemplate.getChildren().forEach(fs1 -> {
@@ -42,13 +50,8 @@ public class ChartOfAccountServiceCustomImpl extends GpfsJpaServiceCustomImpl<Ch
 				});
 			});
 		});
-		return coaTemplate;
-	}
 
-	@Override
-	public ChartOfAccountInfo getTemplateInfo() {
-		LOG.info("Template requested!");
-		return toDto(getTemplate());
+		return coaTemplate;
 	}
 
 }

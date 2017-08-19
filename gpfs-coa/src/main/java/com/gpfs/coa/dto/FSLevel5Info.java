@@ -9,6 +9,7 @@ public class FSLevel5Info extends BaseEntity {
 	private static final long serialVersionUID = 1L;
 
 	private String name;
+	private String accountNumber;
 	private List<FSLevel6Info> children;
 
 	public String getName() {
@@ -22,6 +23,12 @@ public class FSLevel5Info extends BaseEntity {
 	}
 	public void setChildren(List<FSLevel6Info> children) {
 		this.children = children;
+	}
+	public String getAccountNumber() {
+		return accountNumber;
+	}
+	public void setAccountNumber(String accountNumber) {
+		this.accountNumber = accountNumber;
 	}
 
 }

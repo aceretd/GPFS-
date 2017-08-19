@@ -40,5 +40,13 @@ public class FSLevel4 extends BaseEntity {
 	public void setChildren(List<FSLevel5> children) {
 		this.children = children;
 	}
+
+	public String getAccountNumber() {
+		return accountNumber;
+	}
+
+	public void setAccountNumber(String accountNumber) {
+		this.accountNumber = accountNumber;
+	}
 	
 }
