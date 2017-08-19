@@ -1,0 +1,29 @@
+<div class="ibox-title">
+  Progress 0%
+  <div class="progress">
+    <div style="width: 0%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar" class="progress-bar progress-bar-success"></div>
+  </div>
+  <h5>Choose GPFS Year</h5>
+  <div class="clearfix"></div>
+  <div>For what year do you want to make the GPFS?</div>
+</div>
+<div class="ibox-content collapse in">
+  <div class="widgets-container">
+	<form ng-submit="next()" class="form-horizontal">
+		<div class="col-md-4">Company</div>
+		<div class="col-md-6">
+			<p class="form-control-static">{{gpfs.company.name}}</p>
+		</div>
+		<div class="col-md-4">Year {{initialYear}}</div>
+		<div class="col-md-6">
+			<select ng-options="year as year for year in years" ng-model="gpfs.year" class="form-control"></select>
+		</div>
+		<div class="clearfix"></div>
+		<div class="pull-right mt50">
+			<button type="button" class="btn btn-default">Back to list</button>
+			<button type="submit" class="btn btn-primary">Next</button>
+		</div>
+	</form>
+	<div class="clearfix"></div>
+  </div>
+</div>

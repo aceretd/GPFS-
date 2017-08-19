@@ -5,6 +5,11 @@ liquibase:
   enabled: @liquibase.enabled@
   drop-first: @liquibase.dropfirst@
 
+logging:
+  level:
+    com.gpfs: DEBUG
+  
+
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/gpfs

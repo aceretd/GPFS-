@@ -11,6 +11,7 @@ import org.springframework.core.task.TaskExecutor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.google.common.collect.ImmutableMap;
@@ -33,6 +34,7 @@ import cz.jirutka.rsql.parser.ast.RSQLOperators;
  *
  */
 @Transactional
+@NoRepositoryBean
 public abstract class GpfsJpaServiceCustomImpl<E extends BaseEntity, D extends BaseInfo, R extends GpfsJpaService<E>>
     extends MappingService<E, D> implements GpfsJpaServiceCustom<E, D> {
 

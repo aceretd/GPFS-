@@ -1,16 +1,16 @@
-﻿id,section_reference,note,question,type,act_condition,max_answers,sample_answer,help_text,template,
-1,"Section 3.24 (a), (b)",1,Is the company a group of entities?,YES_NO,,0,,,,
-2,,1,The reporting entity a branch?,YES_NO,,0,,sample help text,,
-3,,1,,CONSTANT,,0,,,,
-4,,1,When was the company's incorporation date?,IDENTIFICATION,,0,"March 13, 2000",,"ABC corporation (the Company) was incorporated and registered with the Philippine Securities and Exchange Commission (SEC) on March 13, 2000.",
-5,,1,Give complete address of the principal place of business,IDENTIFICATION,,0,"5th Floor, OPQ Bldg, Hererra St., Makati City, Philippines",,"The company's principal address is at 5th Floor, OPQ Bldg, Hererra St., Makati City, Philppines. ",
-6,,1,What is the principal activity?,MULTIPLE_CHOICE,,0,,,,
-7,,1,,CONSTANT,,0,,,,
-8,Section 3.3,2,Are you willing to comply with IFRS for SMEs?,YES_NO,,0,yes,,"Statement of Compliance
-The financial statements of the Company have been prepared in accordance with the Philippine Financial Reporting Standard for Small and Medium-sized Entities (PFRS for SMEs) issued by the International Accounting Standards Board (IASB) as approved by the Financial Reporting Standards Council (FRSC) and adopted by the SEC. ",
-9,"Section 8.2 (a), 8.5 (a)",2,Does the company own properties or financial instruments?,YES_NO,,0,yes,,Activate Q10,
-10,,2,The company's financial statements were prepared using?,MULTIPLE_SELECT,{9=yes},0,a,,"Basis of preparation and presentation
-These financial statements have been prepared using the historical cost accounting convention except for cetain properties carried at fair value ",
-11,,2,What is the functional currency used?,IDENTIFICATION,,0,Philippine Peso,sample help text,"Functional and Presentation Currency
-These financial statements are presented in Philippines Peso, the currency of the primary economic environment in which the Company operates. All amounts are rounded off to the nearest peso, except when otherwise indicated.",
-12,Section 5,2,What is the answer?,IDENTIFICATION,,0,Sample answer,Help text,Template,
+﻿id,deleted,section_reference,note,question,type,act_condition,max_answers,sample_answer,help_text,template
+1,N,"Section 3.24 (a), (b)",1,Is the company a group of entities?,YES_NO,,0,,,
+2,N,,1,The reporting entity a branch?,YES_NO,,0,,sample help text,
+3,N,,1,,CONSTANT,,0,,,
+4,N,,1,When was the company's incorporation date?,IDENTIFICATION,,0,"March 13, 2000",,"ABC corporation (the Company) was incorporated and registered with the Philippine Securities and Exchange Commission (SEC) on March 13, 2000."
+5,N,,1,Give complete address of the principal place of business,IDENTIFICATION,,0,"5th Floor, OPQ Bldg, Hererra St., Makati City, Philippines",,"The company's principal address is at 5th Floor, OPQ Bldg, Hererra St., Makati City, Philppines. "
+6,N,,1,What is the principal activity?,MULTIPLE_CHOICE,,0,,,
+7,N,,1,,CONSTANT,,0,,,
+8,N,Section 3.3,2,Are you willing to comply with IFRS for SMEs?,YES_NO,,0,yes,,"Statement of Compliance
+The financial statements of the Company have been prepared in accordance with the Philippine Financial Reporting Standard for Small and Medium-sized Entities (PFRS for SMEs) issued by the International Accounting Standards Board (IASB) as approved by the Financial Reporting Standards Council (FRSC) and adopted by the SEC. "
+9,N,"Section 8.2 (a), 8.5 (a)",2,Does the company own properties or financial instruments?,YES_NO,,0,yes,,Activate Q10
+10,N,,2,The company's financial statements were prepared using?,MULTIPLE_SELECT,{9=yes},0,a,,"Basis of preparation and presentation
+These financial statements have been prepared using the historical cost accounting convention except for cetain properties carried at fair value "
+11,N,,2,What is the functional currency used?,IDENTIFICATION,,0,Philippine Peso,sample help text,"Functional and Presentation Currency
+These financial statements are presented in Philippines Peso, the currency of the primary economic environment in which the Company operates. All amounts are rounded off to the nearest peso, except when otherwise indicated."
+12,N,Section 5,2,What is the answer?,IDENTIFICATION,,0,Sample answer,Help text,Template
