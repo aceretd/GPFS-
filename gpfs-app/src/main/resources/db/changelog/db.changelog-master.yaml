@@ -19,3 +19,63 @@ databaseChangeLog:
         schemaName: public
         tableName: question
         quotchar: "\""
+- changeSet:
+    id: loadcoa
+    author: mark
+    changes:
+    - loadData:
+        encoding: UTF-8
+        file: db/data/coa.csv
+        schemaName: public
+        tableName: chart_of_account
+        quotchar: "\""
+- changeSet:
+    id: load_fs_lvl1
+    author: mark
+    changes:
+    - loadData:
+        encoding: UTF-8
+        file: db/data/fs_lvl1.csv
+        schemaName: public
+        tableName: fs_level_1
+        quotchar: "\""
+- changeSet:
+    id: load_fs_lvl2
+    author: mark
+    changes:
+    - loadData:
+        encoding: UTF-8
+        file: db/data/fs_lvl2.csv
+        schemaName: public
+        tableName: fs_level_2
+        quotchar: "\""
+- changeSet:
+    id: load_fs_lvl3
+    author: mark
+    changes:
+    - loadData:
+        encoding: UTF-8
+        file: db/data/fs_lvl3.csv
+        schemaName: public
+        tableName: fs_level_3
+        quotchar: "\""
+- changeSet:
+    id: load_fs_lvl4
+    author: mark
+    changes:
+    - loadData:
+        encoding: UTF-8
+        file: db/data/fs_lvl4.csv
+        schemaName: public
+        tableName: fs_level_4
+        quotchar: "\""
+- changeSet:
+    id: load_fs_lvl5
+    author: mark
+    changes:
+    - loadData:
+        encoding: UTF-8
+        file: db/data/fs_lvl5.csv
+        schemaName: public
+        tableName: fs_level_5
+        quotchar: "\""

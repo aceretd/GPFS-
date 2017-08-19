@@ -6,7 +6,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import com.gpfs.core.model.BaseEntity;
@@ -19,11 +18,8 @@ public class FSLevel3 extends BaseEntity {
 	@Column(name = "name", nullable = false)
 	private String name;
 
-	@ManyToOne
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "parent_id")
-	private FSLevel2 parent;
-
-	@OneToMany(mappedBy = "parent", cascade = CascadeType.ALL)
 	private List<FSLevel4> children;
 
 	public String getName() {
@@ -32,14 +28,6 @@ public class FSLevel3 extends BaseEntity {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public FSLevel2 getParent() {
-		return parent;
-	}
-
-	public void setParent(FSLevel2 parent) {
-		this.parent = parent;
 	}
 
 	public List<FSLevel4> getChildren() {

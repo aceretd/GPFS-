@@ -1,0 +1,3 @@
+id,deleted,acct_no,name,parent_id
+1,N,100,Cash in banks,1
+2,N,200,Cash on hand,1

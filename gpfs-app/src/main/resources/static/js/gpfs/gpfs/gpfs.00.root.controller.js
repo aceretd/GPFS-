@@ -12,8 +12,7 @@ function GpfsRootController($scope, $state, GpfsService, company) {
 	$scope.company = company;
 	$scope.sequence = [
 		'gpfs.create',
-		'gpfs.update.coa',
-		'gpfs.update.corporate_information'
+		'gpfs.update.coa'
 	];
 	$scope.gpfs = {
 		company: company,
