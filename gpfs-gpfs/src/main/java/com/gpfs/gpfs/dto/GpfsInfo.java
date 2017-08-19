@@ -2,6 +2,7 @@ package com.gpfs.gpfs.dto;
 
 import org.springframework.core.style.ToStringCreator;
 
+import com.gpfs.coa.dto.ChartOfAccountInfo;
 import com.gpfs.core.dto.BaseInfo;
 import com.gpfs.core.dto.CompanyInfo;
 import com.gpfs.core.dto.schedule.PrincipalActivityInfo;

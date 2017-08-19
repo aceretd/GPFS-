@@ -11,6 +11,7 @@ import com.gpfs.core.service.GpfsJpaServiceCustom;
  */
 public interface ChartOfAccountServiceCustom extends GpfsJpaServiceCustom<ChartOfAccount, ChartOfAccountInfo> {
 
-	ChartOfAccountInfo getTemplate();
+	ChartOfAccount getTemplate();
+	ChartOfAccountInfo getTemplateInfo();
 
 }
