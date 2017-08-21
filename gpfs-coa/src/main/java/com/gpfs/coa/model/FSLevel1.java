@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.Type;
+
 import com.gpfs.core.model.BaseEntity;
 
 @Entity(name = "fs_level_1")
@@ -17,6 +19,10 @@ public class FSLevel1 extends BaseEntity {
 
 	@Column(name = "name", nullable = false)
 	private String name;
+
+	@Column(name = "description")
+	@Type(type = "text")
+	private String description;
 
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "parent_id")
@@ -36,6 +42,14 @@ public class FSLevel1 extends BaseEntity {
 
 	public void setChildren(List<FSLevel2> children) {
 		this.children = children;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 }

@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.Type;
+
 import com.gpfs.core.model.BaseEntity;
 
 @Entity(name = "fs_level_4")
@@ -17,6 +19,10 @@ public class FSLevel4 extends BaseEntity {
 
 	@Column(name = "name", nullable = false)
 	private String name;
+
+	@Column(name = "description")
+	@Type(type = "text")
+	private String description;
 
 	@Column(name = "acct_no", nullable = false)
 	private String accountNumber;
@@ -47,6 +53,14 @@ public class FSLevel4 extends BaseEntity {
 
 	public void setAccountNumber(String accountNumber) {
 		this.accountNumber = accountNumber;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 }

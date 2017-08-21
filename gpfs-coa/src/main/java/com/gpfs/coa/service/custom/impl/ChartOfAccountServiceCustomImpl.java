@@ -1,9 +1,13 @@
 package com.gpfs.coa.service.custom.impl;
 
+import java.math.BigDecimal;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.gpfs.coa.dto.ChartOfAccountInfo;
+import com.gpfs.coa.dto.FSLevel2Info;
+import com.gpfs.coa.dto.FSLevel6Info;
 import com.gpfs.coa.model.ChartOfAccount;
 import com.gpfs.coa.service.ChartOfAccountService;
 import com.gpfs.coa.service.custom.ChartOfAccountServiceCustom;
@@ -41,10 +45,14 @@ public class ChartOfAccountServiceCustomImpl extends GpfsJpaServiceCustomImpl<Ch
 					fs3.getChildren().forEach(fs4 -> {
 						fs4.setId(null);
 						fs4.getChildren().forEach(fs5 -> {
+							FSLevel6Info initialChild = new FSLevel6Info();
+							initialChild.setName("FS Level6 name");
+							initialChild.setAccountNumber("1");
+							initialChild.setCurrentYearAmount(BigDecimal.ZERO);
+							initialChild.setPreviousYearAmount(BigDecimal.ZERO);
+
 							fs5.setId(null);
-							fs5.getChildren().forEach(fs6 -> {
-								fs6.setId(null);
-							});
+							fs5.getChildren().add(initialChild);
 						});
 					});
 				});

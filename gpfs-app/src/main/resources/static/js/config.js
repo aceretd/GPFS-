@@ -222,6 +222,36 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
             }
         })
 
+        // GPFS List
+        .state('gpfs_list', {
+        	url: '/gpfs-list',
+        	templateUrl: 'views/gpfs/gpfs/gpfs_list.html',
+        	controller: 'GpfsListCtrl',
+        	data: {
+        		pageTitle: 'gpfs list',
+        		specialClass: 'page-header-fixed'
+        	},
+        	resolve: {
+                loadPlugin: function($ocLazyLoad) {
+                    return $ocLazyLoad.load([{
+                            serie: true,
+                            files: ['js/plugins/dataTables/datatables.min.js', 'css/plugins/dataTables/datatables.min.css']
+                        },
+                        {
+                            serie: true,
+                            name: 'datatables',
+                            files: ['js/plugins/dataTables/angular-datatables.min.js']
+                        },
+                        {
+                            serie: true,
+                            name: 'datatables.buttons',
+                            files: ['js/plugins/dataTables/angular-datatables.buttons.min.js']
+                        }
+                    ]);
+                }
+            }
+        })
+
         // GPFS Creation
         .state('gpfs', {
         	url: '/gpfs/{companyId}',

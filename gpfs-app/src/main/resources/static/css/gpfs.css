@@ -1,2 +1,9 @@
+.pointer {cursor: pointer;}
+
 .mt50 {margin-top: 50px;}
+.mb5 {margin-bottom: 5px;}
+.mb10 {margin-bottom: 10px;}
 .w50 {width: 50px;}
+
+.coaplus {width: 20px; display: inline-block;}
+.coadiv {width: 10%; display: inline-block;}

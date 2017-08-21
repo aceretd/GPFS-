@@ -10,19 +10,60 @@
 <div class="ibox-content collapse in">
   <div class="widgets-container">
 	<form ng-submit="next()" class="form-horizontal">
-		<div class="col-md-4">Company</div>
-		<div class="col-md-6">
-			<p class="form-control-static">{{gpfs.company.name}}</p>
+		<div class="mb10" style="font-weight: bold;">
+			<div class="coaplus"></div>
+			<div class="coadiv">Account Num</div>
+			<div class="coadiv">FS level 1</div>
+			<div class="coadiv">FS level 2</div>
+			<div class="coadiv">FS level 3</div>
+			<div class="coadiv">FS level 4</div>
+			<div class="coadiv">Notes level 5</div>
+			<div class="coadiv">Customer code</div>
+			<div class="coadiv">{{gpfs.year}}</div>
+			<div class="coadiv">{{gpfs.year - 1}}</div>
 		</div>
-		<div class="col-md-4">Year {{initialYear}}</div>
-		<div class="col-md-6">
-			<select ng-options="year as year for year in years" ng-model="gpfs.year" class="form-control"></select>
-		</div>
-		<div class="clearfix"></div>
-		<div class="pull-right mt50">
-			<button type="button" class="btn btn-default">Back to list</button>
-			<button type="button" ng-click="back()" class="btn btn-default">Back</button>
-			<button type="submit" class="btn btn-primary">Next</button>
+		<div ng-repeat="fs1 in gpfs.coa.children">
+			<div ng-repeat="fs2 in fs1.children">
+				<div ng-repeat="fs3 in fs2.children">
+					<div ng-repeat="fs4 in fs3.children">
+						<div ng-repeat="fs5 in fs4.children">
+							<div ng-repeat="fs6 in fs5.children" class="col-md-12 mb5">
+								<div>
+									<div ng-if="fs6.accountNumber === '1'" class="coaplus"><span class="fa fa-plus" ng-click="nextChild(fs5, 1)"></span></div>
+									<div ng-if="fs6.accountNumber !== '1'" class="coaplus"></div>
+	
+									<div class="coadiv">{{accountNumber(fs4, fs5, fs6)}}</div>
+									<div class="coadiv">{{fs1.name}}</div>
+									<div class="coadiv">{{fs2.name}}</div>
+									<div class="coadiv">{{fs3.name}}</div>
+									<div class="coadiv">
+										<input type="text" ng-model="fs4.name" class="form-control" />
+									</div>
+									<div class="coadiv">
+										<input type="text" ng-model="fs5.name" class="form-control" />
+									</div>
+									<div class="coadiv">
+										<input type="text" ng-model="fs6.name" class="form-control" />
+									</div>
+									<div class="coadiv"><input type="text" ng-model="fs6.currentYearAmount" class="form-control" /></div>
+									<div class="coadiv"><input type="text" ng-model="fs6.previousYearAmount" class="form-control" /></div>
+								</div>
+								<div>
+									<div class="coaplus"></div>
+									<div class="coadiv"></div>
+									<div class="coadiv"></div>
+									<div class="coadiv"></div>
+									<div class="coadiv"></div>
+									<div class="coadiv" style="text-align: center;" ng-if="$parent.$parent.$last && $parent.$last && $last"><span title="Add new under {{fs3.name}}" class="fa fa-plus-square pointer" ng-click="nextChild(fs3, 5000)"></span></div>
+									<div class="coadiv" ng-if="!$parent.$parent.$last || !$parent.$last || !$last"></div>
+									<div class="coadiv" style="text-align: center;" ng-if="$parent.$last && $last"><span title="Add new under {{fs4.name}}" class="fa fa-plus-square pointer" ng-click="nextChild(fs4, 100)"></span></div>
+									<div class="coadiv" ng-if="!$parent.$last || !$last"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</form>
 	<div class="clearfix"></div>

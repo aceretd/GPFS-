@@ -1,3 +1,11 @@
-id,deleted,name,parent_id
-1,N,Assets,1
-2,N,Liability,1
+id,deleted,name,parent_id,description
+1,N,Assets,1,
+2,N,Liability,1,
+3,N,Equity,1,
+4,N,Equity,2,
+5,N,Revenue,3,
+6,N,Expenses,3,
+7,N,Profit/Loss,3,
+8,N,Profit/Loss,4,
+9,N,Other Income,4,
+10,N,Taxes,3,

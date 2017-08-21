@@ -19,26 +19,30 @@ function GpfsRootController($scope, $state, GpfsService, company) {
 		year: PREVIOUS_YEAR
 	}
 	$scope.back = function () {
+		//Go to the prev state
+		let currentState = $state.current.name;
+		console.debug('going to previous state! current state=' + currentState);
+		let nextState = $scope.sequence.indexOf(currentState) - 1;
+		console.debug('next state index=' + nextState + ', name=' + $scope.sequence[nextState]);
+
+		$scope.gpfs.nextState = nextState;
+
 		GpfsService.save($scope.gpfs, function (data) {
 			$scope.gpfs = data;
-
-			//Go to the next state
-			let currentState = $state.current.name;
-			console.debug('going to previous state! current state=' + currentState);
-			let nextState = $scope.sequence.indexOf(currentState) - 1;
-			console.debug('next state index=' + nextState + ', name=' + $scope.sequence[nextState]);
 			$state.go($scope.sequence[nextState], {companyId: $scope.gpfs.company.id, year: $scope.gpfs.year});
 		});
 	};
 	$scope.next = function () {
+		//Go to the next state
+		let currentState = $state.current.name;
+		console.debug('going to next state! current state=' + currentState);
+		let nextState = $scope.sequence.indexOf(currentState) + 1;
+		console.debug('next state index=' + nextState + ', name=' + $scope.sequence[nextState]);
+
+		$scope.gpfs.nextState = nextState;
+
 		GpfsService.save($scope.gpfs, function (data) {
 			$scope.gpfs = data;
-
-			//Go to the next state
-			let currentState = $state.current.name;
-			console.debug('going to next state! current state=' + currentState);
-			let nextState = $scope.sequence.indexOf(currentState) + 1;
-			console.debug('next state index=' + nextState + ', name=' + $scope.sequence[nextState]);
 			$state.go($scope.sequence[nextState], {companyId: $scope.gpfs.company.id, year: $scope.gpfs.year});
 		});
 	};
@@ -47,5 +51,9 @@ function GpfsRootController($scope, $state, GpfsService, company) {
 	for (let i = INITIAL_YEAR; i < CURRENT_YEAR; i++) {
 		$scope.years.push(i);
 	}
+
+	$scope.accountNumber = function (fs4, fs5, fs6) {
+		return parseInt(fs4.accountNumber) + parseInt(fs5.accountNumber) + parseInt(fs6.accountNumber);
+	};
 
 }

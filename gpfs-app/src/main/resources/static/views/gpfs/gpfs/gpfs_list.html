@@ -1,0 +1,60 @@
+<div class="page-container ">
+  <!-- Start page content wrapper -->
+<div class="page-content-wrapper animated fadeInRight">
+    <div class="page-content">
+      <div class="row wrapper border-bottom page-heading">
+        <div class="col-lg-12">
+          <h2>GPFS List </h2>
+          <ol class="breadcrumb">
+            <li> <a ui-sref="dashboard1">Home</a> </li>
+            <li class="active"> <a ui-sref="company_list"> GPFS List </a> </li>
+          </ol>
+        </div>
+      </div>
+      <div class="wrapper-content ">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                <h5>List of GPFS</h5>
+              </div>
+              <div class="ibox-content collapse in">
+                <div class="widgets-container">
+       	        	<table datatable="ng" dt-options="dtOptions"  class="table table-striped table-bordered table-hover dataTables-example">
+                        <thead>
+                        <tr>
+                            <th>Company Name</th>
+                            <th>Year</th>
+                            <th>Percent Completed</th>
+                            <th data-orderable="false"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="gpfs in gpfss">
+                            <td>{{gpfs.company.name}}</td>
+                            <td>{{gpfs.year}}</td>
+                            <td>{{gpfs.percentCompleted}}</td>
+                            <td>
+			                    <div class="input-group-btn">
+			                      <button data-toggle="dropdown" class="btn btn-xs aqua dropdown-toggle" type="button">Action <span class="caret"></span></button>
+			                      <ul class="dropdown-menu">
+			                        <li><a ui-sref="{{nextState(gpfs)}}">Update</a></li>
+			                        <li><a href="#">Print</a></li>
+			                        <li class="divider"></li>
+			                        <li><a href="#">Delete</a></li>
+			                      </ul>
+			                    </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>

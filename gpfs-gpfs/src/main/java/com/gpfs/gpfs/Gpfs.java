@@ -43,6 +43,9 @@ public class Gpfs extends BaseEntity {
 	@JoinColumn(name = "reconciliation_id")
 	private ReconciliationTable reconciliationTable;
 
+	@Column(name = "next_state")
+	private String nextState;
+
 	public PrincipalActivity getPrincipalActivity() {
 		return principalActivity;
 	}
@@ -81,6 +84,14 @@ public class Gpfs extends BaseEntity {
 
 	public void setCoa(ChartOfAccount coa) {
 		this.coa = coa;
+	}
+
+	public String getNextState() {
+		return nextState;
+	}
+
+	public void setNextState(String nextState) {
+		this.nextState = nextState;
 	}
 
 }

@@ -16,6 +16,9 @@ public class GpfsInfo extends BaseInfo {
 	private PrincipalActivityInfo principalActivity;
 	private ReconciliationTableInfo reconciliationTable;
 
+	//Next angular state
+	private String nextState;
+
 	@Override
 	public ToStringCreator toStringCreator() {
 		return super.toStringCreator()
@@ -61,6 +64,14 @@ public class GpfsInfo extends BaseInfo {
 
 	public void setCoa(ChartOfAccountInfo coa) {
 		this.coa = coa;
+	}
+
+	public String getNextState() {
+		return nextState;
+	}
+
+	public void setNextState(String nextState) {
+		this.nextState = nextState;
 	}
 
 }
