@@ -1,0 +1,36 @@
+<div class="ibox-title">
+  <div><strong>{{gpfs.company.name}} - {{gpfs.year}}</strong></div>
+  Progress {{gpfs.percentCompleted}}%
+  <div class="progress">
+    <div style="width: {{gpfs.percentCompleted}}%" aria-valuemax="100" aria-valuemin="{{gpfs.percentCompleted}}" aria-valuenow="0" role="progressbar" class="progress-bar progress-bar-success"></div>
+  </div>
+  <h5>Corporate Information</h5>
+  <div class="clearfix"></div>
+  <div>Come on, hobbits. Long ways to go yet. Smeagol will show you the way.</div>
+</div>
+<div class="ibox-content collapse in">
+  <div class="widgets-container">
+  	<form ng-submit="next()" class="form-horizontal">
+
+		<div class="col-md-4">Principal Activity</div>
+		<div class="col-md-6">
+	        <ui-select ng-model="gpfs.principalActivity">
+	          <ui-select-match placeholder="Select a Principal Activity...">{{$select.selected.activity}}</ui-select-match>
+	          <ui-select-choices repeat="activity in principalActivities track by $index"
+	               refresh="refreshPrincipalActivities($select.search)"
+	               refresh-delay="0">
+	               <div ng-bind-html="activity.activity | highlight: $select.search"></div>
+	               <div><small class="text-muted">{{activity.type}} - {{activity.subtype}}</small></div>
+	          </ui-select-choices>
+	        </ui-select>
+		</div>
+
+		<div class="pull-right mt50">
+			<button type="button" class="btn btn-default">Back to list</button>
+			<button type="button" ng-click="back()" class="btn btn-default">Back</button>
+			<button type="submit" class="btn btn-primary">Next</button>
+		</div>
+	</form>
+	<div class="clearfix"></div>
+  </div>
+</div>

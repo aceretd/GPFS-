@@ -286,6 +286,24 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
         	templateUrl: 'views/gpfs/gpfs/gpfs-02-coa.html',
         	controller: 'GpfsCoaController'
         })
+        .state('gpfs.update.note1', {
+        	url: '/note1',
+        	templateUrl: 'views/gpfs/gpfs/gpfs-03-note1.html',
+        	controller: 'GpfsNote1Controller',
+        	resolve: {
+//    			questions: function ($stateParams, QuestionService) {
+//    				return QuestionService.findByNote({note: 1});
+//    			},
+                loadPlugin: function($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        {
+                            serie: true,
+                            files: ['css/plugins/ui-select/select.css']
+                        }
+                    ]);
+                }
+        	}
+        })
 
         // UI Features 
         .state('ui_colors', {

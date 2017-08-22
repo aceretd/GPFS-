@@ -79,3 +79,13 @@ databaseChangeLog:
         schemaName: public
         tableName: fs_level_5
         quotchar: "\""
+- changeSet:
+    id: load_principal_activity
+    author: mark
+    changes:
+    - loadData:
+        encoding: UTF-8
+        file: db/data/principal_activity.csv
+        schemaName: public
+        tableName: ref_principal_activity
+        quotchar: "\""

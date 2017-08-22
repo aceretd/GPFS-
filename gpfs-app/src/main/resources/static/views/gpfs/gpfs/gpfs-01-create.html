@@ -1,4 +1,5 @@
 <div class="ibox-title">
+  <div>{{updateGpfs.gpfs.company.name}} - {{updateGpfs.gpfs.year}}</div>
   Progress 0%
   <div class="progress">
     <div style="width: 0%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" role="progressbar" class="progress-bar progress-bar-success"></div>
@@ -12,7 +13,7 @@
 	<form ng-submit="next()" class="form-horizontal">
 		<div class="col-md-4">Company</div>
 		<div class="col-md-6">
-			<p class="form-control-static">{{gpfs.company.name}}</p>
+			<p class="form-control-static">{{updateGpfs.gpfs.company.name}}</p>
 		</div>
 		<div class="col-md-4">Year {{initialYear}}</div>
 		<div class="col-md-6">

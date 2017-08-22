@@ -1,4 +1,5 @@
 <div class="ibox-title">
+  <div><strong>{{gpfs.company.name}} - {{gpfs.year}}</strong></div>
   Progress {{gpfs.percentCompleted}}%
   <div class="progress">
     <div style="width: {{gpfs.percentCompleted}}%" aria-valuemax="100" aria-valuemin="{{gpfs.percentCompleted}}" aria-valuenow="0" role="progressbar" class="progress-bar progress-bar-success"></div>
@@ -64,6 +65,10 @@
 					</div>
 				</div>
 			</div>
+		</div>
+		<div class="pull-right mt50">
+			<button type="button" class="btn btn-default">Back to list</button>
+			<button type="submit" class="btn btn-primary">Next</button>
 		</div>
 	</form>
 	<div class="clearfix"></div>

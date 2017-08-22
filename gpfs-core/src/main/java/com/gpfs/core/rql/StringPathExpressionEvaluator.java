@@ -14,9 +14,10 @@ public class StringPathExpressionEvaluator extends AbstractExpressionEvaluator {
     public BooleanExpression evaluate(Path<?> path, ComparisonOperator operator, List<String> arguments) {
         StringExpression e = (StringExpression) path;
         List<String> argsOfExpectedType = cast(e.getType(), arguments);
+        String term;
         switch (operator.getSymbol()) {
         case "==":
-            String term = argsOfExpectedType.get(0);
+            term = argsOfExpectedType.get(0);
             if (term.startsWith("*")) {
                 term = term.substring(1, term.length());
                 return e.endsWithIgnoreCase(term);

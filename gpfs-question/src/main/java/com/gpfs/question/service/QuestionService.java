@@ -1,7 +1,6 @@
 package com.gpfs.question.service;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
+import com.gpfs.core.service.GpfsJpaService;
 import com.gpfs.question.QuestionTemplate;
 
 /**
@@ -9,6 +8,6 @@ import com.gpfs.question.QuestionTemplate;
  * @author mbmartinez
  *
  */
-public interface QuestionService extends JpaRepository<QuestionTemplate, Long> {
+public interface QuestionService extends GpfsJpaService<QuestionTemplate> {
 
 }

@@ -5,8 +5,8 @@ import org.springframework.core.style.ToStringCreator;
 import com.gpfs.coa.dto.ChartOfAccountInfo;
 import com.gpfs.core.dto.BaseInfo;
 import com.gpfs.core.dto.CompanyInfo;
-import com.gpfs.core.dto.schedule.PrincipalActivityInfo;
 import com.gpfs.core.dto.schedule.ReconciliationTableInfo;
+import com.gpfs.question.dto.PrincipalActivityInfo;
 
 public class GpfsInfo extends BaseInfo {
 
@@ -26,7 +26,14 @@ public class GpfsInfo extends BaseInfo {
 	}
 
 	public double getPercentCompleted() {
-		return 6;
+		switch (nextState) {
+		case "gpfs.update.coa":
+			return 6;
+		case "gpfs.update.note1":
+			return 12;
+		default:
+			return 0;
+		}
 	}
 
 	public PrincipalActivityInfo getPrincipalActivity() {

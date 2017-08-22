@@ -5,14 +5,15 @@ angular
 function GpfsCoaController($scope, $state, gpfs, CoaService) {
 	console.debug('Gpfs coa controller');
 	$scope.gpfs = gpfs;
+	$scope.updateGpfs.gpfs = $scope.gpfs;
 
 	if (!gpfs.coa) {
 		CoaService.getTemplate(function (coa) {
 			$scope.gpfs.coa = coa;
-			console.debug('coa=' + JSON.stringify(coa));
+			console.debug('COA updated to template');
 		});
 	} else {
-		console.debug('No need to update COA. coa=' + JSON.stringify(gpfs.coa));
+		console.debug('No need to update COA from template');
 	}
 
 	$scope.nextChild = function (parent, increment) {

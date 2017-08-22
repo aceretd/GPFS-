@@ -9,15 +9,19 @@ function GpfsRootController($scope, $state, GpfsService, company) {
 
 	console.debug('Gpfs root controller');
 
+	$scope.updateGpfs = {
+		gpfs: {
+			company: company,
+			year: PREVIOUS_YEAR
+		}
+	};
 	$scope.company = company;
 	$scope.sequence = [
 		'gpfs.create',
-		'gpfs.update.coa'
+		'gpfs.update.coa',
+		'gpfs.update.note1'
 	];
-	$scope.gpfs = {
-		company: company,
-		year: PREVIOUS_YEAR
-	}
+
 	$scope.back = function () {
 		//Go to the prev state
 		let currentState = $state.current.name;
@@ -25,11 +29,11 @@ function GpfsRootController($scope, $state, GpfsService, company) {
 		let nextState = $scope.sequence.indexOf(currentState) - 1;
 		console.debug('next state index=' + nextState + ', name=' + $scope.sequence[nextState]);
 
-		$scope.gpfs.nextState = nextState;
+		$scope.updateGpfs.gpfs.nextState = $scope.sequence[nextState];
 
-		GpfsService.save($scope.gpfs, function (data) {
-			$scope.gpfs = data;
-			$state.go($scope.sequence[nextState], {companyId: $scope.gpfs.company.id, year: $scope.gpfs.year});
+		GpfsService.save($scope.updateGpfs.gpfs, function (data) {
+			$scope.updateGpfs.gpfs = data;
+			$state.go($scope.sequence[nextState], {companyId: $scope.updateGpfs.gpfs.company.id, year: $scope.updateGpfs.gpfs.year});
 		});
 	};
 	$scope.next = function () {
@@ -39,11 +43,11 @@ function GpfsRootController($scope, $state, GpfsService, company) {
 		let nextState = $scope.sequence.indexOf(currentState) + 1;
 		console.debug('next state index=' + nextState + ', name=' + $scope.sequence[nextState]);
 
-		$scope.gpfs.nextState = nextState;
+		$scope.updateGpfs.gpfs.nextState = $scope.sequence[nextState];
 
-		GpfsService.save($scope.gpfs, function (data) {
-			$scope.gpfs = data;
-			$state.go($scope.sequence[nextState], {companyId: $scope.gpfs.company.id, year: $scope.gpfs.year});
+		GpfsService.save($scope.updateGpfs.gpfs, function (data) {
+			$scope.updateGpfs.gpfs = data;
+			$state.go($scope.sequence[nextState], {companyId: $scope.updateGpfs.gpfs.company.id, year: $scope.updateGpfs.gpfs.year});
 		});
 	};
 
