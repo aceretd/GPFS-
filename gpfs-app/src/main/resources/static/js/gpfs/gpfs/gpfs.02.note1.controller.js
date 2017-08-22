@@ -17,7 +17,7 @@ function GpfsNote1Controller($scope, $state, ReferenceService, gpfs) {
 
 	$scope.refreshPrincipalActivities = function (term) {
 		console.debug('Searching for term=' + term);
-		let activitySearchParams = {term: 'activity=like=' + term, page: 1, count: 10};
+		let activitySearchParams = {term: 'activity=like=' + encodeURIComponent(term), page: 1, count: 10};
 		ReferenceService.principalActivity(activitySearchParams, function (page) {
 	        $scope.principalActivities = page.content;
 	    });
