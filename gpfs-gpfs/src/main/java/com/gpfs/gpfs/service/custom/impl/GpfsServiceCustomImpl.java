@@ -78,6 +78,7 @@ public class GpfsServiceCustomImpl extends GpfsJpaServiceCustomImpl<Gpfs, GpfsIn
 			QuestionAnswerPairInfo qapi = new QuestionAnswerPairInfo();
 			qapi.setQuestion(question);
 			qapi.setAnswer(null);
+			qapi.setEditTemplateMode(false);
 			note.getQuestions().add(qapi);
 		}
 	}

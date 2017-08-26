@@ -10,6 +10,10 @@ public class NoteInfo extends BaseInfo {
 	private int index;
 	private List<QuestionAnswerPairInfo> questions = Lists.newArrayList();
 
+	public String answer(int series) {
+		return questions.stream().filter(q -> q.getQuestion().getSeries() == series).findFirst().get().getAnswer();
+	}
+
 	public int getIndex() {
 		return index;
 	}

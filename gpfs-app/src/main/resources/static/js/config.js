@@ -304,6 +304,12 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
                 }
         	}
         })
+        .state('gpfs.update.note2', {
+        	url: '/note2',
+        	templateUrl: 'views/gpfs/gpfs/gpfs-00-generic.html',
+        	title: 'Financial Reporting Framework',
+        	noteIndex: 2
+        })
 
         // UI Features 
         .state('ui_colors', {

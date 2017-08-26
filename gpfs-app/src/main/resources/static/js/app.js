@@ -9,7 +9,8 @@
         'ui.bootstrap',               // Ui Bootstrap      
         'ngResource',
         'ui.select',
-        'ngSanitize'
+        'ngSanitize',
+        'monospaced.elastic'
     ])
 })();
 

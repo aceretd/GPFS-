@@ -19,6 +19,7 @@ public class QuestionTemplateInfo extends BaseInfo {
 	private String helpText;
 	private String sampleAnswer;
 	private String template;
+	private int series;
 
 	@Override
 	public ToStringCreator toStringCreator() {
@@ -86,6 +87,14 @@ public class QuestionTemplateInfo extends BaseInfo {
 	}
 	public void setTemplate(String template) {
 		this.template = template;
+	}
+
+	public int getSeries() {
+		return series;
+	}
+
+	public void setSeries(int series) {
+		this.series = series;
 	}
 
 }

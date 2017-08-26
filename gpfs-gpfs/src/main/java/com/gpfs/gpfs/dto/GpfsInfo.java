@@ -2,6 +2,7 @@ package com.gpfs.gpfs.dto;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.core.style.ToStringCreator;
 
@@ -11,6 +12,7 @@ import com.gpfs.core.dto.BaseInfo;
 import com.gpfs.core.dto.CompanyInfo;
 import com.gpfs.core.dto.schedule.ReconciliationTableInfo;
 import com.gpfs.question.dto.PrincipalActivityInfo;
+import com.gpfs.question.dto.QuestionTemplateInfo;
 
 public class GpfsInfo extends BaseInfo {
 
@@ -30,6 +32,23 @@ public class GpfsInfo extends BaseInfo {
 				.append("company", company);
 	}
 
+	public String answer(int series) {
+		try {
+			return notes.stream()
+				.flatMap(n -> n.getQuestions().stream())
+				.collect(Collectors.toList())
+				.stream()
+				.filter(qap -> qap.getQuestion().getSeries() == series)
+				.findFirst()
+				.get()
+				.getAnswer();
+		} catch (Exception e) {
+			throw new IllegalArgumentException("Could not find answer to question with series=" + series);
+		}
+	}
+	public NoteInfo note(int idx) {
+		return findNote(idx).get();
+	}
 	public Optional<NoteInfo> findNote(int idx) {
 		return notes.stream().filter(n -> n.getIndex() == idx).findFirst();
 	}

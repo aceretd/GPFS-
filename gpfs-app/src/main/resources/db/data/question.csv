@@ -1,16 +1,146 @@
 ﻿id,series,deleted,section_reference,note,question,type,act_condition,max_answers,sample_answer,help_text,template
-1,100,N,"Section 3.24 (a), (b)",1,Is the company a group of entities?,YES_NO,,0,,,
-2,200,N,,1,The reporting entity a branch?,YES_NO,,0,,sample help text,
-3,300,N,,1,,CONSTANT,,0,,,
-4,400,N,,1,When was the company's incorporation date?,IDENTIFICATION,,0,"March 13, 2000",,"ABC corporation (the Company) was incorporated and registered with the Philippine Securities and Exchange Commission (SEC) on March 13, 2000."
-5,500,N,,1,Give complete address of the principal place of business,IDENTIFICATION,,0,"5th Floor, OPQ Bldg, Hererra St., Makati City, Philippines",,"The company's principal address is at 5th Floor, OPQ Bldg, Hererra St., Makati City, Philppines. "
-6,600,N,,1,What is the principal activity?,MULTIPLE_CHOICE,,0,,,
-7,700,N,,1,,CONSTANT,,0,,,
-8,800,N,Section 3.3,2,Are you willing to comply with IFRS for SMEs?,YES_NO,,0,yes,,"Statement of Compliance
+1,100,N,"Section 3.24 (a), (b)",1,Does the report cover individual entity or group of entities?,YES_NO,,0,,,
+2,200,N,,1,The reporting entity a branch?,YES_NO,,0,,,
+3,300,N,,1,,CONSTANT,,0,,,1 CORPORATE INFORMATION
+4,400,N,,1,Incorporation date,IDENTIFICATION,,0,"March 13, 2000",,ABC corporation (the Company) was incorporated and registered with the Philippine Securities and Exchange Commission (SEC) on <answer>.
+5,500,N,,1,Principal Place of business,IDENTIFICATION,,0,"5th Floor, OPQ Bldg, Hererra St., Makati City, Philippines",,The company's principal address is at <answer>. 
+6,600,N,,2,,CONSTANT,,0,,,2 FINANCIAL REPORTING FRAMEWORK
+7,700,N,Section 3.3,2,Fully comply with IFRS for SMEs?,YES_NO,,0,yes,"Section 3.3 Financial statements shall not be described as complying with the IFRS for SMEs unless they comply with all the requirements of th IFRS for SMEs. In the extremely rare circumstances when management concludes that compliance with this Standard would be so misleading that it would conflict with the objective of financial statements of SMEs, it is best to read Sections 2 and Sections 3.4 to 3.7 of the IFRS for SMEs and/or consult with our CPA advisor.","Statement of Compliance
 The financial statements of the Company have been prepared in accordance with the Philippine Financial Reporting Standard for Small and Medium-sized Entities (PFRS for SMEs) issued by the International Accounting Standards Board (IASB) as approved by the Financial Reporting Standards Council (FRSC) and adopted by the SEC. "
-9,900,N,"Section 8.2 (a), 8.5 (a)",2,Does the company own properties or financial instruments?,YES_NO,,0,yes,,Activate Q10
-10,1000,N,,2,The company's financial statements were prepared using?,MULTIPLE_SELECT,{9=yes},0,a,,"Basis of preparation and presentation
-These financial statements have been prepared using the historical cost accounting convention except for cetain properties carried at fair value "
-11,1100,N,,2,What is the functional currency used?,IDENTIFICATION,,0,Philippine Peso,sample help text,"Functional and Presentation Currency
-These financial statements are presented in Philippines Peso, the currency of the primary economic environment in which the Company operates. All amounts are rounded off to the nearest peso, except when otherwise indicated."
-12,1200,N,Section 5,2,What is the answer?,IDENTIFICATION,,0,Sample answer,Help text,Template
+8,800,N,"Section 8.2 (a), 8.5 (a)",2,Does the company have properties and/or financial instruments that are carried at fair value or amortized cost?,YES_NO,,0,yes,"Section 2.47 An entity measures basic financial assets and basic financial liabilities at amortised cost less impairment except for investments in non-convertible preference shares and non-puttable ordinary or preference shares that are publicly traded or whose fair value can otherwise be measured reliably without undue cost or effort, which are measured at fair value with changes in fair value recognised in profit or loss.
+Section 16 Investment properties. If fair value can be measured reliably without undue cost or effort, use the fair value through profit or loss model. Otherwise  use  cost model (historical cost - depreciation - impairment)",
+9,900,N,,2,These properties and/or financial instruments are recorded at? ,MULTIPLE_SELECT,{8=yes},0,,,
+10,1000,N,,2,What is the functional currency?,IDENTIFICATION,,0,Philippine Peso,,"Functional and Presentation Currency
+These financial statements are presented in <answer>, the currency of the primary economic environment in which the Company operates. All amounts are rounded off to the nearest peso, except when otherwise indicated."
+11,1100,N,,3,,CONSTANT,,0,,,3 SIGNIFICANT ACCOUNTING POLICIES
+12,1200,N,,3,,CONSTANT,,0,,,"Financial Instruments
+The Company classifies its financial instruments as either basic financial instruments or other financial instruments. Financial instruments are recognized only when the entity becomes a party to the contractual provisions of the instrument.
+Basic Financial Instruments
+The Company’s basic financial assets and liabilities are measured initially at transaction price including transaction costs except for those that are measured at fair value through profit or loss. "
+13,1300,N,Section 11.40,3,Does the company have basic financial instruments measured using amortized cost?,YES_NO,{8=yes},0,,Section 11 requires an amortised cost model for all basic financial instruments except for investments in non-convertible preference shares and non-puttable ordinary or preference shares that are publicly traded or whose fair value can otherwise be measured reliably without undue cost or effort.,
+14,1400,N,,3,Are there basic Financial instruments measured at fair value through profit and loss?,YES_NO,{13=no},0,,Section 11.4 Investments in non-convertible preference shares and non-puttable ordinary or preference shares that are publicly traded or whose fair value can otherwise be measured reliably without undue cost or effort.,
+15,1500,N,,3,Were there any derecognition of financial assets and financial liabilities?,YES_NO,,0,,"Section 11.33 
+An entity shall derecognise a financial asset only when either:
+(a) the contractual rights to the cash flows from the financial asset expire or
+are settled;
+(b) the entity transfers to another party substantially all of the risks and
+rewards of ownership of the financial asset; or
+(c) the entity, despite having retained some significant risks and rewards of
+ownership, has transferred control of the asset to another party and the
+other party has the practical ability to sell the asset in its entirety to an
+unrelated third party and is able to exercise that ability unilaterally and
+without needing to impose additional restrictions on the transfer—in
+this case, the entity shall:
+(i) derecognise the asset; and
+(ii) recognise separately any rights and obligations retained or
+created in the transfer.",
+16,1600,N,,3,Were there any impairment of Financial assets measured at cost or amortized cost,YES_NO,,0,,"Section 11.21 At the end of each reporting period, an entity shall assess whether there is objective evidence of impairment of any financial assets that are measured at cost or amortised cost. If there is objective evidence of impairment, the entity shall recognise an impairment loss in profit or loss immediately. For guidance in assessing if the assets are impaired read sections 11.22-24 of the IFRS for SMEs ",
+17,1700,N,Section 13.22 (a),3,Select all applicable costs related to inventory,MULTIPLE_CHOICE,{COA20000s=yes},0,,"Costs related to inventory: Section 13.5 All cost to purchase, cost of conversion and other related cost incurred in bringing the inventories to their present location and condition. Section 13.13 Inventory cost EXCLUDES abnormal waste and storage, administrative, and selling costs ",
+18,1800,N,Section 14.12 (a),3,The investments in associates are recorded using what method?,MULTIPLE_CHOICE,{COA40300s=yes},0,,,
+19,1900,N,Section 15.19 (a),3,The interests in joint ventures are recorded using what method?,MULTIPLE_CHOICE,{COA40400s=yes},0,,,
+20,2000,N,,3,What is the nature of the  investment property?,IDENTIFICATION,{COA40700s=yes},0,land,,"Investment property
+The Company owns a <answer> that is held to earn long-term rental income and for capital appreciation classified as investment property. Investment property is initially measured at cost. "
+21,2100,N,,3,What are included in the cost of the investment property?,IDENTIFICATION,{COA40700s=yes},0,"broker's fees, transfer taxes and illegal settler evacuation expenses",,"Cost includes <answer>.  Subsequent to initial recognition, investment property is carried at fair value, derived from the current market prices for comparable real estate determined annually by external valuers. The valuers use observable market prices, adjusted if necessary for any difference in the nature, location or condition of the specific asset. Changes in fair value are recognized in profit or loss.
+
+If a reliable measure of the fair value of investment property is no longer available without undue cost or effort, investment properties shall be accounted for as property, plant and equipment until a reliable measure of fair value becomes available. The carrying amount of the investment property on that date becomes its cost. 
+
+Investment property is derecognized by the Company upon its disposal or when the investment property is permanently withdrawn from use and no future economic benefits are expected from its disposal. Gains and losses on disposals are determined by comparing the proceeds with the carrying amount and are recognized in profit or loss.
+
+"
+22,2200,N,,3,Enumerate the categories of your property plant and equipments and the annual rates of depreciation for each,IDENTIFICATION,{COA30000s=yes},0,"Leasehold improvements - 5 years
+Furniture and Fixtures - 5 years
+Office equipment - 5 years",,"Property Plant and Equipment
+
+Property plant and equipment are initially measured at cost. Cost includes purchase price, taxes, installation and estimated dismantling cost. At the end of each reporting period, items of property, plant and equipment are measured at cost less accumulated depreciation and accumulated impairment loss.
+
+Subsequent expenditures relating to an item of property, plant and equipment that have already been recognized are added to the carrying amount of the asset when it is probable that future economic benefits, in excess of the originally assessed standard of performance of the existing asset, will flow to the Company.  All other subsequent expenditures are recognized as expenses in the period in which those are incurred.
+
+Major spare parts and stand-by equipment qualify as property, plant and equipment when the Company expects to use them during more than one period.  Similarly, if the spare parts and servicing equipment can be used only in connection with an item of property, plant and equipment, they are accounted for as property, plant and equipment 
+
+Estimated future dismantlement costs of items of property, plant and equipment arising from legal or constructive obligations are recognized as part of property, plant and equipment and are measured at present value at the time the obligation was incurred.
+
+Depreciation is charged so as to allocate the cost of assets less their residual values over their estimated useful lives, using the straight-line method. The following annual rates are used for the depreciation of property, plant and equipment:
+<answer>
+
+The assets’ residual values, useful lives and depreciation methods are reviewed, and adjusted prospectively if appropriate, if there is an indication of a significant change since the last reporting date.  An asset’s carrying amount is written down immediately to its recoverable amount if the asset’s carrying amount is greater than its estimated recoverable amount.
+ 
+Property, plant and equipment is derecognized by the Company, Branch, Bank, or any appropriate alternative upon its disposal or when the property, plant and equipment is permanently withdrawn from use and no future economic benefits are expected from its disposal. Gains and losses on disposals are determined by comparing the proceeds with the carrying amount and are recognized in profit or loss."
+23,2300,N,,3,State the items under biological assets,ENUMERATION,{COA40600s=yes},0,"Fruit bearing trees 
+Vegtables 
+Poultry",,
+24,2400,N,,3,Is fair value of the biological  assets determinable without undue cost or effort?,YES_NO,{COA40600s=yes},0,,,
+25,2500,N,Section 34.10(b),3,State the number of years of useful lives of each biological asset,IDENTIFICATION,{24=no},0,"Fruit bearing trees - 24yrs
+Vegtables - 3yrs
+Poultry- 2yrs",,"Biological assets
+Biological assets comprise <answer in 24>. Biological assets are carried at cost less accumulated depreciation and any accumulated impairment losses, as the fair value of these biological assets cannot be reliably determined without undue cost or effort due to the inexistence of an active market, the lack of reliable evidence about comparable market transactions and the limited availability of historical data about the yields of the Company’s  <answer in 24>. Cost represents the historic cost of acquisition.
+Depreciation of biological assets is calculated using the straight-line method to allocate the cost less its residual value over its estimated useful life of:
+<answer>
+The residual values, useful lives and depreciation method of the biological assets are reviewed, and adjusted if appropriate, if there is an indication of a change since the last reporting date.
+"
+26,2600,N,Section 18.27 (a) (b),3,Does the company recognize intangible asset Goodwill?,YES_NO,,0,,,
+27,2700,N,Section 18.27 (a) (b),3,"What are the company's intangible assets, other than goodwill?",MULTIPLE_CHOICE,{COA40800s=yes},0,,,
+28,2800,N,,3,Does the company have research and development costs that form part of an asset?,YES_NO,,0,,,
+29,2900,N,,3,"How  many years is the estimated useful lives of your trademarks, licences and customer related intangible assets ? ",IDENTIFICATION,{COA40800s=yes},0,"Trademark - __years
+License - ___years
+(Others) - ____years",,"Amortization is calculated using the straight-line method to allocate the cost of trademarks, licences and customer related intangible assets over their estimated useful lives, as follows: 
+<answer>"
+30,3000,N,,3,Are computer software licenses one of the listed intangible assets?,YES_NO,{COA40800s=yes},0,,,
+31,3100,N,,3,Specify the software name,IDENTIFICATION,{30=yes},0,customized Quickbooks 3.2,,Acquired <answer> are capitalized on the basis of the costs incurred to acquire and bring to use the <answer>. These costs are amortized over their estimated useful lives of three to five years. 
+32,3200,N,,3,Does the company impair tangible and intangible assets other than inventories?,YES_NO,,0,,,
+33,3300,N,,3,Does the company have provisions for  restructuring costs and legal claims?,YES_NO,,0,,,
+34,3400,N,Section 26.18,3,What plan does the company have for its employee benefits?,MULTIPLE_CHOICE,{COA51100s=yes},0,,,
+35,3500,N,Section 26.20,3,What does the company use to measure the fair value of the stock options and ESPP (Employee stock purchase plan)?,MULTIPLE_CHOICE,{COA60600s=yes},0,,,
+36,3600,N,,3,,CONSTANT,,0,,,"Revenue Recognition
+Revenue is recognized to the extent that it is probable that the economic benefits will flow to the Company and the revenue can be measured reliably.  Revenue is measured at the fair value of the consideration received or receivable and represents amounts receivable for goods and services provided in the normal course of business."
+37,3700,N,Section 23.30 (a),3,Choose the types of revenues applicable to the company. ,MULTIPLE_SELECT,,7,,,
+38,3800,N,"Section 5.11 (a), (b)",3,Choose how the company presents its expenses in the statement of income. ,MULTIPLE_CHOICE,,0,,,
+39,3900,N,,3,What are the components of the company's cost of sales?,IDENTIFICATION,{38=b},0,"direct labor, direct materials, overhead costs, inventory, discount and rebates",,Cost of sales are expenses incurred that are associated with the goods sold and includes <answer>.  
+40,4000,N,,3,Operating expenses include?,MULTIPLE_SELECT,,4,,,
+41,4100,N,"Section 23.31 (b), (c)",3,,CONSTANT,{COA70300s=yes},0,,,"Construction Contracts  
+The outcome of a construction contract can be estimated reliably, revenue and costs are recognized by reference to the stage of completion of the contract activity at the reporting date.  This is normally measured by the proportion that contract costs incurred for work performed to date relative to the estimated total contract costs, except when this would not be representative of the stage of completion.  Variations in contract work, claims and incentive payments are included to the extent that they have been agreed with the customer.
+If the outcome of a construction contract cannot be estimated reliably, contract revenue is recognized to the extent of recoverable contract costs incurred.  Contract costs are recognized as expenses in the period in which they are incurred.
+It is probable that total contract costs will exceed total contract revenue; the expected loss is recognized as an expense immediately.
+The percentage-of-completion method is applied on a cumulative basis in each accounting period to the current estimates of contract revenue and contract costs.  Any effect of a change in the estimate of contract revenue or contract costs, or the effect of a change in the estimate of the outcome of a contract, is accounted for as a change in accounting estimate."
+42,4200,N,,3,,CONSTANT,,0,,,"Equity Instruments
+An equity instrument is any contract that evidences a residual interest in the assets of the Company after deducting all of its liabilities.  
+Ordinary shares are classified as equity.  Incremental costs directly attributable to the issue of new shares or options are shown in equity as a deduction from the proceeds, net of tax.  The costs of acquiring Company’s own shares are shown as a deduction from equity attributable to the Company’s equity holders until the shares are cancelled or reissued.  Such shares are subsequently sold or reissued, any consideration received, net of directly attributable incremental transaction costs and the related income tax effects, is included in equity attributable to the Company’s equity holders."
+43,4300,N,,3,,CONSTANT,{2=yes},0,,,"The Branch classifies home office account as equity since it represents a residual interest in the assets of the Branch after deduction all of its liabilities.
+The head office account represents a residual interest in the assets of the Branch after deducting all of its liabilities.  This includes remittances from head office, unrealized holding gain from investments and the result of operations of the Company."
+44,4400,N,,3,Is the company a lessor?,YES_NO,,0,,,
+45,4500,N,,3,Lease is under Finance or Operating Lease?,MULTIPLE_CHOICE,{44=yes},0,,,
+46,4600,N,,3,Is the company a lessee?,YES_NO,,0,,,
+47,4700,N,,3,Lease is under Finance or Operating Lease?,MULTIPLE_CHOICE,{46=yes},0,,,
+48,4800,N,,3,Do the company have transactions in currencies other than  the functional currency of the company?,YES_NO,,0,,,
+49,4900,N,,3,Does the company have non-monetary assets or liabilities that are denominated in foreign currency?,YES_NO,{48=yes},0,,,
+50,5000,N,,3,These non-monetary assets or liabilities are denominated in foreign currency are carried at fair value or historical cost?,MULTIPLE_CHOICE,{49=yes},0,,,
+51,5100,N,,3,Does the company have related party transactions?,YES_NO,,0,,,
+52,5200,N,,3,Does the company have government grants?,YES_NO,,0,,,
+53,5300,N,,3,Did the company use MCIT in the previous year then not in the current year or vice versa?,YES_NO,,0,,,
+54,5400,N,Section 29.30,3,The company's income tax is computed using?,MULTIPLE_CHOICE,{53=no},0,,,
+55,5500,N,,3,What are the income tax rates used for the current and previous year respectively?,IDENTIFICATION,{53=no},0,5% and 2%,,"Taxation
+Income tax expense represents the sum of the current tax expense and deferred tax.
+The tax currently payable is based on taxable profit for the year.  Taxable profit differs from net profit as reported in the statements of comprehensive income because it excludes items of income or expense that are taxable or deductible in other years and it further excludes items that are never taxable or deductible.  The Company’s liability for current tax is calculated using <answer 55> tax rate for <CY> and <PY>, respectively.
+"
+56,5600,N,Section 29.32 (b),3,,CONSTANT,,0,,,"Deferred tax is recognized on differences between the carrying amounts of assets and liabilities in the financial statements and the corresponding tax base used in the computation of taxable profit and are accounted for using the balance sheet liability method.  Deferred tax liabilities are generally recognized for all taxable temporary differences, while deferred tax assets are generally recognized for all deductible temporary differences to the extent that it is probable that taxable profits will be available against which those deductible temporary differences can be utilized."
+57,5700,N,Section 29.19,3,,CONSTANT,{26=yes},0,,,"Such assets and liabilities are not recognized if the temporary difference arises from initial recognition of goodwill and initial recognition of an asset or liability that is a business combination, or at the time of the transaction affects neither the taxable profit nor the accounting profit."
+58,5800,N,,3,,CONSTANT,{COA40300s=yes},0,,,"Deferred tax liabilities are recognized for taxable temporary differences arising on investments in associates, except when the Company is able to control the reversal of the temporary difference and it is probable that the temporary difference will not reverse in the foreseeable future."
+59,5900,N,,3,,CONSTANT,{COA40400s=yes},0,,,"Deferred tax liabilities are recognized for taxable temporary differences arising from interests in joint ventures, except when the Company is able to control the reversal of the temporary difference and it is probable that the temporary difference will not reverse in the foreseeable future."
+60,6000,N,,3,,CONSTANT,{COA40300s=yes AND COA40400s=yes},0,,,"Deferred tax liabilities are recognized for taxable temporary differences arising on investments in associates and interests in joint ventures, except when the Company is able to control the reversal of the temporary difference and it is probable that the temporary difference will not reverse in the foreseeable future."
+61,6100,N,Section 29.31,3,,CONSTANT,,0,,,"The Company reviews the net carrying amount of a deferred tax asset at each reporting date and adjusts the valuation allowance to reflect the current assessment of future taxable profits. Such adjustment shall be recognized in profit or loss, except that an adjustment attributable to an item of income or expense recognized in accordance with this PFRS as other comprehensive income shall also be recognized in other comprehensive income.
+
+Deferred tax is calculated at the tax rates that are expected to apply in the period the liability is settled or the asset is realized.  Deferred tax is charged or credited in profit or loss, except when  it relates to items charged or credited directly to equity, in which case the deferred tax is also dealt with in equity."
+62,6200,N,,3,,CONSTANT,,0,,,Deferred tax assets and liabilities are offset  there is a legally enforceable right to set off current tax assets against current tax liabilities and  they relate to income taxes levied by the same taxation authority and the Company intends to settle its current tax assets and liabilities on a net basis.
+63,6300,N,,3,Does the company have reportable events  after the end of the reporting period?,YES_NO,,0,,,
+64,6400,N,,4,Is this the first time the company will use PFRS for SMEs?,YES_NO,,0,,,
+65,6500,N,,4,Last note +1,CONSTANT,{65=yes},0,,,Last note +1 TRANSITION TO THE PFRS FOR SMEs
+66,6600,N,,4,,CONSTANT,{65=yes},0,,,"Basis of Transition
+Application of the PFRS for SME
+The Company’s financial statements for the year ended <prior year ending day> are its first annual financial statements prepared under accounting policies that comply with the PFRS for SMEs.
+<Company Name>'s transition date is <prior year beginning day>, the Company prepared its opening PFRS for SMEs statements of financial position at that date. "
+67,6700,N,,4,Among the optional exemptions in the full retrospective application of the PFRS for SMEs did the company apply any of it?,YES_NO,{65=yes},0,,,
+68,6800,N,Section 35.9,4,,CONSTANT,{68=yes},0,,,"Optional Exemptions from Full Retrospective Application 
+The Company has applied the following optional exemptions from full retrospective application: "
+69,6900,N,Section 35.10,4,The optional exemptions applied is/are:,MULTIPLE_SELECT,{68=yes},11,,,
+70,7000,N,,5,In the transition to PFRS for SMEs is there an effect on the company's equity or profit? ,YES_NO,{65=yes},0,,,
+71,7100,N,,5,Last note +1,CONSTANT,{71=yes},0,,,Last note +1 RECONCILIATION
+72,7200,N,Section 35.13,5,What was standards was used prior to this PFRS for SMEs?,MULTIPLE_CHOICE,{71=yes},0,,,

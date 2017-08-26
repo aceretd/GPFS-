@@ -2,7 +2,7 @@ angular
     .module('AdminUI')
     .controller('GpfsRootController', GpfsRootController);
 
-function GpfsRootController($scope, $state, GpfsService, company) {
+function GpfsRootController($scope, $state, $parse, GpfsService, company) {
 	let INITIAL_YEAR = 2001;
 	let CURRENT_YEAR = $scope.initialYear = new Date().getFullYear();
 	let PREVIOUS_YEAR = CURRENT_YEAR - 1;
@@ -12,14 +12,27 @@ function GpfsRootController($scope, $state, GpfsService, company) {
 	$scope.updateGpfs = {
 		gpfs: {
 			company: company,
-			year: PREVIOUS_YEAR
+			year: PREVIOUS_YEAR,
+			notes: []
+		},
+		answer: function (idx) {
+			for (let i in $scope.updateGpfs.gpfs.notes) {
+				let note = $scope.updateGpfs.gpfs.notes[i];
+				for (let j in note.questions) {
+					if (note.questions[j].question.series === idx) {
+						return note.questions[j].answer;
+					}
+				}
+			}
 		}
 	};
+
 	$scope.company = company;
 	$scope.sequence = [
 		'gpfs.create',
 		'gpfs.update.coa',
-		'gpfs.update.note1'
+		'gpfs.update.note1',
+		'gpfs.update.note2'
 	];
 
 	$scope.back = function () {

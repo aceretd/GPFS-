@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.hibernate.annotations.Type;
+
 import com.gpfs.core.model.BaseEntity;
 import com.gpfs.question.QuestionTemplate;
 
@@ -20,6 +22,14 @@ public class QuestionAnswerPair extends BaseEntity {
 	@Column(name = "answer")
 	private String answer;
 
+	@Column(name = "template")
+	@Type(type = "text")
+	private String template;
+
+	@Column(name = "edit_template_mode")
+	@Type(type = "yes_no")
+	private boolean editTemplateMode = false;
+
 	public QuestionTemplate getQuestion() {
 		return question;
 	}
@@ -34,6 +44,22 @@ public class QuestionAnswerPair extends BaseEntity {
 
 	public void setAnswer(String answer) {
 		this.answer = answer;
+	}
+
+	public String getTemplate() {
+		return template;
+	}
+
+	public void setTemplate(String template) {
+		this.template = template;
+	}
+
+	public boolean isEditTemplateMode() {
+		return editTemplateMode;
+	}
+
+	public void setEditTemplateMode(boolean editTemplateMode) {
+		this.editTemplateMode = editTemplateMode;
 	}
 
 }
