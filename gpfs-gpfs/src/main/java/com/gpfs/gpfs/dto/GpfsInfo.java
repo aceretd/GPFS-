@@ -1,7 +1,11 @@
 package com.gpfs.gpfs.dto;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.core.style.ToStringCreator;
 
+import com.google.common.collect.Lists;
 import com.gpfs.coa.dto.ChartOfAccountInfo;
 import com.gpfs.core.dto.BaseInfo;
 import com.gpfs.core.dto.CompanyInfo;
@@ -13,6 +17,7 @@ public class GpfsInfo extends BaseInfo {
 	private CompanyInfo company;
 	private int year;
 	private ChartOfAccountInfo coa;
+	private List<NoteInfo> notes = Lists.newArrayList();
 	private PrincipalActivityInfo principalActivity;
 	private ReconciliationTableInfo reconciliationTable;
 
@@ -25,7 +30,15 @@ public class GpfsInfo extends BaseInfo {
 				.append("company", company);
 	}
 
+	public Optional<NoteInfo> findNote(int idx) {
+		return notes.stream().filter(n -> n.getIndex() == idx).findFirst();
+	}
+
 	public double getPercentCompleted() {
+		if (null == nextState) {
+			return 0;
+		}
+
 		switch (nextState) {
 		case "gpfs.update.coa":
 			return 6;
@@ -79,6 +92,14 @@ public class GpfsInfo extends BaseInfo {
 
 	public void setNextState(String nextState) {
 		this.nextState = nextState;
+	}
+
+	public List<NoteInfo> getNotes() {
+		return notes;
+	}
+
+	public void setNotes(List<NoteInfo> notes) {
+		this.notes = notes;
 	}
 
 }

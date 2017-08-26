@@ -2,6 +2,8 @@ package com.gpfs.question.dto;
 
 import java.util.List;
 
+import org.springframework.core.style.ToStringCreator;
+
 import com.gpfs.core.dto.BaseInfo;
 import com.gpfs.question.QuestionType;
 
@@ -17,6 +19,13 @@ public class QuestionTemplateInfo extends BaseInfo {
 	private String helpText;
 	private String sampleAnswer;
 	private String template;
+
+	@Override
+	public ToStringCreator toStringCreator() {
+		return super.toStringCreator()
+				.append("note", note)
+				.append("question", question);
+	}
 
 	public String getSectionReference() {
 		return sectionReference;

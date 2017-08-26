@@ -48,6 +48,8 @@ public interface GpfsJpaServiceCustom<E extends BaseEntity, D extends BaseInfo> 
 
     List<D> findAllInfo(Predicate predicate);
 
+    List<D> findAllInfo(Sort sort);
+
     List<D> findAllInfo(Predicate predicate, Sort sort);
 
     default ImmutableMap<String, Path<?>> getFieldMapping() {

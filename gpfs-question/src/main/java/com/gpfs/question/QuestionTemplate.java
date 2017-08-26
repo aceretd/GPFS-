@@ -8,8 +8,6 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 import org.hibernate.annotations.Type;
 
@@ -32,6 +30,12 @@ public class QuestionTemplate extends BaseEntity {
 
 	@Column(name = "note", nullable = false)
 	private int note;
+
+	/**
+	 * The order in which the questions appear per note, ascending
+	 */
+	@Column(name = "series")
+	private int series;
 
 	@Column(name = "question")
 	@Type(type = "text")
@@ -153,6 +157,14 @@ public class QuestionTemplate extends BaseEntity {
 
 	public void setSampleAnswer(String sampleAnswer) {
 		this.sampleAnswer = sampleAnswer;
+	}
+
+	public int getSeries() {
+		return series;
+	}
+
+	public void setSeries(int series) {
+		this.series = series;
 	}
 
 }

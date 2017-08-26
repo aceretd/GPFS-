@@ -33,7 +33,7 @@ function GpfsCoaController($scope, $state, gpfs, CoaService) {
 				previousYearAmount: 0
 			});
 			break;
-		case 5000:
+		case 1000:
 			child.children.push({
 				accountNumber: 100,
 				children: [{
@@ -46,12 +46,42 @@ function GpfsCoaController($scope, $state, gpfs, CoaService) {
 		parent.children.push(child);
 	};
 
-	$scope.isFs3last = function (fs3, acctNo) {
-		if (!fs3 || !acctNo) {
-			return false;
+	$scope.totals = function () {
+		if (!$scope.gpfs.coa) {
+			return [0, 0];
 		}
-		console.debug(fs3.children.length + ' vs ' + acctNo);
-		return fs3.children.length === acctNo/5000;
+		let currentYearTotal = 0;
+		let previousYearTotal = 0;
+		for (var i in $scope.gpfs.coa.children) {
+			let fs1 = $scope.gpfs.coa.children[i];
+			for (var j in fs1.children) {
+				let fs2 = fs1.children[j];
+				for (var k in fs2.children) {
+					let fs3 = fs2.children[k];
+					for (var l in fs3.children) {
+						let fs4 = fs3.children[l];
+						for (var m in fs4.children) {
+							let fs5 = fs4.children[m];
+							for (var n in fs5.children) {
+								let fs6 = fs5.children[n];
+								currentYearTotal += fs6.currentYearAmount;
+								previousYearTotal += fs6.previousYearAmount;
+							}
+						}
+					}
+				}
+			}
+		}
+		return [currentYearTotal, previousYearTotal];
+	};
+
+	$scope.validateAndNext = function () {
+		let totals = $scope.totals();
+		if (totals[0] !== 0 || totals[1] !== 0) {
+			alert('Current year amounts and previous yer amounts must total 0');
+		} else {
+			$scope.next();
+		}
 	};
 
 }

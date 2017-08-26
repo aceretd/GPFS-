@@ -1,10 +1,13 @@
 package com.gpfs.gpfs;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
@@ -30,6 +33,10 @@ public class Gpfs extends BaseEntity {
 
 	@Column(name = "year", nullable = false)
 	private int year;
+
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	@JoinColumn(name = "gpfs_id")
+	private List<Note> notes;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "coa_id")
@@ -92,6 +99,14 @@ public class Gpfs extends BaseEntity {
 
 	public void setNextState(String nextState) {
 		this.nextState = nextState;
+	}
+
+	public List<Note> getNotes() {
+		return notes;
+	}
+
+	public void setNotes(List<Note> notes) {
+		this.notes = notes;
 	}
 
 }

@@ -1,19 +1,23 @@
 package com.gpfs.gpfs.service.custom.impl;
 
+import java.util.List;
 import java.util.Optional;
 
-import org.assertj.core.util.Lists;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 
-import com.gpfs.coa.model.ChartOfAccount;
 import com.gpfs.coa.service.ChartOfAccountService;
 import com.gpfs.core.service.GpfsJpaServiceCustomImpl;
 import com.gpfs.gpfs.Gpfs;
 import com.gpfs.gpfs.dto.GpfsInfo;
+import com.gpfs.gpfs.dto.NoteInfo;
+import com.gpfs.gpfs.dto.QuestionAnswerPairInfo;
 import com.gpfs.gpfs.service.GpfsService;
 import com.gpfs.gpfs.service.custom.GpfsServiceCustom;
+import com.gpfs.question.dto.QuestionTemplateInfo;
+import com.gpfs.question.service.QuestionTemplateService;
 
 /**
  *
@@ -27,6 +31,9 @@ public class GpfsServiceCustomImpl extends GpfsJpaServiceCustomImpl<Gpfs, GpfsIn
 
 	@Autowired
 	private ChartOfAccountService coaService;
+
+	@Autowired
+	private QuestionTemplateService questionService;
 
 	@Override
 	public GpfsInfo findInfoByCompanyIdAndYear(Long companyId, int year) {
@@ -45,6 +52,7 @@ public class GpfsServiceCustomImpl extends GpfsJpaServiceCustomImpl<Gpfs, GpfsIn
 				return toDto(existing.get());
 			} else {
 				addFinancialStatements(gpfs);
+				addQuestions(gpfs);
 			}
 		}
 		return super.saveInfo(gpfs);
@@ -54,4 +62,23 @@ public class GpfsServiceCustomImpl extends GpfsJpaServiceCustomImpl<Gpfs, GpfsIn
 		gpfs.setCoa(coaService.getTemplateInfo());
 	}
 
+	private void addQuestions(GpfsInfo gpfs) {
+		List<QuestionTemplateInfo> questions = questionService.findAllInfo(new Sort("note", "series"));
+		for (QuestionTemplateInfo question : questions) {
+			LOG.debug("Adding quesetion to new GPFS. question={}", question);
+			Optional<NoteInfo> noteOpt = gpfs.findNote(question.getNote());
+			NoteInfo note;
+			if (noteOpt.isPresent()) {
+				note = noteOpt.get();
+			} else {
+				note = new NoteInfo();
+				note.setIndex(question.getNote());
+				gpfs.getNotes().add(note);
+			}
+			QuestionAnswerPairInfo qapi = new QuestionAnswerPairInfo();
+			qapi.setQuestion(question);
+			qapi.setAnswer(null);
+			note.getQuestions().add(qapi);
+		}
+	}
 }

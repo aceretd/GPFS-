@@ -98,6 +98,12 @@ public abstract class GpfsJpaServiceCustomImpl<E extends BaseEntity, D extends B
     }
 
     @Override
+    public List<D> findAllInfo(Sort sort) {
+        List<E> entities = (List<E>) repo.findAll(sort);
+        return toDto(entities);
+    }
+
+    @Override
     public List<D> findAllInfo(Predicate predicate) {
         List<E> entities = (List<E>) repo.findAll(predicate);
         return toDto(entities);
