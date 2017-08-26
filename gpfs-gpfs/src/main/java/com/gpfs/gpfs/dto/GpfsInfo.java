@@ -63,6 +63,10 @@ public class GpfsInfo extends BaseInfo {
 			return 6;
 		case "gpfs.update.note1":
 			return 12;
+		case "gpfs.update.note2":
+			return 14;
+		case "gpfs.update.note3":
+			return 17;
 		default:
 			return 0;
 		}

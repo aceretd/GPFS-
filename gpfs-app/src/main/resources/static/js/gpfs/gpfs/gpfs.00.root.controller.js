@@ -32,7 +32,8 @@ function GpfsRootController($scope, $state, $parse, GpfsService, company) {
 		'gpfs.create',
 		'gpfs.update.coa',
 		'gpfs.update.note1',
-		'gpfs.update.note2'
+		'gpfs.update.note2',
+		'gpfs.update.note3'
 	];
 
 	$scope.back = function () {

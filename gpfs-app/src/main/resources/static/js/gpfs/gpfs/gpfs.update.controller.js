@@ -10,6 +10,9 @@ function GpfsUpdateController($scope, $state, $filter, gpfs) {
 	$scope.noteIndex = $state.current.noteIndex;
 
 	$scope.note = function (idx) {
+		if (!$scope.gpfs.notes) {
+			return {};
+		}
 		return $scope.gpfs.notes.filter(function (note) {
 			return note.index === idx;
 		})[0];
