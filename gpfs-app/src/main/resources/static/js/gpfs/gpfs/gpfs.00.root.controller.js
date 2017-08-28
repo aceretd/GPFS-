@@ -24,6 +24,29 @@ function GpfsRootController($scope, $state, $parse, GpfsService, company) {
 					}
 				}
 			}
+		},
+		coa: function (acctNo) {
+			for (let i in $scope.updateGpfs.gpfs.coa.children) {
+				let fs1 = $scope.updateGpfs.gpfs.coa.children[i];
+				for (let j in fs1.children) {
+					let fs2 = fs1.children[j];
+					for (let k in fs2.children) {
+						let fs3 = fs2.children[k];
+						for (let l in fs3.children) {
+							let fs4 = fs3.children[l];
+							for (let m in fs4.children) {
+								let fs5 = fs4.children[m];
+								for (let n in fs5.children) {
+									let fs6 = fs5.children[n];
+									if ($scope.accountNumber(fs4, fs5, fs6) === acctNo) {
+										return fs6.currentYearAmount;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
 		}
 	};
 
@@ -33,7 +56,8 @@ function GpfsRootController($scope, $state, $parse, GpfsService, company) {
 		'gpfs.update.coa',
 		'gpfs.update.note1',
 		'gpfs.update.note2',
-		'gpfs.update.note3'
+		'gpfs.update.note3',
+		'gpfs.update.note4'
 	];
 
 	$scope.back = function () {

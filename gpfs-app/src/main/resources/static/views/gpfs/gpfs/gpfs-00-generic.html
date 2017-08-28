@@ -12,16 +12,38 @@
   <div class="widgets-container">
   	<form ng-submit="next()" class="form-horizontal">
 
-		<div class="row mb10" ng-repeat="qap in note(noteIndex).questions">
+		<div class="row mb10" ng-repeat="qap in note(noteIndex).questions" ng-if="isActivated(qap)">
 			<div class="col-md-2">{{qap.question.question}}</div>
 			<div class="col-md-3">
+				<!-- Yes/No -->
 				<select ng-model="qap.answer" ng-if="qap.question.type === 'YES_NO'" ng-change="updateTemplate(qap)" name="yes_no_{{$index}}" class="form-control" required>
 					<option value="" disabled="disabled">Choose one...</option>
 					<option>Yes</option>
 					<option>No</option>
 				</select>
+				
+				<!-- Identification -->
 				<input type="text" ng-model="qap.answer" ng-if="qap.question.type === 'IDENTIFICATION'" ng-change="updateTemplate(qap)" ng-readonly="qap.editTemplateMode"
 					ng-required="!qap.editTemplateMode" placeholder="{{qap.question.sampleAnswer}}" class="form-control" />
+				
+				<!-- Multiple choice -->
+				<select ng-model="qap.answer" ng-if="qap.question.type === 'MULTIPLE_CHOICE'" ng-change="updateTemplate(qap)" name="mc_{{$index}}"
+					 ng-disabled="qap.editTemplateMode"
+					 ng-options="option.answer as option.answer for option in qap.question.answers"
+					 class="form-control"> <!-- TODO add required here -->
+				</select>
+
+				<!-- Enumeration -->
+				<div ng-if="qap.question.type === 'ENUMERATION'" ng-init="qap.enumerationAnswers.length > 0 || qap.enumerationAnswers.push('')">
+					<!-- When answers > 1, allow remove -->
+					<div class="input-group" ng-repeat="enum in qap.enumerationAnswers track by $index">
+						<input type="text" ng-model="qap.enumerationAnswers[$index]" class="form-control mb10" required/>
+						<span class="input-group-btn" title="Remove answer">
+							<button ng-click="qap.enumerationAnswers.splice($index, 1)" ng-disabled="qap.enumerationAnswers.length <= 1" type="button" class="btn red"><span class="fa fa-close"></span></button>
+						</span>
+					</div>
+					<button type="button" ng-click="qap.enumerationAnswers.push('')" class="btn btn-primary"><span class="fa fa-plus"> Add</span></button>
+				</div>
 			</div>
 			<div class="col-md-6">
 				<div class="col-md-10">

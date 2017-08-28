@@ -1,9 +1,14 @@
 package com.gpfs.gpfs;
 
+import java.util.List;
+
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OrderColumn;
 
 import org.hibernate.annotations.Type;
 
@@ -22,6 +27,11 @@ public class QuestionAnswerPair extends BaseEntity {
 	@Column(name = "answer")
 	private String answer;
 
+	@ElementCollection
+	@CollectionTable(name = "enumeration_answers")
+	@OrderColumn(name = "idx")
+	private List<String> enumerationAnswers;
+	
 	@Column(name = "template")
 	@Type(type = "text")
 	private String template;
@@ -60,6 +70,14 @@ public class QuestionAnswerPair extends BaseEntity {
 
 	public void setEditTemplateMode(boolean editTemplateMode) {
 		this.editTemplateMode = editTemplateMode;
+	}
+
+	public List<String> getEnumerationAnswers() {
+		return enumerationAnswers;
+	}
+
+	public void setEnumerationAnswers(List<String> enumerationAnswers) {
+		this.enumerationAnswers = enumerationAnswers;
 	}
 
 }

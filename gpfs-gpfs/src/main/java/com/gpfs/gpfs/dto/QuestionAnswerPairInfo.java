@@ -1,5 +1,7 @@
 package com.gpfs.gpfs.dto;
 
+import java.util.List;
+
 import com.gpfs.core.dto.BaseInfo;
 import com.gpfs.question.dto.QuestionTemplateInfo;
 
@@ -7,6 +9,7 @@ public class QuestionAnswerPairInfo extends BaseInfo {
 
 	private QuestionTemplateInfo question;
 	private String answer;
+	private List<String> enumerationAnswers;
 	private String template;
 	private boolean editTemplateMode = false;
 
@@ -33,6 +36,12 @@ public class QuestionAnswerPairInfo extends BaseInfo {
 	}
 	public void setEditTemplateMode(boolean editTemplateMode) {
 		this.editTemplateMode = editTemplateMode;
+	}
+	public List<String> getEnumerationAnswers() {
+		return enumerationAnswers;
+	}
+	public void setEnumerationAnswers(List<String> enumerationAnswers) {
+		this.enumerationAnswers = enumerationAnswers;
 	}
 
 }

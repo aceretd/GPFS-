@@ -89,3 +89,13 @@ databaseChangeLog:
         schemaName: public
         tableName: ref_principal_activity
         quotchar: "\""
+- changeSet:
+    id: load_question_mc_answers
+    author: mark
+    changes:
+    - loadData:
+        encoding: UTF-8
+        file: db/data/question_mc_answers.csv
+        schemaName: public
+        tableName: question_mc_answers
+        quotchar: "\""

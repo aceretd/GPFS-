@@ -2,7 +2,7 @@ angular
     .module('AdminUI')
     .controller('GpfsUpdateController', GpfsUpdateController);
 
-function GpfsUpdateController($scope, $state, $filter, gpfs) {
+function GpfsUpdateController($scope, $state, $filter, $parse, gpfs) {
 	console.debug('Gpfs update controller');
 	$scope.gpfs = gpfs;
 	$scope.updateGpfs.gpfs = $scope.gpfs;
@@ -22,7 +22,18 @@ function GpfsUpdateController($scope, $state, $filter, gpfs) {
 		if (qap.editTemplateMode) {
 			return;
 		}
-		qap.template = $filter('replace')(qap.question.template, '<answer>', qap.answer);
+		switch (qap.question.type) {
+		case 'MULTIPLE_CHOICE':
+			let selectedAnswer = qap.question.answers.find(function (ans) {
+				return ans.answer === qap.answer;
+			});
+			if (selectedAnswer) {
+				qap.template = selectedAnswer.template;
+			}
+			break;
+		default:
+			qap.template = $filter('replace')(qap.question.template, '<answer>', qap.answer);
+		}
 	};
 
 	//initialize templates if blank
@@ -41,7 +52,9 @@ function GpfsUpdateController($scope, $state, $filter, gpfs) {
 		} else {
 			console.debug('Checking activation condition. condition=' + qap.question.activationCondition);
 			let isActivated = $parse(qap.question.activationCondition);
-			return isActivated($scope.updateGpfs);
+			let isActivatedAns = isActivated($scope.updateGpfs);
+			console.debug('isActivatedAns=' + isActivatedAns);
+			return isActivatedAns;
 		}
 	};
 
