@@ -73,11 +73,18 @@ public class QuestionTemplate extends BaseEntity {
 	private String sampleAnswer;
 
 	/**
-	 * Not used by yes/no and MC questions
+	 * Not used by MC questions
+	 * Used by yes/no questions when answer=yes
 	 */
 	@Column(name = "template")
 	@Type(type = "text")
 	private String template;
+
+	/**
+	 * ONly used by yes/no questions when answer=no
+	 */
+	@Column(name = "no_template")
+	private String noTemplate;
 
 	public String getQuestion() {
 		return question;
@@ -165,6 +172,14 @@ public class QuestionTemplate extends BaseEntity {
 
 	public void setSeries(int series) {
 		this.series = series;
+	}
+
+	public String getNoTemplate() {
+		return noTemplate;
+	}
+
+	public void setNoTemplate(String noTemplate) {
+		this.noTemplate = noTemplate;
 	}
 
 }

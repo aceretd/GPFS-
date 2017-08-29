@@ -16,7 +16,8 @@
 			<div class="col-md-2">{{qap.question.question}}</div>
 			<div class="col-md-3">
 				<!-- Yes/No -->
-				<select ng-model="qap.answer" ng-if="qap.question.type === 'YES_NO'" ng-change="updateTemplate(qap)" name="yes_no_{{$index}}" class="form-control" required>
+				<select ng-model="qap.answer" ng-if="qap.question.type === 'YES_NO'" ng-change="updateTemplate(qap)"
+					ng-disabled="qap.editTemplateMode" name="yes_no_{{$index}}" class="form-control" required>
 					<option value="" disabled="disabled">Choose one...</option>
 					<option>Yes</option>
 					<option>No</option>
@@ -27,11 +28,16 @@
 					ng-required="!qap.editTemplateMode" placeholder="{{qap.question.sampleAnswer}}" class="form-control" />
 				
 				<!-- Multiple choice -->
-				<select ng-model="qap.answer" ng-if="qap.question.type === 'MULTIPLE_CHOICE'" ng-change="updateTemplate(qap)" name="mc_{{$index}}"
-					 ng-disabled="qap.editTemplateMode"
-					 ng-options="option.answer as option.answer for option in qap.question.answers"
-					 class="form-control"> <!-- TODO add required here -->
-				</select>
+				<div class="radio" ng-repeat="option in qap.question.answers" ng-if="qap.question.type === 'MULTIPLE_CHOICE'">
+				  <label><input type="radio" ng-model="qap.answer"
+					name="radio_{{qap.question_series}}"
+					ng-disabled="qap.editTemplateMode"
+					ng-required="!qap.editTemplateMode"
+					ng-value="option.answer"
+					ng-change="updateTemplate(qap)">{{option.answer}}
+                    <button ng-if="option.helpText" type="button" class="btn btn-default btn-xs btn-outline black" tooltip-placement="Right" popover-placement="right" title="" uib-tooltip="{{option.helpText}}"><span class="fa fa-question"></span></button>
+	  			  </label>
+				</div>
 
 				<!-- Enumeration -->
 				<div ng-if="qap.question.type === 'ENUMERATION'" ng-init="qap.enumerationAnswers.length > 0 || qap.enumerationAnswers.push('')">
@@ -45,7 +51,7 @@
 					<button type="button" ng-click="qap.enumerationAnswers.push('')" class="btn btn-primary"><span class="fa fa-plus"> Add</span></button>
 				</div>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-6" ng-if="hasTemplate(qap)">
 				<div class="col-md-10">
 					<textarea msd-elastic ng-if="[100, 200].indexOf(qap.question.series) == -1" ng-model="qap.template" ng-readonly="!qap.editTemplateMode" class="form-control"
 						required style="resize: vertical;"></textarea>

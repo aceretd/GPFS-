@@ -1,17 +1,219 @@
-question_id,answer,template
-10,a) Properties carried at fair value,"Basis of preparation and presentation
-These financial statements have been prepared using the historical cost accounting convention except for cetain properties carried at fair value "
-10,b) Financial instruments carried at fair value or amortized cost,"Basis of preparation and presentation
-These financial statements have been prepared using the historical cost accounting convention except for financial instruments carried at fair value or amortized cost."
-10,c) Both,"Basis of preparation and presentation
-These financial statements have been prepared using the historical cost accounting convention except for cetain properties carried at fair value and financial instruments carried at fair value or amortized cost."
-10,d) none of the above,"Basis of preparation and presentation
-These financial statements have been prepared using the historical cost accounting convention."
-17,a) Properties carried at fair value,"Basis of preparation and presentation
-These financial statements have been prepared using the historical cost accounting convention except for cetain properties carried at fair value "
-17,b) Financial instruments carried at fair value or amortized cost,"Basis of preparation and presentation
-These financial statements have been prepared using the historical cost accounting convention except for financial instruments carried at fair value or amortized cost."
-17,c) Both,"Basis of preparation and presentation
-These financial statements have been prepared using the historical cost accounting convention except for cetain properties carried at fair value and financial instruments carried at fair value or amortized cost."
-17,d) none of the above,"Basis of preparation and presentation
-These financial statements have been prepared using the historical cost accounting convention."
+question_id,answer,template,help_text
+9,a) Properties carried at fair value,"Basis of preparation and presentation
+These financial statements have been prepared using the historical cost accounting convention except for cetain properties carried at fair value ",
+9,b) Financial instruments carried at fair value or amortized cost,"Basis of preparation and presentation
+These financial statements have been prepared using the historical cost accounting convention except for financial instruments carried at fair value or amortized cost.",
+9,c) Both,"Basis of preparation and presentation
+These financial statements have been prepared using the historical cost accounting convention except for cetain properties carried at fair value and financial instruments carried at fair value or amortized cost.",
+17,a) purchase cost,"Inventories
+Inventories are stated at the lower of cost and estimated selling price less costs to complete and sell. Cost include all purchase cost.
+The cost of finished goods and work in progress comprises packaging costs, raw materials, direct labor, other direct costs and related production overheads. At each reporting date, inventories are assessed for impairment. If inventory is impaired, the carrying amount is reduced to its selling price less costs to complete and sell; the impairment loss is recognized immediately in profit or loss.
+When the circumstances that previously caused inventories to be impaired no longer exist or when there is clear evidence of an increase in selling price less costs to complete and sell because of changed economic circumstances, a reversal of the impairment is recognized so that the new carrying amount is the lower of the cost and the revised selling price less costs to complete and sell.  Any impairment reversal in recognized in profit or loss but is limited to the amount of the original impairment loss recognized.
+When inventories are sold, the carrying amount of those inventories is recognized as an expense in the period in which the related revenue is recognized.",
+17,b) purchase cost and cost of conversion,"Inventories
+Inventories are stated at the lower of cost and estimated selling price less costs to complete and sell. Cost include all purchase cost and cost of conversion.
+The cost of finished goods and work in progress comprises packaging costs, raw materials, direct labor, other direct costs and related production overheads. At each reporting date, inventories are assessed for impairment. If inventory is impaired, the carrying amount is reduced to its selling price less costs to complete and sell; the impairment loss is recognized immediately in profit or loss.
+When the circumstances that previously caused inventories to be impaired no longer exist or when there is clear evidence of an increase in selling price less costs to complete and sell because of changed economic circumstances, a reversal of the impairment is recognized so that the new carrying amount is the lower of the cost and the revised selling price less costs to complete and sell.  Any impairment reversal in recognized in profit or loss but is limited to the amount of the original impairment loss recognized.
+When inventories are sold, the carrying amount of those inventories is recognized as an expense in the period in which the related revenue is recognized.",
+17,c) purchase cost and other related cost incurred in bringing the inventories to their present location and condition,"Inventories
+Inventories are stated at the lower of cost and estimated selling price less costs to complete and sell. Cost include all purchase cost and other related cost incurred in bringing the inventories to their present location and condition.
+The cost of finished goods and work in progress comprises packaging costs, raw materials, direct labor, other direct costs and related production overheads. At each reporting date, inventories are assessed for impairment. If inventory is impaired, the carrying amount is reduced to its selling price less costs to complete and sell; the impairment loss is recognized immediately in profit or loss.
+When the circumstances that previously caused inventories to be impaired no longer exist or when there is clear evidence of an increase in selling price less costs to complete and sell because of changed economic circumstances, a reversal of the impairment is recognized so that the new carrying amount is the lower of the cost and the revised selling price less costs to complete and sell.  Any impairment reversal in recognized in profit or loss but is limited to the amount of the original impairment loss recognized.
+When inventories are sold, the carrying amount of those inventories is recognized as an expense in the period in which the related revenue is recognized.",
+17,"d) purchase cost, conversion cost and other related cost incurred in bringing the inventories to their present location and condition","Inventories
+Inventories are stated at the lower of cost and estimated selling price less costs to complete and sell. Cost include allpurchase cost, conversion cost and other related cost incurred in bringing the inventories to their present location and condition.
+The cost of finished goods and work in progress comprises packaging costs, raw materials, direct labor, other direct costs and related production overheads. At each reporting date, inventories are assessed for impairment. If inventory is impaired, the carrying amount is reduced to its selling price less costs to complete and sell; the impairment loss is recognized immediately in profit or loss.
+When the circumstances that previously caused inventories to be impaired no longer exist or when there is clear evidence of an increase in selling price less costs to complete and sell because of changed economic circumstances, a reversal of the impairment is recognized so that the new carrying amount is the lower of the cost and the revised selling price less costs to complete and sell.  Any impairment reversal in recognized in profit or loss but is limited to the amount of the original impairment loss recognized.
+When inventories are sold, the carrying amount of those inventories is recognized as an expense in the period in which the related revenue is recognized.",
+18,a. Cost method,"Investment in Associates
+An associate is an entity, including an unincorporated entity such as a partnership, over which the Company has significant influence and that is neither a subsidiary nor interest in a joint venture. The investment is accounted using the cost model other than those for which there is published price quotation which is measured using the fair value model or equity method.
+
+Under this method, investment in associate is measured at cost less any accumulated impairment losses recognized in profit or loss. The company shall recognize dividends and other distributions as income without regard to whether the distributions are from accumulated profits of the associate arising before or after date of acquisition.
+
+When an investment in an associate is recognized initially, the company shall measure it at the transaction price which do not include transaction cost. ","Section 14.5 Measure at cost less accumulated impairment loss. Except when there is a published price quotation, then fair value method is used."
+18,b. Equity method,"Investment in Associates
+An associate is an entity, including an unincorporated entity such as a partnership, over which the Company has significant influence and that is neither a subsidiary nor interest in a joint venture. The investment is accounted using the equity method other than those for which there is published price quotation which is measured using the fair value model.
+
+Under this method, an equity instruments is initially recognized at the transaction price (including transaction costs) and is subsequently adjusted to reflect the company’s share of the profit or loss and other comprehensive income of the associate. 
+When an investment in an associate is recognized initially, the company shall measure it at the transaction price which do not include transaction cost. ","Section 14.8 Under the equity method of accounting, an equity investment is initially recognised at the transaction price (including transaction costs) and is subsequently adjusted to reflect the investor’s share of the profit or loss and other comprehensive income of the associate. For more guidance on check IFRS for SMEs 14.8.a-i"
+18,c. Fair value model,"Investment in Associates
+An associate is an entity, including an unincorporated entity such as a partnership, over which the Company has significant influence and that is neither a subsidiary nor interest in a joint venture. The investment is accounted using the fair value model other than those for which there is published price quotation which is measured using the equity method
+
+When an investment in an associate is recognized initially, the company shall measure it at the transaction price which do not include transaction cost. 
+At each reporting date, an investor shall measure its investment in associate at fair value, with the changes in fair value recognized in profit or loss. The company shall use the cost model for any
+investment in an associate for which it is impracticable to measure fair value without undue cost or effort. 
+",
+18,d. None,,
+19,a. Cost method,"Investment in joint venture
+The investment in joint venture is accounted by the company using the cost model other than those for which there is published price quotation which is measured using the fair value model or equity method.
+
+Using this method, investment in jointly controlled entities are measured at cost less accumulated impairment losses recognized in profit or loss. The company shall recognize distributions received from the investment as income without regard to whether the distributions are from accumulated profits of the jointly controlled entity arising before or after date of acquisition. 
+
+Investment in joint venture is derecognized by the Company upon its disposal or when the investment in joint venture is permanently withdrawn from use and no future economic benefits are expected from its disposal. Gains and losses on disposals are determined by comparing the proceeds with the carrying amount and are recognized in profit or loss.
+
+",
+19,b. Equity method,"Investment in joint venture
+The investment in joint venture is accounted by the company using the equity method other than those for which there is published price quotation which is measured using the fair value model.
+
+The company shall measure its investment in a jointly controlled entity initially at transaction price (including transaction costs) and is subsequently adjusted to reflect the company’s share of the profit or loss and other comprehensive income of the venture. 
+
+Investment in joint venture is derecognized by the Company upon its disposal or when the investment in joint venture is permanently withdrawn from use and no future economic benefits are expected from its disposal. Gains and losses on disposals are determined by comparing the proceeds with the carrying amount and are recognized in profit or loss.
+",
+19,c. Fair value model,"Investment in joint venture
+The investment in joint venture is accounted by the company using the (cost model)other than those for which there is published price quotation which is measured using the fair value model or equity method.
+When an investment in jointly controlled entity is recognized initially, the company shall measure it at the transaction price which does not include transaction cost.
+
+At each reporting date, the company shall measure its investment in jointly controlled entity at fair value, with the changes in fair value recognized in profit or loss. The company shall used the cost model for any investment in an associate for which it is impracticable to measure fair value without undue cost or effort. 
+
+Investment in joint venture is derecognized by the Company upon its disposal or when the investment in joint venture is permanently withdrawn from use and no future economic benefits are expected from its disposal. Gains and losses on disposals are determined by comparing the proceeds with the carrying amount and are recognized in profit or loss.",
+19,d. None,,
+27,a. Trademarks," Intangible assets
+
+Trademarks  
+Separately acquired trademarks are shown at historical cost. Trademarks acquired in a business combination are recognized at fair value at the acquisition date. Trademarks have a finite useful life and are carried at cost less accumulated amortization and any accumulated impairment losses. 
+
+",
+27,b. Licences," Intangible assets
+
+Licences   
+Separately acquired licences are shown at historical cost. Licences (including software) acquired in a business combination are recognized at fair value at the acquisition date. Licences are carried at cost less accumulated amortization and any accumulated impairment losses. 
+
+",
+27,c. Customer related intangible assets," Intangible assets
+
+Customer related intangible assets  
+Customer-related intangible assets acquired in a business combination are recognized at fair value at the acquisition date. Customer-related intangible assets have a finite useful life and are carried at cost less accumulated amortization and any accumulated impairment losses. 
+
+",
+27,d. Trademarks and licences," Intangible assets
+
+Trademarks and licences  
+Separately acquired trademarks and licences are shown at historical cost. Trademarks and licences (including software) are recognized at fair value at the acquisition date. Trademarks and licences have a finite useful life and are carried at cost less accumulated amortization and any accumulated impairment losses. 
+
+",
+27,e. Trademarks and customer related intangible assets," Intangible assets
+
+Trademarks and customer related intangible assets  
+Separately acquired trademarks are shown at historical cost. Trademarks and customer-related intangible assets acquired in a business combination are recognized at fair value at the acquisition date. Trademarks and customer-related intangible assets have a finite useful life and are carried at cost less accumulated amortization and any accumulated impairment losses. 
+
+",
+27,f. Licences and customer related intangible assets," Intangible assets
+
+Licences and customer related intangible assets  
+Separately acquired Licences are shown at historical cost. Licences (including software) and customer-related intangible assets acquired in a business combination are recognized at fair value at the acquisition date. Licences and customer-related intangible assets have a finite useful life and are carried at cost less accumulated amortization and any accumulated impairment losses. 
+
+",
+27,"g. Trademarks, licences and customer related intangible assets"," Intangible assets
+
+Trademarks, licences and customer related intangible assets  
+Separately acquired trademarks and licences are shown at historical cost. Trademarks, licences (including software) and customer-related intangible assets acquired in a business combination are recognized at fair value at the acquisition date. Trademarks, licences and customer-related intangible assets have a finite useful life and are carried at cost less accumulated amortization and any accumulated impairment losses. 
+
+",
+34,a. Simple retirement plan,"Employee benefit obligations 
+The liability recognized in the statement of financial position in respect of defined benefit pension plans is the present value of the defined benefit obligation at the reporting date minus the fair value of plan assets. The defined benefit obligation is measured using the projected unit credit method. The present value of the defined benefit obligation is determined by discounting the estimated future payments by reference to market yields at the reporting date on high-quality corporate bonds that are denominated in the currency in which the benefits will be paid, and that have terms to maturity approximating to the terms of the related pension liability.
+Actuarial gains and losses are [charged to profit or loss or credited to other comprehensive income] in the period in which they arise. 
+Past-service costs are recognized immediately in profit or loss. For defined contribution plans, the group pays contributions to publicly or privately administered pension insurance plans on a mandatory or contractual basis. The contributions are recognized as employee benefit expense when they are due. If contribution payments exceed the contribution due for service, the excess is recognized as an asset.
+
+Retirement benefit costs  represents the  payments made to state-managed retirement benefit schemes, such as the Philippines Central Provident Fund, are dealt with as payments to defined contribution plans and are charged as an expense as they fall due.
+Employee entitlements to annual leave are recognized when they accrue to employees.  A provision is made for the estimated liability for annual leave as a result of services rendered by employees up to the end of the reporting period.
+
+",
+34,b. Established contribution plan,"Employee benefit obligations 
+The liability recognized in the statement of financial position in respect of defined benefit pension plans is the present value of the defined benefit obligation at the reporting date minus the fair value of plan assets. The defined benefit obligation is measured using the projected unit credit method. The present value of the defined benefit obligation is determined by discounting the estimated future payments by reference to market yields at the reporting date on high-quality corporate bonds that are denominated in the currency in which the benefits will be paid, and that have terms to maturity approximating to the terms of the related pension liability.
+Actuarial gains and losses are [charged to profit or loss or credited to other comprehensive income] in the period in which they arise. 
+Past-service costs are recognized immediately in profit or loss. For defined contribution plans, the group pays contributions to publicly or privately administered pension insurance plans on a mandatory or contractual basis. The contributions are recognized as employee benefit expense when they are due. If contribution payments exceed the contribution due for service, the excess is recognized as an asset.
+
+The Company maintains a defined contribution (DC) plan that covers all regular full-time employees.  Under its DC plan, the Company pays fixed contributions based on the employees‘ monthly salaries.  The Company, however, is covered under Republic Act (RA) No. 7641, The Philippine Retirement Law, which provides for its qualified employees a defined benefit (DB) minimum guarantee.  The DB minimum guarantee is equivalent to a certain percentage of the monthly salary payable to an employee at normal retirement age with the required credited years of service based on the provisions of RA 7641.
+Accordingly, the Company accounts for its retirement obligation under the higher of the DB obligation relating to the minimum guarantee and the obligation arising from the DC plan.
+",
+35,a. Black Scholes,"Share-based Payments
+Equity-settled share-based payments to employees and others providing similar services are measured at the fair value of the equity instruments at the grant date.
+The fair value determined at the grant date of the equity-settled share-based payments is expensed on a straight-line basis over the vesting period, based on the Company’s estimate of equity instruments that will eventually vest.  At each reporting date, the Company revises its estimate of the number of equity instruments expected to vest.  The impact of the revision of the original estimates, if any, is recognized in profit or loss over the remaining vesting period, with a corresponding adjustment to the equity-settled employee benefits reserve.
+Equity-settled share-based payment transactions with other parties are measured at the fair value of the goods or services received, except when the fair value cannot be estimated reliably, in which case they are measured at the fair value of the equity instruments granted, measured at the date the entity obtains the goods or the counterparty renders the service.
+The fair value for stock options and ESPP is measured using the Black Scholes pricing model.  The expected life used in the model has been adjusted, based on the management’s best estimate, for the effects of non-transferability, exercise restrictions and behavioral considerations.
+For cash-settled share-based payments, a liability equal to the portion of the goods or services received is recognized at the current fair value determined at each reporting date.
+",
+35,b. Binomial ,"Share-based Payments
+Equity-settled share-based payments to employees and others providing similar services are measured at the fair value of the equity instruments at the grant date.
+The fair value determined at the grant date of the equity-settled share-based payments is expensed on a straight-line basis over the vesting period, based on the Company’s estimate of equity instruments that will eventually vest.  At each reporting date, the Company revises its estimate of the number of equity instruments expected to vest.  The impact of the revision of the original estimates, if any, is recognized in profit or loss over the remaining vesting period, with a corresponding adjustment to the equity-settled employee benefits reserve.
+Equity-settled share-based payment transactions with other parties are measured at the fair value of the goods or services received, except when the fair value cannot be estimated reliably, in which case they are measured at the fair value of the equity instruments granted, measured at the date the entity obtains the goods or the counterparty renders the service.
+The fair value for stock options and ESPP is measured using the Binomial pricing model.  The expected life used in the model has been adjusted, based on the management’s best estimate, for the effects of non-transferability, exercise restrictions and behavioral considerations.
+For cash-settled share-based payments, a liability equal to the portion of the goods or services received is recognized at the current fair value determined at each reporting date.",
+37,a. Sale of goods,"Revenue from sale of goods is recognized when all the following conditions are satisfied:
+a. the Company has transferred to the buyer the significant risks and rewards of ownership of the goods;
+b. the Company retains neither continuing managerial involvement to the degree usually associated with ownership nor effective control over the goods sold;
+c. the amount of revenue can be measured reliably;
+d. it is probable that the economic benefits associated with the transaction will flow to the Company; and
+e. the costs incurred or to be incurred in respect of the transaction can be measured reliably.",
+37,b. Sale of services,"Revenue from a contract to provide services is recognized by reference to the stage of completion of the contract.  The stage of completion of the contract is determined as follows:
+a. the amount of revenue can be measured reliably;
+b. it is probable that the economic benefits associated with the transaction will flow to the Company;
+c. the stage of completion of the transaction can be measured reliably; and
+d. the costs incurred for the transaction and the costs to complete the transaction can be measured reliably.",
+37,c. Construction Contracts,Revenue from construction contracts is recognized in accordance with the Company’s accounting policy on construction contracts.,
+37,d. Royalty Revenue,"Royalty revenue is recognized on an accrual basis in accordance with the substance of the relevant agreement.  Royalties determined on a time basis are recognized on a straight-line basis over the period of the agreement.  Royalty arrangements that are based on production, sales and other measures are recognized by reference to the underlying arrangement.",
+37,e. Interest Income,"Interest income is accrued on a time proportion basis, by reference to the principal outstanding and at the effective interest rate applicable, which is the rate that exactly discounts estimated future cash receipts through the expected life of the financial asset to that asset’s net carrying amount.",
+37,f. Dividend income,Dividend income from investments is recognized the shareholders’ rights to receive payment have been established.,
+37,g. Rental income,Revenue recognition for rental income is disclosed in the Company’s policy for leases.,
+38,a. Nature of Expense method,"Expense Recognition
+Expenses are recognized in profit or loss when decrease in future economic benefit related to a decrease in an asset or an increase in a liability has arisen that can be measured reliably.  Expenses are recognized in profit or loss: on the basis of a direct association between the costs incurred and the earning of specific items of income; on the basis of systematic and rational allocation procedures when economic benefits are expected to arise over several accounting periods and the association with income can only be broadly or indirectly determined; or immediately when an expenditure produces no future economic benefits or when, and to the extent that, future economic benefits do not qualify, or cease to qualify, for recognition in the statements of financial position as an asset.
+
+Expenses in the statements of income are presented using the nature of expense method.",
+38,b. Function of expense method,"Expense Recognition
+Expenses are recognized in profit or loss when decrease in future economic benefit related to a decrease in an asset or an increase in a liability has arisen that can be measured reliably.  Expenses are recognized in profit or loss: on the basis of a direct association between the costs incurred and the earning of specific items of income; on the basis of systematic and rational allocation procedures when economic benefits are expected to arise over several accounting periods and the association with income can only be broadly or indirectly determined; or immediately when an expenditure produces no future economic benefits or when, and to the extent that, future economic benefits do not qualify, or cease to qualify, for recognition in the statements of financial position as an asset.
+
+Expenses in the statements of income are presented using the function of expense method.",
+40,a. administrative,,
+40,b. marketing,,
+40,c. selling,,
+40,d. other business,,
+45,a. Finance Lease,"The Company as lessor
+Amounts due from lessees under finance leases are recorded as receivables at the amount of the Company’s net investment in the leases.  Finance lease income is allocated to accounting periods so as to reflect a constant periodic rate of return on the Company’s net investment outstanding in respect of the leases.",
+45,b. Operating Lease,"The Company as lessor
+Rental income from operating leases is recognized  in profit or loss on a straight-line basis over the lease term, unless either another systematic basis is representative of the time pattern of the lessee’s benefit from the leased asset, even if the receipt of payments is not on that basis, or the payments to the lessor are structured to increase in line with expected general inflation (based on published indexes or statistics) to compensate for the lessor’s expected inflationary cost increases.",
+47,a. Finance Lease,"The Company as lessee
+Assets held under finance leases are recognized as assets of the Company at their fair value or, if lower, at the present value of the minimum lease payments, each determined at the inception of the lease.  The corresponding liability to the lessor is included in the statements of financial position as a finance lease obligation. 
+Lease payments are apportioned between finance charges and reduction of the lease obligation so as to achieve a constant rate of interest on the remaining balance of the liability.  Finance charges are charged directly against income, unless they are directly attributable to qualifying assets, in which case they are capitalized in accordance with the Company’s general policy on borrowing costs.  Contingent rentals are recognized as expense in the period in which they are incurred.",
+47,b. Operating Lease,"The Company as lessee
+Operating lease payments are recognized as an expense on a straight-line basis over the lease term, except when another systematic basis is more representative of the time pattern in which economic benefits from the leased asset are consumed.  Contingent rentals arising under operating leases are recognized as an expense in the period in which they are incurred.
+In the event that lease incentives are received to enter into operating leases, such incentives are recognized as a liability.  The aggregate benefit of incentives is recognized as a reduction of rental expense on a straight-line basis, except when another systematic basis is more representative of the time pattern in which economic benefits from the leased asset are consumed.",
+50,a. Fair value,"Non-monetary assets and liabilities carried at fair value that are denominated in foreign currencies are translated at the rates prevailing at the date the fair value was determined.  Gains and losses arising on retranslation are included in profit or loss for the period, except for exchange differences arising on non-monetary assets and liabilities when the gains and losses of such non-monetary items are recognized directly in equity.  ",
+50,b. Historical Cost,Non-monetary assets and liabilities that are measured in terms of historical cost in a foreign currency are not retranslated.,
+54,a. PEZA 5%,"Taxation
+Income tax expense represents the sum of the current tax expense and deferred tax.
+The tax currently payable is based on taxable profit for the year.  Taxable profit differs from net profit as reported in the statements of comprehensive income because it excludes items of income or expense that are taxable or deductible in other years and it further excludes items that are never taxable or deductible.  The Company’s liability for current tax is calculated using 5% tax rate for <CY> and <PY>.
+",
+54,b. ROHQ 10%,"Taxation
+Income tax expense represents the sum of the current tax expense and deferred tax.
+The tax currently payable is based on taxable profit for the year.  Taxable profit differs from net profit as reported in the statements of comprehensive income because it excludes items of income or expense that are taxable or deductible in other years and it further excludes items that are never taxable or deductible.  The Company’s liability for current tax is calculated using 10% tax rate for <CY> and <PY>.
+",
+54,c. Corporate income tax 35% ,"Taxation
+Income tax expense represents the sum of the current tax expense and deferred tax.
+The tax currently payable is based on taxable profit for the year.  Taxable profit differs from net profit as reported in the statements of comprehensive income because it excludes items of income or expense that are taxable or deductible in other years and it further excludes items that are never taxable or deductible.  The Company’s liability for current tax is calculated using 35% tax rate for <CY> and <PY>.
+",
+54,d. MCIT 2% ,"Taxation
+Income tax expense represents the sum of the current tax expense and deferred tax.
+The tax currently payable is based on taxable profit for the year.  Taxable profit differs from net profit as reported in the statements of comprehensive income because it excludes items of income or expense that are taxable or deductible in other years and it further excludes items that are never taxable or deductible.  The Company’s liability for current tax is calculated using 2% tax rate for <CY> and <PY>.
+",
+69,a. Business combinations ," Business combinations 
+The Company has elected not to restate business combinations that took place prior to the transition date. The carrying value of goodwill at the date of transition to the PFRS for SMEs is the deemed cost of goodwill under the PFRS for SMEs at that date.",
+69,b. Share-based payment transactions ," Share-based payment transactions 
+The Company has not applied the provisions of Section 26 of the PFRS for SMEs to equity instruments that were granted before <prior year, beginning day>. ",
+69,c. Cumulative translation differences ," Cumulative translation differences 
+The Company has elected to set the previously accumulated cumulative translation differences for all foreign operations to zero at <prior year, beginning day>.",
+69,d. Fair value or revaluation as deemed cost," Fair value or revaluation as deemed cost
+The Company has elected to use the previous GAAP revaluation of an item of its [property, plant and equipment, investment property and identifiable intangible assets] at , or before the date of transition, as its deemed cost at the revaluation date.",
+69,e. Compound financial instruments ," Compound financial instruments 
+The Company has elected not to separate the equity and liability component of a compound instrument since the liability component is no longer outstanding at the date of transition. ",
+69,f. Deferred tax ," Deferred tax 
+The Company has elected not to recognize certain [deferred tax assets or deferred tax liabilities] relating to differences between the tax basis and the carrying amount of any [assets or liabilities] for which recognition of those deferred tax assets or liabilities would involve undue cost or effort.",
+69,g. Arrangements containing a lease," Arrangements containing a lease
+The Company has elected to determine whether an arrangement contains a lease based on the facts and circumstances existing at the date of transition rather than on the date when the arrangement where entered into.",
+69,"h. Decommissioning liabilities included in the cost of property, plant and equipment"," Decommissioning liabilities included in the cost of property, plant and equipment
+The Company has elected to measure the decommissioning liabilities included in the cost of property plan and equipment are at transition date rather that at the date when the obligation initially arose. ",
+69,i. Extractive industries," Extractive industries
+The Company has elected to measure its oil and gas assets at the date of transition as the amount determined under previous GAAP net of  any impairment losses identified at transition date.",
+69,j. Separate financial statements," Separate financial statements 
+The Company has elected to measure its investment subsidiaries associate and jointly control entities at [choose applicable]",
+69,k. Service Concession arrangements," Service Concession arrangements
+The Company has elected not apply the requirements of Section 34 of the PFRS for SMEs on service concession arrangements entered into before the date of transition.",

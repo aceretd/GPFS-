@@ -23,6 +23,13 @@ function GpfsUpdateController($scope, $state, $filter, $parse, gpfs) {
 			return;
 		}
 		switch (qap.question.type) {
+		case 'YES_NO':
+			if (qap.answer === 'Yes') {
+				qap.template = qap.question.template;
+			} else if (qap.answer === 'No') {
+				qap.template = qap.question.noTemplate;
+			}
+			break;
 		case 'MULTIPLE_CHOICE':
 			let selectedAnswer = qap.question.answers.find(function (ans) {
 				return ans.answer === qap.answer;
@@ -55,6 +62,15 @@ function GpfsUpdateController($scope, $state, $filter, $parse, gpfs) {
 			let isActivatedAns = isActivated($scope.updateGpfs);
 			console.debug('isActivatedAns=' + isActivatedAns);
 			return isActivatedAns;
+		}
+	};
+
+	$scope.hasTemplate = function (qap) {
+		switch(qap.question.type) {
+		case 'YES_NO':
+			return qap.question.template || qap.question.noTemplate;
+		default:
+			return true;
 		}
 	};
 
