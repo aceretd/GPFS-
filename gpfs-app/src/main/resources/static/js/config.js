@@ -278,7 +278,14 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
         	resolve: {
     			gpfs: function ($stateParams, GpfsService) {
     				return GpfsService.findByCompanyAndYear({companyId: $stateParams.companyId, year: $stateParams.year});
-    			}
+    			},
+                loadPlugin: function($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        {
+                        	files: ['css/mailbox.css', 'css/plugins/iCheck/custom.css', 'js/plugins/iCheck/icheck.min.js']
+                        }
+                    ]);
+                }
         	}
         })
         .state('gpfs.update.coa', {

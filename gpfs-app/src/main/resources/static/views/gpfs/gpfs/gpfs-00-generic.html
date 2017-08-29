@@ -13,7 +13,9 @@
   	<form ng-submit="next()" class="form-horizontal">
 
 		<div class="row mb10" ng-repeat="qap in note(noteIndex).questions" ng-if="isActivated(qap)">
-			<div class="col-md-2">{{qap.question.question}}</div>
+			<div class="col-md-2">{{qap.question.question}}
+				<button ng-if="qap.question.helpText" type="button" class="btn btn-default btn-xs btn-outline black" tooltip-placement="Right" popover-placement="right" title="" uib-tooltip="{{qap.question.helpText}}"><span class="fa fa-question"></span></button>
+			</div>
 			<div class="col-md-3">
 				<!-- Yes/No -->
 				<select ng-model="qap.answer" ng-if="qap.question.type === 'YES_NO'" ng-change="updateTemplate(qap)"
@@ -28,9 +30,10 @@
 					ng-required="!qap.editTemplateMode" placeholder="{{qap.question.sampleAnswer}}" class="form-control" />
 				
 				<!-- Multiple choice -->
-				<div class="radio" ng-repeat="option in qap.question.answers" ng-if="qap.question.type === 'MULTIPLE_CHOICE'">
-				  <label><input type="radio" ng-model="qap.answer"
-					name="radio_{{qap.question_series}}"
+				<div class="radio row" ng-repeat="option in qap.question.answers" ng-if="qap.question.type === 'MULTIPLE_CHOICE'">
+				  <label><input type="radio" iCheck ng-model="qap.answer"
+					name="radio_{{qap.question.series}}"
+					id="radio_{{qap.question.series}}_$index"
 					ng-disabled="qap.editTemplateMode"
 					ng-required="!qap.editTemplateMode"
 					ng-value="option.answer"
@@ -43,12 +46,22 @@
 				<div ng-if="qap.question.type === 'ENUMERATION'" ng-init="qap.enumerationAnswers.length > 0 || qap.enumerationAnswers.push('')">
 					<!-- When answers > 1, allow remove -->
 					<div class="input-group" ng-repeat="enum in qap.enumerationAnswers track by $index">
-						<input type="text" ng-model="qap.enumerationAnswers[$index]" class="form-control mb10" required/>
+						<input type="text" ng-model="qap.enumerationAnswers[$index]" class="form-control mb10" ng-change="updateTemplate(qap)" required/>
 						<span class="input-group-btn" title="Remove answer">
 							<button ng-click="qap.enumerationAnswers.splice($index, 1)" ng-disabled="qap.enumerationAnswers.length <= 1" type="button" class="btn red"><span class="fa fa-close"></span></button>
 						</span>
 					</div>
 					<button type="button" ng-click="qap.enumerationAnswers.push('')" class="btn btn-primary"><span class="fa fa-plus"> Add</span></button>
+				</div>
+
+				<!-- Multiple select -->
+				<div ng-if="qap.question.type === 'MULTIPLE_SELECT'" ng-init="initMultipleSelectAnswers(qap)">
+					<div ng-repeat="answer in qap.question.answers">
+						<label>
+							<input type="checkbox" iCheck ng-model="qap.enumerationAnswers[$index]" ng-true-value="'Y'" ng-false-value="'N'" ng-change="updateTemplate(qap)" ng-disabled="qap.editTemplateMode">
+							{{answer.answer}}
+					    </label>
+				    </div>
 				</div>
 			</div>
 			<div class="col-md-6" ng-if="hasTemplate(qap)">

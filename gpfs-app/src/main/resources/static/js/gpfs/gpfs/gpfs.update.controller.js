@@ -38,6 +38,20 @@ function GpfsUpdateController($scope, $state, $filter, $parse, gpfs) {
 				qap.template = selectedAnswer.template;
 			}
 			break;
+		case 'MULTIPLE_SELECT':
+			let template = qap.question.template;
+			for (let i in qap.enumerationAnswers) {
+				if (qap.enumerationAnswers[i] === 'Y' && qap.question.answers[i].template) {
+					if (template) {
+						template += '\n\n';
+					}
+					template += qap.question.answers[i].template;
+				}
+			}
+			template = $scope.replaceVariables(template);
+			console.debug('Got replaced template=' + template); 
+			qap.template = template;
+			break;
 		default:
 			qap.template = $filter('replace')(qap.question.template, '<answer>', qap.answer);
 		}
@@ -57,10 +71,8 @@ function GpfsUpdateController($scope, $state, $filter, $parse, gpfs) {
 		if (!qap.question.activationCondition) {
 			return true;
 		} else {
-			console.debug('Checking activation condition. condition=' + qap.question.activationCondition);
 			let isActivated = $parse(qap.question.activationCondition);
 			let isActivatedAns = isActivated($scope.updateGpfs);
-			console.debug('isActivatedAns=' + isActivatedAns);
 			return isActivatedAns;
 		}
 	};
@@ -72,6 +84,25 @@ function GpfsUpdateController($scope, $state, $filter, $parse, gpfs) {
 		default:
 			return true;
 		}
+	};
+
+	$scope.initMultipleSelectAnswers = function (qap) {
+		if (qap.enumerationAnswers.length) {
+			return;
+		} else {
+			for (let i in qap.question.answers) {
+				qap.enumerationAnswers.push(false);
+			}
+		}
+	}
+
+	$scope.replaceVariables = function (template) {
+		let newTemplate = template.replace(/{{(.*?)}}/g, function(match, expr) {
+			let exprFxn = $parse(expr);
+			return exprFxn($scope.updateGpfs);
+		});
+		console.debug('newTemplate=' + newTemplate);
+		return newTemplate;
 	};
 
 }

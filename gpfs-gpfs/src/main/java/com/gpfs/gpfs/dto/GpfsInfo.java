@@ -12,7 +12,6 @@ import com.gpfs.core.dto.BaseInfo;
 import com.gpfs.core.dto.CompanyInfo;
 import com.gpfs.core.dto.schedule.ReconciliationTableInfo;
 import com.gpfs.question.dto.PrincipalActivityInfo;
-import com.gpfs.question.dto.QuestionTemplateInfo;
 
 public class GpfsInfo extends BaseInfo {
 

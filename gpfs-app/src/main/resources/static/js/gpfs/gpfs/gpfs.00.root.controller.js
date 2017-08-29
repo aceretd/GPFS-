@@ -32,14 +32,25 @@ function GpfsRootController($scope, $state, $parse, GpfsService, company) {
 			for (let i in $scope.updateGpfs.gpfs.notes) {
 				let note = $scope.updateGpfs.gpfs.notes[i];
 				for (let j in note.questions) {
-					if (note.questions[j].question.series === idx) {
-						return note.questions[j].answer;
+					let qap = note.questions[j];
+					if (qap.question.series === idx) {
+						switch (qap.question.type) {
+						case 'MULTIPLE_SELECT':
+							let enumAnswer = [];
+							for (let k in qap.enumerationAnswers) {
+								if (qap.enumerationAnswers[k] === 'Y') {
+									enumAnswer.push(qap.question.answers[k].answer);
+								}
+							}
+							return enumAnswer.join(', ');
+						default:
+							return qap.answer;
+						}
 					}
 				}
 			}
 		},
 		coa: function (acctNo) {
-			console.debug('checking coa. acctNo=' + acctNo);
 			for (let i in $scope.updateGpfs.gpfs.coa.children) {
 				let fs1 = $scope.updateGpfs.gpfs.coa.children[i];
 				for (let j in fs1.children) {
@@ -49,18 +60,14 @@ function GpfsRootController($scope, $state, $parse, GpfsService, company) {
 						for (let l in fs3.children) {
 							let fs4 = fs3.children[l];
 							if (fs4.accountNumber === acctNo) {
-								console.debug('found match at fs4 level. acctNo=' + fs4AccountNo);
 								let fs4Sum = sumOfChildren(fs4);
-								console.debug('Returning fs4Sum. fs4Sum=' + fs4Sum);
 								return fs4Sum;
 							}
 							for (let m in fs4.children) {
 								let fs5 = fs4.children[m];
 								let fs5AccountNo = $scope.accountNumber(fs4, fs5, {accountNumber: 0});
 								if (fs5AccountNo === acctNo) {
-									console.debug('found match at fs5 level. acctNo=' + fs5AccountNo);
 									let fs5Sum = sumOfChildren(fs5);
-									console.debug('Returning fs5Sum. fs5Sum=' + fs5Sum);
 									return fs5Sum;
 								}
 							}

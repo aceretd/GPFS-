@@ -58,7 +58,7 @@ public class QuestionTemplate extends BaseEntity {
 	private int maximumAnswers = 0;
 
 	/**
-	 * Only used by MC questions
+	 * Only used by MC and multiple select questions
 	 */
 	@ElementCollection
 	@CollectionTable(name = "question_mc_answers")

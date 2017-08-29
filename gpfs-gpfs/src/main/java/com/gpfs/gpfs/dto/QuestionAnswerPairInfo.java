@@ -2,6 +2,8 @@ package com.gpfs.gpfs.dto;
 
 import java.util.List;
 
+import org.assertj.core.util.Lists;
+
 import com.gpfs.core.dto.BaseInfo;
 import com.gpfs.question.dto.QuestionTemplateInfo;
 
@@ -9,7 +11,7 @@ public class QuestionAnswerPairInfo extends BaseInfo {
 
 	private QuestionTemplateInfo question;
 	private String answer;
-	private List<String> enumerationAnswers;
+	private List<String> enumerationAnswers = Lists.newArrayList();
 	private String template;
 	private boolean editTemplateMode = false;
 
