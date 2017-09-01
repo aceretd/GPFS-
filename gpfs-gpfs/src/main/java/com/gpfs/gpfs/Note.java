@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.SortNatural;
+
 import com.gpfs.core.model.BaseEntity;
 
 @Entity(name = "gpfs_note")
@@ -20,6 +22,7 @@ public class Note extends BaseEntity {
 
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "note_id")
+	@SortNatural
 	private List<QuestionAnswerPair> questions;
 
 	public int getIndex() {

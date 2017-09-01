@@ -10,7 +10,9 @@
         'ngResource',
         'ui.select',
         'ngSanitize',
-        'monospaced.elastic'
+        'monospaced.elastic',
+        'ngAnimate',
+        'angular-loading-bar'
     ])
 })();
 

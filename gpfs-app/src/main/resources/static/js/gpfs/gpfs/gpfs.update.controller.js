@@ -8,6 +8,7 @@ function GpfsUpdateController($scope, $state, $filter, $parse, gpfs) {
 	$scope.updateGpfs.gpfs = $scope.gpfs;
 	$scope.pageTitle = $state.current.title;
 	$scope.noteIndex = $state.current.noteIndex;
+	$scope.schedules = $state.current.schedules;
 
 	$scope.note = function (idx) {
 		if (!$scope.gpfs.notes) {

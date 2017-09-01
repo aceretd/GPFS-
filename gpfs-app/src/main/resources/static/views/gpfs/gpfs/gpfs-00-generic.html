@@ -12,7 +12,7 @@
   <div class="widgets-container">
   	<form ng-submit="next()" class="form-horizontal">
 
-		<div class="row mb10" ng-repeat="qap in note(noteIndex).questions" ng-if="isActivated(qap)">
+		<div class="row mb10" ng-repeat-start="qap in note(noteIndex).questions" ng-if-start="isActivated(qap)">
 			<div class="col-md-2">{{qap.question.question}}
 				<button ng-if="qap.question.helpText" type="button" class="btn btn-default btn-xs btn-outline black" tooltip-placement="Right" popover-placement="right" title="" uib-tooltip="{{qap.question.helpText}}"><span class="fa fa-question"></span></button>
 			</div>
@@ -76,9 +76,16 @@
 				</div>
 			</div>
 		</div>
+		<div class="clearfix"></div>
+		<div ng-repeat-end ng-if-end class="row mb10">
+			<div ng-repeat="schedule in schedules" ng-if="schedule.after === qap.question.series" class="row">
+				<ng-include src="schedule.template"></ng-include>
+			</div>
+		</div>
 
 		<div class="pull-right mt50">
 			<button type="button" class="btn btn-default">Back to list</button>
+			<button type="button" ng-click="save()" class="btn btn-default">Save as draft</button>
 			<button type="button" ng-click="back()" class="btn btn-default">Back</button>
 			<button type="submit" class="btn btn-primary">Next</button>
 		</div>

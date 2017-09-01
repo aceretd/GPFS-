@@ -323,6 +323,27 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
         	title: 'Significant Accounting Policies',
         	noteIndex: 3
         })
+        .state('gpfs.update.note4', {
+        	url: '/note4',
+        	templateUrl: 'views/gpfs/gpfs/gpfs-00-generic.html',
+        	title: 'Transition to the PFRS for SMEs',
+        	noteIndex: 4
+        })
+        .state('gpfs.update.note5', {
+        	url: '/note5',
+        	templateUrl: 'views/gpfs/gpfs/gpfs-00-generic.html',
+        	title: 'Reconciliation',
+        	noteIndex: 5,
+        	schedules: [{
+    			template: 'views/gpfs/gpfs/schedule/schedule1.html',
+    			after: 7200
+			},
+    		{
+    			template: 'views/gpfs/gpfs/schedule/schedule2.html',
+    			after: 7200
+    			
+    		}]
+        })
 
         // UI Features 
         .state('ui_colors', {

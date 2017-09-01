@@ -11,11 +11,13 @@ import org.springframework.data.domain.Sort;
 import com.gpfs.coa.service.ChartOfAccountService;
 import com.gpfs.core.service.GpfsJpaServiceCustomImpl;
 import com.gpfs.gpfs.Gpfs;
+import com.gpfs.gpfs.Note;
 import com.gpfs.gpfs.dto.GpfsInfo;
 import com.gpfs.gpfs.dto.NoteInfo;
 import com.gpfs.gpfs.dto.QuestionAnswerPairInfo;
 import com.gpfs.gpfs.service.GpfsService;
 import com.gpfs.gpfs.service.custom.GpfsServiceCustom;
+import com.gpfs.gpfs.util.QapComparator;
 import com.gpfs.question.dto.QuestionTemplateInfo;
 import com.gpfs.question.service.QuestionTemplateService;
 
@@ -37,7 +39,11 @@ public class GpfsServiceCustomImpl extends GpfsJpaServiceCustomImpl<Gpfs, GpfsIn
 
 	@Override
 	public GpfsInfo findInfoByCompanyIdAndYear(Long companyId, int year) {
-		return toDto(repo.findByCompanyIdAndYear(companyId, year).get());
+		Gpfs gpfs = repo.findByCompanyIdAndYear(companyId, year).get();
+		for (Note note : gpfs.getNotes()) {
+			note.getQuestions().sort(new QapComparator());
+		}
+		return toDto(gpfs);
 	}
 
 	@Override

@@ -86,9 +86,16 @@ function GpfsRootController($scope, $state, $parse, GpfsService, company) {
 		'gpfs.update.note1',
 		'gpfs.update.note2',
 		'gpfs.update.note3',
-		'gpfs.update.note4'
+		'gpfs.update.note4',
+		'gpfs.update.note5'
 	];
 
+	$scope.save = function () {
+		return GpfsService.save($scope.updateGpfs.gpfs, function (data) {
+			$scope.updateGpfs.gpfs = data;
+			swal('Save successful');
+		});		
+	};
 	$scope.back = function () {
 		//Go to the prev state
 		let currentState = $state.current.name;
@@ -97,9 +104,7 @@ function GpfsRootController($scope, $state, $parse, GpfsService, company) {
 		console.debug('next state index=' + nextState + ', name=' + $scope.sequence[nextState]);
 
 		$scope.updateGpfs.gpfs.nextState = $scope.sequence[nextState];
-
-		GpfsService.save($scope.updateGpfs.gpfs, function (data) {
-			$scope.updateGpfs.gpfs = data;
+		$scope.save().$promise.then(function () {
 			$state.go($scope.sequence[nextState], {companyId: $scope.updateGpfs.gpfs.company.id, year: $scope.updateGpfs.gpfs.year});
 		});
 	};
@@ -111,9 +116,7 @@ function GpfsRootController($scope, $state, $parse, GpfsService, company) {
 		console.debug('next state index=' + nextState + ', name=' + $scope.sequence[nextState]);
 
 		$scope.updateGpfs.gpfs.nextState = $scope.sequence[nextState];
-
-		GpfsService.save($scope.updateGpfs.gpfs, function (data) {
-			$scope.updateGpfs.gpfs = data;
+		$scope.save().$promise.then(function () {
 			$state.go($scope.sequence[nextState], {companyId: $scope.updateGpfs.gpfs.company.id, year: $scope.updateGpfs.gpfs.year});
 		});
 	};

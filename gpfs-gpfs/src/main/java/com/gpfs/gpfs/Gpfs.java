@@ -16,6 +16,7 @@ import com.gpfs.coa.model.ChartOfAccount;
 import com.gpfs.company.model.Company;
 import com.gpfs.core.model.BaseEntity;
 import com.gpfs.gpfs.answer.ReconciliationTable;
+import com.gpfs.gpfs.schedule.Schedule1;
 import com.gpfs.reference.PrincipalActivity;
 
 @Entity
@@ -52,6 +53,9 @@ public class Gpfs extends BaseEntity {
 
 	@Column(name = "next_state")
 	private String nextState;
+
+	@OneToOne(optional = false, mappedBy = "gpfs", cascade = CascadeType.ALL)
+	private Schedule1 schedule1;
 
 	public PrincipalActivity getPrincipalActivity() {
 		return principalActivity;
@@ -107,6 +111,14 @@ public class Gpfs extends BaseEntity {
 
 	public void setNotes(List<Note> notes) {
 		this.notes = notes;
+	}
+
+	public Schedule1 getSchedule1() {
+		return schedule1;
+	}
+
+	public void setSchedule1(Schedule1 schedule1) {
+		this.schedule1 = schedule1;
 	}
 
 }
