@@ -2,7 +2,7 @@ angular
     .module('AdminUI')
     .controller('GpfsRootController', GpfsRootController);
 
-function GpfsRootController($scope, $state, $parse, GpfsService, company) {
+function GpfsRootController($scope, $state, $parse, GpfsService, ScheduleService, company) {
 	let INITIAL_YEAR = 2001;
 	let CURRENT_YEAR = $scope.initialYear = new Date().getFullYear();
 	let PREVIOUS_YEAR = CURRENT_YEAR - 1;
@@ -129,5 +129,15 @@ function GpfsRootController($scope, $state, $parse, GpfsService, company) {
 	$scope.accountNumber = function (fs4, fs5, fs6) {
 		return parseInt(fs4.accountNumber) + parseInt(fs5.accountNumber) + parseInt(fs6.accountNumber);
 	};
+
+	$scope.getSchedule = function (index) {
+		let matchingSchedule =  $scope.updateGpfs.gpfs.schedules.find(function (schedule) {
+			return schedule.index === index;
+		});
+		if (!matchingSchedule) {
+			matchingSchedule = ScheduleService.getSchedule(index);
+		}
+		return matchingSchedule;
+	}
 
 }

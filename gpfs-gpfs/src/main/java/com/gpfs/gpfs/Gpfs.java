@@ -9,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.OrderColumn;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
@@ -16,7 +17,7 @@ import com.gpfs.coa.model.ChartOfAccount;
 import com.gpfs.company.model.Company;
 import com.gpfs.core.model.BaseEntity;
 import com.gpfs.gpfs.answer.ReconciliationTable;
-import com.gpfs.gpfs.schedule.Schedule1;
+import com.gpfs.gpfs.schedule.Schedule;
 import com.gpfs.reference.PrincipalActivity;
 
 @Entity
@@ -54,8 +55,10 @@ public class Gpfs extends BaseEntity {
 	@Column(name = "next_state")
 	private String nextState;
 
-	@OneToOne(optional = false, mappedBy = "gpfs", cascade = CascadeType.ALL)
-	private Schedule1 schedule1;
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name = "gpfs_id")
+	@OrderColumn(name = "index")
+	private List<Schedule> schedules;
 
 	public PrincipalActivity getPrincipalActivity() {
 		return principalActivity;
@@ -113,12 +116,13 @@ public class Gpfs extends BaseEntity {
 		this.notes = notes;
 	}
 
-	public Schedule1 getSchedule1() {
-		return schedule1;
+	public List<Schedule> getSchedules() {
+		return schedules;
 	}
 
-	public void setSchedule1(Schedule1 schedule1) {
-		this.schedule1 = schedule1;
+	public void setSchedules(List<Schedule> schedules) {
+		this.schedules = schedules;
 	}
+
 
 }

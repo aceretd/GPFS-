@@ -1,1 +1,25 @@
-Schedule 1 here
+<div class="col-md-12" ng-init="schedule = getSchedule(1)">
+	Schedule: {{schedule}}
+	<table>
+		<caption>Reconciliation  of Equity from PAS101 or Full IFRS to PFRS for SMEs</caption>
+		<thead>
+			<tr>
+				<th></th>
+				<th>Corp Info (January 1)</th>
+				<th>January 1</th>
+			</tr>
+			<tr>
+				<th></th>
+				<th>{{currentYear()}}</th>
+				<th>2013</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="row in schedule.rows | limitTo: schedule.rows.length : 1">
+				<td>{{row.cells[0].content}}</td>
+				<td>{{row.cells[1].content}}</td>
+				<td>{{row.cells[2].content}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

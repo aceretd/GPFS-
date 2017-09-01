@@ -77,9 +77,9 @@
 			</div>
 		</div>
 		<div class="clearfix"></div>
-		<div ng-repeat-end ng-if-end class="row mb10">
-			<div ng-repeat="schedule in schedules" ng-if="schedule.after === qap.question.series" class="row">
-				<ng-include src="schedule.template"></ng-include>
+		<div ng-repeat-end ng-if-end class="mb10">
+			<div ng-repeat="scheduleInfo in schedules" ng-if="scheduleInfo.after === qap.question.series" class="row">
+				<ng-include src="scheduleInfo.template"></ng-include>
 			</div>
 		</div>
 

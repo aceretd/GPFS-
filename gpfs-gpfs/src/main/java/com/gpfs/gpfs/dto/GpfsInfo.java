@@ -11,6 +11,7 @@ import com.gpfs.coa.dto.ChartOfAccountInfo;
 import com.gpfs.core.dto.BaseInfo;
 import com.gpfs.core.dto.CompanyInfo;
 import com.gpfs.core.dto.schedule.ReconciliationTableInfo;
+import com.gpfs.core.dto.schedule.ScheduleInfo;
 import com.gpfs.question.dto.PrincipalActivityInfo;
 
 public class GpfsInfo extends BaseInfo {
@@ -21,6 +22,7 @@ public class GpfsInfo extends BaseInfo {
 	private List<NoteInfo> notes = Lists.newArrayList();
 	private PrincipalActivityInfo principalActivity;
 	private ReconciliationTableInfo reconciliationTable;
+	private List<ScheduleInfo> schedules;
 
 	//Next angular state
 	private String nextState;
@@ -126,6 +128,14 @@ public class GpfsInfo extends BaseInfo {
 
 	public void setNotes(List<NoteInfo> notes) {
 		this.notes = notes;
+	}
+
+	public List<ScheduleInfo> getSchedules() {
+		return schedules;
+	}
+
+	public void setSchedules(List<ScheduleInfo> schedules) {
+		this.schedules = schedules;
 	}
 
 }
