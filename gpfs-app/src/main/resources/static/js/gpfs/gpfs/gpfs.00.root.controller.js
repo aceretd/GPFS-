@@ -17,20 +17,21 @@ function GpfsRootController($scope, $state, $parse, GpfsService, ScheduleService
 				sum += sumOfChildren(fs.children[i]);
 			}
 		} else {
-			sum += fs.currentYearValue || 0;
-			sum += fs.previousYearValue || 0;
+			sum += fs.currentYearAmount || 0;
+			sum += fs.previousYearAmount || 0;
 		}
 		return sum;
 	}
 	function sumOfChildrenCy(fs) {
-		console.debug('Attempting to find sum of children (CY) FS name =' + fs.name);
+		//console.debug('Attempting to find sum of children (CY) FS name =' + fs.name);
 		let sum = 0;
 		if (fs.children) {
 			for (let i in fs.children) {
-				sum += sumOfChildren(fs.children[i]);
+				sum += sumOfChildrenCy(fs.children[i]);
 			}
 		} else {
-			sum += fs.currentYearValue || 0;
+			console.debug('Adding cy value. fs=' + fs.name + ', val=' + fs.currentYearAmount);
+			sum += fs.currentYearAmount || 0;
 		}
 		return sum;
 	}
@@ -39,10 +40,10 @@ function GpfsRootController($scope, $state, $parse, GpfsService, ScheduleService
 		let sum = 0;
 		if (fs.children) {
 			for (let i in fs.children) {
-				sum += sumOfChildren(fs.children[i]);
+				sum += sumOfChildrenPy(fs.children[i]);
 			}
 		} else {
-			sum += fs.previousYearValue || 0;
+			sum += fs.previousYearAmount || 0;
 		}
 		return sum;
 	}
@@ -170,12 +171,13 @@ function GpfsRootController($scope, $state, $parse, GpfsService, ScheduleService
 	}
 
 	$scope.coaSumCy = function (lvl, lvlName) {
+		let sum = 0;
 		for (let i in $scope.updateGpfs.gpfs.coa.children) {
 			let fs1 = $scope.updateGpfs.gpfs.coa.children[i];
 
 			//return lvl 1 sum
 			if (lvl === 1 && lvlName === fs1.name) {
-				return sumOfChildrenCy(fs1);
+				sum += sumOfChildrenCy(fs1);
 			}
 
 			for (let j in fs1.children) {
@@ -183,7 +185,7 @@ function GpfsRootController($scope, $state, $parse, GpfsService, ScheduleService
 
 				//return lvl 2 sum
 				if (lvl === 2 && lvlName === fs2.name) {
-					return sumOfChildrenCy(fs2);
+					sum += sumOfChildrenCy(fs2);
 				}
 
 				for (let k in fs2.children) {
@@ -191,7 +193,7 @@ function GpfsRootController($scope, $state, $parse, GpfsService, ScheduleService
 
 					//lvl 3 sum
 					if (lvl === 3 && lvlName === fs3.name) {
-						return sumOfChildrenCy(fs3);
+						sum += sumOfChildrenCy(fs3);
 					}
 
 					for (let l in fs3.children) {
@@ -199,7 +201,7 @@ function GpfsRootController($scope, $state, $parse, GpfsService, ScheduleService
 
 						//lvl 4 sum
 						if (lvl === 4 && lvlName === fs4.name) {
-							return sumOfChildrenCy(fs4);
+							sum += sumOfChildrenCy(fs4);
 						}
 
 						for (let m in fs4.children) {
@@ -207,23 +209,23 @@ function GpfsRootController($scope, $state, $parse, GpfsService, ScheduleService
 
 							//lvl 5 sum
 							if (lvl === 5 && lvlName === fs5.name) {
-								return sumOfChildrenCy(fs5);
+								sum += sumOfChildrenCy(fs5);
 							}
 						}
 					}
 				}
 			}
 		}
-		console.warn('Unable to find CY sum at level! level=' + lvl + ', name=' + lvlName);
-		return 0;
+		return sum;
 	};
 	$scope.coaSumPy = function (lvl, lvlName) {
+		let sum = 0;
 		for (let i in $scope.updateGpfs.gpfs.coa.children) {
 			let fs1 = $scope.updateGpfs.gpfs.coa.children[i];
 
 			//return lvl 1 sum
 			if (lvl === 1 && lvlName === fs1.name) {
-				return sumOfChildrenPy(fs1);
+				sum +=  sumOfChildrenPy(fs1);
 			}
 
 			for (let j in fs1.children) {
@@ -231,7 +233,7 @@ function GpfsRootController($scope, $state, $parse, GpfsService, ScheduleService
 
 				//return lvl 2 sum
 				if (lvl === 2 && lvlName === fs2.name) {
-					return sumOfChildrenPy(fs2);
+					sum += sumOfChildrenPy(fs2);
 				}
 
 				for (let k in fs2.children) {
@@ -239,7 +241,7 @@ function GpfsRootController($scope, $state, $parse, GpfsService, ScheduleService
 
 					//lvl 3 sum
 					if (lvl === 3 && lvlName === fs3.name) {
-						return sumOfChildrenPy(fs3);
+						sum += sumOfChildrenPy(fs3);
 					}
 
 					for (let l in fs3.children) {
@@ -247,7 +249,7 @@ function GpfsRootController($scope, $state, $parse, GpfsService, ScheduleService
 
 						//lvl 4 sum
 						if (lvl === 4 && lvlName === fs4.name) {
-							return sumOfChildrenPy(fs4);
+							sum += sumOfChildrenPy(fs4);
 						}
 
 						for (let m in fs4.children) {
@@ -255,15 +257,14 @@ function GpfsRootController($scope, $state, $parse, GpfsService, ScheduleService
 
 							//lvl 5 sum
 							if (lvl === 5 && lvlName === fs5.name) {
-								return sumOfChildrenPy(fs5);
+								sum += sumOfChildrenPy(fs5);
 							}
 						}
 					}
 				}
 			}
 		}
-		console.warn('Unable to find PY sum at level! level=' + lvl + ', name=' + lvlName);
-		return 0;
+		return sum;
 	};
 
 }
