@@ -12,6 +12,9 @@ public class ScheduleCell {
 	@Column(name = "formula")
 	private String formula;
 
+	@Column(name = "comment")
+	private String comment;
+
 	public String getContent() {
 		return content;
 	}
@@ -26,6 +29,14 @@ public class ScheduleCell {
 
 	public void setFormula(String formula) {
 		this.formula = formula;
+	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
 	}
 
 }

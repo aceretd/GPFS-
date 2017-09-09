@@ -2,7 +2,6 @@ package com.gpfs.gpfs.activation;
 
 import static org.junit.Assert.*;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.expression.Expression;
 import org.springframework.expression.ExpressionParser;

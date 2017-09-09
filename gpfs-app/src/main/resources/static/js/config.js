@@ -283,6 +283,8 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
                     return $ocLazyLoad.load([
                         {
                         	files: ['css/mailbox.css', 'css/plugins/iCheck/custom.css', 'js/plugins/iCheck/icheck.min.js']
+                        }, {
+                            files: ['js/plugins/editable-table/editable-table.js']
                         }
                     ]);
                 }
@@ -337,12 +339,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
         	schedules: [{
     			template: 'views/gpfs/gpfs/schedule/schedule1.html',
     			after: 7200
-			},
-    		{
-    			template: 'views/gpfs/gpfs/schedule/schedule2.html',
-    			after: 7200
-    			
-    		}]
+			}]
         })
 
         // UI Features 

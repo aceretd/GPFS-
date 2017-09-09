@@ -55,7 +55,7 @@ public class Gpfs extends BaseEntity {
 	@Column(name = "next_state")
 	private String nextState;
 
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "gpfs_id")
 	@OrderColumn(name = "index")
 	private List<Schedule> schedules;

@@ -1,4 +1,4 @@
-<div class="col-md-12" ng-init="schedule = getSchedule(1)">
+<div id="schedule-1-table" class="col-md-12" ng-init="schedule = getSchedule(1)" ng-controller="ScheduleTableController">
 	<table class="table table-striped">
 		<caption>Reconciliation  of Equity from PAS101 or Full IFRS to PFRS for SMEs</caption>
 		<thead>
@@ -15,10 +15,21 @@
 		</thead>
 		<tbody>
 			<tr ng-repeat="row in schedule.rows">
-				<td>{{row.cells[0].content}}</td>
-				<td>{{row.cells[1].content}}</td>
-				<td>{{row.cells[2].content}}</td>
+				<td ng-repeat="cell in row.cells">{{cell.content}}</td>
 			</tr>
 		</tbody>
+		<tfoot>
+			<tr>
+				<th>Total equity under PFRS for SME</th>
+				<th>{{coaSumCy(3, 'Equity')}}</th>
+				<th>{{coaSumPy(3, 'Equity')}}</th>
+			</tr>
+		</tfoot>
 	</table>
 </div>
+
+<script type="text/javascript">
+$(function () {
+	$('#schedule-1-table').editableTableWidget();
+});
+</script>
