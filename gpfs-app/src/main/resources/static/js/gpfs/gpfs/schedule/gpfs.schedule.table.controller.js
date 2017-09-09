@@ -7,18 +7,30 @@ function ScheduleTableController($scope, $element) {
 	console.debug('$scope.updateGpfs=' + $scope.updateGpfs);
 	$scope.schedule = {};
 	let $table = $($element);
+
 	$table.on('change', function () {
 		let rows = parseValues($table);
-		console.debug('New schedule rows! val=' + JSON.stringify(rows));
-		console.debug('Will try to find matching sched. idx=' + $scope.schedule.index);
-		console.debug('parent schedules=' + $scope.updateGpfs.gpfs.schedules);
 		let schedule = $scope.updateGpfs.gpfs.schedules.find(function (s) {
-			console.debug('Checking schedule match. s.index=' + s.index);
 			return s.index === $scope.schedule.index;
 		});
-		console.debug('found schedule to replace rows: ' + schedule);
 		schedule.rows = rows;
 		$scope.schedule.rows = rows;
+	});
+
+	$scope.sum = function (col) {
+		let sum = $scope.schedule.rows.reduce(function (sum, row) {
+			return sum + (parseFloat(row.cells[col].content) || 0);
+		}, 0);
+		return sum;
+	};
+
+	//Funky timing for editableTableWidget call
+	setTimeout(function(){
+		$table.find('table').editableTableWidget();
+	});
+	//Handle angular rerender of table on event
+	$scope.$on('gpfs-save', function () {
+		$table.find('table').editableTableWidget();
 	});
 
 }
@@ -28,7 +40,6 @@ function parseValues($table) {
 	$table.find('tbody tr').each(function (trIdx, tr) {
 		let cells = [];
 		$(tr).find('td').each(function (tdIdx, td) {
-			console.debug('td value! val=' + $(td).text());
 			cells.push({
 				content: $(td).text()
 			});

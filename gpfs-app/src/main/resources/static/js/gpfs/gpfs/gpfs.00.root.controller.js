@@ -120,6 +120,7 @@ function GpfsRootController($scope, $state, $parse, GpfsService, ScheduleService
 		return GpfsService.save($scope.updateGpfs.gpfs, function (data) {
 			$scope.updateGpfs.gpfs = data;
 			swal('Save successful');
+			$scope.$broadcast('gpfs-save');
 		});		
 	};
 	$scope.back = function () {
