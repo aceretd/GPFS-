@@ -10,7 +10,7 @@ function GpfsRootController($scope, $state, $parse, GpfsService, ScheduleService
 	console.debug('Gpfs root controller');
 
 	function sumOfChildren(fs) {
-		console.debug('Attempting to find sum of children (CY + PY) FS name =' + fs.name);
+		//console.debug('Attempting to find sum of children (CY + PY) FS name =' + fs.name);
 		let sum = 0;
 		if (fs.children) {
 			for (let i in fs.children) {
@@ -30,13 +30,13 @@ function GpfsRootController($scope, $state, $parse, GpfsService, ScheduleService
 				sum += sumOfChildrenCy(fs.children[i]);
 			}
 		} else {
-			console.debug('Adding cy value. fs=' + fs.name + ', val=' + fs.currentYearAmount);
+			//console.debug('Adding cy value. fs=' + fs.name + ', val=' + fs.currentYearAmount);
 			sum += fs.currentYearAmount || 0;
 		}
 		return sum;
 	}
 	function sumOfChildrenPy(fs) {
-		console.debug('Attempting to find sum of children (PY) FS name =' + fs.name);
+		//console.debug('Attempting to find sum of children (PY) FS name =' + fs.name);
 		let sum = 0;
 		if (fs.children) {
 			for (let i in fs.children) {

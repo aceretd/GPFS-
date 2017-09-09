@@ -40,11 +40,33 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item" ui-sref-active="active">
+                    <li class="nav-item" ui-sref-active="active" ng-controller="GpfsNavigationCtrl">
                         <a class="nav-link" href="javascript:;"> <i class="fa fa-list"></i> <span class="title">GPFS</span> <span class="arrow"></span> </a>
                         <ul class="sub-menu">
                             <li class="nav-item">
                                 <a class="nav-link" ui-sref="gpfs_list"> <span class="title">List</span> </a>
+                            </li>
+                            <li class="nav-item" ng-if="gpfs"> <a class="nav-link" href="javascript:;"> {{gpfs.company.name}} - {{gpfs.year}} <span class="arrow"></span> </a>
+                                <ul class="sub-menu">
+                                    <li  ui-sref-active="active" class="nav-item">
+		                                <a class="nav-link" ui-sref="gpfs.update.coa({companyId: gpfs.company.id, year: gpfs.year})"> <span class="title">COA</span> </a>
+		                            </li>
+		                            <li ui-sref-active="active" class="nav-item">
+		                                <a class="nav-link" ui-sref="gpfs.update.note1({companyId: gpfs.company.id, year: gpfs.year})"> <span class="title">Note 1</span> </a>
+		                            </li>
+   		                            <li ui-sref-active="active" class="nav-item">
+		                                <a class="nav-link" ui-sref="gpfs.update.note2({companyId: gpfs.company.id, year: gpfs.year})"> <span class="title">Note 2</span> </a>
+		                            </li>
+   		                            <li ui-sref-active="active" class="nav-item">
+		                                <a class="nav-link" ui-sref="gpfs.update.note3({companyId: gpfs.company.id, year: gpfs.year})"> <span class="title">Note 3</span> </a>
+		                            </li>
+   		                            <li ui-sref-active="active" class="nav-item">
+		                                <a class="nav-link" ui-sref="gpfs.update.note4({companyId: gpfs.company.id, year: gpfs.year})"> <span class="title">Note 4</span> </a>
+		                            </li>
+   		                            <li ui-sref-active="active" class="nav-item">
+		                                <a class="nav-link" ui-sref="gpfs.update.note5({companyId: gpfs.company.id, year: gpfs.year})"> <span class="title">Note 5</span> </a>
+		                            </li>
+                                </ul>
                             </li>
                         </ul>
                     </li>

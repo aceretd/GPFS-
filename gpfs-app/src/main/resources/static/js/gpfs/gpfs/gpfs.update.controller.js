@@ -2,10 +2,12 @@ angular
     .module('AdminUI')
     .controller('GpfsUpdateController', GpfsUpdateController);
 
-function GpfsUpdateController($scope, $state, $filter, $parse, gpfs) {
+function GpfsUpdateController($scope, $rootScope, $state, $filter, $parse, gpfs) {
 	console.debug('Gpfs update controller');
 	$scope.gpfs = gpfs;
 	$scope.updateGpfs.gpfs = $scope.gpfs;
+	$rootScope.$broadcast('set-active-gpfs', $scope.updateGpfs.gpfs);
+
 	$scope.pageTitle = $state.current.title;
 	$scope.noteIndex = $state.current.noteIndex;
 	$scope.schedules = $state.current.schedules;

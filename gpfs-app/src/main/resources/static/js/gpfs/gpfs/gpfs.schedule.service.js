@@ -11,13 +11,38 @@ function ScheduleService($resource) {
     			//Total equity under (PAS 101 or full PFRS), etc etc
     			{cells: [
     				{content: 'Total equity under (PAS 101 or full PFRS)'},
-    				{content: '200'},
-    				{content: '100'}
+    				{content: '0'},
+    				{content: '0'}
     			]},
     			{cells: [
-    				{content: 'Capitalization of costs directly attributable to site preparation'},
-    				{content: '12'},
-    				{content: '30'}
+    				{content: 'Write-off of deferred charges that do not meet the IFRS for SMEs definition of an intangible asset'},
+    				{content: '0'},
+    				{content: '0'}
+    			]},
+    			{cells: [
+    				{content: 'Restatement of provision for post-employment benefits on a projected unit credit method basis'},
+    				{content: '0'},
+    				{content: '0'}
+    			]},
+    			{cells: [
+    				{content: 'Fair value adjustment to biological assets'},
+    				{content: '0'},
+    				{content: '0'}
+    			]},
+    			{cells: [
+    				{content: 'Fair value adjustment to investment property'},
+    				{content: '0'},
+    				{content: '0'}
+    			]},
+    			{cells: [
+    				{content: 'Restatement of investments in associates to cost'},
+    				{content: '0'},
+    				{content: '0'}
+    			]},
+    			{cells: [
+    				{content: 'Deferred tax adjustments'},
+    				{content: '0'},
+    				{content: '0'}
     			]}
     		]
     	},
