@@ -341,6 +341,30 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
     			after: 7200
 			}]
         })
+        .state('gpfs.update.note6', {
+        	url: '/note6',
+        	templateUrl: 'views/gpfs/gpfs/gpfs-00-generic.html',
+        	title: 'Explanation of the transition to the PFRS for SMEs',
+        	noteIndex: 6
+        })
+        .state('gpfs.update.note7', {
+        	url: '/note7',
+        	templateUrl: 'views/gpfs/gpfs/gpfs-00-generic.html',
+        	title: 'Critical Accounting Judgements',
+        	noteIndex: 7
+        })
+        .state('gpfs.update.note8', {
+        	url: '/note8',
+        	templateUrl: 'views/gpfs/gpfs/gpfs-00-generic.html',
+        	title: 'Categories of Financial Instruments',
+        	noteIndex: 8
+        })
+        .state('gpfs.update.note9', {
+        	url: '/note9',
+        	templateUrl: 'views/gpfs/gpfs/gpfs-00-generic.html',
+        	title: 'Cash and Cash Equivalents',
+        	noteIndex: 9
+        })
 
         // UI Features 
         .state('ui_colors', {

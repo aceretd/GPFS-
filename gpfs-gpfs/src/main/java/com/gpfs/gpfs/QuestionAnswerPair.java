@@ -40,6 +40,10 @@ public class QuestionAnswerPair extends BaseEntity {
 	@Type(type = "yes_no")
 	private boolean editTemplateMode = false;
 
+	@Column(name = "activated")
+	@Type(type = "yes_no")
+	private boolean activated = false;
+
 	public QuestionTemplate getQuestion() {
 		return question;
 	}
@@ -78,6 +82,14 @@ public class QuestionAnswerPair extends BaseEntity {
 
 	public void setEnumerationAnswers(List<String> enumerationAnswers) {
 		this.enumerationAnswers = enumerationAnswers;
+	}
+
+	public boolean isActivated() {
+		return activated;
+	}
+
+	public void setActivated(boolean activated) {
+		this.activated = activated;
 	}
 
 }

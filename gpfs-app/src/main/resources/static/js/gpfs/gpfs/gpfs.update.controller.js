@@ -56,7 +56,9 @@ function GpfsUpdateController($scope, $rootScope, $state, $filter, $parse, gpfs)
 			qap.template = template;
 			break;
 		default:
+			console.debug('Trying to filter template. template=' + qap.template);
 			qap.template = $filter('replace')(qap.question.template, '<answer>', qap.answer);
+			qap.template = $scope.replaceVariables(qap.template);
 		}
 	};
 
@@ -72,10 +74,12 @@ function GpfsUpdateController($scope, $rootScope, $state, $filter, $parse, gpfs)
 
 	$scope.isActivated = function (qap) {
 		if (!qap.question.activationCondition) {
+			qap.activated = true;
 			return true;
 		} else {
 			let isActivated = $parse(qap.question.activationCondition);
 			let isActivatedAns = isActivated($scope.updateGpfs);
+			qap.activated = isActivatedAns;
 			return isActivatedAns;
 		}
 	};

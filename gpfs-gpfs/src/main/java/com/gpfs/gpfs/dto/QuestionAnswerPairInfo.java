@@ -14,6 +14,7 @@ public class QuestionAnswerPairInfo extends BaseInfo {
 	private List<String> enumerationAnswers = Lists.newArrayList();
 	private String template;
 	private boolean editTemplateMode = false;
+	private boolean activated = false;
 
 	public QuestionTemplateInfo getQuestion() {
 		return question;
@@ -44,6 +45,12 @@ public class QuestionAnswerPairInfo extends BaseInfo {
 	}
 	public void setEnumerationAnswers(List<String> enumerationAnswers) {
 		this.enumerationAnswers = enumerationAnswers;
+	}
+	public boolean isActivated() {
+		return activated;
+	}
+	public void setActivated(boolean activated) {
+		this.activated = activated;
 	}
 
 }

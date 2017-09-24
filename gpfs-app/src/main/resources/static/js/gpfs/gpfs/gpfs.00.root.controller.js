@@ -102,6 +102,12 @@ function GpfsRootController($scope, $state, $parse, GpfsService, ScheduleService
 				}
 			}
 			return false;
+		},
+		currentYear: function () {
+			return $scope.updateGpfs.gpfs.year;
+		},
+		priorYear: function () {
+			return $scope.updateGpfs.gpfs.year - 1;
 		}
 	};
 
@@ -113,7 +119,14 @@ function GpfsRootController($scope, $state, $parse, GpfsService, ScheduleService
 		'gpfs.update.note2',
 		'gpfs.update.note3',
 		'gpfs.update.note4',
-		'gpfs.update.note5'
+		'gpfs.update.note5',
+		'gpfs.update.note6',
+		'gpfs.update.note7',
+		'gpfs.update.note8',
+		'gpfs.update.note9',
+		'gpfs.update.note10',
+		'gpfs.update.note11',
+		'gpfs.update.note12'
 	];
 
 	$scope.save = function () {

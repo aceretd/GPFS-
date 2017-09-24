@@ -9,6 +9,17 @@ public class ScheduleInfo extends BaseInfo  {
 	private int index;
 	private List<ScheduleRowInfo> rows;
 
+	public ScheduleCellInfo getCell(int row, int cell) {
+		return rows.get(row).getCells().get(cell);
+	}
+	public String getContent(int row, int cell) {
+		try {
+			return getCell(row, cell).getContent();
+		} catch (NullPointerException n) {
+			return "";
+		}
+	}
+
 	public int getIndex() {
 		return index;
 	}

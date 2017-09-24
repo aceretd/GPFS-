@@ -12,7 +12,7 @@
   <div class="widgets-container">
   	<form ng-submit="next()" class="form-horizontal">
 
-		<div class="row mb10" ng-repeat="qap in gpfs.notes[0].questions">
+		<div class="row mb10" ng-repeat="qap in gpfs.notes[0].questions" ng-if="isActivated(qap)">
 			<div class="col-md-2">{{qap.question.question}}</div>
 			<div class="col-md-3">
 				<select ng-model="qap.answer" ng-if="qap.question.type === 'YES_NO'" ng-change="updateTemplate(qap)" name="yes_no_{{$index}}" class="form-control" required>
