@@ -1,0 +1,28 @@
+<div id="schedule-34-table" class="col-md-12" ng-init="schedule = getSchedule(34)" ng-controller="ScheduleTableController">
+	<table class="table table-striped">
+		<caption>Provisions</caption>
+		<thead>
+			<tr>
+				<th></th>
+				<th>2013</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="row in schedule.rows | limitTo: schedule.rows.length : 0">
+				<td>{{row.cells[0].content}}</td>
+				<td>{{row.cells[1].content}}</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<th>Balance, end</th>
+				<th></th>			
+			</tr>
+		</tfoot>
+	</table>
+</div>
+<script type="text/javascript">
+$(function () {
+	$('#schedule-34-table').editableTableWidget();
+});
+</script>

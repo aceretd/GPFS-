@@ -1,0 +1,33 @@
+<div id="schedule-25-table" class="col-md-12" ng-init="schedule = getSchedule(25)" ng-controller="ScheduleTableController">
+	<table class="table table-striped">
+		<caption>The net proceeds received from the issue of the convertible loan notes have been split between the liability element and an equity component, representing the fair value of the embedded option to convert the liability into equity of the Company, as follow:</caption>
+		<thead>
+			<tr>
+				<th></th>
+				<th>Classified as<br>Liability</th>
+				<th>Equity</th>
+				<th>Total</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="row in schedule.rows | limitTo: schedule.rows.length : 0">
+				<td>{{row.cells[0].content}}</td>		
+				<td>{{row.cells[1].content}}</td>
+				<td>{{row.cells[2].content}}</td>
+				<td ng-init="total = total + row.cells[1].content">{{total}}</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<th>Total</th>		
+				<th>{{ total }}</th>		
+				<th></th>		
+			</tr>
+		</tfoot>
+	</table>
+</div>
+<script type="text/javascript">
+$(function () {
+	$('#schedule-25-table').editableTableWidget();
+});
+</script>

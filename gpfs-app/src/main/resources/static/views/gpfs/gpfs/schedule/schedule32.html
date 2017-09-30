@@ -1,0 +1,56 @@
+<div id="schedule-32-table" class="col-md-12" ng-init="schedule = getSchedule(32)" ng-controller="ScheduleTableController">
+	<table class="table table-striped">
+		<caption>The analysis of the fair value of plan assets and the expected rate of return at the reporting date was as follows:</caption>
+		<thead>
+			<tr>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th colspan="2">Weighted Average</th>
+			</tr>
+			<tr>
+				<th></th>
+				<th colspan="4">Fair Value</th>
+				<th colspan="2">Expected Rate of Return</th>
+			</tr>
+			<tr>
+				<th></th>
+				<th></th>
+				<th>2012</th>
+				<th></th>
+				<th>2008</th>
+				<th>2012</th>
+				<th>2008</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="row in schedule.rows | limitTo: schedule.rows.length : 0">
+				<td>{{row.cells[0].content}}</td>
+				<th><span ng-if="$index==0">P</span></th>
+				<td>{{row.cells[1].content}}</td>
+				<th><span ng-if="$index==0">P</span></th>
+				<td>{{row.cells[2].content}}</td>
+				<td>{{row.cells[3].content}}%</td>
+				<td>{{row.cells[4].content}}%</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<th></th>
+				<th>P</th>
+				<th></th>			
+				<th>P</th>
+				<th></th>			
+				<th></th>			
+				<th></th>			
+			</tr>
+		</tfoot>
+	</table>
+</div>
+<script type="text/javascript">
+$(function () {
+	$('#schedule-32-table').editableTableWidget();
+});
+</script>

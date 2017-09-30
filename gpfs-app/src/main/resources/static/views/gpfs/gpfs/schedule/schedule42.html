@@ -1,0 +1,32 @@
+<div id="schedule-42-table" class="col-md-12" ng-init="schedule = getSchedule(42)" ng-controller="ScheduleTableController">
+	<table class="table table-striped">
+		<caption>Capital Stock</caption>
+		<thead>
+			<tr>
+				<th></th>
+				<th>{{currentYear()}}</th>
+				<th>2012</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="row in schedule.rows | limitTo: schedule.rows.length : 0">
+				<th ng-if="row.cells[1].content=='*'">{{row.cells[0].content}}</th>
+				<td ng-if="row.cells[1].content!='*'">{{row.cells[0].content}}</td>
+				<td><span ng-if="row.cells[1].content!='*'">{{row.cells[1].content}}</span></td>
+				<td><span ng-if="row.cells[1].content!='*'">{{row.cells[2].content}}</span></td>
+			</tr>
+		</tbody>
+		</tfoot>
+			<tr>
+				<th>At December 31[Number of shares, par value per share]</th>		
+				<th></th>		
+				<th></th>		
+			</tr>
+		</tfoot>
+	</table>
+</div>
+<script type="text/javascript">
+$(function () {
+	$('#schedule-42-table').editableTableWidget();
+});
+</script>

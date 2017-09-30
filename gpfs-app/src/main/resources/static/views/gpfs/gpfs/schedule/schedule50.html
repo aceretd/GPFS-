@@ -1,0 +1,29 @@
+<div id="schedule-50-table" class="col-md-12" ng-init="schedule = getSchedule(50)" ng-controller="ScheduleTableController">
+	<table class="table table-striped">
+		<caption>Fair value of each share option is estimated on the date of grant using Black-Scholes pricing model with the following assumptions:</caption>
+		<thead>
+			<tr>
+				<th></th>
+				<th>{{currentYear()}}</th>
+				<th>2012</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="row in schedule.rows">
+				<td ng-repeat="cell in row.cells">{{cell.content}}</td>
+			</tr>
+		</tbody>
+		</tfoot>
+			<tr>
+				<th></th>		
+				<th></th>		
+				<th></th>		
+			</tr>
+		</tfoot>
+	</table>
+</div>
+<script type="text/javascript">
+$(function () {
+	$('#schedule-50-table').editableTableWidget();
+});
+</script>

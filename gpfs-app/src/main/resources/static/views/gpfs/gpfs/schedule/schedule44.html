@@ -1,0 +1,22 @@
+<div id="schedule-44-table" class="col-md-12" ng-init="schedule = getSchedule(44)" ng-controller="ScheduleTableController">
+	<table class="table table-striped">
+		<caption>Reserves</caption>
+		<thead>
+			<tr>
+				<th></th>
+				<th>{{currentYear()}}</th>
+				<th>2012</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="row in schedule.rows">
+				<td ng-repeat="cell in row.cells">{{cell.content}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<script type="text/javascript">
+$(function () {
+	$('#schedule-44-table').editableTableWidget();
+});
+</script>

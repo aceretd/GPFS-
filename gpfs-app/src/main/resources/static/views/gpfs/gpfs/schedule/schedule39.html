@@ -1,0 +1,55 @@
+<div id="schedule-39-table" class="col-md-12" ng-init="schedule = getSchedule(39)" ng-controller="ScheduleTableController">
+	<table class="table table-striped">
+		<caption>The summary of the [Company, Branch, Bank, or any appropriate alternative])’s transactions and outstanding balances with related parties as at and for the year ended December 31, 2013 is as follows</caption>
+		<thead>
+			<tr>
+				<th rowspan="2">Category</th>
+				<th rowspan="2">Amounts</th>
+				<th colspan="2">Outstanding Balance</th>
+				<th rowspan="2">Terms</th>
+				<th rowspan="2">Conditions</th>
+				<th rowspan="2">Notes</th>
+			</tr>
+			<tr>
+				<th>Receivable</th>
+				<th>Payable</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="row in schedule.rows | limitTo: schedule.rows.length : 0">
+				<th ng-if="row.cells[1].content=='*'">{{row.cells[0].content}}</th>
+				<td ng-if="row.cells[1].content!='*'"><span style="padding-left:2em"></span>{{row.cells[0].content}}</td>
+				<th ng-if="row.cells[1].content=='*'"></th>
+				<td ng-if="row.cells[1].content!='*'">{{row.cells[1].content}}</td>
+				<th ng-if="row.cells[1].content=='*'"></th>
+				<td ng-if="row.cells[1].content!='*'">{{row.cells[2].content}}</td>
+				<th ng-if="row.cells[1].content=='*'"></th>
+				<td ng-if="row.cells[1].content!='*'">{{row.cells[3].content}}</td>
+				<th ng-if="row.cells[1].content=='*'"></th>
+				<td ng-if="row.cells[1].content!='*'">{{row.cells[4].content}}</td>
+				<th ng-if="row.cells[1].content=='*'"></th>
+				<td ng-if="row.cells[1].content!='*'">{{row.cells[5].content}}</td>
+				<th ng-if="row.cells[1].content=='*'"></th>
+				<td ng-if="row.cells[1].content!='*'">{{row.cells[6].content}}</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<th></th>
+				<th></th>
+				<th></th>			
+				<th></th>
+				<th></th>			
+				<th></th>
+				<th></th>			
+				<th></th>
+				<th></th>			
+			</tr>
+		</tfoot>
+	</table>
+</div>
+<script type="text/javascript">
+$(function () {
+	$('#schedule-39-table').editableTableWidget();
+});
+</script>

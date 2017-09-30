@@ -1,0 +1,67 @@
+<div id="schedule-45-table" class="col-md-12" ng-init="schedule = getSchedule(45)" ng-controller="ScheduleTableController">
+	<table class="table table-striped">
+		<caption>The hedging reserve represents hedging gains and losses recognized on the effective portion of cash flow hedges. The cumulative deferred gain or loss on the hedge is recognized in other comprehensive income; the hedged transaction impacts the profit or loss, or is included as a basis adjustment to the non-financial hedged item, consistent with the applicable accounting policy.</caption>
+		<thead>
+			<tr>
+				<th></th>
+				<th>{{currentYear()}}</th>
+				<th>2012</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="row in schedule.rows | limitTo: schedule.rows.length-14 : 0">
+				<td>{{row.cells[0].content}}</td>
+				<th ng-if="row.cells[1].content=='*'"></th>
+				<td ng-if="row.cells[1].content!='*'">{{row.cells[1].content}}</td>
+				<th ng-if="row.cells[1].content=='*'"></th>
+				<td ng-if="row.cells[1].content!='*'">{{row.cells[2].content}}</td>
+			</tr>
+			<tr ng-repeat="row in schedule.rows | limitTo: schedule.rows.length-13 : 2">
+				<td><span style="padding-left:2em">{{row.cells[0].content}}</span></td>
+				<td>{{row.cells[1].content}}</td>
+				<td>{{row.cells[2].content}}</td>
+			</tr>
+			<tr ng-repeat="row in schedule.rows | limitTo: schedule.rows.length-14 : 5">
+				<td>{{row.cells[0].content}}</td>
+				<th ng-if="row.cells[1].content=='*'"></th>
+				<td ng-if="row.cells[1].content!='*'">{{row.cells[1].content}}</td>
+				<th ng-if="row.cells[1].content=='*'"></th>
+				<td ng-if="row.cells[1].content!='*'">{{row.cells[2].content}}</td>
+			</tr>
+			<tr ng-repeat="row in schedule.rows | limitTo: schedule.rows.length-13 : 7">
+				<td><span style="padding-left:2em">{{row.cells[0].content}}</span></td>
+				<td>{{row.cells[1].content}}</td>
+				<td>{{row.cells[2].content}}</td>
+			</tr>
+			<tr ng-repeat="row in schedule.rows | limitTo: schedule.rows.length-14 : 10">
+				<td>{{row.cells[0].content}}</td>
+				<th ng-if="row.cells[1].content=='*'"></th>
+				<td ng-if="row.cells[1].content!='*'">{{row.cells[1].content}}</td>
+				<th ng-if="row.cells[1].content=='*'"></th>
+				<td ng-if="row.cells[1].content!='*'">{{row.cells[2].content}}</td>
+			</tr>
+			<tr ng-repeat="row in schedule.rows | limitTo: schedule.rows.length-14 : 12">
+				<td><span style="padding-left:2em">{{row.cells[0].content}}</span></td>
+				<td>{{row.cells[1].content}}</td>
+				<td>{{row.cells[2].content}}</td>
+			</tr>
+			<tr ng-repeat="row in schedule.rows | limitTo: schedule.rows.length-14 : 14">
+				<td>{{row.cells[0].content}}</td>
+				<td>{{row.cells[1].content}}</td>
+				<td>{{row.cells[2].content}}</td>
+			</tr>
+		</tbody>
+		</tfoot>
+			<tr>
+				<th>Balance, [Reporting date]</th>		
+				<th></th>		
+				<th></th>		
+			</tr>
+		</tfoot>
+	</table>
+</div>
+<script type="text/javascript">
+$(function () {
+	$('#schedule-45-table').editableTableWidget();
+});
+</script>

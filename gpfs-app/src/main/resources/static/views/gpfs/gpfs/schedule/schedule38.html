@@ -1,0 +1,49 @@
+<div id="schedule-38-table" class="col-md-12" ng-init="schedule = getSchedule(38)" ng-controller="ScheduleTableController">
+	<table class="table table-striped">
+		<caption>The following table details the notional principal amounts and remaining terms of interest rate swap contracts outstanding as at reporting date:</caption>
+		<thead>
+			<tr>
+				<th>Outstanding Contracts</th>
+				<th colspan="2">Average Contracted Fixed Interest Rate</th>
+				<th colspan="2">Notional Principal Amount</th>
+				<th colspan="2">Fair Value</th>
+			</tr>
+			<tr>
+				<th></th>
+				<th>{{currentYear()}}</th>
+				<th>2012</th>
+				<th>{{currentYear()}}</th>
+				<th>2012</th>
+				<th>{{currentYear()}}</th>
+				<th>2012</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="row in schedule.rows | limitTo: schedule.rows.length : 0">
+				<td>{{row.cells[0].content}}</td>
+				<td>{{row.cells[1].content}}</td>
+				<td>{{row.cells[2].content}}</td>
+				<td>{{row.cells[3].content}}</td>
+				<td>{{row.cells[4].content}}</td>
+				<td>{{row.cells[5].content}}</td>
+				<td>{{row.cells[6].content}}</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<th></th>
+				<th></th>
+				<th></th>			
+				<th></th>
+				<th></th>			
+				<th></th>
+				<th></th>				
+			</tr>
+		</tfoot>
+	</table>
+</div>
+<script type="text/javascript">
+$(function () {
+	$('#schedule-38-table').editableTableWidget();
+});
+</script>

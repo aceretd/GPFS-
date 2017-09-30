@@ -1,0 +1,49 @@
+<div id="schedule-48-table" class="col-md-12" ng-init="schedule = getSchedule(48)" ng-controller="ScheduleTableController">
+	<table class="table table-striped">
+		<caption>The Company has declared the following dividends to its equity holders:</caption>
+		<thead>
+			<tr>
+				<th></th>
+				<th colspan="2">2013</th>
+				<th colspan="2">2012</th>
+			</tr>
+			<tr>
+				<th></th>
+				<th>Shares</th>
+				<th>Weighted Average Exercise Price</th>
+				<th>Shares</th>
+				<th>Weighted Average Exercise Price</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="row in schedule.rows | limitTo: schedule.rows.length : 0">
+				<td>{{row.cells[0].content}}</td>
+				<td>{{row.cells[1].content}}</td>
+				<td>{{row.cells[2].content}}</td>
+				<td>{{row.cells[3].content}}</td>
+				<td>{{row.cells[4].content}}</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<th>Options outstanding, end</th>
+				<th></th>			
+				<th></th>			
+				<th></th>			
+				<th></th>			
+			</tr>
+			<tr>
+				<th>Options exercisable, [Reporting date]</th>
+				<th></th>			
+				<th></th>			
+				<th></th>			
+				<th></th>			
+			</tr>
+		</tfoot>
+	</table>
+</div>
+<script type="text/javascript">
+$(function () {
+	$('#schedule-48-table').editableTableWidget();
+});
+</script>

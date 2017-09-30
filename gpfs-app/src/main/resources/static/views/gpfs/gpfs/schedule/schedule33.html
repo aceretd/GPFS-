@@ -1,0 +1,77 @@
+<div id="schedule-33-table" class="col-md-12" ng-init="schedule = getSchedule(33)" ng-controller="ScheduleTableController">
+	<table class="table table-striped">
+		<caption>Obligations under finance leases</caption>
+		<thead>
+			<tr>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th colspan="4">Present Value of Minimum</th>
+			</tr>
+			<tr>
+				<th></th>
+				<th colspan="4">Minimum Lease Payable</th>
+				<th colspan="4">Lease Payable</th>
+			</tr>
+			<tr>
+				<th></th>
+				<th></th>
+				<th>{{currentYear()}}</th>
+				<th></th>
+				<th>2012</th>
+				<th></th>
+				<th>{{currentYear()}}</th>
+				<th></th>
+				<th>2012</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="row in schedule.rows | limitTo: schedule.rows.length-4 : 0">
+				<td><span ng-if="$index>0" style="padding-left:2em"></span>{{row.cells[0].content}}</td>
+				<th><span ng-if="$index==0">P</span></th>
+				<th ng-if="$index==0"></th>
+				<td ng-if="$index>0">{{row.cells[1].content}}</td>
+				<th><span ng-if="$index==0">P</span></th>
+				<th ng-if="$index==0"></th>
+				<td ng-if="$index>0">{{row.cells[2].content}}</td>
+				<th><span ng-if="$index==0">P</span></th>
+				<th ng-if="$index==0"></th>
+				<td ng-if="$index>0">{{row.cells[3].content}}</td>
+				<th><span ng-if="$index==0">P</span></th>
+				<th ng-if="$index==0"></th>
+				<td ng-if="$index>0">{{row.cells[4].content}}</td>
+			</tr>
+			<tr ng-repeat="row in schedule.rows | limitTo: schedule.rows.length : 4">
+				<td>{{row.cells[0].content}}</td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>		
+		</tbody>
+		<tfoot>
+			<tr>
+				<th></th>
+				<th>P</th>
+				<th></th>			
+				<th>P</th>
+				<th></th>			
+				<th>P</th>
+				<th></th>			
+				<th>P</th>
+				<th></th>			
+			</tr>
+		</tfoot>
+	</table>
+</div>
+<script type="text/javascript">
+$(function () {
+	$('#schedule-33-table').editableTableWidget();
+});
+</script>

@@ -1,0 +1,56 @@
+<div id="schedule-37-table" class="col-md-12" ng-init="schedule = getSchedule(37)" ng-controller="ScheduleTableController">
+	<table class="table table-striped">
+		<caption>At the reporting date, total notional amount of outstanding forward foreign exchange contracts that the Company has committed are as below.</caption>
+		<thead>
+			<tr>
+				<th>Outstanding Contracts</th>
+				<th colspan="2">Average Exchange Rate</th>
+				<th colspan="2">Foreign Currency</th>
+				<th colspan="2">Contract Value</th>
+				<th colspan="2">Fair Value</th>
+			</tr>
+			<tr>
+				<th></th>
+				<th>{{currentYear()}}</th>
+				<th>2012</th>
+				<th>{{currentYear()}}</th>
+				<th>2012</th>
+				<th>{{currentYear()}}</th>
+				<th>2012</th>
+				<th>{{currentYear()}}</th>
+				<th>2012</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="row in schedule.rows | limitTo: schedule.rows.length : 0">
+				<td>{{row.cells[0].content}}</td>
+				<td ng-if="row.cells[1].content!='*'">{{row.cells[1].content}}</td>
+				<td ng-if="row.cells[1].content!='*'">{{row.cells[2].content}}</td>
+				<td ng-if="row.cells[1].content!='*'">{{row.cells[3].content}}</td>
+				<td ng-if="row.cells[1].content!='*'">{{row.cells[4].content}}</td>
+				<td ng-if="row.cells[1].content!='*'">{{row.cells[5].content}}</td>
+				<td ng-if="row.cells[1].content!='*'">{{row.cells[6].content}}</td>
+				<td ng-if="row.cells[1].content!='*'">{{row.cells[7].content}}</td>
+				<td ng-if="row.cells[1].content!='*'">{{row.cells[8].content}}</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<th></th>
+				<th></th>
+				<th></th>			
+				<th></th>
+				<th></th>			
+				<th></th>
+				<th></th>			
+				<th></th>
+				<th></th>			
+			</tr>
+		</tfoot>
+	</table>
+</div>
+<script type="text/javascript">
+$(function () {
+	$('#schedule-37-table').editableTableWidget();
+});
+</script>

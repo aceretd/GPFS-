@@ -1,0 +1,29 @@
+<div id="schedule-26-table" class="col-md-12" ng-init="schedule = getSchedule(26)" ng-controller="ScheduleTableController">
+	<table class="table table-striped">
+		<caption>Movements in the liability component of the Convertible loan notes follow</caption>
+		<thead>
+			<tr>
+				<th></th>
+				<th>{{currentYear()}}</th>
+				<th>2012</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="row in schedule.rows">
+				<td ng-repeat="cell in row.cells">{{cell.content}}</td>
+			</tr>
+		</tbody>
+		</tfoot>
+			<tr>
+				<th>Balance, end</th>		
+				<th></th>		
+				<th></th>		
+			</tr>
+		</tfoot>
+	</table>
+</div>
+<script type="text/javascript">
+$(function () {
+	$('#schedule-26-table').editableTableWidget();
+});
+</script>

@@ -1,0 +1,30 @@
+<div id="schedule-24-table" class="col-md-12" ng-init="schedule = getSchedule(24)" ng-controller="ScheduleTableController">
+	<table class="table table-striped">
+		<caption>Bank overdrafts and loans</caption>
+		<thead>
+			<tr>
+				<th></th>
+				<th>{{currentYear()}}</th>
+				<th>2012</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="row in schedule.rows | limitTo: schedule.rows.length : 0">
+				<td colspan=3 ng-if="row.cells[1].content == '*'">{{row.cells[0].content}}</td>		
+				<td ng-if="row.cells[1].content != '*'">{{row.cells[0].content}}</td>
+				<td ng-if="row.cells[1].content != '*'">{{row.cells[1].content}}</td>
+				<td ng-if="row.cells[1].content != '*'">{{row.cells[2].content}}</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<script type="text/javascript">
+$(function () {
+	$('#schedule-24-table').editableTableWidget();
+});
+</script>

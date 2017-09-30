@@ -1,0 +1,29 @@
+<div id="schedule-43-table" class="col-md-12" ng-init="schedule = getSchedule(43)" ng-controller="ScheduleTableController">
+	<table class="table table-striped">
+		<caption>Details about the Company’ treasury shares as follow:</caption>
+		<thead>
+			<tr>
+				<th></th>
+				<th>{{currentYear()}}</th>
+				<th>2012</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="row in schedule.rows">
+				<td ng-repeat="cell in row.cells">{{cell.content}}</td>
+			</tr>
+		</tbody>
+		</tfoot>
+			<tr>
+				<th>Balance, end</th>		
+				<th></th>		
+				<th></th>		
+			</tr>
+		</tfoot>
+	</table>
+</div>
+<script type="text/javascript">
+$(function () {
+	$('#schedule-43-table').editableTableWidget();
+});
+</script>

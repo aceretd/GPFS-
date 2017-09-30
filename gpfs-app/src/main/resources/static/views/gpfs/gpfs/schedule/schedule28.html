@@ -1,0 +1,37 @@
+<div id="schedule-28-table" class="col-md-12" ng-init="schedule = getSchedule(28)" ng-controller="ScheduleTableController">
+	<table class="table table-striped">
+		<caption>Amounts recognized in profit or loss in respect of these defined benefit plans are as follows:</caption>
+		<thead>
+			<tr>
+				<th></th>
+				<th></th>
+				<th>{{currentYear()}}</th>
+				<th></th>
+				<th>2012</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="row in schedule.rows | limitTo: schedule.rows.length : 0">
+				<td>{{row.cells[0].content}}</td>
+				<th><span ng-if="$index==0">P</span></th>
+				<td>{{row.cells[1].content}}</td>
+				<th><span ng-if="$index==0">P</span></th>
+				<td>{{row.cells[2].content}}</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<th></th>
+				<th>P</th>
+				<th></th>
+				<th>P</th>
+				<th></th>
+			</tr>
+		</tfoot>
+	</table>
+</div>
+<script type="text/javascript">
+$(function () {
+	$('#schedule-28-table').editableTableWidget();
+});
+</script>

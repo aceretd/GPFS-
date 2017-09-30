@@ -1,0 +1,29 @@
+<div id="schedule-51-table" class="col-md-12" ng-init="schedule = getSchedule(51)" ng-controller="ScheduleTableController">
+	<table class="table table-striped">
+		<caption>Options were priced using a binomial option pricing model.  When relevant, the expected life used in the model has been adjusted based on management’s best estimate for the effects of non-transferability, exercise restrictions, including the probability of meeting market conditions attached to the option, and behavioral considerations. Expected volatility is based on the historical share price volatility over the past five (5) years. To allow for the effects of early exercise, it was assumed that executives and senior employees would exercise the options after vesting date the share price was two and a half times the exercise price.</caption>
+		<thead>
+			<tr>
+				<th></th>
+				<th>{{currentYear()}}</th>
+				<th>2012</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="row in schedule.rows">
+				<td ng-repeat="cell in row.cells">{{cell.content}}</td>
+			</tr>
+		</tbody>
+		</tfoot>
+			<tr>
+				<th></th>		
+				<th></th>		
+				<th></th>		
+			</tr>
+		</tfoot>
+	</table>
+</div>
+<script type="text/javascript">
+$(function () {
+	$('#schedule-51-table').editableTableWidget();
+});
+</script>

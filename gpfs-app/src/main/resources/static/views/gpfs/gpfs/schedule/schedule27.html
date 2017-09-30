@@ -1,0 +1,27 @@
+<div id="schedule-27-table" class="col-md-12" ng-init="schedule = getSchedule(27)" ng-controller="ScheduleTableController">
+	<table class="table table-striped">
+		<caption>The principal assumptions used for the purposes of the actuarial valuations were as follows:</caption>
+		<thead>
+			<tr>
+				<th></th>
+				<th colspan=2>Valuation at</th>
+			</tr>			<tr>
+				<th></th>
+				<th>{{currentYear()}}</th>
+				<th>2012</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="row in schedule.rows | limitTo: schedule.rows.length : 0">
+				<td>{{row.cells[0].content}}</td>
+				<td>{{row.cells[1].content}}%</td>
+				<td>{{row.cells[2].content}}%</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<script type="text/javascript">
+$(function () {
+	$('#schedule-27-table').editableTableWidget();
+});
+</script>
