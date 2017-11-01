@@ -333,9 +333,6 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
         	templateUrl: 'views/gpfs/gpfs/gpfs-03-note1.html',
         	controller: 'GpfsNote1Controller',
         	resolve: {
-//    			questions: function ($stateParams, QuestionService) {
-//    				return QuestionService.findByNote({note: 1});
-//    			},
                 loadPlugin: function($ocLazyLoad) {
                     return $ocLazyLoad.load([
                         {
@@ -350,18 +347,21 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
         	url: '/note2',
         	templateUrl: 'views/gpfs/gpfs/gpfs-00-generic.html',
         	title: 'Financial Reporting Framework',
+        	controller: 'GpfsUpdateController',
         	noteIndex: 2
         })
         .state('gpfs.update.note3', {
         	url: '/note3',
         	templateUrl: 'views/gpfs/gpfs/gpfs-00-generic.html',
         	title: 'Significant Accounting Policies',
+        	controller: 'GpfsUpdateController',
         	noteIndex: 3
         })
         .state('gpfs.update.note4', {
         	url: '/note4',
         	templateUrl: 'views/gpfs/gpfs/gpfs-00-generic.html',
         	title: 'Transition to the PFRS for SMEs',
+        	controller: 'GpfsUpdateController',
         	noteIndex: 4
         })
         .state('gpfs.update.note5', {
@@ -369,6 +369,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
         	templateUrl: 'views/gpfs/gpfs/gpfs-00-generic.html',
         	title: 'Reconciliation',
         	noteIndex: 5,
+        	controller: 'GpfsUpdateController',
         	schedules: [{
     			template: 'views/gpfs/gpfs/schedule/schedule1.html',
     			after: 7200
@@ -378,24 +379,28 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
         	url: '/note6',
         	templateUrl: 'views/gpfs/gpfs/gpfs-00-generic.html',
         	title: 'Explanation of the transition to the PFRS for SMEs',
+        	controller: 'GpfsUpdateController',
         	noteIndex: 6
         })
         .state('gpfs.update.note7', {
         	url: '/note7',
         	templateUrl: 'views/gpfs/gpfs/gpfs-00-generic.html',
         	title: 'Critical Accounting Judgements',
+        	controller: 'GpfsUpdateController',
         	noteIndex: 7
         })
         .state('gpfs.update.note8', {
         	url: '/note8',
         	templateUrl: 'views/gpfs/gpfs/gpfs-00-generic.html',
         	title: 'Categories of Financial Instruments',
+        	controller: 'GpfsUpdateController',
         	noteIndex: 8
         })
         .state('gpfs.update.note9', {
         	url: '/note9',
         	templateUrl: 'views/gpfs/gpfs/gpfs-00-generic.html',
         	title: 'Cash and Cash Equivalents',
+        	controller: 'GpfsUpdateController',
         	noteIndex: 9
         })
 

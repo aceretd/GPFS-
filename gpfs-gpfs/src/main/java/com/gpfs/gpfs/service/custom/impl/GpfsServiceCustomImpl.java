@@ -1,8 +1,11 @@
 package com.gpfs.gpfs.service.custom.impl;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +15,7 @@ import com.gpfs.coa.service.ChartOfAccountService;
 import com.gpfs.core.service.GpfsJpaServiceCustomImpl;
 import com.gpfs.gpfs.Gpfs;
 import com.gpfs.gpfs.Note;
+import com.gpfs.gpfs.dto.CoaUploadDto;
 import com.gpfs.gpfs.dto.GpfsInfo;
 import com.gpfs.gpfs.dto.NoteInfo;
 import com.gpfs.gpfs.dto.QuestionAnswerPairInfo;
@@ -87,5 +91,18 @@ public class GpfsServiceCustomImpl extends GpfsJpaServiceCustomImpl<Gpfs, GpfsIn
 			qapi.setEditTemplateMode(false);
 			note.getQuestions().add(qapi);
 		}
+	}
+
+	@Override
+	public GpfsInfo saveProductCustom(CoaUploadDto uploadDto) throws IOException {
+		Gpfs gpfs = repo.findOne(uploadDto.getGpfsId());
+		if (null == gpfs) {
+			throw new IllegalArgumentException("GPFS not found with id={}" + uploadDto.getGpfsId());
+		}
+
+		XSSFWorkbook workbook = new XSSFWorkbook(uploadDto.getFile().getInputStream());
+		XSSFSheet sheet = workbook.getSheetAt(0);
+
+		return new GpfsInfo();
 	}
 }
