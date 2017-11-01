@@ -285,6 +285,8 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
                         	files: ['css/mailbox.css', 'css/plugins/iCheck/custom.css', 'js/plugins/iCheck/icheck.min.js']
                         }, {
                             files: ['js/plugins/editable-table/editable-table.js']
+                        }, {
+                            files: ['js/plugins/moment/moment.min.js']
                         }
                     ]);
                 }

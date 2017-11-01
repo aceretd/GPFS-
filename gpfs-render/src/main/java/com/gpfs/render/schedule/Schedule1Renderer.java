@@ -63,6 +63,9 @@ public class Schedule1Renderer extends ScheduleRenderer {
 
 		//create table
         XWPFTable table = docx.createTable();
+        //try to fix weird null pointer
+//        table.getCTTbl().addNewTblGrid();
+//        table.getCTTbl().addNewTblPr();
         //table.setCellMargins(0, 0, 0, 500);
 
         XWPFTableRow tr0 = table.getRow(0);
@@ -87,45 +90,52 @@ public class Schedule1Renderer extends ScheduleRenderer {
         boldDate2.setText("December 31");
 
         XWPFTableRow tr1 = table.createRow();
-        getBorderedCell(tr1, 0, null, null, STBorder.SINGLE, null);
-        XWPFParagraph p1 = new CellUtil(getBorderedCell(tr1, 1, null, null, STBorder.SINGLE, null)).getParagraph();
-        p1.setAlignment(ParagraphAlignment.RIGHT);
-        XWPFRun boldYear = p1.createRun();
-        boldYear.setBold(true);
-        boldYear.setText(String.valueOf(gpfs.getYear()));
-        XWPFParagraph p2 = new CellUtil(getBorderedCell(tr1, 2, null, null, STBorder.SINGLE, null)).getParagraph();
-        p2.setAlignment(ParagraphAlignment.RIGHT);
-        XWPFRun boldYear2 = p2.createRun();
-        boldYear2.setBold(true);
-        boldYear2.setText(String.valueOf(gpfs.getYear()));
+        getBorderedCell(tr1, 0, STBorder.SINGLE, STBorder.SINGLE, STBorder.SINGLE, STBorder.SINGLE).setText("wat");
+        LOG.debug("cells size={}", tr1.getTableCells().size());
 
-        for (int i = 0; i < schedule.getRows().size(); i++) {
-        	renderBody(schedule.getRows().get(i), table);
+        for (XWPFTableCell c : tr1.getTableCells()) {
+        	initializeCell(c);
         }
-
-        XWPFTableRow totals = table.createRow();
-        XWPFTableCell boldFooterCell = getBorderedCell(totals, 0, STBorder.SINGLE, null, STBorder.DOUBLE, null);
-        XWPFRun boldFooter1 = new CellUtil(boldFooterCell).getParagraph().createRun();
-        boldFooter1.setBold(true);
-        boldFooter1.setText("Total equity under PFRS for SME");
-        XWPFTableCell boldFooterCell2 = getBorderedCell(totals, 1, STBorder.SINGLE, null, STBorder.DOUBLE, null);
-        XWPFParagraph boldFooterP1 = new CellUtil(boldFooterCell2).getParagraph();
-        boldFooterP1.setAlignment(ParagraphAlignment.RIGHT);
-        XWPFRun boldFooter2 = boldFooterP1.createRun();
-        boldFooter2.setBold(true);
-        boldFooter2.setText(NO_DECIMAL_FORMAT.format(schedule.getRows().stream()
-        		.map(r -> {return Doubles.tryParse(r.getCells().get(1).getContent());})
-        		.filter(Objects::nonNull)
-        		.reduce(0d, (a, b) -> a + b)));
-        XWPFTableCell boldFooterCell3 = getBorderedCell(totals, 2, STBorder.SINGLE, null, STBorder.DOUBLE, null);
-        XWPFParagraph boldFooterP = new CellUtil(boldFooterCell3).getParagraph();
-        boldFooterP.setAlignment(ParagraphAlignment.RIGHT);
-        XWPFRun boldFooter3 = boldFooterP.createRun();
-        boldFooter3.setBold(true);
-        boldFooter3.setText(NO_DECIMAL_FORMAT.format(schedule.getRows().stream()
-        		.map(r -> {return Doubles.tryParse(r.getCells().get(2).getContent());})
-        		.filter(Objects::nonNull)
-        		.reduce(0d, (a, b) -> a + b)));
+        
+        //        getBorderedCell(tr1, 0, null, null, STBorder.SINGLE, null);
+//        XWPFParagraph p1 = new CellUtil(getBorderedCell(tr1, 1, null, null, STBorder.SINGLE, null)).getParagraph();
+//        p1.setAlignment(ParagraphAlignment.RIGHT);
+//        XWPFRun boldYear = p1.createRun();
+//        boldYear.setBold(true);
+//        boldYear.setText(String.valueOf(gpfs.getYear()));
+//        XWPFParagraph p2 = new CellUtil(getBorderedCell(tr1, 2, null, null, STBorder.SINGLE, null)).getParagraph();
+//        p2.setAlignment(ParagraphAlignment.RIGHT);
+//        XWPFRun boldYear2 = p2.createRun();
+//        boldYear2.setBold(true);
+//        boldYear2.setText(String.valueOf(gpfs.getYear()));
+//
+//        for (int i = 0; i < schedule.getRows().size(); i++) {
+//        	renderBody(schedule.getRows().get(i), table);
+//        }
+//
+//        XWPFTableRow totals = table.createRow();
+//        XWPFTableCell boldFooterCell = getBorderedCell(totals, 0, STBorder.SINGLE, null, STBorder.DOUBLE, null);
+//        XWPFRun boldFooter1 = new CellUtil(boldFooterCell).getParagraph().createRun();
+//        boldFooter1.setBold(true);
+//        boldFooter1.setText("Total equity under PFRS for SME");
+//        XWPFTableCell boldFooterCell2 = getBorderedCell(totals, 1, STBorder.SINGLE, null, STBorder.DOUBLE, null);
+//        XWPFParagraph boldFooterP1 = new CellUtil(boldFooterCell2).getParagraph();
+//        boldFooterP1.setAlignment(ParagraphAlignment.RIGHT);
+//        XWPFRun boldFooter2 = boldFooterP1.createRun();
+//        boldFooter2.setBold(true);
+//        boldFooter2.setText(NO_DECIMAL_FORMAT.format(schedule.getRows().stream()
+//        		.map(r -> {return Doubles.tryParse(r.getCells().get(1).getContent());})
+//        		.filter(Objects::nonNull)
+//        		.reduce(0d, (a, b) -> a + b)));
+//        XWPFTableCell boldFooterCell3 = getBorderedCell(totals, 2, STBorder.SINGLE, null, STBorder.DOUBLE, null);
+//        XWPFParagraph boldFooterP = new CellUtil(boldFooterCell3).getParagraph();
+//        boldFooterP.setAlignment(ParagraphAlignment.RIGHT);
+//        XWPFRun boldFooter3 = boldFooterP.createRun();
+//        boldFooter3.setBold(true);
+//        boldFooter3.setText(NO_DECIMAL_FORMAT.format(schedule.getRows().stream()
+//        		.map(r -> {return Doubles.tryParse(r.getCells().get(2).getContent());})
+//        		.filter(Objects::nonNull)
+//        		.reduce(0d, (a, b) -> a + b)));
 	}
 
 	private void renderBody(ScheduleRowInfo scheduleRowInfo, XWPFTable table) {

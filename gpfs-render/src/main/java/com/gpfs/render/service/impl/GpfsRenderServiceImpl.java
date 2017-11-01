@@ -1,24 +1,25 @@
 package com.gpfs.render.service.impl;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.poi.xwpf.converter.pdf.PdfConverter;
 import org.apache.poi.xwpf.converter.pdf.PdfOptions;
-import org.apache.poi.xwpf.model.XWPFHeaderFooterPolicy;
 import org.apache.poi.xwpf.usermodel.Borders;
 import org.apache.poi.xwpf.usermodel.ParagraphAlignment;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
 import org.apache.xmlbeans.XmlException;
-import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTP;
-import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTR;
-import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTSectPr;
-import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTText;
+import org.assertj.core.util.Lists;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
-import com.gpfs.gpfs.Note;
 import com.gpfs.gpfs.dto.GpfsInfo;
 import com.gpfs.gpfs.dto.NoteInfo;
 import com.gpfs.gpfs.service.GpfsService;
@@ -38,6 +38,7 @@ import com.gpfs.render.service.GpfsRenderService;
 public class GpfsRenderServiceImpl implements GpfsRenderService {
 
 	private static final Logger LOG = LoggerFactory.getLogger(GpfsRenderServiceImpl.class);
+	private static final int ALL_NOTES = -1;
 
 	@Autowired
 	private GpfsService service;
@@ -53,21 +54,26 @@ public class GpfsRenderServiceImpl implements GpfsRenderService {
 	private List<ScheduleRenderer> scheduleRenderers;
 
 	@Override
-	public void preview(Long companyId, int year, HttpServletResponse response) throws Exception {
+	public void preview(Long companyId, int year, int note, HttpServletResponse response) throws Exception {
 		GpfsInfo gpfs = service.findInfoByCompanyIdAndYear(companyId, year);
 		if (null == gpfs) {
 			LOG.error("No GPFS found with companyId={} and year={}!", companyId, year);
 			return;
 		}
 		response.setHeader("Content-disposition", "attachment; filename=GPFS.pdf");
-		//XWPFDocument document = new XWPFDocument(new ClassPathResource("template.docx").getInputStream());//render(gpfs);
 
+		LOG.debug("Trying to render document as PDF.");
 		try {
-			XWPFDocument document = render(gpfs);
-			PdfConverter.getInstance().convert(document, response.getOutputStream(), PdfOptions.create());
+			XWPFDocument docx = render(gpfs, note);
+			PdfConverter.getInstance().convert(docx, response.getOutputStream(), PdfOptions.create());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public void preview(Long companyId, int year, HttpServletResponse response) throws Exception {
+		preview(companyId, year, ALL_NOTES, response);
 	}
 
 	@Override
@@ -78,14 +84,14 @@ public class GpfsRenderServiceImpl implements GpfsRenderService {
 			LOG.error("No GPFS found with companyId={} and year={}!", companyId, year);
 			return;
 		}
-		XWPFDocument document = render(gpfs);
+		XWPFDocument document = render(gpfs, ALL_NOTES);
         response.setHeader("Content-disposition", "attachment; filename=GPFS.docx");
         if (null != document) {
             document.write(response.getOutputStream());
         }
 	}
 
-	public XWPFDocument render(GpfsInfo gpfs) throws IOException, XmlException  {
+	public XWPFDocument render(GpfsInfo gpfs, int noteToRender) throws IOException, XmlException  {
 		XWPFDocument docx = new XWPFDocument(new ClassPathResource("template.docx").getInputStream());
 //		CTSectPr sectPr = docx.getDocument().getBody().getSectPr();//.addNewSectPr();
 //		XWPFHeaderFooterPolicy policy = new XWPFHeaderFooterPolicy(docx, sectPr);
@@ -123,8 +129,12 @@ public class GpfsRenderServiceImpl implements GpfsRenderService {
 
 		bodyParagraph.setBorderBottom(Borders.DOUBLE);
 
-		for (int i = 0; i < 5; i++) {
-			NoteInfo note = gpfs.getNotes().get(i);
+		List<NoteInfo> notesToRender = noteToRender == ALL_NOTES ? gpfs.getNotes()
+				: gpfs.getNotes().stream().filter(n -> n.getIndex() == noteToRender).collect(Collectors.toList());
+
+		LOG.debug("Notes to render={}", notesToRender);
+		for (int i = 0; i < notesToRender.size(); i++) {
+			NoteInfo note = notesToRender.get(i);
 			Optional<NoteRenderer> specialRenderer = specialRenderers.stream().filter(r -> r.getNoteIndex() == note.getIndex()).findFirst();
 			if (specialRenderer.isPresent()) {
 				LOG.debug("Special renderer invoked for note. index={}", note.getIndex());

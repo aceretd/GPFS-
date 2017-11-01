@@ -8,6 +8,7 @@ import org.apache.poi.xwpf.usermodel.ParagraphAlignment;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;
+import org.assertj.core.util.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,6 +17,8 @@ import com.gpfs.gpfs.dto.GpfsInfo;
 import com.gpfs.gpfs.dto.NoteInfo;
 import com.gpfs.gpfs.dto.QuestionAnswerPairInfo;
 import com.gpfs.render.schedule.ScheduleRenderer;
+
+import antlr.StringUtils;
 
 public abstract class NoteRenderer {
 
@@ -39,6 +42,7 @@ public abstract class NoteRenderer {
 	public void render(XWPFDocument docx, NoteInfo note, List<ScheduleRenderer> scheduleRenderers, GpfsInfo gpfs) {
 		note.getQuestions().stream()
 				.filter(QuestionAnswerPairInfo::isActivated)
+				.filter(qap -> !Strings.isNullOrEmpty(qap.getTemplate()))
 				.forEach(qap -> {
 					renderQuestion(docx, qap);
 

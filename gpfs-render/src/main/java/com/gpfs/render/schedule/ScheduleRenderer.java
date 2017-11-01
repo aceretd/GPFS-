@@ -1,13 +1,17 @@
 package com.gpfs.render.schedule;
 
+import java.math.BigInteger;
+
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFTable;
 import org.apache.poi.xwpf.usermodel.XWPFTableCell;
 import org.apache.poi.xwpf.usermodel.XWPFTableRow;
+import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTTblWidth;
 import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTTc;
 import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTTcBorders;
 import org.openxmlformats.schemas.wordprocessingml.x2006.main.CTTcPr;
 import org.openxmlformats.schemas.wordprocessingml.x2006.main.STBorder;
+import org.openxmlformats.schemas.wordprocessingml.x2006.main.STTblWidth;
 
 import com.gpfs.core.dto.schedule.ScheduleInfo;
 import com.gpfs.core.dto.schedule.ScheduleRowInfo;
@@ -42,8 +46,19 @@ public abstract class ScheduleRenderer {
 	protected XWPFTableCell createOrGetBorderedCell(XWPFTableRow tr0, int col, STBorder.Enum top, STBorder.Enum right, STBorder.Enum bottom, STBorder.Enum left) {
 		XWPFTableCell cell = col == -1 ? tr0.createCell() : tr0.getCell(col);
 
+		//column widths?
 		CTTc ctTc = cell.getCTTc();
-		CTTcPr tcPr = ctTc.addNewTcPr();
+		CTTcPr tcPr = ctTc.getTcPr();
+		if (null == tcPr) {
+			tcPr = ctTc.addNewTcPr();
+		}
+		CTTblWidth width = tcPr.getTcW();
+		if (null == width) {
+			width = tcPr.addNewTcW();
+		}
+		width.setW(BigInteger.TEN);
+		width.setType(STTblWidth.PCT);
+
 		CTTcBorders border = tcPr.addNewTcBorders();
 
 		border.addNewTop().setVal(top == null ? STBorder.NIL : top);
@@ -52,5 +67,20 @@ public abstract class ScheduleRenderer {
 		border.addNewLeft().setVal(left == null ? STBorder.NIL : left);
 
 		return cell;
+	}
+
+	protected void initializeCell(XWPFTableCell c) {
+		//column widths?
+		CTTc ctTc = c.getCTTc();
+		CTTcPr tcPr = ctTc.getTcPr();
+		if (null == tcPr) {
+			tcPr = ctTc.addNewTcPr();
+		}
+		CTTblWidth width = tcPr.getTcW();
+		if (null == width) {
+			width = tcPr.addNewTcW();
+		}
+		width.setW(BigInteger.TEN);
+		width.setType(STTblWidth.PCT);
 	}
 }

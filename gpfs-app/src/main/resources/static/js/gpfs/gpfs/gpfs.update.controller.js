@@ -38,7 +38,7 @@ function GpfsUpdateController($scope, $rootScope, $state, $filter, $parse, gpfs)
 				return ans.answer === qap.answer;
 			});
 			if (selectedAnswer) {
-				qap.template = selectedAnswer.template;
+				qap.template = $scope.replaceVariables(selectedAnswer.template);
 			}
 			break;
 		case 'MULTIPLE_SELECT':
@@ -104,12 +104,16 @@ function GpfsUpdateController($scope, $rootScope, $state, $filter, $parse, gpfs)
 	}
 
 	$scope.replaceVariables = function (template) {
-		let newTemplate = template.replace(/{{(.*?)}}/g, function(match, expr) {
-			let exprFxn = $parse(expr);
-			return exprFxn($scope.updateGpfs);
-		});
-		console.debug('newTemplate=' + newTemplate);
-		return newTemplate;
+		try {
+			let newTemplate = template.replace(/{{(.*?)}}/g, function(match, expr) {
+				let exprFxn = $parse(expr);
+				return exprFxn($scope.updateGpfs);
+			});
+			return newTemplate;
+		} catch (e) {
+			console.error('Error replacing variables. template=' + template);
+			return template;
+		}
 	};
 
 }

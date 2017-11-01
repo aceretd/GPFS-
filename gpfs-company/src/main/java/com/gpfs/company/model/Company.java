@@ -1,5 +1,7 @@
 package com.gpfs.company.model;
 
+import java.time.Month;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -34,6 +36,12 @@ public class Company extends BaseEntity {
     @Type(type = "yes_no")
 	private boolean groupOfEntities;
 
+	@Column(name = "reporting_period_end_month")
+	private Month reportingPeriodEndMonth;
+
+	@Column(name = "reporting_period_end_day")
+	private int reportingPeriodEndDay;
+
 	public String getName() {
 		return name;
 	}
@@ -63,6 +71,18 @@ public class Company extends BaseEntity {
 	}
 	public void setGroupOfEntities(boolean groupOfEntities) {
 		this.groupOfEntities = groupOfEntities;
+	}
+	public Month getReportingPeriodEndMonth() {
+		return reportingPeriodEndMonth;
+	}
+	public void setReportingPeriodEndMonth(Month reportingPeriodEndMonth) {
+		this.reportingPeriodEndMonth = reportingPeriodEndMonth;
+	}
+	public int getReportingPeriodEndDay() {
+		return reportingPeriodEndDay;
+	}
+	public void setReportingPeriodEndDay(int reportingPeriodEndDay) {
+		this.reportingPeriodEndDay = reportingPeriodEndDay;
 	}
 
 }

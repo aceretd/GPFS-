@@ -28,4 +28,10 @@ public class PreviewResource {
 		//return new ResponseEntity<String>("OK", HttpStatus.OK);
 	}
 
+	@RequestMapping("/gpfs/{companyId}/{year}/{note}")
+	public void gpfsPreviewNote(@PathVariable Long companyId, @PathVariable int year, @PathVariable int note, HttpServletResponse response) throws Exception {
+		LOG.debug("GPFS preview requested");
+		service.preview(companyId, year, note, response);
+	}
+
 }

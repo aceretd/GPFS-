@@ -108,6 +108,40 @@ function GpfsRootController($scope, $state, $parse, GpfsService, ScheduleService
 		},
 		priorYear: function () {
 			return $scope.updateGpfs.gpfs.year - 1;
+		},
+		periodStart: function () {
+			let date = new Date();
+			date.setMonth($scope.updateGpfs.gpfs.company.reportingPeriodEndMonth);
+			date.setDate($scope.updateGpfs.gpfs.company.reportingPeriodEndDay);
+			date.setYear($scope.updateGpfs.gpfs.year);
+			let momentDate = moment(date).add(1, 'days');
+			return momentDate.format('MMM D');
+		},
+		periodBeg: function () {
+			return $scope.updateGpfs.periodStart();
+		},
+		periodEnd: function () {
+			return $scope.updateGpfs.gpfs.company.reportingPeriodEndMonth + ' ' + $scope.updateGpfs.gpfs.company.reportingPeriodEndDay;
+		},
+		begDayCurrentYear: function () {
+			let date = new Date();
+			date.setMonth($scope.updateGpfs.gpfs.company.reportingPeriodEndMonth);
+			date.setDate($scope.updateGpfs.gpfs.company.reportingPeriodEndDay);
+			date.setYear($scope.updateGpfs.gpfs.year);
+			let momentDate = moment(date).add(1, 'days');
+			return momentDate.format('MMM D, YYYY');
+		},
+		currentReportingPeriod: function () {
+			return $scope.updateGpfs.periodEnd() + ', ' + $scope.updateGpfs.currentYear();
+		},
+		priorReportingPeriod: function () {
+			return $scope.updateGpfs.periodEnd() + ', ' + $scope.updateGpfs.priorYear();
+		},
+		companyName: function () {
+			return $scope.updateGpfs.gpfs.company.name;
+		},
+		entityType: function () {
+			return $scope.updateGpfs.gpfs.company.type;
 		}
 	};
 
