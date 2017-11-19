@@ -417,6 +417,27 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
         	controller: 'GpfsUpdateController',
         	noteIndex: 9
         })
+        .state('gpfs.update.note10', {
+        	url: '/note10',
+        	templateUrl: 'views/gpfs/gpfs/gpfs-00-generic.html',
+        	title: 'Trade and Other Receivables',
+        	controller: 'GpfsUpdateController',
+        	noteIndex: 10
+        })
+        .state('gpfs.update.note11', {
+        	url: '/note11',
+        	templateUrl: 'views/gpfs/gpfs/gpfs-00-generic.html',
+        	title: 'Investment Measured at Fair Value Through Profit or Loss',
+        	controller: 'GpfsUpdateController',
+        	noteIndex: 11
+        })
+        .state('gpfs.update.note12', {
+        	url: '/note12',
+        	templateUrl: 'views/gpfs/gpfs/gpfs-00-generic.html',
+        	title: 'Finance Lease Receivable',
+        	controller: 'GpfsUpdateController',
+        	noteIndex: 12
+        })
 
         // UI Features 
         .state('ui_colors', {
