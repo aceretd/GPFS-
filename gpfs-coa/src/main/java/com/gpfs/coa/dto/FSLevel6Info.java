@@ -11,6 +11,7 @@ public class FSLevel6Info extends BaseEntity {
 	private String name;
 	private String accountNumber;
 	private String description;
+	private String code;
 	private BigDecimal currentYearAmount;
 	private BigDecimal previousYearAmount;
 
@@ -43,6 +44,12 @@ public class FSLevel6Info extends BaseEntity {
 	}
 	public void setPreviousYearAmount(BigDecimal previousYearAmount) {
 		this.previousYearAmount = previousYearAmount;
+	}
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 }

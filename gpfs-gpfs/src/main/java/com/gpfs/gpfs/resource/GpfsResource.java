@@ -6,6 +6,10 @@ import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 import java.io.IOException;
 
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,9 +35,20 @@ public class GpfsResource extends BaseResource<GpfsInfo, GpfsService> {
 		return new ResponseEntity<>(service.saveInfo(gpfs), OK);
 	}
 
-	@RequestMapping(value = "/coa", method = POST)
+	@RequestMapping(value = "/coa-template", method = POST)
 	public ResponseEntity<GpfsInfo> uploadCoa(CoaUploadDto uploadDto) throws IOException {
 		return new ResponseEntity<>(service.saveProductCustom(uploadDto), OK);
+	}
+
+	@RequestMapping(value = "/coa-template/{companyId}/{year}", method = GET)
+	public ResponseEntity<byte[]> getTemplateXls(@PathVariable Long companyId, @PathVariable int year, HttpServletResponse response) throws IOException {
+		GpfsInfo gpfs = service.findInfoByCompanyIdAndYear(companyId, year);
+		XSSFWorkbook report = gpfs.getCoa().toWorkbook();
+        response.setHeader("Content-disposition", "attachment; filename=COA " + gpfs.getCompany().getName() + " - " + year + ".xlsx");
+        if (null != report) {
+            report.write(response.getOutputStream());
+        }
+        return new ResponseEntity(HttpStatus.OK);
 	}
 
 }

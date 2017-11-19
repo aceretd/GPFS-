@@ -27,6 +27,9 @@ public class FSLevel6 extends BaseEntity {
 	@Column(name = "prev_yr", nullable = false)
 	private BigDecimal previousYearAmount;
 
+	@Column(name = "code")
+	private String code;
+
 	public String getName() {
 		return name;
 	}
@@ -65,6 +68,14 @@ public class FSLevel6 extends BaseEntity {
 
 	public void setPreviousYearAmount(BigDecimal previousYearAmount) {
 		this.previousYearAmount = previousYearAmount;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
 	}
 	
 }
