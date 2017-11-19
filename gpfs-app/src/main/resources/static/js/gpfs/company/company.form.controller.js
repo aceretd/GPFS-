@@ -15,8 +15,8 @@ function CompanyFormCtrl($scope, $state, CompanyService) {
 
 	$scope.save = function () {
 		if ($scope.company.reportingPeriodHolder) {
-			$scope.company.reportingPeriodEndMonth = $scope.company.reportingPeriodHolder.getMonth();
-			$scope.company.reportingPeriodEndDay = $scope.company.reportingPeriodHolder.getDate();
+			$scope.company.reportingPeriodEndMonth = new Date($scope.company.reportingPeriodHolder).getMonth();
+			$scope.company.reportingPeriodEndDay = new Date($scope.company.reportingPeriodHolder).getDate();
 		}
 		CompanyService.save($scope.company, function (data) {
 			$scope.company = data;
