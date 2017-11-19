@@ -2,14 +2,14 @@ angular
     .module('AdminUI')
     .controller('CompanyFormCtrl', CompanyFormCtrl);
 
-function CompanyFormCtrl($scope, CompanyService) {
+function CompanyFormCtrl($scope, $state, CompanyService) {
 	$scope.company = {
 		incorporationDate: new Date(),
-		reportingPeriodHolder: new Date()
+		reportingPeriodHolder: new Date(),
+		type: 'COMPANY'
 	};
 
 	$scope.setReportingPeriod = function () {
-		alert('wtf');
 		console.debug('set reporting period. rp=' + $scope.reportingPeriodHolder);
 	}
 
@@ -19,7 +19,10 @@ function CompanyFormCtrl($scope, CompanyService) {
 			$scope.company.reportingPeriodEndDay = $scope.company.reportingPeriodHolder.getDate();
 		}
 		CompanyService.save($scope.company, function (data) {
-			$scope.company = data.data;
+			$scope.company = data;
+			swal({title: 'Success', text: 'Company Created', type: 'success'}).then(function () {
+				$state.go('company_details', {companyId: $scope.company.id});
+			});
 		});
 	}
 }

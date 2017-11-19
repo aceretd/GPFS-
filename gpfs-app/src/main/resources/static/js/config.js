@@ -221,6 +221,20 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
                 }
             }
         })
+        .state('company_details', {
+        	url: '/company/{companyId}',
+        	templateUrl: 'views/gpfs/company/company_details.html',
+        	controller: 'CompanyDetailsCtrl',
+        	data: {
+        		pageTitle: 'company details',
+        		specialClass: 'page-header-fixed'
+        	},
+            resolve: {
+            	company: function ($stateParams, CompanyService) {
+            		return CompanyService.findOne({id: $stateParams.companyId});
+            	}
+            }
+        })
 
         //GPFS Question
         .state('question_list', {

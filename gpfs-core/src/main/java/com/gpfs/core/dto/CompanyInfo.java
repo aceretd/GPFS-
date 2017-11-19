@@ -3,6 +3,7 @@ package com.gpfs.core.dto;
 import java.time.Month;
 
 import org.joda.time.DateTime;
+import org.springframework.core.style.ToStringCreator;
 
 public class CompanyInfo extends BaseInfo {
 
@@ -13,6 +14,18 @@ public class CompanyInfo extends BaseInfo {
 	private boolean groupOfEntities;
 	private Month reportingPeriodEndMonth;
 	private int reportingPeriodEndDay;
+
+	@Override
+	public ToStringCreator toStringCreator() {
+		return super.toStringCreator()
+				.append("name")
+				.append("tin", tin)
+				.append("inc date", incorporationDate)
+				.append("type", type)
+				.append("group of ent", groupOfEntities)
+				.append("reporting period end month", reportingPeriodEndMonth)
+				.append("reporting period end day", reportingPeriodEndDay);
+	}
 
 	public String getName() {
 		return name;

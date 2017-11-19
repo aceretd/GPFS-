@@ -1,0 +1,55 @@
+<div class="page-container ">
+  <!-- Start page content wrapper -->
+<div class="page-content-wrapper animated fadeInRight">
+    <div class="page-content">
+      <div class="row wrapper border-bottom page-heading">
+        <div class="col-lg-12">
+          <h2>{{company.name}} </h2>
+          <ol class="breadcrumb">
+            <li> <a ui-sref="dashboard1">Home</a> </li>
+            <li> <a ui-sref="company_list">Company List</a> </li>
+            <li class="active"> <a>{{company.name}} </a> </li>
+          </ol>
+        </div>
+      </div>
+      <div class="wrapper-content ">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                <h5>Create/Update Company</h5>
+              </div>
+              <div class="ibox-content collapse in">
+                <div class="widgets-container">
+
+
+					<dl class="dl-horizontal">
+						<dt>Company name
+						<dd>{{company.name}}
+						<dt>TIN
+						<dd>{{company.tin}}
+						<dt>Incorporation date
+						<dd>{{company.incorporationDate | date}}
+						<dt>Reporting period end month
+						<dd>{{company.reportingPeriodEndMonth}}
+						<dt>Reporting period end day
+						<dd>{{company.reportingPeriodEndDay}}
+						<dt>Type
+						<dd>{{company.type}}
+						<dt>Group of entities?
+						<dd>{{company.groupOfEntities}}
+					</dl>
+					<button type="button" ui-sref="company_list" class="btn btn-primary">Back to List</button>
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
