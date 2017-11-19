@@ -31,7 +31,7 @@ public class GpfsResource extends BaseResource<GpfsInfo, GpfsService> {
 		return new ResponseEntity<>(service.saveInfo(gpfs), OK);
 	}
 
-	@RequestMapping(method = POST)
+	@RequestMapping(value = "/coa", method = POST)
 	public ResponseEntity<GpfsInfo> uploadCoa(CoaUploadDto uploadDto) throws IOException {
 		return new ResponseEntity<>(service.saveProductCustom(uploadDto), OK);
 	}
