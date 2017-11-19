@@ -52,7 +52,8 @@ function GpfsRootController($scope, $state, $parse, GpfsService, ScheduleService
 		gpfs: {
 			company: company,
 			year: PREVIOUS_YEAR,
-			notes: []
+			notes: [],
+			noteIndex: 0
 		},
 		answer: function (idx) {
 			for (let i in $scope.updateGpfs.gpfs.notes) {
@@ -142,6 +143,16 @@ function GpfsRootController($scope, $state, $parse, GpfsService, ScheduleService
 		},
 		entityType: function () {
 			return $scope.updateGpfs.gpfs.company.type;
+		},
+		noteIndex: function () {
+			if (!$scope.updateGpfs.gpfs.noteIndex) {
+				$scope.updateGpfs.gpfs.noteIndex = 3;
+			} else {
+				$scope.updateGpfs.gpfs.noteIndex++;
+			}
+			let noteIndex = $scope.updateGpfs.gpfs.noteIndex;
+			console.debug('returning noteindex=' + noteIndex);
+			return noteIndex;
 		}
 	};
 

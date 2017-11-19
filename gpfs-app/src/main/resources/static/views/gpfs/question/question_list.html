@@ -23,18 +23,20 @@
        	        	<table datatable="ng" dt-options="dtOptions"  class="table table-striped table-bordered table-hover dataTables-example">
                         <thead>
                         <tr>
-                        	<th>Id</th>
+                        	<th>Series / Id</th>
                             <th>Question</th>
                             <th>Note</th>
                             <th>Template</th>
+                            <th>Activation Condition</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr ng-repeat="question in questions">
-                        	<td>{{question.id}}</td>
+                        	<td>{{question.series}}<br><small class="text-muted">{{question.id}}</small></td>
                             <td>{{question.question}}</td>
                             <td>{{question.note}}</td>
                             <td>{{question.template}}</td>
+                            <td>{{question.activationCondition}}</td>
                         </tr>
                         </tbody>
                     </table>

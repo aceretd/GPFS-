@@ -6,6 +6,7 @@ function GpfsUpdateController($scope, $rootScope, $state, $filter, $parse, gpfs)
 	console.debug('Gpfs update controller');
 	$scope.gpfs = gpfs;
 	$scope.updateGpfs.gpfs = $scope.gpfs;
+	$scope.updateGpfs.gpfs.noteIndex = 3;
 	$rootScope.$broadcast('set-active-gpfs', $scope.updateGpfs.gpfs);
 
 	$scope.pageTitle = $state.current.title;
@@ -22,7 +23,10 @@ function GpfsUpdateController($scope, $rootScope, $state, $filter, $parse, gpfs)
 	};
 
 	$scope.updateTemplate = function (qap) {
-		if (qap.editTemplateMode) {
+		if (qap.question.template.indexOf('noteIndex') != -1) {
+			console.debug('updateTemplate requested. index=' + qap.question.series);
+		}
+		if (qap.editTemplateMode || !$scope.isActivated(qap)) {
 			return;
 		}
 		switch (qap.question.type) {
@@ -52,11 +56,11 @@ function GpfsUpdateController($scope, $rootScope, $state, $filter, $parse, gpfs)
 				}
 			}
 			template = $scope.replaceVariables(template);
-			console.debug('Got replaced template=' + template); 
+			//console.debug('Got replaced template=' + template); 
 			qap.template = template;
 			break;
 		default:
-			console.debug('Trying to filter template. template=' + qap.template);
+			//console.debug('Trying to filter template. template=' + qap.template);
 			qap.template = $filter('replace')(qap.question.template, '<answer>', qap.answer);
 			qap.template = $scope.replaceVariables(qap.template);
 		}
@@ -111,7 +115,7 @@ function GpfsUpdateController($scope, $rootScope, $state, $filter, $parse, gpfs)
 			});
 			return newTemplate;
 		} catch (e) {
-			console.error('Error replacing variables. template=' + template);
+			console.error('Error replacing variables. template=' + template, e);
 			return template;
 		}
 	};
