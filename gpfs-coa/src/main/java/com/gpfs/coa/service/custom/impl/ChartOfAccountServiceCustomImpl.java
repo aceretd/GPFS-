@@ -6,7 +6,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.gpfs.coa.dto.ChartOfAccountInfo;
-import com.gpfs.coa.dto.FSLevel2Info;
 import com.gpfs.coa.dto.FSLevel6Info;
 import com.gpfs.coa.model.ChartOfAccount;
 import com.gpfs.coa.service.ChartOfAccountService;

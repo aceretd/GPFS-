@@ -1,6 +1,7 @@
 package com.gpfs.coa.dto;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.gpfs.core.model.BaseEntity;
 
@@ -22,6 +23,13 @@ public class FSLevel1Info extends BaseEntity {
 	}
 	public void setChildren(List<FSLevel2Info> children) {
 		this.children = children;
+	}
+	public FSLevel2Info getChildByName(String fs2Name) {
+		Optional<FSLevel2Info> fs2Opt = this.getChildren().stream().filter(fs1 -> fs2Name.equals(fs1.getName())).findFirst();
+		if (fs2Opt.isPresent()) {
+			return fs2Opt.get();
+		}
+		return null;
 	}
 
 }

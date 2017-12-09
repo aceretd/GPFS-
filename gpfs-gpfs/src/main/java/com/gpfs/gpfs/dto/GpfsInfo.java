@@ -30,7 +30,8 @@ public class GpfsInfo extends BaseInfo {
 	@Override
 	public ToStringCreator toStringCreator() {
 		return super.toStringCreator()
-				.append("company", company);
+				.append("company", company)
+				.append("coa", coa);
 	}
 
 	public String answer(int series) {

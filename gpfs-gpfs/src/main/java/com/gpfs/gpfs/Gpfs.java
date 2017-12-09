@@ -40,7 +40,7 @@ public class Gpfs extends BaseEntity {
 	@JoinColumn(name = "gpfs_id")
 	private List<Note> notes;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn(name = "coa_id")
 	private ChartOfAccount coa;
 

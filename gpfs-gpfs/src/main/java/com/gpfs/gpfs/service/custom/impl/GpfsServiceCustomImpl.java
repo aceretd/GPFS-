@@ -4,13 +4,17 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.gpfs.coa.dto.ChartOfAccountInfo;
+import com.gpfs.coa.model.ChartOfAccount;
 import com.gpfs.coa.service.ChartOfAccountService;
 import com.gpfs.core.service.GpfsJpaServiceCustomImpl;
 import com.gpfs.gpfs.Gpfs;
@@ -94,15 +98,16 @@ public class GpfsServiceCustomImpl extends GpfsJpaServiceCustomImpl<Gpfs, GpfsIn
 	}
 
 	@Override
-	public GpfsInfo saveProductCustom(CoaUploadDto uploadDto) throws IOException {
-		Gpfs gpfs = repo.findOne(uploadDto.getGpfsId());
+	public GpfsInfo processCoaTemplate(long gpfsId, MultipartFile file) throws IOException {
+		GpfsInfo gpfs = repo.findOneInfo(gpfsId);
 		if (null == gpfs) {
-			throw new IllegalArgumentException("GPFS not found with id={}" + uploadDto.getGpfsId());
+			throw new IllegalArgumentException("GPFS not found with id={}" + gpfsId);
 		}
 
-		XSSFWorkbook workbook = new XSSFWorkbook(uploadDto.getFile().getInputStream());
-		XSSFSheet sheet = workbook.getSheetAt(0);
+		XSSFWorkbook workbook = new XSSFWorkbook(file.getInputStream());
+		ChartOfAccountInfo coa = ChartOfAccountInfo.fromWorkbook(gpfs.getCoa(), workbook);
+		gpfs.setCoa(coa);
 
-		return new GpfsInfo();
+		return repo.saveInfo(gpfs);
 	}
 }

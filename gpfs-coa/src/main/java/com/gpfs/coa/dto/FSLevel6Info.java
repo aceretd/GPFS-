@@ -2,6 +2,8 @@ package com.gpfs.coa.dto;
 
 import java.math.BigDecimal;
 
+import org.springframework.core.style.ToStringCreator;
+
 import com.gpfs.core.model.BaseEntity;
 
 public class FSLevel6Info extends BaseEntity {
@@ -14,7 +16,17 @@ public class FSLevel6Info extends BaseEntity {
 	private String code;
 	private BigDecimal currentYearAmount;
 	private BigDecimal previousYearAmount;
+	private String fullAccountNumber;
 
+	@Override
+	public String toString() {
+		return new ToStringCreator(this)
+					.append("name", name)
+					.append("acct no", accountNumber)
+					.append("full acct no", fullAccountNumber)
+					.append("code", code)
+					.toString();
+	}
 	public String getName() {
 		return name;
 	}
@@ -50,6 +62,12 @@ public class FSLevel6Info extends BaseEntity {
 	}
 	public void setCode(String code) {
 		this.code = code;
+	}
+	public String getFullAccountNumber() {
+		return fullAccountNumber;
+	}
+	public void setFullAccountNumber(String fullAccountNumber) {
+		this.fullAccountNumber = fullAccountNumber;
 	}
 
 }

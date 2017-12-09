@@ -1,7 +1,9 @@
 package com.gpfs.coa.dto;
 
 import java.util.List;
+import java.util.Optional;
 
+import com.google.common.collect.Lists;
 import com.gpfs.core.model.BaseEntity;
 
 public class FSLevel5Info extends BaseEntity {
@@ -10,7 +12,15 @@ public class FSLevel5Info extends BaseEntity {
 
 	private String name;
 	private String accountNumber;
-	private List<FSLevel6Info> children;
+	private List<FSLevel6Info> children = Lists.newArrayList();
+
+	public FSLevel6Info getChildByAccountNumber(String accountNumber) {
+		Optional<FSLevel6Info> fs6Opt = this.getChildren().stream().filter(fs6 -> accountNumber.equals(fs6.getAccountNumber())).findFirst();
+		if (fs6Opt.isPresent()) {
+			return fs6Opt.get();
+		}
+		return null;
+	}
 
 	public String getName() {
 		return name;

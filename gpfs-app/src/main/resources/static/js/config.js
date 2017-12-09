@@ -340,7 +340,17 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
         .state('gpfs.update.coa', {
         	url: '/coa',
         	templateUrl: 'views/gpfs/gpfs/gpfs-02-coa.html',
-        	controller: 'GpfsCoaController'
+        	controller: 'GpfsCoaController',
+        	resolve: {
+        		loadPlugin: function($ocLazyLoad) {
+        			return $ocLazyLoad.load([
+        				{
+	                        name: 'angularFileUpload',
+	                        files: ['js/plugins/angular-file-upload/angular-file-upload.min.js']
+        				}
+    				]);
+        		}
+        	}
         })
         .state('gpfs.update.note1', {
         	url: '/note1',

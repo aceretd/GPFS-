@@ -9,21 +9,27 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.gpfs.core.resource.BaseResource;
-import com.gpfs.gpfs.dto.CoaUploadDto;
 import com.gpfs.gpfs.dto.GpfsInfo;
 import com.gpfs.gpfs.service.GpfsService;
 
 @RestController
 @RequestMapping("/gpfs")
 public class GpfsResource extends BaseResource<GpfsInfo, GpfsService> {
+
+	private static final Logger LOG = LoggerFactory.getLogger(GpfsResource.class);
 
 	@RequestMapping(value = "/{companyId}/{year}", method = GET)
 	public ResponseEntity<GpfsInfo> findByCompanyIdAndYear(@PathVariable Long companyId, @PathVariable int year) {
@@ -35,9 +41,10 @@ public class GpfsResource extends BaseResource<GpfsInfo, GpfsService> {
 		return new ResponseEntity<>(service.saveInfo(gpfs), OK);
 	}
 
-	@RequestMapping(value = "/coa-template", method = POST)
-	public ResponseEntity<GpfsInfo> uploadCoa(CoaUploadDto uploadDto) throws IOException {
-		return new ResponseEntity<>(service.saveProductCustom(uploadDto), OK);
+	@PostMapping("/coa-template/{gpfsId}")
+	public ResponseEntity<GpfsInfo> uploadCoa(@PathVariable long gpfsId, @RequestParam MultipartFile file) throws IOException {
+		LOG.info("COA upload request received. gpfsId={}", gpfsId);
+		return new ResponseEntity<>(service.processCoaTemplate(gpfsId, file), OK);
 	}
 
 	@RequestMapping(value = "/coa-template/{companyId}/{year}", method = GET)
