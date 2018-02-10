@@ -1,74 +1,87 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>gpfs</groupId>
-		<artifactId>gpfs</artifactId>
-		<version>1.0</version>
-	</parent>
-	<artifactId>gpfs-app</artifactId>
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>gpfs</groupId>
+    <artifactId>gpfs</artifactId>
+    <version>1.0</version>
+  </parent>
+  <artifactId>gpfs-app</artifactId>
 
-	<properties>
-		<liquibase.enabled>false</liquibase.enabled>
-		<liquibase.dropfirst>false</liquibase.dropfirst>
-	</properties>
+  <properties>
+    <liquibase.enabled>false</liquibase.enabled>
+    <liquibase.dropfirst>false</liquibase.dropfirst>
+  </properties>
 
-	<dependencies>
+  <dependencies>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>gpfs</groupId>
-			<artifactId>gpfs-company</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>gpfs</groupId>
-			<artifactId>gpfs-question</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>gpfs</groupId>
-			<artifactId>gpfs-gpfs</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>gpfs</groupId>
-			<artifactId>gpfs-security</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>gpfs</groupId>
-			<artifactId>gpfs-render</artifactId>
-			<version>${project.version}</version>
-		</dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>gpfs</groupId>
+      <artifactId>gpfs-company</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>gpfs</groupId>
+      <artifactId>gpfs-question</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>gpfs</groupId>
+      <artifactId>gpfs-gpfs</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>gpfs</groupId>
+      <artifactId>gpfs-security</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>gpfs</groupId>
+      <artifactId>gpfs-render</artifactId>
+      <version>${project.version}</version>
+    </dependency>
 
-		<dependency>
-			<groupId>com.fasterxml.jackson.datatype</groupId>
-			<artifactId>jackson-datatype-joda</artifactId>
-		</dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.datatype</groupId>
+      <artifactId>jackson-datatype-joda</artifactId>
+    </dependency>
 
-		<!-- DB -->
-		<dependency>
-			<groupId>org.liquibase</groupId>
-			<artifactId>liquibase-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-		</dependency>
+    <!-- DB -->
+    <dependency>
+      <groupId>org.liquibase</groupId>
+      <artifactId>liquibase-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+    </dependency>
 
-	</dependencies>
+  </dependencies>
 
 
-	<profiles>
-		<profile>
-			<id>update-db</id>
-			<properties>
-				<liquibase.enabled>true</liquibase.enabled>
-			</properties>
-		</profile>
-	</profiles>
+  <profiles>
+    <profile>
+      <id>update-db</id>
+      <properties>
+        <liquibase.enabled>true</liquibase.enabled>
+      </properties>
+    </profile>
+  </profiles>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <version>1.5.10.RELEASE</version>
+        <configuration>
+          <addResources>true</addResources>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>

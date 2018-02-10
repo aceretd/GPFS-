@@ -12,6 +12,7 @@ import org.assertj.core.util.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.google.common.collect.Iterables;
 import com.gpfs.core.dto.schedule.ScheduleInfo;
 import com.gpfs.gpfs.dto.GpfsInfo;
 import com.gpfs.gpfs.dto.NoteInfo;
@@ -31,9 +32,14 @@ public abstract class NoteRenderer {
     protected void renderQuestion(XWPFDocument docx, QuestionAnswerPairInfo qap) {
         LOG.debug("Rendering question. note={}, question idx={}, template={}"
                 , getNoteIndex(), qap.getQuestion().getSeries(), qap.getTemplate());
-        XWPFParagraph bodyParagraph = docx.createParagraph();
-        bodyParagraph.setAlignment(ParagraphAlignment.BOTH);
-        bodyParagraph.setBorderBottom(Borders.DOUBLE);
+        XWPFParagraph bodyParagraph = null;
+        if (qap.getQuestion().isNextParagraph()) {
+            bodyParagraph = docx.createParagraph();
+        } else {
+            bodyParagraph = Iterables.getLast(docx.getParagraphs());
+        }
+        bodyParagraph.setAlignment(ParagraphAlignment.LEFT);
+        //bodyParagraph.setBorderBottom(Borders.DOUBLE);
         XWPFRun r = bodyParagraph.createRun();
         r.setText(qap.getTemplate());
     }

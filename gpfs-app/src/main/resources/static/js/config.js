@@ -353,19 +353,11 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
         	}
         })
         .state('gpfs.update.note1', {
-        	url: '/note1',
-        	templateUrl: 'views/gpfs/gpfs/gpfs-03-note1.html',
-        	controller: 'GpfsNote1Controller',
-        	resolve: {
-                loadPlugin: function($ocLazyLoad) {
-                    return $ocLazyLoad.load([
-                        {
-                            serie: true,
-                            files: ['css/plugins/ui-select/select.css']
-                        }
-                    ]);
-                }
-        	}
+          url: '/note1',
+          templateUrl: 'views/gpfs/gpfs/gpfs-00-generic.html',
+          title: 'Financial Reporting Framework',
+          controller: 'GpfsUpdateController',
+          noteIndex: 1
         })
         .state('gpfs.update.note2', {
         	url: '/note2',

@@ -10,90 +10,94 @@
 </div>
 <div class="ibox-content collapse in">
   <div class="widgets-container">
-  	<form ng-submit="next()" class="form-horizontal">
+      <form ng-submit="next()" class="form-horizontal">
 
-		<div class="row mb10" ng-repeat-start="qap in note(noteIndex).questions" ng-if-start="isActivated(qap)">
-			<div class="col-md-2">{{qap.question.question}}
-				<button ng-if="qap.question.helpText" type="button" class="btn btn-default btn-xs btn-outline black" tooltip-placement="Right" popover-placement="right" title="" uib-tooltip="{{qap.question.helpText}}"><span class="fa fa-question"></span></button>
-			</div>
-			<div class="col-md-3">
-				<!-- Yes/No -->
-				<select ng-model="qap.answer" ng-if="qap.question.type === 'YES_NO'" ng-change="updateTemplate(qap)"
-					ng-disabled="qap.editTemplateMode" name="yes_no_{{$index}}" class="form-control" required>
-					<option value="" disabled="disabled">Choose one...</option>
-					<option>Yes</option>
-					<option>No</option>
-				</select>
-				
-				<!-- Identification -->
-				<input type="text" ng-model="qap.answer" ng-if="qap.question.type === 'IDENTIFICATION'" ng-change="updateTemplate(qap)" ng-readonly="qap.editTemplateMode"
-					ng-required="!qap.editTemplateMode" placeholder="{{qap.question.sampleAnswer}}" class="form-control" />
-				
-				<!-- Multiple choice -->
-				<div class="radio row" ng-repeat="option in qap.question.answers" ng-if="qap.question.type === 'MULTIPLE_CHOICE'">
-				  <label><input type="radio" iCheck ng-model="qap.answer"
-					name="radio_{{qap.question.series}}"
-					id="radio_{{qap.question.series}}_$index"
-					ng-disabled="qap.editTemplateMode"
-					ng-required="!qap.editTemplateMode"
-					ng-value="option.answer"
-					ng-change="updateTemplate(qap)">{{option.answer}}
+        <div class="row mb10" ng-repeat-start="qap in note(noteIndex).questions" ng-if-start="isActivated(qap)">
+            <div class="col-md-2">
+                {{qap.question.question}}
+                <button ng-if="qap.question.helpText" type="button" class="btn btn-default btn-xs btn-outline black" tooltip-placement="Right" popover-placement="right" title="" uib-tooltip="{{qap.question.helpText}}"><span class="fa fa-question"></span></button>
+                <div class="clearfix"></div>
+                <small class="text-muted">Series {{qap.question.series}}</small>
+            </div>
+            <div class="col-md-3">
+                <!-- Yes/No -->
+                <select ng-model="qap.answer" ng-if="qap.question.type === 'YES_NO'" ng-change="updateTemplate(qap)"
+                    ng-disabled="qap.editTemplateMode" name="yes_no_{{$index}}" class="form-control" required>
+                    <option value="" disabled="disabled">Choose one...</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+
+                <!-- Identification -->
+                <input type="text" ng-model="qap.answer" ng-if="qap.question.type === 'IDENTIFICATION'" ng-change="updateTemplate(qap)" ng-readonly="qap.editTemplateMode"
+                    ng-required="!qap.editTemplateMode" placeholder="{{qap.question.sampleAnswer}}" class="form-control" />
+                
+                <!-- Multiple choice -->
+                <div class="radio row" ng-repeat="option in qap.question.answers" ng-if="qap.question.type === 'MULTIPLE_CHOICE'">
+                  <label><input type="radio" iCheck ng-model="qap.answer"
+                    name="radio_{{qap.question.series}}"
+                    id="radio_{{qap.question.series}}_$index"
+                    ng-disabled="qap.editTemplateMode"
+                    ng-required="!qap.editTemplateMode"
+                    ng-value="option.answer"
+                    ng-change="updateTemplate(qap)">{{option.answer}}
                     <button ng-if="option.helpText" type="button" class="btn btn-default btn-xs btn-outline black" tooltip-placement="Right" popover-placement="right" title="" uib-tooltip="{{option.helpText}}"><span class="fa fa-question"></span></button>
-	  			  </label>
-				</div>
+                    </label>
+                </div>
 
-				<!-- Enumeration -->
-				<div ng-if="qap.question.type === 'ENUMERATION'" ng-init="qap.enumerationAnswers.length > 0 || qap.enumerationAnswers.push('')">
-					<!-- When answers > 1, allow remove -->
-					<div class="input-group" ng-repeat="enum in qap.enumerationAnswers track by $index">
-						<input type="text" ng-model="qap.enumerationAnswers[$index]" class="form-control mb10" ng-change="updateTemplate(qap)" required/>
-						<span class="input-group-btn" title="Remove answer">
-							<button ng-click="qap.enumerationAnswers.splice($index, 1)" ng-disabled="qap.enumerationAnswers.length <= 1" type="button" class="btn red"><span class="fa fa-close"></span></button>
-						</span>
-					</div>
-					<button type="button" ng-click="qap.enumerationAnswers.push('')" class="btn btn-primary"><span class="fa fa-plus"> Add</span></button>
-				</div>
+                <!-- Enumeration -->
+                <div ng-if="qap.question.type === 'ENUMERATION'" ng-init="qap.enumerationAnswers.length > 0 || qap.enumerationAnswers.push('')">
+                    <!-- When answers > 1, allow remove -->
+                    <div class="input-group" ng-repeat="enum in qap.enumerationAnswers track by $index">
+                        <input type="text" ng-model="qap.enumerationAnswers[$index]" class="form-control mb10" ng-change="updateTemplate(qap)" required/>
+                        <span class="input-group-btn" title="Remove answer">
+                            <button ng-click="qap.enumerationAnswers.splice($index, 1)" ng-disabled="qap.enumerationAnswers.length <= 1" type="button" class="btn red"><span class="fa fa-close"></span></button>
+                        </span>
+                    </div>
+                    <button type="button" ng-click="qap.enumerationAnswers.push('')" class="btn btn-primary"><span class="fa fa-plus"> Add</span></button>
+                </div>
 
-				<!-- Multiple select -->
-				<div ng-if="qap.question.type === 'MULTIPLE_SELECT'" ng-init="initMultipleSelectAnswers(qap)">
-					<div ng-repeat="answer in qap.question.answers">
-						<label>
-							<input type="checkbox" iCheck ng-model="qap.enumerationAnswers[$index]" ng-true-value="'Y'" ng-false-value="'N'" ng-change="updateTemplate(qap)" ng-disabled="qap.editTemplateMode">
-							{{answer.answer}}
-					    </label>
-				    </div>
-				</div>
-			</div>
-			<div class="col-md-6" ng-if="hasTemplate(qap)">
-				<div class="col-md-10">
-					<textarea msd-elastic ng-if="[100, 200].indexOf(qap.question.series) == -1" ng-model="qap.template" ng-readonly="!qap.editTemplateMode" class="form-control"
-						required style="resize: vertical;"></textarea>
-				</div>
-				<div class="col-md-2">
-					<button title="Toggle Edit template mode" type="button" ng-click="qap.editTemplateMode = !qap.editTemplateMode" ng-if="[100, 200].indexOf(qap.question.series) == -1" ng-class="{'btn-success': qap.editTemplateMode}" class="btn">
-						<span class="fa fa-edit"></span>
-					</button>
-				</div>
-			</div>
-		</div>
-		<div class="clearfix"></div>
-		<div ng-repeat-end ng-if-end class="mb10">
-			<div ng-repeat="scheduleInfo in schedules" ng-if="scheduleInfo.after === qap.question.series" class="row">
-				<ng-include src="scheduleInfo.template"></ng-include>
-			</div>
-		</div>
+                <!-- Multiple select -->
+                <div ng-if="qap.question.type === 'MULTIPLE_SELECT'" ng-init="initMultipleSelectAnswers(qap)">
+                    <div ng-repeat="answer in qap.question.answers">
+                        <label>
+                            <input type="checkbox" iCheck ng-model="qap.enumerationAnswers[$index]" ng-true-value="'Y'" ng-false-value="'N'" ng-change="updateTemplate(qap)" ng-disabled="qap.editTemplateMode">
+                            {{answer.answer}}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" ng-if="hasTemplate(qap)">
+                <div class="col-md-10">
+                    <textarea msd-elastic ng-model="qap.template" ng-readonly="!qap.editTemplateMode" class="form-control"
+                        required style="resize: vertical;"></textarea>
+                </div>
+                <div class="col-md-2">
+                    <button title="Toggle Edit template mode" type="button" ng-click="qap.editTemplateMode = !qap.editTemplateMode" ng-class="{'btn-success': qap.editTemplateMode}" class="btn">
+                        <span class="fa fa-edit"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div ng-repeat-end ng-if-end class="mb10">
+            <div ng-repeat="scheduleInfo in schedules" ng-if="scheduleInfo.after === qap.question.series" class="row">
+                <ng-include src="scheduleInfo.template"></ng-include>
+            </div>
+        </div>
 
-		<div class="pull-right mt50">
-			<a class="btn btn-success" href="/render/gpfs/{{gpfs.company.id}}/{{gpfs.year}}" target="_blank">Print now!</a>
-			<button type="button" class="btn btn-default">Back to list</button>
-			<button type="button" ng-click="save()" class="btn btn-default">Save as draft</button>
-			<button type="button" ng-click="back()" class="btn btn-default">Back</button>
-			<button type="submit" class="btn btn-primary">Next</button>
-		</div>
-	</form>
-	<div class="clearfix"></div>
-	<div>
-		<iframe src='https://view.officeapps.live.com/op/embed.aspx?src=http://localhost:8081/render/gpfs/1/2013' width='1366px' height='623px' frameborder='0'>This is an embedded <a target='_blank' href='http://office.com'>Microsoft Office</a> document, powered by <a target='_blank' href='http://office.com/webapps'>Office Online</a>.</iframe>
-	</div>
+        <div class="pull-right mt50">
+            <a class="btn btn-success" href="/render/gpfs/{{gpfs.company.id}}/{{gpfs.year}}" target="_blank">Print now!</a>
+            <a class="btn btn-success" href="/render/gpfs/{{gpfs.company.id}}/{{gpfs.year}}/{{noteIndex}}" target="_blank">Print note</a>
+            <button type="button" class="btn btn-default">Back to list</button>
+            <button type="button" ng-click="save()" class="btn btn-default">Save as draft</button>
+            <button type="button" ng-click="back()" class="btn btn-default">Back</button>
+            <button type="submit" class="btn btn-primary">Next</button>
+        </div>
+    </form>
+    <div class="clearfix"></div>
+    <div>
+        <iframe src='https://view.officeapps.live.com/op/embed.aspx?src=http://localhost:8081/render/gpfs/1/2013' width='1366px' height='623px' frameborder='0'>This is an embedded <a target='_blank' href='http://office.com'>Microsoft Office</a> document, powered by <a target='_blank' href='http://office.com/webapps'>Office Online</a>.</iframe>
+    </div>
   </div>
 </div>

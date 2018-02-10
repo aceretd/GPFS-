@@ -2,8 +2,8 @@ server:
   port: 8081
 
 liquibase:
-  enabled: @liquibase.enabled@
-  drop-first: @liquibase.dropfirst@
+  enabled: true
+  drop-first: false
 
 logging:
   level:

@@ -23,163 +23,178 @@ import com.gpfs.core.model.BaseEntity;
 @Entity(name = "question")
 public class QuestionTemplate extends BaseEntity {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Column(name = "section_reference")
-	private String sectionReference;
+    @Column(name = "section_reference")
+    private String sectionReference;
 
-	@Column(name = "note", nullable = false)
-	private int note;
+    @Column(name = "note", nullable = false)
+    private int note;
 
-	/**
-	 * The order in which the questions appear per note, ascending
-	 */
-	@Column(name = "series")
-	private int series;
+    /**
+     * The order in which the questions appear per note, ascending
+     */
+    @Column(name = "series")
+    private int series;
 
-	@Column(name = "question")
-	@Type(type = "text")
-	private String question;
+    @Column(name = "question")
+    @Type(type = "text")
+    private String question;
 
-	@Enumerated(EnumType.STRING)
-	@Column(name = "type")
-	private QuestionType type;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "type")
+    private QuestionType type;
 
-	/**
-	 * If this expression evaluates to false, this question is skipped
-	 */
-	@Column(name = "act_condition")
-	private String activationCondition;
+    /**
+     * If this expression evaluates to false, this question is skipped
+     */
+    @Column(name = "act_condition")
+    private String activationCondition;
 
-	/**
-	 * Only used by enumeration questions
-	 */
-	@Column(name = "max_answers")
-	private int maximumAnswers = 0;
+    /**
+     * Only used by enumeration questions
+     */
+    @Column(name = "max_answers")
+    private int maximumAnswers = 0;
 
-	/**
-	 * Only used by MC and multiple select questions
-	 */
-	@ElementCollection
-	@CollectionTable(name = "question_mc_answers")
-	private List<MultipleChoiceAnswerTemplate> answers;
+    /**
+     * Only used by MC and multiple select questions
+     */
+    @ElementCollection
+    @CollectionTable(name = "question_mc_answers")
+    private List<MultipleChoiceAnswerTemplate> answers;
 
-	@Column(name = "help_text")
-	@Type(type = "text")
-	private String helpText;
+    @Column(name = "help_text")
+    @Type(type = "text")
+    private String helpText;
 
-	@Column(name = "sample_answer")
-	@Type(type = "text")
-	private String sampleAnswer;
+    @Column(name = "sample_answer")
+    @Type(type = "text")
+    private String sampleAnswer;
 
-	/**
-	 * Not used by MC questions
-	 * Used by yes/no questions when answer=yes
-	 */
-	@Column(name = "template")
-	@Type(type = "text")
-	private String template;
+    /**
+     * Not used by MC questions
+     * Used by yes/no questions when answer=yes
+     */
+    @Column(name = "template")
+    @Type(type = "text")
+    private String template;
 
-	/**
-	 * ONly used by yes/no questions when answer=no
-	 */
-	@Column(name = "no_template")
-	private String noTemplate;
+    /**
+     * ONly used by yes/no questions when answer=no
+     */
+    @Column(name = "no_template")
+    private String noTemplate;
 
-	public String getQuestion() {
-		return question;
-	}
+    /**
+     * If false, append to the previous paragraph, if true, start a new paragraph
+     */
+    @Column(name = "next_paragraph", nullable = false)
+    @Type(type = "yes_no")
+    private boolean nextParagraph;
 
-	public void setQuestion(String question) {
-		this.question = question;
-	}
+    public boolean isNextParagraph() {
+        return nextParagraph;
+    }
 
-	public String getActivationCondition() {
-		return activationCondition;
-	}
+    public void setNextParagraph(boolean nextParagraph) {
+        this.nextParagraph = nextParagraph;
+    }
 
-	public void setActivationCondition(String activationCondition) {
-		this.activationCondition = activationCondition;
-	}
+    public String getQuestion() {
+        return question;
+    }
 
-	public String getSectionReference() {
-		return sectionReference;
-	}
+    public void setQuestion(String question) {
+        this.question = question;
+    }
 
-	public void setSectionReference(String sectionReference) {
-		this.sectionReference = sectionReference;
-	}
+    public String getActivationCondition() {
+        return activationCondition;
+    }
 
-	public QuestionType getType() {
-		return type;
-	}
+    public void setActivationCondition(String activationCondition) {
+        this.activationCondition = activationCondition;
+    }
 
-	public void setType(QuestionType type) {
-		this.type = type;
-	}
+    public String getSectionReference() {
+        return sectionReference;
+    }
 
-	public int getMaximumAnswers() {
-		return maximumAnswers;
-	}
+    public void setSectionReference(String sectionReference) {
+        this.sectionReference = sectionReference;
+    }
 
-	public void setMaximumAnswers(int maximumAnswers) {
-		this.maximumAnswers = maximumAnswers;
-	}
+    public QuestionType getType() {
+        return type;
+    }
 
-	public List<MultipleChoiceAnswerTemplate> getAnswers() {
-		return answers;
-	}
+    public void setType(QuestionType type) {
+        this.type = type;
+    }
 
-	public void setAnswers(List<MultipleChoiceAnswerTemplate> answers) {
-		this.answers = answers;
-	}
+    public int getMaximumAnswers() {
+        return maximumAnswers;
+    }
 
-	public String getHelpText() {
-		return helpText;
-	}
+    public void setMaximumAnswers(int maximumAnswers) {
+        this.maximumAnswers = maximumAnswers;
+    }
 
-	public void setHelpText(String helpText) {
-		this.helpText = helpText;
-	}
+    public List<MultipleChoiceAnswerTemplate> getAnswers() {
+        return answers;
+    }
 
-	public String getTemplate() {
-		return template;
-	}
+    public void setAnswers(List<MultipleChoiceAnswerTemplate> answers) {
+        this.answers = answers;
+    }
 
-	public void setTemplate(String template) {
-		this.template = template;
-	}
+    public String getHelpText() {
+        return helpText;
+    }
 
-	public int getNote() {
-		return note;
-	}
+    public void setHelpText(String helpText) {
+        this.helpText = helpText;
+    }
 
-	public void setNote(int note) {
-		this.note = note;
-	}
+    public String getTemplate() {
+        return template;
+    }
 
-	public String getSampleAnswer() {
-		return sampleAnswer;
-	}
+    public void setTemplate(String template) {
+        this.template = template;
+    }
 
-	public void setSampleAnswer(String sampleAnswer) {
-		this.sampleAnswer = sampleAnswer;
-	}
+    public int getNote() {
+        return note;
+    }
 
-	public int getSeries() {
-		return series;
-	}
+    public void setNote(int note) {
+        this.note = note;
+    }
 
-	public void setSeries(int series) {
-		this.series = series;
-	}
+    public String getSampleAnswer() {
+        return sampleAnswer;
+    }
 
-	public String getNoTemplate() {
-		return noTemplate;
-	}
+    public void setSampleAnswer(String sampleAnswer) {
+        this.sampleAnswer = sampleAnswer;
+    }
 
-	public void setNoTemplate(String noTemplate) {
-		this.noTemplate = noTemplate;
-	}
+    public int getSeries() {
+        return series;
+    }
+
+    public void setSeries(int series) {
+        this.series = series;
+    }
+
+    public String getNoTemplate() {
+        return noTemplate;
+    }
+
+    public void setNoTemplate(String noTemplate) {
+        this.noTemplate = noTemplate;
+    }
 
 }

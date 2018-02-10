@@ -27,11 +27,7 @@ public class Note1Renderer extends NoteRenderer {
         LOG.debug("Rendering note 1!");
         note.getQuestions().stream()
             .filter(QuestionAnswerPairInfo::isActivated)
-            .filter(qap -> {
-                return !Strings.isNullOrEmpty(qap.getTemplate())
-                        && qap.getQuestion().getSeries() != 100
-                        && qap.getQuestion().getSeries() != 200;
-            })
+            .filter(qap -> !Strings.isNullOrEmpty(qap.getTemplate()))
             .forEach(qap -> {
                 renderQuestion(docx, qap);
             });
