@@ -1,14 +1,14 @@
-id,series,deleted,section_reference,note,question,type,act_condition,max_answers,sample_answer,help_text,template,no_template
-1,100,N,,1,Corporate information,CONSTANT,,0,-,-,1 CORPORATE INFORMATION,
-2,200,N,,1,Corporate information,CONSTANT,,0,,-,"{{companyName()}}, (the {{entityType()}}) was incorporated and registered with the Philippine Securities and Exchange Commission (SEC) on {{incDate()}}.",
-3,300,N,,1,Principal Place ofbusiness,IDENTIFICATION,,0,"5th Floor, OPQ Bldg, Hererra St., Makati City, Philippines",-,The {{entityType()}}'s principal address is at {{answer(300)}}.,
-4,400,N,,1,What is thefunctional and presentation currency?,IDENTIFICATION,,0,Philippine Peso,-,"Functional and Presentation Currency
+id,series,deleted,next_paragraph,section_reference,note,question,type,act_condition,max_answers,sample_answer,help_text,template,no_template
+1,100,N,Y,,1,Corporate information,CONSTANT,,0,-,-,1 CORPORATE INFORMATION,
+2,200,N,Y,,1,Corporate information,CONSTANT,,0,,-,"{{companyName()}}, (the {{entityType()}}) was incorporated and registered with the Philippine Securities and Exchange Commission (SEC) on {{incDate()}}.",
+3,300,N,N,,1,Principal Place of business,IDENTIFICATION,,0,"5th Floor, OPQ Bldg, Hererra St., Makati City, Philippines",-,The {{entityType()}}'s principal address is at {{answer(300)}}.,
+4,400,N,Y,,1,What is thefunctional and presentation currency?,IDENTIFICATION,,0,Philippine Peso,-,"Functional and Presentation Currency
  These financial statements are presented in {{answer(400)}}, the currency of the primary economic environment in which the {{entityType()}} operates. All amounts are rounded off to the nearest peso, except when otherwise indicated.",
-5,500,N,,1,What is the company's principal business activity?,IDENTIFICATION,,0,the manufacture and sale of candles,,The {{entityType()}}'s principal activities are {{answer(500)}}.,
-6,600,N,,1,What approving body of the company approved the issuance of the FS?,MULTIPLE_CHOICE,,0,,,,
-7,700,N,,1,On what date was the FS authorized for issuance?,IDENTIFICATION,,0,"February 17, 2018",,on {{answer(700()}}.,
-8,800,N,,1,What is the date of reporting period?,IDENTIFICATION,,0,"December 31, 2016",,The financial statements was prepared as of {{answer(800)}},
-9,900,N,,1,What is the period covered?,IDENTIFICATION,,0,"January 1, 2016 to December 31, 2016",,covering the period {{answer(900)}}.,
-10,1000,N,,1,Did the company changed its name during the period?,YES_NO,,0,,,,
-11,1100,N,,1,What was the previous name of the company?,IDENTIFICATION,"answer(1000)==""Yes""",0,DEF Company,,During the period the company changed its name from {{answer(1100)}},
-12,1200,N,,1,When was the official date of change in name?,IDENTIFICATION,"answer(1000)==""Yes""",0,"June 16, 2016",,and adopted the name {{companyName()}} starting {{answer(1200)}},
+5,500,N,Y,,1,What is the company's principal business activity?,IDENTIFICATION,,0,the manufacture and sale of candles,,The {{entityType()}}'s principal activities are {{answer(500)}}.,
+6,600,N,N,,1,What approving body of the company approved the issuance of the FS?,MULTIPLE_CHOICE,,0,,,,
+7,700,N,N,,1,On what date was the FS authorized for issuance?,IDENTIFICATION,,0,"February 17, 2018",,on {{answer(700)}}.,
+8,800,N,Y,,1,What is the date of reporting period?,IDENTIFICATION,,0,"December 31, 2016",,The financial statements was prepared as of {{answer(800)}},
+9,900,N,N,,1,What is the period covered?,IDENTIFICATION,,0,"January 1, 2016 to December 31, 2016",,covering the period {{answer(900)}}.,
+10,1000,N,Y,,1,Did the company changed its name during the period?,YES_NO,,0,,,,
+11,1100,N,Y,,1,What was the previous name of the company?,IDENTIFICATION,"answer(1000)==""Yes""",0,DEF Company,,During the period the company changed its name from {{answer(1100)}},
+12,1200,N,N,,1,When was the official date of change in name?,IDENTIFICATION,"answer(1000)==""Yes""",0,"June 16, 2016",,and adopted the name {{companyName()}} starting {{answer(1200)}},
