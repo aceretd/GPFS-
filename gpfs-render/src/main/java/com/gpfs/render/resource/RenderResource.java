@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,18 +19,29 @@ import com.gpfs.render.service.GpfsRenderService;
 @RequestMapping("/render")
 public class RenderResource {
 
-	private static final Logger LOG = LoggerFactory.getLogger(RenderResource.class);
+    private static final Logger LOG = LoggerFactory.getLogger(RenderResource.class);
 
-	@Autowired
-	private GpfsRenderService service;
+    @Autowired
+    private GpfsRenderService service;
 
-	@RequestMapping(value = "/gpfs/{companyId}/{year}", method = RequestMethod.GET)
+    @RequestMapping(value = "/gpfs/{companyId}/{year}", method = RequestMethod.GET)
     public ResponseEntity<String> ptSummary(HttpServletResponse response,
             @PathVariable Long companyId,
-    		@PathVariable int year) throws Exception {
+            @PathVariable int year) throws Exception {
         LOG.debug("GPFS render requested");
         service.render(companyId, year, response);
- 
+
+        return new ResponseEntity<String>("OK", HttpStatus.OK);
+    }
+
+    @GetMapping("/gpfs/{companyId}/{year}/{note}")
+    public ResponseEntity<String> renderNote(HttpServletResponse response,
+            @PathVariable Long companyId,
+            @PathVariable int year,
+            @PathVariable int note) throws Exception {
+        LOG.debug("Note render requested. company={}, year={}, note={}", companyId, year, note);
+        service.render(companyId, year, note, response);
+
         return new ResponseEntity<String>("OK", HttpStatus.OK);
     }
 
