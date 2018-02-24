@@ -8,7 +8,6 @@ liquibase:
 logging:
   level:
     com.gpfs: DEBUG
-  
 
 spring:
   datasource:
