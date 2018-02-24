@@ -7,3 +7,12 @@
 
 .coaplus {width: 20px; display: inline-block;}
 .coadiv {width: 10%; display: inline-block;}
+
+input[placeholder] { text-overflow: ellipsis; }
+::-moz-placeholder { text-overflow: ellipsis; } /* firefox 19+ */
+input:-moz-placeholder { text-overflow: ellipsis; }
+
+.small-link {
+  cursor:pointer;
+  text-decoration:underline;
+}

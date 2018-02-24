@@ -29,9 +29,14 @@
                 </select>
 
                 <!-- Identification -->
-                <input type="text" ng-model="qap.answer" ng-if="qap.question.type === 'IDENTIFICATION'" ng-change="updateTemplate(qap)" ng-readonly="qap.editTemplateMode"
-                    ng-required="!qap.editTemplateMode" placeholder="{{qap.question.sampleAnswer}}" class="form-control" />
-                
+                <div ng-if="qap.question.type === 'IDENTIFICATION'">
+                  <textarea msd-elastic ng-model="qap.answer" ng-change="updateTemplate(qap)" ng-readonly="qap.editTemplateMode"
+                      ng-required="!qap.editTemplateMode" placeholder="{{qap.question.sampleAnswer}}" class="form-control"
+                      style="resize: none; text-overflow: ellipsis;"></textarea>
+                  <small ng-init="qap.showSample = false" ng-if="qap.question.sampleAnswer" ng-click="qap.showSample = !qap.showSample" title="{{qap.question.sampleAnswer}}" class="small-link">View sample {{showSample}}</small>
+                  <p class="text-muted" ng-if="qap.question.sampleAnswer && qap.showSample">{{qap.question.sampleAnswer}}</p>
+                </div>
+
                 <!-- Multiple choice -->
                 <div class="radio row" ng-repeat="option in qap.question.answers" ng-if="qap.question.type === 'MULTIPLE_CHOICE'">
                   <label><input type="radio" iCheck ng-model="qap.answer"
