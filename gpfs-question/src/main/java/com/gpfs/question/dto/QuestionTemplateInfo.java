@@ -19,6 +19,7 @@ public class QuestionTemplateInfo extends BaseInfo {
     private String helpText;
     private String sampleAnswer;
     private String template;
+    private String noTemplate;
     private int series;
     private boolean nextParagraph;
 
@@ -104,6 +105,14 @@ public class QuestionTemplateInfo extends BaseInfo {
 
     public void setNextParagraph(boolean nextParagraph) {
         this.nextParagraph = nextParagraph;
+    }
+
+    public String getNoTemplate() {
+        return noTemplate;
+    }
+
+    public void setNoTemplate(String noTemplate) {
+        this.noTemplate = noTemplate;
     }
 
 }

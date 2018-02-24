@@ -1,11 +1,24 @@
 databaseChangeLog:
 - changeSet:
+    id: 1
+    author: mark
+    changes:
+    - sqlFile:
+        path: ../schema/gpfs_schema.sql
+        relativeToChangelogFile: true
+- changeSet:
+    id: 2
+    author: mark
+    changes:
+    - sql: 
+        sql: alter sequence hibernate_sequence restart with 10000
+- changeSet:
     id: loadcompanies
     author: mark
     changes:
     - loadData:
         encoding: UTF-8
-        file: db/data/company.csv
+        file: src/main/resources/db/data/company.csv
         schemaName: public
         tableName: company
         quotchar: "\""
@@ -15,7 +28,7 @@ databaseChangeLog:
     changes:
     - loadData:
         encoding: UTF-8
-        file: db/data/question.csv
+        file: src/main/resources/db/data/question.csv
         schemaName: public
         tableName: question
         quotchar: "\""
@@ -25,7 +38,7 @@ databaseChangeLog:
     changes:
     - loadData:
         encoding: UTF-8
-        file: db/data/coa.csv
+        file: src/main/resources/db/data/coa.csv
         schemaName: public
         tableName: chart_of_account
         quotchar: "\""
@@ -35,7 +48,7 @@ databaseChangeLog:
     changes:
     - loadData:
         encoding: UTF-8
-        file: db/data/fs_lvl1.csv
+        file: src/main/resources/db/data/fs_lvl1.csv
         schemaName: public
         tableName: fs_level_1
         quotchar: "\""
@@ -45,7 +58,7 @@ databaseChangeLog:
     changes:
     - loadData:
         encoding: UTF-8
-        file: db/data/fs_lvl2.csv
+        file: src/main/resources/db/data/fs_lvl2.csv
         schemaName: public
         tableName: fs_level_2
         quotchar: "\""
@@ -55,7 +68,7 @@ databaseChangeLog:
     changes:
     - loadData:
         encoding: UTF-8
-        file: db/data/fs_lvl3.csv
+        file: src/main/resources/db/data/fs_lvl3.csv
         schemaName: public
         tableName: fs_level_3
         quotchar: "\""
@@ -65,7 +78,7 @@ databaseChangeLog:
     changes:
     - loadData:
         encoding: UTF-8
-        file: db/data/fs_lvl4.csv
+        file: src/main/resources/db/data/fs_lvl4.csv
         schemaName: public
         tableName: fs_level_4
         quotchar: "\""
@@ -75,7 +88,7 @@ databaseChangeLog:
     changes:
     - loadData:
         encoding: UTF-8
-        file: db/data/fs_lvl5.csv
+        file: src/main/resources/db/data/fs_lvl5.csv
         schemaName: public
         tableName: fs_level_5
         quotchar: "\""
@@ -85,7 +98,7 @@ databaseChangeLog:
     changes:
     - loadData:
         encoding: UTF-8
-        file: db/data/principal_activity.csv
+        file: src/main/resources/db/data/principal_activity.csv
         schemaName: public
         tableName: ref_principal_activity
         quotchar: "\""
@@ -95,7 +108,27 @@ databaseChangeLog:
     changes:
     - loadData:
         encoding: UTF-8
-        file: db/data/question_mc_answers.csv
+        file: src/main/resources/db/data/question_mc_answers.csv
+        schemaName: public
+        tableName: question_mc_answers
+        quotchar: "\""
+- changeSet:
+    id: loadquestions_note2
+    author: mark
+    changes:
+    - loadData:
+        encoding: UTF-8
+        file: src/main/resources/db/data/question_note2.csv
+        schemaName: public
+        tableName: question
+        quotchar: "\""
+- changeSet:
+    id: load_mc_answers_note2
+    author: mark
+    changes:
+    - loadData:
+        encoding: UTF-8
+        file: src/main/resources/db/data/question_mc_answers_note2.csv
         schemaName: public
         tableName: question_mc_answers
         quotchar: "\""

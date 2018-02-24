@@ -91,6 +91,7 @@ function GpfsUpdateController($scope, $rootScope, $state, $filter, $parse, gpfs)
   $scope.hasTemplate = function (qap) {
     switch(qap.question.type) {
     case 'YES_NO':
+      console.debug('checking template of yes_no. series=' + qap.question.series + ', template=' + qap.question.template + ', notemplate=' + qap.question.noTemplate);
       return qap.question.template || qap.question.noTemplate;
     default:
       return true;

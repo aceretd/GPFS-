@@ -3,7 +3,6 @@ package com.gpfs.render.note;
 import java.util.List;
 import java.util.Optional;
 
-import org.apache.poi.xwpf.usermodel.Borders;
 import org.apache.poi.xwpf.usermodel.ParagraphAlignment;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
@@ -33,7 +32,8 @@ public abstract class NoteRenderer {
         LOG.debug("Rendering question. note={}, question idx={}, template={}"
                 , getNoteIndex(), qap.getQuestion().getSeries(), qap.getTemplate());
         XWPFParagraph bodyParagraph = null;
-        if (qap.getQuestion().isNextParagraph()) {
+        boolean isNextParagraph = qap.getQuestion().isNextParagraph();
+        if (isNextParagraph) {
             bodyParagraph = docx.createParagraph();
         } else {
             bodyParagraph = Iterables.getLast(docx.getParagraphs());
@@ -41,7 +41,7 @@ public abstract class NoteRenderer {
         bodyParagraph.setAlignment(ParagraphAlignment.LEFT);
         //bodyParagraph.setBorderBottom(Borders.DOUBLE);
         XWPFRun r = bodyParagraph.createRun();
-        r.setText(qap.getTemplate());
+        r.setText(isNextParagraph ? qap.getTemplate() : " " + qap.getTemplate());
     }
 
     public void render(XWPFDocument docx, NoteInfo note, List<ScheduleRenderer> scheduleRenderers, GpfsInfo gpfs) {

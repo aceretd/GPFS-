@@ -82,6 +82,34 @@
           <addResources>true</addResources>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.liquibase</groupId>
+        <artifactId>liquibase-maven-plugin</artifactId>
+        <version>3.0.5</version>
+        <configuration>
+          <changeLogFile>src/main/resources/db/changelog/db.changelog-master.yaml</changeLogFile>
+          <diffChangeLogFile>src/main/resources/db/changelog/db.changelog-diff.yaml</diffChangeLogFile>
+          <driver>org.postgresql.Driver</driver>
+
+          <url>jdbc:postgresql://localhost:5432/gpfs</url>
+          <username>postgres</username>
+          <password>postgres</password>
+
+          <!-- 
+          <referenceUrl>jdbc:postgresql://localhost:5432/gpfs</referenceUrl>
+          <referenceUsername>postgres</referenceUsername>
+          <referencePassword>postgres</referencePassword>
+           -->
+        </configuration>
+        <executions>
+          <execution>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>update</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
   </build>
 </project>

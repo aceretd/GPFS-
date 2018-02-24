@@ -1,0 +1,7 @@
+id,series,deleted,next_paragraph,section_reference,note,question,type,act_condition,max_answers,sample_answer,help_text,template,no_template
+13,1300,N,Y,,2,Financial reporting framework,CONSTANT,,0,,,2 FINANCIAL REPORTING FRAMEWORK,
+14,1400,N,Y,,2,Statement of compliance,CONSTANT,,0,,,Statement of Compliance,
+15,1500,N,Y,,2,Does the business fully comply with PFRS for SMEs?,YES_NO,,0,,,The financial statements of the {{entityType()}} have been prepared in accordance with Philippine Financial Reporting Standards for Small and Medium-sized Entities (PFRS for SMEs). The PFRS for SMEs were adopted by the Philippine Financial Reporting Standards Council (FRSC) from the IFRS for SMEs issued by International Accounting Standards Board (IASB).,
+16,1600,N,Y,,2,Basis of preparation and presentation,CONSTANT,,0,,,Basis of Preparation and Presentation,
+17,1700,N,Y,,2,Does the company have inventory or otherpropertiesand/orfinancial instrumentsthat are carried atfair valueoramortized cost?,YES_NO,,0,,,,These financial statements have been prepared using historical cost accounting.
+18,1800,N,Y,,2,Which properties/financial instruments do you have?,MULTIPLE_CHOICE,,0,,,,

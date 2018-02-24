@@ -2,8 +2,8 @@ server:
   port: 8081
 
 liquibase:
-  enabled: true
-  drop-first: false
+  enabled: false
+  drop-first: true
 
 logging:
   level:
@@ -27,6 +27,6 @@ spring:
     time-between-eviction-runs-millis: 15000
     min-evictable-idle-time-millis: 60000
   jpa:
-    hibernate.ddl-auto: update
+    hibernate.ddl-auto: validate
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     show-sql: false
