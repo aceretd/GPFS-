@@ -132,3 +132,23 @@ databaseChangeLog:
         schemaName: public
         tableName: question_mc_answers
         quotchar: "\""
+- changeSet:
+    id: loadquestions_note3
+    author: mark
+    changes:
+    - loadData:
+        encoding: UTF-8
+        file: src/main/resources/db/data/question_note3.csv
+        schemaName: public
+        tableName: question
+        quotchar: "\""
+- changeSet:
+    id: load_mc_answers_note3
+    author: mark
+    changes:
+    - loadData:
+        encoding: UTF-8
+        file: src/main/resources/db/data/question_mc_answers_note3.csv
+        schemaName: public
+        tableName: question_mc_answers
+        quotchar: "\""

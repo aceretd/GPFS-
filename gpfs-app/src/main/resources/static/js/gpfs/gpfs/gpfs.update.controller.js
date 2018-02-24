@@ -23,18 +23,19 @@ function GpfsUpdateController($scope, $rootScope, $state, $filter, $parse, gpfs)
   };
 
   $scope.updateTemplate = function (qap) {
+    console.debug('processing qap. series=' + qap.question.series);
     if (qap.question.template.indexOf('noteIndex') != -1) {
       console.debug('updateTemplate requested. index=' + qap.question.series);
     }
-    if (qap.editTemplateMode || !$scope.isActivated(qap)) {
+    if (qap.editTemplateMode) {
       return;
     }
     switch (qap.question.type) {
     case 'YES_NO':
       if (qap.answer === 'Yes') {
-        qap.template = qap.question.template;
+        qap.template = $scope.replaceVariables(qap.question.template);
       } else if (qap.answer === 'No') {
-        qap.template = qap.question.noTemplate;
+        qap.template = $scope.replaceVariables(qap.question.noTemplate);
       }
       break;
     case 'MULTIPLE_CHOICE':
@@ -61,9 +62,10 @@ function GpfsUpdateController($scope, $rootScope, $state, $filter, $parse, gpfs)
       break;
     default:
       //console.debug('Trying to filter template. template=' + qap.template);
-      qap.template = $filter('replace')(qap.question.template, '<answer>', qap.answer);
-    qap.template = $scope.replaceVariables(qap.template);
+      //qap.template = $filter('replace')(qap.question.template, '<answer>', qap.answer);
+      qap.template = $scope.replaceVariables(qap.question.template);
     }
+    console.debug('final template= ' + qap.template);
   };
 
   //initialize templates if blank
@@ -81,17 +83,20 @@ function GpfsUpdateController($scope, $rootScope, $state, $filter, $parse, gpfs)
       qap.activated = true;
       return true;
     } else {
-      let isActivated = $parse(qap.question.activationCondition);
-      let isActivatedAns = isActivated($scope.updateGpfs);
-      qap.activated = isActivatedAns;
-      return isActivatedAns;
+      try {
+        let isActivated = $parse(qap.question.activationCondition);
+        let isActivatedAns = isActivated($scope.updateGpfs);
+        qap.activated = isActivatedAns;
+        return isActivatedAns;
+      } catch (e) {
+        console.error('Error parsing activation condition! series=' + qap.question.series + ', condition=' + qap.question.activationCondition);
+      }
     }
   };
 
   $scope.hasTemplate = function (qap) {
     switch(qap.question.type) {
     case 'YES_NO':
-      console.debug('checking template of yes_no. series=' + qap.question.series + ', template=' + qap.question.template + ', notemplate=' + qap.question.noTemplate);
       return qap.question.template || qap.question.noTemplate;
     default:
       return true;

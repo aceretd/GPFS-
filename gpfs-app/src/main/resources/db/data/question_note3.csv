@@ -1,0 +1,149 @@
+id,series,deleted,next_paragraph,section_reference,note,question,type,act_condition,max_answers,sample_answer,help_text,template,no_template
+19,1900,N,Y,,3,Significant accounting policies,CONSTANT,,0,,,3 SIGNIFICANT ACCOUNTING POLICIES,
+20,2000,N,Y,,3,Is this the first time the company is adopting PFRS for SMEs?,YES_NO,,0,,,This is the first set of financial statements prepared by {{companyName()}} in accordance with the PFRS for Small and Medium Entities (PFRS for SMEs).,
+21,2100,N,Y,,3,Accounting policies,CONSTANT,,0,,,"The principal policies applied in the preparation of these financial statements are listed in this note. These policies have been consistently applied to all years presented, unless otherwise stated.",
+22,2200,N,Y,,3,Is this a consolidated financial statement?,YES_NO,,0,,,"Basis of consolidation 
+ The consolidated financial statements incorporate the financial statements of the Company and its wholly-owned subsidiary. All intragroup transactions, balances, income and expenses are eliminated.",
+23,2300,N,Y,,3,Subsidiaries,CONSTANT,"answer(2200)==""Yes""",0,,,"Subsidiaries
+ Subsidiaries are all entities (including special purpose entities) over which the {{entityType()}} has the power to govern the financial and operating policies so as to obtain benefits from its activities, generally accompanying a shareholding of more than half of the voting rights. Subsidiaries are fully consolidated from the date on which control is transferred to the group. They are de-consolidated from the date that control ceases.",
+24,2400,N,Y,,3,Investments in associates are accounted using what method?,MULTIPLE_CHOICE,coa(12070000)!=0,0,,,,
+25,2500,N,Y,Section 15.19 (a),3,The interests in joint ventures are recorded using what method?,MULTIPLE_CHOICE,coa(12080000)!=0,0,,,,
+26,2600,N,Y,,3,What is the nature of the investment property?,IDENTIFICATION,coa(12020000)!=0 || coa(12030000)!=0,0,commercial lot,,"Investment property
+ The {{entityType()}} owns a {{answer(2000)}} that is held to earn long-term rental income and for capital appreciation classified as investment property. Investment property is initially measured at cost.",
+27,2700,N,Y,,3,What are included in the cost of the investment property?,IDENTIFICATION,coa(12020000)!=0 || coa(12030000)!=0,0,"broker's fees, transfer taxes and illegal settler evacuation expenses",,"Cost includes {{answer(2100)}}. Subsequent to initial recognition, investment property is carried at fair value, derived from the current market prices for comparable real estate determined annually by external valuers. The valuers use observable market prices, adjusted if necessary for any difference in the nature, location or condition of the specific asset. Changes in fair value are recognized in profit or loss.
+ 
+ If a reliable measure of the fair value of investment property is no longer available without undue cost or effort, investment properties shall be accounted for as property, plant and equipment until a reliable measure of fair value becomes available. The carrying amount of the investment property on that date becomes its cost. 
+ 
+ Investment property is derecognized by the {{entityType()}} upon its disposal or when the investment property is permanently withdrawn from use and no future economic benefits are expected from its disposal. Gains and losses on disposals are determined by comparing the proceeds with the carrying amount and are recognized in profit or loss.",
+28,2800,N,Y,,3,"Describe the types of revenue the company has, when revenue is recognized and how it is measured.",IDENTIFICATION,,0,Revenue from sales of goods is recognised when the goods are delivered and title has passed. Royalty revenue from licensing candle-making patents for use by others is recognised on a straight-line basis over the licence period.,,"Revenue Recognition
+ {{answer(2500)}}
+ Revenue is recognized to the extent that it is probable that the economic benefits will flow to the {{entityType()}} and the revenue can be measured reliably. Revenue is measured at the fair value of the consideration received or receivable, net of discounts and sales-related taxes collected on behalf of the Philippines government.",
+29,2900,N,Y,,3,Income Tax (Editable),CONSTANT,,0,,,"Income Tax 
+ Income tax expense represents the sum of the tax currently payable and deferred tax.
+ The tax currently payable is based on taxable profit for the year.",
+30,3000,N,Y,,3,Does the company currently have deferred tax?,YES_NO,,0,,,"Deferred tax is recognised on differences between the carrying amounts of assets and
+ liabilities in the financial statements and their corresponding tax bases (known as
+ temporary differences). Deferred tax liabilities are recognised for all temporary
+ differences that are expected to increase taxable profit in the future. Deferred tax assets
+ are recognised for all temporary differences that are expected to reduce taxable profit in
+ the future, and any unused tax losses or unused tax credits. Deferred tax assets are
+ measured at the highest amount that, on the basis of current or estimated future taxable
+ profit, is more likely than not to be recovered.
+ The net carrying amount of deferred tax assets is reviewed at each reporting date and is
+ adjusted to reflect the current assessment of future taxable profits. Any adjustments are
+ recognised in profit or loss.
+ Deferred tax is calculated at the tax rates that are expected to apply to the taxable profit
+ (tax loss) of the periods in which it expects the deferred tax asset to be realised or the
+ deferred tax liability to be settled, on the basis of tax rates that have been enacted or
+ substantively enacted by the end of the reporting period.",
+31,3100,N,Y,,3,Property Plant and Equipment,CONSTANT,coa(12010000)!=0,0,,,"Property Plant and Equipment
+ Property plant and equipment are initially measured at cost. Cost includes purchase price, taxes, installation and estimated dismantling cost. At the end of each reporting period, items of property, plant and equipment are measured at cost less accumulated depreciation and accumulated impairment loss.",
+32,3200,N,Y,,3,Are there subsequent expenditures related to the PPE that was included as part of the PPE?,YES_NO,coa(12010000)!=0,0,,,"Subsequent expenditures relating to an item of property, plant and equipment that have already been recognized are added to the carrying amount of the asset when it is probable that future economic benefits, in excess of the originally assessed standard of performance of the existing asset, will flow to the {{entityType()}}. All other subsequent expenditures are recognized as expenses in the period in which those are incurred.",
+33,3300,N,Y,,3,Does the PPE include major spare parts?,YES_NO,coa(12010000)!=0,0,,,"Major spare parts and stand-by equipment qualify as property, plant and equipment when the {{entityType()}} expects to use them during more than one period. Similarly, if the spare parts and servicing equipment can be used only in connection with an item of property, plant and equipment, they are accounted for as property, plant and equipment",
+34,3400,N,Y,,3,"Are there any estimated future dismantlement costs on any of the items of property, plant and equipment?",YES_NO,coa(12010000)!=0,0,,,"Estimated future dismantlement costs of items of property, plant and equipment arising from legal or constructive obligations are recognized as part of property, plant and equipment and are measured at present value at the time the obligation was incurred.",
+35,3500,N,Y,,3,Has there been any derecognition of PPE?,YES_NO,coa(12010000)!=0,0,,,"Property, plant and equipment is derecognized by the {{entityType()}} upon its disposal or when the property, plant and equipment is permanently withdrawn from use and no future economic benefits are expected from its disposal. Gains and losses on disposals are determined by comparing the proceeds with the carrying amount and are recognized in profit or loss.",
+36,3600,N,Y,,3,What to depreciation method does the company use?,MULTIPLE_CHOICE,"answer(3200)==""Yes""",0,,,,
+37,3700,N,Y,,3,Changes in depreciation rate,CONSTANT,"answer(3200)==""Yes""",0,,,"If there is an indication that there has been a significant change in depreciation rate,
+ useful life or residual value of an asset, the depreciation of that asset is revised
+ prospectively to reflect the new expectations.",
+38,3800,N,Y,,3,Indicate the categories of PPE the company has and the annual rate of depreciation,IDENTIFICATION,,0,"Buildings 2 per cent
+ Fixtures and equipment 10–30 per cent",,"The following annual rates are used for the depreciation of property, plant and equipment:
+  {{answer(3800)}}",
+39,3900,N,Y,,3,Intangible assets,CONSTANT,coa(12040000)!=0,0,,,Intangible Assets,
+40,4000,N,Y,Section 18.27 (a) (b),3,Does the company recognize intangible asset Goodwill?,YES_NO,coa(12040000)!=0,0,,,"Goodwill
+ Goodwill represents the excess of the cost of a business combination over the fair value of the group’s share of the net identifiable assets of the acquired subsidiary at the date of acquisition. Goodwill on acquisitions of subsidiaries is included in ‘intangible assets’. Goodwill is carried at cost less accumulated amortization and accumulated impairment losses. Goodwill amortization is calculated by applying the straight-line method to its estimated useful life. If a reliable estimate cannot be made, the useful life of goodwill is presumed to be 10 years. At each reporting date, the group assesses whether there is any indication that goodwill may be impaired. If any such indication exists, the entity estimates the recoverable amount of the asset. Impairment losses on goodwill are not reversed. Gains and losses on the disposal of an entity include the carrying amount of goodwill relating to the entity sold.
+ Goodwill is allocated to cash-generating units (CGUs) (or groups of CGUs) for the purpose of impairment testing. The allocation is made to those CGUs units or groups of CGUs that are expected to benefit from the synergies of the business combination, irrespective of whether other assets or liabilities of the acquiree are assigned to those units.",
+41,4100,N,Y,Section 18.27 (a) (b),3,"What are the company's intangible assets, other than goodwill?",MULTIPLE_CHOICE,coa(12040000)!=0,0,,,,
+42,4200,N,Y,,3,Does the company have research and development costs that form part of an asset?,YES_NO,,0,,,"Research and development costs
+  All research and development costs are recognized as an expense unless they form part of the cost of another asset that meets the recognition criteria.",
+43,4300,N,Y,,3,"How many years is the estimated useful lives of your trademarks, licences and customer related intangible assets ?",IDENTIFICATION,coa(12040000)!=0,0,"Trademark - __years
+ License - ___years
+ (Others) - ____years",,"Amortization is calculated using the straight-line method to allocate the cost of trademarks, licences and customer related intangible assets over their estimated useful lives, as follows: 
+ {{answer(4800)}}",
+44,4400,N,Y,,3,Are computer software licenses one of the listed intangible assets?,YES_NO,coa(12040000)!=0,0,-,,-,
+45,4500,N,Y,,3,Specify the software name,IDENTIFICATION,"answer(4400)==""Yes""",0,Microsoft Office Professional 2016,,Acquired {{answer(4400)}} are capitalized on the basis of the costs incurred to acquire and bring to use the {{answer(4400)}}. These costs are amortized over their estimated useful lives of three to five years.,
+46,4600,N,Y,,3,Changes in amortization rate and derecognition,CONSTANT,coa(12040000)!=0,0,,,"If there is an indication that there has been a significant change in amortization rate, useful life or residual value of an intangible asset, the amortization is revised prospectively to reflect the new expectations.
+ 
+ Derecognition of intangible asset
+ An intangible asset is derecognized on disposal, or when no future economic benefits are expected from use or disposal. Gains or losses arising from derecognition of an intangible asset, measured as the difference between the net disposal proceeds and the carrying amount of the asset, are recognized in profit or loss when the asset is derecognized.",
+47,4700,N,Y,Section 11.40,3,Does the company havebasic financial instrumentsmeasured using amortized cost?,YES_NO,"answer(1700)==""Yes""",0,-,Section 11 requires an amortised cost model for all basic financial instruments except for investments in non-convertible preference shares and non-puttable ordinary or preference shares that are publicly traded or whose fair value can otherwise be measured reliably without undue cost or effort.,"Basic financial instruments at amortized cost
+ The {{entityType()}}’s basic financial instruments other than investments in non-convertible and non-puttable preference shares and non-puttable ordinary shares that are publicly traded or whose fair value can be measured reliably, are subsequently measured at amortized cost less impairment.
+ The amortized cost of a financial instrument at the end of each reporting period is computed as the net of the amount at which the financial instrument is measured at initial recognition, minus any repayments of the principal, plus or minus the cumulative amortization using the effective interest method of any difference between the amount at initial recognition and the maturity amount, minus, in the case of a financial asset, any reduction (directly or through the use of an allowance account) for impairment or uncollectibility.
+ The carrying amounts of the {{entityType()}}’s basic financial instruments carried at amortized cost at the end of each reporting periods are shown in Note <note numbers of of those that has words ""financial instruments"", ""cash and cash equivalents"", ""Accounts receivable"", ""loan receivable"", ""accounts payable"", ""loans payable""...>
+ Effective interest method
+ The effective interest method is a method of calculating the amortized cost of a financial asset or a financial liability (or a group of financial assets or financial liabilities) and of allocating the interest income or interest expense over the relevant period. The effective interest rate is the rate that exactly discounts estimated future cash payments or receipts through the expected life of the financial instrument or, when appropriate, a shorter period, to the carrying amount of the financial asset or financial liability. The effective interest rate is determined on the basis of the carrying amount of the financial asset or liability at initial recognition. 
+ Under the effective interest method, the amortized cost of a financial asset (liability) is the present value of future cash receipts (payments) discounted at the effective interest rate; and the interest expense (income) in a period equals the carrying amount of the financial liability (asset) at the beginning of a period multiplied by the effective interest rate for the period.",
+48,4800,N,Y,,3,Are there basic Financial instruments measured at fair value through profit and loss?,YES_NO,"answer(1700)==""Yes""",0,-,Section 11.4 Investments in non-convertible preference shares and non-puttable ordinary or preference shares that are publicly traded or whose fair value can otherwise be measured reliably without undue cost or effort.,"Basic financial instruments at fair value through profit or loss
+ The {{entityType()}}’s investments in non-convertible and non-puttable preference shares and non-puttable ordinary shares that are publicly traded or whose fair value can be measured reliably are subsequently measured at fair value. Gains or losses arising on remeasurement are recognized in profit or loss. The net gain or loss recognized in profit or loss incorporates any dividend or interest earned on the financial asset and is included in the {{entityType()}}’s statement of income.
+ 
+ If a reliable measure of fair value is no longer available for an asset measured at fair value, its carrying amount at the last date the asset was reliably measurable becomes its new cost. The entity shall measure the asset at this cost amount less impairment until a reliable measure of fair value becomes available.
+ 
+ The carrying amounts of the {{entityType()}}’s basic financial instruments carried at fair value through profit or loss at the end of each reporting periods are shown in Note <indicate notes of those that does not contain ""INVESTMENT MEASURED AT FAIR VALUE THROUGH PROFIT OR LOSS"">",
+49,4900,N,Y,,3,Impairment of assets,CONSTANT,,0,,,"Impairment of assets
+ At each reporting date, property, plant and equipment, intangible assets, and investments
+ in associates are reviewed to determine whether there is any indication that those assets
+ have suffered an impairment loss. If there is an indication of possible impairment, the
+ recoverable amount of any affected asset (or group of related assets) is estimated and
+ compared with its carrying amount. If estimated recoverable amount is lower, the
+ carrying amount is reduced to its estimated recoverable amount, and an impairment loss
+ is recognised immediately in profit or loss.",
+50,5000,N,Y,,3,Impairment of assets,CONSTANT,coa(11050000)!=0,0,,,"Similarly, at each reporting date, inventories are assessed for impairment by comparing
+ the carrying amount of each item of inventory (or group of similar items) with its selling
+ price less costs to complete and sell. If an item of inventory (or group of similar items) is
+ impaired, its carrying amount is reduced to selling price less costs to complete and sell,
+ and an impairment loss is recognised immediately in profit or loss.",
+51,5100,N,Y,,3,Impairment of assets,CONSTANT,,0,,,"If an impairment loss subsequently reverses, the carrying amount of the asset (or group of
+ related assets) is increased to the revised estimate of its recoverable amount (selling price
+ less costs to complete and sell, in the case of inventories), but not in excess of the amount
+ that would have been determined had no impairment loss been recognised for the asset
+ (group of related assets) in prior years. A reversal of an impairment loss is recognised
+ immediately in profit or loss.",
+52,5200,N,Y,Section 13.22 (a),3,Select all applicable costs related toinventory,MULTIPLE_CHOICE,coa(11050000)!=0,0,-,"Costs related to inventory: Section 13.5 All cost to purchase, cost of conversion and other related cost incurred in bringing the inventories to their present location and condition. Section 13.13 Inventory cost EXCLUDES abnormal waste and storage, administrative, and selling costs",,
+53,5300,N,Y,,3,Does the company lease?,YES_NO,,0,,,"Leases
+ Leases are classified as finance leases whenever the terms of the lease transfer substantially all the risks and rewards of ownership to the lessee. All other leases are classified as operating leases.",
+54,5400,N,Y,,3,"Is the company a lessor, a lessee or both?",MULTIPLE_CHOICE,,0,,,,
+55,5500,N,Y,,3,For company as lessor: lease is under Finance or Operating Lease?,MULTIPLE_CHOICE,"answer(5400)==""lessor""||answer(5400)==""both""",0,,,,
+56,5600,N,Y,,3,For Company as lessee: Lease is under Finance or Operating Lease?,MULTIPLE_CHOICE,"answer(5400)==""lessee""||answer(5400)==""both""",0,,,,
+57,5700,N,Y,,3,Trade Receivables,CONSTANT,coa(11020000)!=0,0,,,"Trade and other receivables
+ Most sales are made on the basis of normal credit terms, and the receivables do not bear
+ interest. At the end of each reporting period,
+ the carrying amounts of trade and other receivables are reviewed to determine whether
+ there is any objective evidence that the amounts are not recoverable. If so, an impairment
+ loss is recognised immediately in profit or loss.",
+58,5800,N,Y,,3,Biological Assets: State the items under biological assets,ENUMERATION,coa(12050000)!=0 || coa(12060000)!=0,0,"Fruit bearing trees 
+ Vegtables 
+ Poultry",,,
+59,5900,N,Y,,3,Is fair value of the biological assets determinable without undue cost or effort?,YES_NO,coa(12050000)!=0 || coa(12060000)!=0,0,,,"Biological assets
+ 
+ Biological assets comprise of {{answer5800)}}. As the fair value of these biological assets can be readily determined without undue cost or effort, the assets are initially recognized and subsequently carried at fair value less costs to sell. Any resultant gain or loss on re-measuring to fair value less costs to sell at each reporting date is recognized in profit or loss. 
+ 
+ At the time of harvest, {{answer5800)}} are recognized at fair value less costs to sell and are included in inventory at this amount. They are not subsequently re-measured.",
+60,6000,N,Y,,3,State the number of years of useful lives of each biological asset,IDENTIFICATION,"answer(5900)==""No""",0,"Fruit bearing trees - 24yrs
+ Vegtables - 3yrs
+ Poultry- 2yrs",,"Biological assets
+ Biological assets comprise {{answer(5800)}}. Biological assets are carried at cost less accumulated depreciation and any accumulated impairment losses, as the fair value of these biological assets cannot be reliably determined without undue cost or effort due to the inexistence of an active market, the lack of reliable evidence about comparable market transactions and the limited availability of historical data about the yields of the {{entityType()}}’s {{answer(5800)}}. Cost represents the historic cost of acquisition.
+ Depreciation of biological assets is calculated using the straight-line method to allocate the cost less its residual value over its estimated useful life of:
+ {{answer(6000)}}
+ The residual values, useful lives and depreciation method of the biological assets are reviewed, and adjusted if appropriate, if there is an indication of a change since the last reporting date.",
+61,6100,N,Y,,3,Trade Payables,CONSTANT,coa(13010000)!=0,0,,,"Trade payables
+ Trade payables are obligations on the basis of normal credit terms and do not bear interest.",
+62,6200,N,Y,,3,Does the company have payables denominated in foreign currency?,YES_NO,coa(13010000)!=0,0,,,"Trade payables denominated in a foreign currency are translated into CU using the
+ exchange rate at the reporting date. Foreign exchange gains or losses are included in other
+ income or other expenses.",
+63,6300,N,Y,,3,Does the company have any loans?,YES_NO,,0,,,,
+64,6400,N,Y,,3,Borrowings and borrowing costs,CONSTANT,"answer(6300)==""Yes""",0,,,"Borrowings and borrowing costs
+ Borrowings are recognized initially at the transaction price, which is the present value of cash payable plus transaction costs. Borrowings are subsequently stated at amortized cost. Interest expense is recognized on the basis of effective interest method and is included in finance costs. 
+ Borrowings are classified as current liabilities unless the group has unconditional right to defer settlement of the liability for at least 12 months after the reporting date. 
+ All borrowing costs are expensed as incurred.",
+65,6500,N,Y,Section 26.18,3,What retirement plan does the company have for its employee benefits?,MULTIPLE_CHOICE,,0,,,,
+66,6600,N,Y,,3,Does the company have provisions for warranty obligations?,YES_NO,,0,,,,
+67,6700,N,Y,,3,Describe the reason for the warranty in a complete sentence.,IDENTIFICATION,"answer(6600)==""Yes""",0,"All goods sold by the Group are warranted to be free of manufacturing defects for a period
+ of one year. Goods are repaired or replaced at the Group’s option.",,"Provision for warranty obligations
+ {{answer(6700)}} When revenue is
+ recognised, a provision is made for the estimated cost of the warranty obligation.",
+68,6800,N,Y,,3,Does the company have government grants?,YES_NO,,0,,,"Government Grants
+ The {{entityType()}} recognizes government grants as follows:
+ (a) A grant that does not impose specified future performance conditions on the recipient is recognized in income when the grant proceeds are receivable.
+ (b) A grant that imposes specified future performance conditions on the recipient is recognized in income only when the performance conditions are met.
+ (c) Grants received before the revenue recognition criteria are satisfied are recognized as a liability.
+ The {{entityType()}} measure grants at the fair value of the asset received or receivable",
