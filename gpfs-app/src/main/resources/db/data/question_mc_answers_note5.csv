@@ -1,0 +1,33 @@
+question_id,answer,template,help_text
+75,Cash basis of accounting,"The following reconciliations show the effect on the {{entityType()}}'s equity of the transition from cash basis of accounting to the PFRS for SMEs at {{currentYear()}}, {{periodBeg()}} and {{currentYear()}}, {{periodEnd()}}, and the Company’s profit for the year ended {{currentReportingPeriod()}}.",
+75,PAS101,"The following reconciliations show the effect on the {{entityType()}}’s equity of the transition from PAS101 to the PFRS for SMEs at {{currentYear()}}, {{periodBeg()}} and {{currentYear()}}, {{periodEnd()}}, and the Company’s profit for the year ended {{currentReportingPeriod()}}.",
+75,Full IFRS,"The following reconciliations show the effect on the {{entityType()}}’s equity of the transition from full IFRS to the PFRS for SMEs at {{currentYear()}}, {{periodBeg()}} and {{currentYear()}}, {{periodEnd()}}, and the Company’s profit for the year ended {{currentReportingPeriod()}}.",
+77,Business combinations,"Business combinations 
+ The {{entityType()}} has elected not to restate business combinations that took place prior to the transition date. The carrying value of goodwill at the date of transition to the PFRS for SMEs is the deemed cost of goodwill under the PFRS for SMEs at that date.",-
+77,Share-based payment transactions,"Share-based payment transactions 
+ The {{entityType()}} has not applied the provisions of Section 26 of the PFRS for SMEs to equity instruments that were granted before {{periodBeg()}}, {{priorYear()}}.",-
+77,Cumulative translation differences,"Cumulative translation differences 
+ The {{entityType()}} has elected to set the previously accumulated cumulative translation differences for all foreign operations to zero at {{periodBeg()}}, {{priorYear()}}.",-
+77,Fair value or revaluation as deemed cost,"Fair value or revaluation as deemed cost
+ The {{entityType()}} has elected to use the previous GAAP revaluation of an item of its [property, plant and equipment, investment property and identifiable intangible assets] at , or before the date of transition, as its deemed cost at the revaluation date.",-
+77,Compound financial instruments,"Compound financial instruments 
+ The {{entityType()}} has elected not to separate the equity and liability component of a compound instrument since the liability component is no longer outstanding at the date of transition.",-
+77,Deferred tax,"Deferred tax 
+ The {{entityType()}} has elected not to recognize certain [deferred tax assets or deferred tax liabilities] relating to differences between the tax basis and the carrying amount of any [assets or liabilities] for which recognition of those deferred tax assets or liabilities would involve undue cost or effort.",-
+77,Arrangements containing a lease,"Arrangements containing a lease
+ The {{entityType()}} has elected to determine whether an arrangement contains a lease based on the facts and circumstances existing at the date of transition rather than on the date when the arrangement where entered into.",-
+77,"Decommissioning liabilities included in the cost of property, plant and equipment","Decommissioning liabilities included in the cost of property, plant and equipment
+ The {{entityType()}} has elected to measure the decommissioning liabilities included in the cost of property plan and equipment are at transition date rather that at the date when the obligation initially arose.",-
+77,Extractive industries,"Extractive industries
+ The {{entityType()}} has elected to measure its oil and gas assets at the date of transition as the amount determined under previous GAAP net of any impairment losses identified at transition date.",-
+77,Separate financial statements,"Separate financial statements 
+ The {{entityType()}} has elected to measure its investment subsidiaries associate and jointly control entities at [choose applicable] [cost in accordance with Section 9.] or [deemed cost, which is the (fair value at date of transition) or (previous GAAP carrying amount on the date of transition.)",-
+77,Service Concession arrangements,"Service Concession arrangements
+ The {{entityType()}} has elected not to apply the requirements of Section 34 of the PFRS for SMEs on service concession arrangements entered into before the date of transition.",-
+83,Capitalization of costs attributable to site preparation,"The costs incurred in relation to the preparation of the <describe the site (eg vineyard, warehouse) > were expensed under {{answer(7500)}} . Such costs qualify to be recognized as part of the cost of property, plant and equipment under the PFRS for SMEs.",
+83,Write-off of deferred charges that do not meet capitalization criteria,These are Costs in relation to deferred charges that do not meet the definition of intangible assets under the PFRS for SMEs and have been included in retained earnings at the Company’s date of transition.,
+83,Restatement of provision for post-employment benefits,"Under {{answer(7500)}} the {{entityType()}}’s defined benefit pension scheme liabilities were not calculated on the basis of the projected unit credit method, as they excluded the impact of future salary increases.",
+83,Fair value adjustment of biological assets,"Under {{answer(7500)}}, biological assets were stated at cost less accumulated depreciation. This adjustment reflects the measurement of the {{entityType()}}’s biological assets to fair value.",
+83,Fair value adjustment to investment property,"Under {{answer(7500)}}, investment properties were stated at cost less accumulated depreciation. This adjustment reflects the uplift of the {{entityType()}}’s investment properties to fair value.",
+83,Investment in associates accounted for at cost,"Under {{answer(7500)}} the {{entityType()}} accounted for its investment in associates using the equity method of accounting. On adoption of the PFRS for SMEs, the {{entityType()}} has elected to account for its investments in associates at cost.",
+83,Deferred tax adjustments,"This adjustment reflects the deferred tax impact of the other adjustments recognized on transition. The adjustment also reflects the impact of recognizing deferred tax on the basis of temporary differences between the carrying amounts of assets and liabilities and their tax bases, compared to deferred tax calculated on the difference between items included in the income for accounting purposes and items included in the tax return.",

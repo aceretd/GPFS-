@@ -1,0 +1,17 @@
+id,series,deleted,next_paragraph,section_reference,note,question,type,act_condition,max_answers,sample_answer,help_text,template,no_template
+72,7200,N,Y,,5,Transition to the PFRS for SMEs,CONSTANT,"answer(2000)==""Yes""",0,,,{{noteIndex()}} TRANSITION TO THE PFRS FOR SMEs,
+73,7300,N,Y,,5,Application of the PFRS for SMEs,CONSTANT,"answer(2000)==""Yes""",0,,,"Basis of Transition
+ Application of the PFRS for SMEs
+ The {{entityType()}}’s financial statements for the year ended {{currentReportingPeriod()}} are its first annual financial statements prepared under accounting policies that comply with the PFRS for SMEs. The {{entityType()}}'s transition date is {{periodBeg()}}, {{priorYear()}} and prepared its opening PFRS for SMEs statement of financial position at that date.",
+74,7400,N,Y,,5,Among the optional exemptions in the full retrospective application of the PFRS for SMEs did the company apply any of it?,YES_NO,"answer(2000)==""Yes""",0,,,"In preparing these financial statements in accordance with the PFRS for SMEs, the {{entityType()}} has applied all the mandatory excemptions and certain optional exemptions from full retrospective application of the PFRS for SMEs.",
+75,7500,N,Y,Section 35.13,5,What standard was used prior to PFRS for SMEs?,MULTIPLE_CHOICE,"answer(2000)==""Yes""",0,,,-,
+76,7600,N,Y,Section 35.9,5,Optional Exemptions,CONSTANT,"answer(7400)==""Yes""",0,,,"Optional Exemptions from Full Retrospective Application 
+ The {{entityType()}} has applied the following optional exemptions from full retrospective application:",
+77,7700,N,Y,Section 35.10,5,The optional exemptions applied is/are:,MULTIPLE_SELECT,"answer(7400)==""Yes""",11,,,-,
+78,7800,N,Y,,5,"In the transition to PFRS for SMEs is there an effect on the company's equity as of {{periodBeg()}}, {{currentYear()}} or {{currentReportingPeriod()}}?",YES_NO,"answer(7400)==""Yes""",0,,,-,
+79,7900,N,Y,,5,In the transition to PFRS for SMEs is there an effect on the company's profit for the year ending {{currentReportingPeriod()}}?,YES_NO,"answer(7400)==""Yes""",0,,,,
+80,8000,N,Y,,5,Equity Reconciliation,CONSTANT,"answer(7800)==""Yes""",0,,,"Reconciliation 
+ The following reconciliations show the effect on the Company’s equity on the transition from {{answer(7500)}} to the PFRS for SMEs at {{periodBeg()}}, {{currentYear()}} and {{periodEnd()}}, {{currentYear()}}.",
+81,8100,N,Y,,5,Profit Reconciliation,CONSTANT,"answer(7900)==""Yes""",0,,,The following reconciliations show the effect on the Company’s profit from the transition for the year ended {{currentReportingPeriod()}}.,
+82,8200,N,Y,,5,Explanation of transition to PFRS for SMEs,CONSTANT,"answer(2000)==""Yes""",0,,,Explanation of transition to the PFRS for SMEs,
+83,8300,N,Y,,5,Choose what's applicable,MULTIPLE_SELECT,"answer(2000)==""Yes""",7,,,,
