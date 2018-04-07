@@ -14,30 +14,30 @@ import com.gpfs.core.model.BaseEntity;
 @Entity(name = "gpfs_schedule")
 public class Schedule extends BaseEntity {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Column(name = "schedule_index", nullable = false)
-	private int index;
+    @Column(name = "schedule_index", nullable = false)
+    private int index;
 
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn(name = "schedule_id")
-	@OrderColumn(name = "row_idx")
-	private List<ScheduleRow> rows; 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "schedule_id")
+    @OrderColumn(name = "row_idx")
+    private List<ScheduleRow> rows; 
 
-	public List<ScheduleRow> getRows() {
-		return rows;
-	}
+    public List<ScheduleRow> getRows() {
+        return rows;
+    }
 
-	public void setRows(List<ScheduleRow> rows) {
-		this.rows = rows;
-	}
+    public void setRows(List<ScheduleRow> rows) {
+        this.rows = rows;
+    }
 
-	public int getIndex() {
-		return index;
-	}
+    public int getIndex() {
+        return index;
+    }
 
-	public void setIndex(int index) {
-		this.index = index;
-	}
+    public void setIndex(int index) {
+        this.index = index;
+    }
 
 }

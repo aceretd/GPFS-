@@ -1,94 +1,40 @@
 <div class="ibox-title">
-  <div><strong>{{gpfs.company.name}} - {{gpfs.year}}</strong></div>
+  <div>
+    <strong>{{gpfs.company.name}} - {{gpfs.year}}</strong>
+  </div>
   Progress {{gpfs.percentCompleted}}%
   <div class="progress">
-    <div style="width: {{gpfs.percentCompleted}}%" aria-valuemax="100" aria-valuemin="{{gpfs.percentCompleted}}" aria-valuenow="0" role="progressbar" class="progress-bar progress-bar-success"></div>
+    <div style="width: {{gpfs.percentCompleted" aria-valuemax="100"
+      aria-valuemin="{{gpfs.percentCompleted}}" aria-valuenow="0"
+      role="progressbar" class="progress-bar progress-bar-success"></div>
   </div>
   <h5>Fill up the Chart of Accounts</h5>
   <div class="clearfix"></div>
-  <div>A list of the names of the accounts that a company has identified and made available for recording transactions in its general ledger</div>
-  <div style="margin-top: 10px;">
-  	<button ng-click="uploadTemplate()" class="btn btn-success btn-xs" title="Upload COA template"><i class="fa fa-upload"></i> Upload template</button>
-  	<input type="file" nv-file-select uploader="uploader" autoupload="true" />
-  	<button ng-click="uploader.uploadAll()" type="button">Do Upload</button>
-  	<a href="/gpfs/coa-template/{{gpfs.company.id}}/{{gpfs.year}}" class="btn btn-primary btn-xs" title="Download COA template"><i class="fa fa-download"></i></a>
+  <div>A list of the names of the accounts that a company has
+    identified and made available for recording transactions in its
+    general ledger</div>
+
+  <div class="ibox-content collapse in">
+    <div class="widgets-container">
+      The COA is dead! Long live the COA!
+    </div>
+
+    <button class="btn-primary btn-xs" ng-init="shoa = false" ng-click="shoa = !shoa" title="the COA">{{shoa ? 'Hidea' : 'Shoa'}}</button>
+    <pre ng-show="shoa" ng-click="shoa = false">{{gpfs.coa | json}}</pre>
+
+    <table>
+      <tr ng-repeat="fs1 in gpfs.coa.children">
+        <td><a ui-sref="gpfs.update.fs-level-1({fsLevel1Id: fs1.id})">{{fs1.name}}</a></td>
+      </tr>
+    </table>
   </div>
-</div>
-<div class="ibox-content collapse in">
-  <div class="widgets-container">
-	<form ng-submit="validateAndNext()" class="form-horizontal">
-		<div class="mb10" style="font-weight: bold;">
-			<div class="coaplus"></div>
-			<div class="coadiv">Account Num</div>
-			<div class="coadiv">FS level 1</div>
-			<div class="coadiv">FS level 2</div>
-			<div class="coadiv">FS level 3</div>
-			<div class="coadiv">FS level 4</div>
-			<div class="coadiv">Notes level 5</div>
-			<div class="coadiv">Customer code</div>
-			<div class="coadiv">{{gpfs.year}}</div>
-			<div class="coadiv">{{gpfs.year - 1}}</div>
-		</div>
-		<div ng-repeat="fs1 in gpfs.coa.children">
-			<div ng-repeat="fs2 in fs1.children">
-				<div ng-repeat="fs3 in fs2.children">
-					<div ng-repeat="fs4 in fs3.children">
-						<div ng-repeat="fs5 in fs4.children">
-							<div ng-repeat="fs6 in fs5.children" class="col-md-12 mb5">
-								<div>
-									<div ng-if="fs6.accountNumber === '1'" class="coaplus"><span class="fa fa-plus" ng-click="nextChild(fs5, 1)"></span></div>
-									<div ng-if="fs6.accountNumber !== '1'" class="coaplus"></div>
-	
-									<div class="coadiv">{{accountNumber(fs4, fs5, fs6)}}</div>
-									<div class="coadiv">{{fs1.name}}</div>
-									<div class="coadiv">{{fs2.name}}</div>
-									<div class="coadiv">{{fs3.name}}</div>
-									<div class="coadiv">
-										<input type="text" ng-model="fs4.name" class="form-control" required />
-									</div>
-									<div class="coadiv">
-										<input type="text" ng-model="fs5.name" class="form-control" required />
-									</div>
-									<div class="coadiv">
-										<input type="text" ng-model="fs6.name" class="form-control" required />
-									</div>
-									<div class="coadiv"><input type="number" step="0.01" min="-1000000000000" max="1000000000000" ng-model="fs6.currentYearAmount" class="form-control" required /></div>
-									<div class="coadiv"><input type="number" step="0.01" min="-1000000000000" max="1000000000000" ng-model="fs6.previousYearAmount" class="form-control" required /></div>
-								</div>
-								<div>
-									<div class="coaplus"></div>
-									<div class="coadiv"></div>
-									<div class="coadiv"></div>
-									<div class="coadiv"></div>
-									<div class="coadiv"></div>
-									<div class="coadiv" style="text-align: center;" ng-if="$parent.$parent.$last && $parent.$last && $last"><span title="Add new under {{fs3.name}}" class="fa fa-plus-square pointer" ng-click="nextChild(fs3, 1000)"></span></div>
-									<div class="coadiv" ng-if="!$parent.$parent.$last || !$parent.$last || !$last"></div>
-									<div class="coadiv" style="text-align: center;" ng-if="$parent.$last && $last"><span title="Add new under {{fs4.name}}" class="fa fa-plus-square pointer" ng-click="nextChild(fs4, 100)"></span></div>
-									<div class="coadiv" ng-if="!$parent.$last || !$last"></div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="mb10" style="font-weight: bold;">
-			<div class="coaplus"></div>
-			<div class="coadiv"></div>
-			<div class="coadiv"></div>
-			<div class="coadiv"></div>
-			<div class="coadiv"></div>
-			<div class="coadiv"></div>
-			<div class="coadiv"></div>
-			<div class="coadiv"></div>
-			<div class="coadiv">{{totals()[0] | number}}</div>
-			<div class="coadiv">{{totals()[1] | number}}</div>
-		</div>
-		<div class="pull-right mt50">
-			<button type="button" class="btn btn-default">Back to list</button>
-			<button type="submit" class="btn btn-primary">Next</button>
-		</div>
-	</form>
-	<div class="clearfix"></div>
+
+      <div class="pull-right mt50">
+        <button type="button" class="btn btn-default">Back to
+          list</button>
+        <button type="submit" class="btn btn-primary">Next</button>
+      </div>
+    </form>
+    <div class="clearfix"></div>
   </div>
 </div>

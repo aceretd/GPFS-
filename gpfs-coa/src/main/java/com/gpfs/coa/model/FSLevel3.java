@@ -15,41 +15,52 @@ import com.gpfs.core.model.BaseEntity;
 @Entity(name = "fs_level_3")
 public class FSLevel3 extends BaseEntity {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Column(name = "name", nullable = false)
-	private String name;
+    @Column(name = "series", nullable = false)
+    private String series;
 
-	@Column(name = "description")
-	@Type(type = "text")
-	private String description;
+    @Column(name = "name", nullable = false)
+    private String name;
 
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-	@JoinColumn(name = "parent_id")
-	private List<FSLevel4> children;
+    @Column(name = "description")
+    @Type(type = "text")
+    private String description;
 
-	public String getName() {
-		return name;
-	}
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "parent_id")
+    private List<FSLevel4> children;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public List<FSLevel4> getChildren() {
-		return children;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setChildren(List<FSLevel4> children) {
-		this.children = children;
-	}
+    public List<FSLevel4> getChildren() {
+        return children;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public void setChildren(List<FSLevel4> children) {
+        this.children = children;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getSeries() {
+        return series;
+    }
+
+    public void setSeries(String series) {
+        this.series = series;
+    }
 
 }

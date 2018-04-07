@@ -17,7 +17,10 @@ public class FSLevel4 extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = "name", nullable = false)
+    @Column(name = "series", nullable = false)
+    private String series;
+
+    @Column(name = "name", nullable = false)
 	private String name;
 
 	@Column(name = "description")
@@ -62,5 +65,13 @@ public class FSLevel4 extends BaseEntity {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+
+    public String getSeries() {
+        return series;
+    }
+
+    public void setSeries(String series) {
+        this.series = series;
+    }
 	
 }

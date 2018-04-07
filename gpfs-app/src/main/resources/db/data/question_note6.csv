@@ -1,0 +1,7 @@
+id,series,deleted,next_paragraph,section_reference,note,question,type,act_condition,max_answers,sample_answer,help_text,template,no_template
+84,8400,N,Y,Section 7.20,6,,CONSTANT,coa(Cash and cash equivalents)!=0,0,,,{{noteIndex()}} CASH AND CASH EQUIVALENTS,
+85,8500,N,Y,,6,What was the average interest rate earned by your Cash and cash equiv on the current and prior year respectively?,IDENTIFICATION,coa(Cash and cash equivalents)!=0,0,2% and 3%,,"Cash in banks earned average interest of {{answer(8500)}} during {{currentYear()}} and {{priorYear()}}, respectively.",
+86,8600,N,Y,Section 7.21,6,Does the company hold any restricted cash and cash equivalents?,YES_NO,coa(Cash and cash equivalents)!=0,0,,,,
+87,8700,N,Y,,6,How much is the restricted cash on the current and prior year?,IDENTIFICATION,"answer(8600)==""Yes""",0,"20,000 and 30,000",,"The {{entityType()}} holds cash and cash equivalents amounting to {{answer(8700)}} in {{currentYear()}} and {{priorYear()}}, respectively, which are not available for use by the {{entityType()}}.",
+88,8800,N,N,,6,What is the reason for the restriction?,IDENTIFICATION,"answer(8600)==""Yes""",0,The cash is set aside under an escrow account that was required by BIR when the company filed an appeal on BIR's final tax assessment for the year 2010.,,{{answer(8300)}},
+89,8900,N,N,,6,What is the account title of the restricted cash?,IDENTIFICATION,"answer(8600)==""Yes""",0,other non-current assets,,The restricted cash and cash equivalents are presented under {{answer()}}.,

@@ -1,0 +1,24 @@
+<div class="col-md-12" ng-init="schedule = getSchedule(2)" ng-controller="ScheduleTableController">
+  <table id="schedule-2-table" class="table table-striped">
+    <caption>Cash and Cash Equivalents</caption>
+    <thead>
+      <tr>
+        <th></th>
+        <th>{{currentYear()}}</th>
+        <th>{{priorYear()}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="row in schedule.rows">
+        <td ng-repeat="cell in row.cells">{{cell.content}}</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th></th>
+        <th>{{sum(1)}}</th>
+        <th>{{sum(2)}}</th>
+      </tr>
+    </tfoot>
+  </table>
+</div>

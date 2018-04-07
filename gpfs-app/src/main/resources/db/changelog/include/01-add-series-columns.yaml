@@ -1,0 +1,87 @@
+databaseChangeLog:
+- changeSet:
+    id: add_fs_lvl_1_series
+    author: mark
+    changes:
+    - addColumn:
+        tableName: fs_level_1
+        columns:
+        - column:
+            name: series
+            type: varchar
+- changeSet:
+    id: add_fs_lvl_2_series
+    author: mark
+    changes:
+    - addColumn:
+        tableName: fs_level_2
+        columns:
+        - column:
+            name: series
+            type: varchar
+- changeSet:
+    id: add_fs_lvl_3_series
+    author: mark
+    changes:
+    - addColumn:
+        tableName: fs_level_3
+        columns:
+        - column:
+            name: series
+            type: varchar
+- changeSet:
+    id: add_fs_lvl_4_series
+    author: mark
+    changes:
+    - addColumn:
+        tableName: fs_level_4
+        columns:
+        - column:
+            name: series
+            type: varchar
+- changeSet:
+    id: add_fs_lvl_5_series
+    author: mark
+    changes:
+    - addColumn:
+        tableName: fs_level_5
+        columns:
+        - column:
+            name: series
+            type: varchar
+- changeSet:
+    id: add_cashflow_level
+    author: mark
+    changes:
+    - addColumn:
+        tableName: fs_level_5
+        columns:
+        - column:
+            name: cash_flow_level
+            type: varchar
+- changeSet:
+    id: add_curr_yr
+    author: mark
+    changes:
+    - addColumn:
+        tableName: fs_level_5
+        columns:
+        - column:
+            name: curr_yr
+            type: decimal
+        - column:
+            name: prev_yr
+            type: decimal
+- changeSet:
+    id: drop_fs_level_6
+    author: mark
+    changes:
+    - dropTable:
+        tableName: fs_level_6
+- changeSet:
+    id: drop_bad_columns
+    author: mark
+    changes:
+    - dropColumn:
+        tableName: fs_level_5
+        columnName: acct_no

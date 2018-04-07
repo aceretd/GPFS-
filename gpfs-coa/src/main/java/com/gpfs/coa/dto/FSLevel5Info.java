@@ -1,44 +1,54 @@
 package com.gpfs.coa.dto;
 
-import java.util.List;
-import java.util.Optional;
+import java.math.BigDecimal;
 
-import com.google.common.collect.Lists;
-import com.gpfs.core.model.BaseEntity;
+import com.gpfs.coa.model.CashflowLevel;
+import com.gpfs.core.dto.BaseInfo;
 
-public class FSLevel5Info extends BaseEntity {
+public class FSLevel5Info extends BaseInfo {
 
-	private static final long serialVersionUID = 1L;
+    private String series;
+    private String name;
+    private String description;
+    private BigDecimal currentYearAmount;
+    private BigDecimal previousYearAmount;
+    private CashflowLevel cashflowLevel;
 
-	private String name;
-	private String accountNumber;
-	private List<FSLevel6Info> children = Lists.newArrayList();
-
-	public FSLevel6Info getChildByAccountNumber(String accountNumber) {
-		Optional<FSLevel6Info> fs6Opt = this.getChildren().stream().filter(fs6 -> accountNumber.equals(fs6.getAccountNumber())).findFirst();
-		if (fs6Opt.isPresent()) {
-			return fs6Opt.get();
-		}
-		return null;
-	}
-
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public List<FSLevel6Info> getChildren() {
-		return children;
-	}
-	public void setChildren(List<FSLevel6Info> children) {
-		this.children = children;
-	}
-	public String getAccountNumber() {
-		return accountNumber;
-	}
-	public void setAccountNumber(String accountNumber) {
-		this.accountNumber = accountNumber;
-	}
+    public String getSeries() {
+        return series;
+    }
+    public void setSeries(String series) {
+        this.series = series;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    public BigDecimal getCurrentYearAmount() {
+        return currentYearAmount;
+    }
+    public void setCurrentYearAmount(BigDecimal currentYearAmount) {
+        this.currentYearAmount = currentYearAmount;
+    }
+    public BigDecimal getPreviousYearAmount() {
+        return previousYearAmount;
+    }
+    public void setPreviousYearAmount(BigDecimal previousYearAmount) {
+        this.previousYearAmount = previousYearAmount;
+    }
+    public CashflowLevel getCashflowLevel() {
+        return cashflowLevel;
+    }
+    public void setCashflowLevel(CashflowLevel cashflowLevel) {
+        this.cashflowLevel = cashflowLevel;
+    }
 
 }

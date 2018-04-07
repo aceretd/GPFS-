@@ -16,127 +16,127 @@ import com.gpfs.question.dto.PrincipalActivityInfo;
 
 public class GpfsInfo extends BaseInfo {
 
-	private CompanyInfo company;
-	private int year;
-	private ChartOfAccountInfo coa;
-	private List<NoteInfo> notes = Lists.newArrayList();
-	private PrincipalActivityInfo principalActivity;
-	private ReconciliationTableInfo reconciliationTable;
-	private List<ScheduleInfo> schedules;
+    private CompanyInfo company;
+    private int year;
+    private ChartOfAccountInfo coa;
+    private List<NoteInfo> notes = Lists.newArrayList();
+    private PrincipalActivityInfo principalActivity;
+    private ReconciliationTableInfo reconciliationTable;
+    private List<ScheduleInfo> schedules;
 
-	//Next angular state
-	private String nextState;
+    //Next angular state
+    private String nextState;
 
-	@Override
-	public ToStringCreator toStringCreator() {
-		return super.toStringCreator()
-				.append("company", company)
-				.append("coa", coa);
-	}
+    @Override
+    public ToStringCreator toStringCreator() {
+        return super.toStringCreator()
+                .append("company", company)
+                .append("coa", coa);
+    }
 
-	public String answer(int series) {
-		try {
-			return notes.stream()
-				.flatMap(n -> n.getQuestions().stream())
-				.collect(Collectors.toList())
-				.stream()
-				.filter(qap -> qap.getQuestion().getSeries() == series)
-				.findFirst()
-				.get()
-				.getAnswer();
-		} catch (Exception e) {
-			throw new IllegalArgumentException("Could not find answer to question with series=" + series);
-		}
-	}
-	public NoteInfo note(int idx) {
-		return findNote(idx).get();
-	}
-	public Optional<NoteInfo> findNote(int idx) {
-		return notes.stream().filter(n -> n.getIndex() == idx).findFirst();
-	}
+    public String answer(int series) {
+        try {
+            return notes.stream()
+                    .flatMap(n -> n.getQuestions().stream())
+                    .collect(Collectors.toList())
+                    .stream()
+                    .filter(qap -> qap.getQuestion().getSeries() == series)
+                    .findFirst()
+                    .get()
+                    .getAnswer();
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Could not find answer to question with series=" + series);
+        }
+    }
+    public NoteInfo note(int idx) {
+        return findNote(idx).get();
+    }
+    public Optional<NoteInfo> findNote(int idx) {
+        return notes.stream().filter(n -> n.getIndex() == idx).findFirst();
+    }
 
-	public double getPercentCompleted() {
-		if (null == nextState) {
-			return 0;
-		}
+    public double getPercentCompleted() {
+        if (null == nextState) {
+            return 0;
+        }
 
-		switch (nextState) {
-		case "gpfs.update.coa":
-			return 6;
-		case "gpfs.update.note1":
-			return 12;
-		case "gpfs.update.note2":
-			return 14;
-		case "gpfs.update.note3":
-			return 17;
-		case "gpfs.update.note4":
-			return 21;
-		case "gpfs.update.note5":
-			return 23;
-		default:
-			return 0;
-		}
-	}
+        switch (nextState) {
+        case "gpfs.update.coa":
+            return 6;
+        case "gpfs.update.note1":
+            return 12;
+        case "gpfs.update.note2":
+            return 14;
+        case "gpfs.update.note3":
+            return 17;
+        case "gpfs.update.note4":
+            return 21;
+        case "gpfs.update.note5":
+            return 23;
+        default:
+            return 0;
+        }
+    }
 
-	public PrincipalActivityInfo getPrincipalActivity() {
-		return principalActivity;
-	}
-	public void setPrincipalActivity(PrincipalActivityInfo principalActivity) {
-		this.principalActivity = principalActivity;
-	}
-	public ReconciliationTableInfo getReconciliationTable() {
-		return reconciliationTable;
-	}
-	public void setReconciliationTable(ReconciliationTableInfo reconciliationTable) {
-		this.reconciliationTable = reconciliationTable;
-	}
+    public PrincipalActivityInfo getPrincipalActivity() {
+        return principalActivity;
+    }
+    public void setPrincipalActivity(PrincipalActivityInfo principalActivity) {
+        this.principalActivity = principalActivity;
+    }
+    public ReconciliationTableInfo getReconciliationTable() {
+        return reconciliationTable;
+    }
+    public void setReconciliationTable(ReconciliationTableInfo reconciliationTable) {
+        this.reconciliationTable = reconciliationTable;
+    }
 
-	public CompanyInfo getCompany() {
-		return company;
-	}
+    public CompanyInfo getCompany() {
+        return company;
+    }
 
-	public void setCompany(CompanyInfo company) {
-		this.company = company;
-	}
+    public void setCompany(CompanyInfo company) {
+        this.company = company;
+    }
 
-	public int getYear() {
-		return year;
-	}
+    public int getYear() {
+        return year;
+    }
 
-	public void setYear(int year) {
-		this.year = year;
-	}
+    public void setYear(int year) {
+        this.year = year;
+    }
 
-	public ChartOfAccountInfo getCoa() {
-		return coa;
-	}
+    public ChartOfAccountInfo getCoa() {
+        return coa;
+    }
 
-	public void setCoa(ChartOfAccountInfo coa) {
-		this.coa = coa;
-	}
+    public void setCoa(ChartOfAccountInfo coa) {
+        this.coa = coa;
+    }
 
-	public String getNextState() {
-		return nextState;
-	}
+    public String getNextState() {
+        return nextState;
+    }
 
-	public void setNextState(String nextState) {
-		this.nextState = nextState;
-	}
+    public void setNextState(String nextState) {
+        this.nextState = nextState;
+    }
 
-	public List<NoteInfo> getNotes() {
-		return notes;
-	}
+    public List<NoteInfo> getNotes() {
+        return notes;
+    }
 
-	public void setNotes(List<NoteInfo> notes) {
-		this.notes = notes;
-	}
+    public void setNotes(List<NoteInfo> notes) {
+        this.notes = notes;
+    }
 
-	public List<ScheduleInfo> getSchedules() {
-		return schedules;
-	}
+    public List<ScheduleInfo> getSchedules() {
+        return schedules;
+    }
 
-	public void setSchedules(List<ScheduleInfo> schedules) {
-		this.schedules = schedules;
-	}
+    public void setSchedules(List<ScheduleInfo> schedules) {
+        this.schedules = schedules;
+    }
 
 }

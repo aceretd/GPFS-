@@ -219,12 +219,12 @@ function GpfsRootController($scope, $state, $parse, GpfsService, ScheduleService
   };
 
   $scope.getSchedule = function (index) {
-    let matchingSchedule =  $scope.updateGpfs.gpfs.schedules.find(function (schedule) {
-      return schedule.index === index;
-    });
     if (!$scope.updateGpfs.gpfs.schedules) {
       $scope.updateGpfs.gpfs.schedules = [];
     }
+    let matchingSchedule =  $scope.updateGpfs.gpfs.schedules.find(function (schedule) {
+      return schedule.index === index;
+    });
     if (!matchingSchedule) {
       matchingSchedule = ScheduleService.getSchedule(index);
       $scope.updateGpfs.gpfs.schedules.push(matchingSchedule);

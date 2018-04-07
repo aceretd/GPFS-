@@ -182,3 +182,16 @@ databaseChangeLog:
         schemaName: public
         tableName: question_mc_answers
         quotchar: "\""
+- changeSet:
+    id: loadquestions_note6
+    author: mark
+    changes:
+    - loadData:
+        encoding: UTF-8
+        file: src/main/resources/db/data/question_note6.csv
+        schemaName: public
+        tableName: question
+        quotchar: "\""
+- include:
+    file: include/01-add-series-columns.yaml
+    relativeToChangelogFile: true

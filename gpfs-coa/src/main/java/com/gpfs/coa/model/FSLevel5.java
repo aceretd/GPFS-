@@ -1,12 +1,11 @@
 package com.gpfs.coa.model;
 
-import java.util.List;
+import java.math.BigDecimal;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 
 import org.hibernate.annotations.Type;
 
@@ -15,52 +14,66 @@ import com.gpfs.core.model.BaseEntity;
 @Entity(name = "fs_level_5")
 public class FSLevel5 extends BaseEntity {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Column(name = "name", nullable = false)
-	private String name;
+    @Column(name = "series")
+    private String series;
 
-	@Column(name = "description")
-	@Type(type = "text")
-	private String description;
+    @Column(name = "name")
+    private String name;
 
-	@Column(name = "acct_no", nullable = false)
-	private String accountNumber;
+    @Column(name = "description")
+    @Type(type = "text")
+    private String description;
 
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-	@JoinColumn(name = "parent_id")
-	private List<FSLevel6> children;
+    @Column(name = "curr_yr", nullable = false)
+    private BigDecimal currentYearAmount;
 
-	public String getName() {
-		return name;
-	}
+    @Column(name = "prev_yr", nullable = false)
+    private BigDecimal previousYearAmount;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    @Column(name = "cash_flow_level", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private CashflowLevel cashflowLevel;
 
-	public String getAccountNumber() {
-		return accountNumber;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setAccountNumber(String accountNumber) {
-		this.accountNumber = accountNumber;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public List<FSLevel6> getChildren() {
-		return children;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public void setChildren(List<FSLevel6> children) {
-		this.children = children;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public BigDecimal getCurrentYearAmount() {
+        return currentYearAmount;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public void setCurrentYearAmount(BigDecimal currentYearAmount) {
+        this.currentYearAmount = currentYearAmount;
+    }
+
+    public BigDecimal getPreviousYearAmount() {
+        return previousYearAmount;
+    }
+
+    public void setPreviousYearAmount(BigDecimal previousYearAmount) {
+        this.previousYearAmount = previousYearAmount;
+    }
+
+    public CashflowLevel getCashflowLevel() {
+        return cashflowLevel;
+    }
+
+    public void setCashflowLevel(CashflowLevel cashflowLevel) {
+        this.cashflowLevel = cashflowLevel;
+    }
 
 }

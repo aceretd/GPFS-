@@ -3,6 +3,12 @@
 .mt50 {margin-top: 50px;}
 .mb5 {margin-bottom: 5px;}
 .mb10 {margin-bottom: 10px;}
+.ml10 {margin-left: 10px;}
+
+.pl10 {padding-left: 10px !important;}
+.pl30 {padding-left: 30px !important;}
+.pl60 {padding-left: 60px !important;}
+.pl90 {padding-left: 90px !important;}
 .w50 {width: 50px;}
 
 .coaplus {width: 20px; display: inline-block;}
