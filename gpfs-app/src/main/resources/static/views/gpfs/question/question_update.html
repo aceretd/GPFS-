@@ -1,0 +1,152 @@
+<div class="page-container ">
+  <!-- Start page content wrapper -->
+<div class="page-content-wrapper animated fadeInRight">
+    <div class="page-content">
+      <div class="row wrapper border-bottom page-heading">
+        <div class="col-lg-12">
+          <h2>Question Update </h2>
+          <ol class="breadcrumb">
+            <li><a ui-sref="dashboard1">Home</a> </li>
+            <li><a ui-sref="question_list">Question List</a> </li>
+            <li class="active">Question Update</li>
+          </ol>
+        </div>
+      </div>
+      <div class="wrapper-content ">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                <h5>Update Question - Series {{question.series}}</h5>
+              </div>
+              <div class="ibox-content collapse in">
+                <div class="widgets-container">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <form ng-submit="saveQuestion()" class="form form-horizontal">
+                        <div class="form-group">
+                          <label class="control-label col-md-3" for="note">Note</label>
+                          <div class="col-md-2"><input id="note" type="number" step="1" min="1" ng-model="question.note" class="form-control" /></div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-md-3" for="series">Series</label>
+                          <div class="col-md-2"><input id="series" type="number" step="1" min="1" ng-model="question.series" class="form-control" /></div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-md-3" for="question">Question</label>
+                          <div class="col-md-9"><input id="question" type="text" maxlength="255" ng-model="question.question" class="form-control" /></div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-md-3" for="type">Type</label>
+                          <div class="col-md-4">
+                            <select id="type" ng-options="type.value as type.label for type in 
+                              [{value: 'IDENTIFICATION', label: 'Identification'},
+                               {value: 'YES_NO', label: 'Yes or No'},
+                               {value: 'MULTIPLE_CHOICE', label: 'Multiple choice'},
+                               {value: 'MULTIPLE_SELECT', label: 'Multiple select'},
+                               {value: 'ENUMERATION', label: 'Enumeration'},
+                               {value: 'CONSTANT', label: 'Constant'}]" ng-model="question.type" class="form-control">
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-md-3" for="activation-condition">Activation Condition</label>
+                          <div class="col-md-9"><input id="activation-condition" type="text" maxlength="255" ng-model="question.activationCondition" class="form-control" /></div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-md-3" for="help-text">Help text</label>
+                          <div class="col-md-9"><input id="help-text" type="text" maxlength="255" ng-model="question.helpText" class="form-control" /></div>
+                        </div>
+                        <div class="form-group">
+                          <label class="control-label col-md-3" for="next-paragraph">Next paragraph?</label>
+                          <div class="col-md-4">
+                            <select id="next-paragraph" ng-model="question.nextParagraph"
+                              ng-options="opt.v as opt.l for opt in [{v: true, l: 'Yes'}, {v: false, l: 'No'}]"
+                              class="form-control"></select>
+                          </div>
+                        </div>
+                        <div ng-if="['MULTIPLE_CHOICE', 'MULTIPLE_SELECT'].indexOf(question.type) == -1" class="form-group">
+                          <label class="control-label col-md-3" for="sample-answer">Sample answer</label>
+                          <div class="col-md-9"><input id="sample-answer" type="text" maxlength="255" ng-model="question.sampleAnswer" class="form-control" /></div>
+                        </div>
+                        <div ng-if="['MULTIPLE_CHOICE', 'MULTIPLE_SELECT'].indexOf(question.type) == -1" class="form-group">
+                          <label class="control-label col-md-3" for="template">Template<span ng-if="question.type=='YES_NO'"> (Yes)</span></label>
+                          <div class="col-md-9"><input id="template" type="text" maxlength="255" ng-model="question.template" class="form-control" /></div>
+                        </div>
+
+                        <!-- Yes/No only -->
+                        <div ng-if="question.type=='YES_NO'" class="form-group">
+                          <label class="control-label col-md-3" for="no-template">Template (No)</label>
+                          <div class="col-md-9"><input id="no-template" type="text" maxlength="255" ng-model="question.noTemplate" class="form-control" /></div>
+                        </div>
+
+                        <!-- Enumeration only -->
+                        <div ng-if="question.type=='ENUMERATION'" class="form-group">
+                          <label class="control-label col-md-3" for="max-answers">Maximum answers</label>
+                          <div class="col-md-9"><input id="max-answers" type="number" min="0" max="10" ng-model="question.maximumAnswers" class="form-control" /></div>
+                        </div>
+
+                        <!-- Answers for multiple choice and multiple select -->
+                        <section ng-if="['MULTIPLE_CHOICE', 'MULTIPLE_SELECT'].indexOf(question.type) != -1">
+                          <div class="form-group">
+                          <label class="control-label col-md-3">Answers</label>
+                          <div class="col-md-9" ng-if="!question.answers.length">No answers yet</div>
+                          <div class="col-md-9 row">
+                            <div ng-repeat="answer in question.answers">
+                              <div class="form-group">
+                                <label class="control-label col-md-3 text-muted" for="answer-{{$index}}">Answer</label>
+                                <div class="col-md-9"><textarea msd-elastic id="answer-{{$index}}" ng-model="answer.answer" class="form-control" required></textarea></div>
+                              </div>
+                              <div class="form-group">
+                                <label class="control-label col-md-3 text-muted" for="template-{{$index}}">Template</label>
+                                <div class="col-md-9"><textarea msd-elastic id="template-{{$index}}" ng-model="answer.template" class="form-control"></textarea></div>
+                              </div>
+                              <div class="form-group">
+                                <label class="control-label col-md-3 text-muted" for="helptext-{{$index}}">Help text</label>
+                                <div class="col-md-9"><textarea msd-elastic id="helptext-{{$index}}" ng-model="answer.helpText" class="form-control"></textarea></div>
+                              </div>
+                              <div class="form-group">
+                                <label class="control-label col-md-3"></label>
+                                <div class="col-md-9"><button type="button" class="btn btn-danger btn-xs" ng-click="removeAnswer($index)">Remove</button></div>
+                              </div>
+                              <hr>
+                            </div>
+                          </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-md-3"></label>
+                            <div class="col-md-9 row">
+                              <div class="form-group">
+                                <label class="col-md-3"></label>
+                                <div class="col-md-9">
+                                  <button ng-click="question.answers.push({})" class="btn btn-primary btn-xs">Add an answer</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </section>
+
+                        <div class="form-group">
+                          <label class="control-label col-md-3"></label>
+                          <div class="col-md-9">
+                            <button type="submit" class="btn btn-primary">Save Question</button>
+                            <button type="button" ng-click="resetQuestion()" class="btn btn-default">Reset</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div class="widgets-container">
+                  <button type="button" ng-click="debug=!debug" class="btn btn-default btn-xs">Debug</button>
+                  <pre ng-init="debug=false" ng-class="{'collapse': !debug}">{{question | json}}</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>

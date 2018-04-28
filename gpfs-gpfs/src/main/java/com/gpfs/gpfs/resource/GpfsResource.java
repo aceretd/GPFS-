@@ -29,33 +29,33 @@ import com.gpfs.gpfs.service.GpfsService;
 @RequestMapping("/gpfs")
 public class GpfsResource extends BaseResource<GpfsInfo, GpfsService> {
 
-	private static final Logger LOG = LoggerFactory.getLogger(GpfsResource.class);
+    private static final Logger LOG = LoggerFactory.getLogger(GpfsResource.class);
 
-	@RequestMapping(value = "/{companyId}/{year}", method = GET)
-	public ResponseEntity<GpfsInfo> findByCompanyIdAndYear(@PathVariable Long companyId, @PathVariable int year) {
-		return new ResponseEntity<>(service.findInfoByCompanyIdAndYear(companyId, year), OK);
-	}
+    @RequestMapping(value = "/{companyId}/{year}", method = GET)
+    public ResponseEntity<GpfsInfo> findByCompanyIdAndYear(@PathVariable Long companyId, @PathVariable int year) {
+        return new ResponseEntity<>(service.findInfoByCompanyIdAndYear(companyId, year), OK);
+    }
 
-	@RequestMapping(method = POST)
-	public ResponseEntity<GpfsInfo> save(@RequestBody GpfsInfo gpfs) {
-		return new ResponseEntity<>(service.saveInfo(gpfs), OK);
-	}
+    @RequestMapping(method = POST)
+    public ResponseEntity<GpfsInfo> save(@RequestBody GpfsInfo gpfs) {
+        return new ResponseEntity<>(service.saveInfo(gpfs), OK);
+    }
 
-	@PostMapping("/coa-template/{gpfsId}")
-	public ResponseEntity<GpfsInfo> uploadCoa(@PathVariable long gpfsId, @RequestParam MultipartFile file) throws IOException {
-		LOG.info("COA upload request received. gpfsId={}", gpfsId);
-		return new ResponseEntity<>(service.processCoaTemplate(gpfsId, file), OK);
-	}
+    @PostMapping("/coa-template/{gpfsId}")
+    public ResponseEntity<GpfsInfo> uploadCoa(@PathVariable long gpfsId, @RequestParam MultipartFile file) throws IOException {
+        LOG.info("COA upload request received. gpfsId={}", gpfsId);
+        return new ResponseEntity<>(service.processCoaTemplate(gpfsId, file), OK);
+    }
 
-	@RequestMapping(value = "/coa-template/{companyId}/{year}", method = GET)
-	public ResponseEntity<byte[]> getTemplateXls(@PathVariable Long companyId, @PathVariable int year, HttpServletResponse response) throws IOException {
-		GpfsInfo gpfs = service.findInfoByCompanyIdAndYear(companyId, year);
-		XSSFWorkbook report = gpfs.getCoa().toWorkbook();
+    @RequestMapping(value = "/coa-template/{companyId}/{year}", method = GET)
+    public ResponseEntity<byte[]> getTemplateXls(@PathVariable Long companyId, @PathVariable int year, HttpServletResponse response) throws IOException {
+        GpfsInfo gpfs = service.findInfoByCompanyIdAndYear(companyId, year);
+        XSSFWorkbook report = gpfs.getCoa().toWorkbook();
         response.setHeader("Content-disposition", "attachment; filename=COA " + gpfs.getCompany().getName() + " - " + year + ".xlsx");
         if (null != report) {
             report.write(response.getOutputStream());
         }
         return new ResponseEntity(HttpStatus.OK);
-	}
+    }
 
 }

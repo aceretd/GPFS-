@@ -266,7 +266,28 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
       }
     }
   })
-
+  .state('question_update', {
+    url: '/question-update/{series}',
+    templateUrl: 'views/gpfs/question/question_update.html',
+    controller: 'QuestionUpdateCtrl',
+    data: {
+      pageTitle: 'question update',
+      specialClass: 'page-header-fixed'
+    },
+    resolve: {
+      loadPlugin: function($ocLazyLoad) {
+        return $ocLazyLoad.load([
+          {
+            serie: true,
+            files: ['js/gpfs/question/question.update.controller.js']
+          }
+        ]);
+      },
+      question: function ($stateParams, QuestionService) {
+        return QuestionService.findBySeries({series: $stateParams.series});
+      }
+    }
+  })
   // GPFS List
   .state('gpfs_list', {
     url: '/gpfs-list',

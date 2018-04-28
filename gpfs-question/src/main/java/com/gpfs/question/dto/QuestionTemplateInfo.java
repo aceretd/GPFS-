@@ -2,6 +2,9 @@ package com.gpfs.question.dto;
 
 import java.util.List;
 
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Range;
 import org.springframework.core.style.ToStringCreator;
 
 import com.gpfs.core.dto.BaseInfo;
@@ -9,10 +12,17 @@ import com.gpfs.question.QuestionType;
 
 public class QuestionTemplateInfo extends BaseInfo {
 
-    private String sectionReference;
+    @Range(min = 1, max = 100)
     private int note;
-    private String question;
+
+    @Range(min = 1, max = 1000000)
+    private int series;
+
+    @NotNull
     private QuestionType type;
+
+    private String sectionReference;
+    private String question;
     private String activationCondition;
     private int maximumAnswers = 0;
     private List<MultipleChoiceAnswerTemplateInfo> answers;
@@ -20,7 +30,6 @@ public class QuestionTemplateInfo extends BaseInfo {
     private String sampleAnswer;
     private String template;
     private String noTemplate;
-    private int series;
     private boolean nextParagraph;
 
     @Override

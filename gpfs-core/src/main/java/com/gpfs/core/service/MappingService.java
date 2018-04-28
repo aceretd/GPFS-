@@ -1,6 +1,7 @@
 package com.gpfs.core.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.dozer.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,10 @@ public abstract class MappingService<E extends BaseEntity, D> {
         Class<?>[] genericTypes = GenericTypeResolver.resolveTypeArguments(getClass(), MappingService.class);
         entityClass = (Class<E>) genericTypes[0];
         dtoClass = (Class<D>) genericTypes[1];
+    }
+
+    public Optional<D> toDto(Optional<E> entity) {
+        return entity.map(e -> Optional.of(toDto(e))).orElse(Optional.empty());
     }
 
     public D toDto(E entity) {

@@ -28,15 +28,17 @@
                             <th>Note</th>
                             <th>Template</th>
                             <th>Activation Condition</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr ng-repeat="question in questions">
-                        	<td>{{question.series}}<br><small class="text-muted">{{question.id}}</small></td>
-                            <td>{{question.question}}</td>
-                            <td>{{question.note}}</td>
-                            <td>{{question.template}}</td>
-                            <td>{{question.activationCondition}}</td>
+                          <td>{{question.series}}<br><small class="text-muted">{{question.id}}</small></td>
+                          <td>{{question.question}}</td>
+                          <td>{{question.note}}</td>
+                          <td>{{question.template}}</td>
+                          <td>{{question.activationCondition}}</td>
+                          <td><button type="button" title="Edit question {{question.series}}" ui-sref="question_update({series: question.series})" class="btn btn-primary btn-xs">Edit</button>
                         </tr>
                         </tbody>
                     </table>
