@@ -35,11 +35,11 @@
                 <div class="widgets-container">
                   <div class="row">
                     <div class="col-md-8">
-                      <form class="form form-horizontal">
+                      <form class="form form-horizontal" ng-submit="uploader.uploadAll()">
                         <div class="form-group">
                           <label class="control-label col-md-3">File</label>
                           <div class="col-md-9">
-                            <input type="file" class="form-control" />
+                            <input type="file" nv-file-select uploader="uploader" autoupload="false" class="form-control" />
                           </div>
                         </div>
                         <div class="form-group">
@@ -54,7 +54,7 @@
                 </div>
                 <div class="widgets-container">
                   <button type="button" ng-click="debug=!debug" class="btn btn-default btn-xs">Debug</button>
-                  <pre ng-init="debug=false" ng-class="{'collapse': !debug}">{{question | json}}</pre>
+                  <pre ng-init="debug=false" ng-class="{'collapse': !debug}">{{debugTxt | json}}</pre>
                 </div>
               </div>
             </div>

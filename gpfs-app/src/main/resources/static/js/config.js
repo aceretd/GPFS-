@@ -287,6 +287,16 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
     data: {
       pageTitle: 'question-backup',
       specialClass: 'page-header-fixed'
+    },
+    resolve: {
+      loadPlugin: function($ocLazyLoad) {
+        return $ocLazyLoad.load([
+          {
+            name: 'angularFileUpload',
+            files: ['js/plugins/angular-file-upload/angular-file-upload.min.js']
+          }
+        ]);
+      }
     }
   })
   // GPFS List
