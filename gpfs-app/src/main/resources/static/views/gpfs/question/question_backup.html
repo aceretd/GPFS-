@@ -1,0 +1,68 @@
+<div class="page-container ">
+  <!-- Start page content wrapper -->
+<div class="page-content-wrapper animated fadeInRight">
+    <div class="page-content">
+      <div class="row wrapper border-bottom page-heading">
+        <div class="col-lg-12">
+          <h2>Backup Questions</h2>
+          <ol class="breadcrumb">
+            <li><a ui-sref="dashboard1">Home</a> </li>
+            <li class="active">Backup Questions</li>
+          </ol>
+        </div>
+      </div>
+      <div class="wrapper-content ">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                <h5>Backup Questions</h5>
+              </div>
+              <div class="ibox-content collapse in">
+                <div class="widgets-container">
+                  <div class="row">
+                    <button class="btn btn-primary">Download questions</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="ibox float-e-margins">
+              <div class="ibox-title">
+                <h5>Upload Questions</h5>
+              </div>
+              <div class="ibox-content collapse in">
+                <div class="widgets-container">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <form class="form form-horizontal">
+                        <div class="form-group">
+                          <label class="control-label col-md-3">File</label>
+                          <div class="col-md-9">
+                            <input type="file" class="form-control" />
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-3"></label>
+                          <div class="col-md-9">
+                            <button type="submit" class="btn btn-primary">Upload</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div class="widgets-container">
+                  <button type="button" ng-click="debug=!debug" class="btn btn-default btn-xs">Debug</button>
+                  <pre ng-init="debug=false" ng-class="{'collapse': !debug}">{{question | json}}</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      
+    </div>
+  </div>
+</div>

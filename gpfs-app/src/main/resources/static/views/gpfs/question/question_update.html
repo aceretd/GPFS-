@@ -26,11 +26,11 @@
                       <form ng-submit="saveQuestion()" class="form form-horizontal">
                         <div class="form-group">
                           <label class="control-label col-md-3" for="note">Note</label>
-                          <div class="col-md-2"><input id="note" type="number" step="1" min="1" ng-model="question.note" class="form-control" /></div>
+                          <div class="col-md-2"><input id="note" type="number" step="1" min="1" ng-model="question.note" class="form-control" required /></div>
                         </div>
                         <div class="form-group">
                           <label class="control-label col-md-3" for="series">Series</label>
-                          <div class="col-md-2"><input id="series" type="number" step="1" min="1" ng-model="question.series" class="form-control" /></div>
+                          <div class="col-md-2"><input id="series" type="number" step="1" min="1" ng-model="question.series" class="form-control" required /></div>
                         </div>
                         <div class="form-group">
                           <label class="control-label col-md-3" for="question">Question</label>
@@ -130,7 +130,7 @@
                           <label class="control-label col-md-3"></label>
                           <div class="col-md-9">
                             <button type="submit" class="btn btn-primary">Save Question</button>
-                            <button type="button" ng-click="resetQuestion()" class="btn btn-default">Reset</button>
+                            <button type="button" ng-if="question.id" ng-click="resetQuestion()" class="btn btn-default">Reset</button>
                           </div>
                         </div>
                       </form>

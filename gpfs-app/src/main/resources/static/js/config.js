@@ -275,17 +275,18 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider) {
       specialClass: 'page-header-fixed'
     },
     resolve: {
-      loadPlugin: function($ocLazyLoad) {
-        return $ocLazyLoad.load([
-          {
-            serie: true,
-            files: ['js/gpfs/question/question.update.controller.js']
-          }
-        ]);
-      },
       question: function ($stateParams, QuestionService) {
         return QuestionService.findBySeries({series: $stateParams.series});
       }
+    }
+  })
+  .state('question_backup', {
+    url: '/question-backup',
+    templateUrl: 'views/gpfs/question/question_backup.html',
+    controller: 'QuestionBackupCtrl',
+    data: {
+      pageTitle: 'question-backup',
+      specialClass: 'page-header-fixed'
     }
   })
   // GPFS List
