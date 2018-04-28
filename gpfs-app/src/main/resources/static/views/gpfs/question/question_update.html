@@ -71,13 +71,13 @@
                         </div>
                         <div ng-if="['MULTIPLE_CHOICE', 'MULTIPLE_SELECT'].indexOf(question.type) == -1" class="form-group">
                           <label class="control-label col-md-3" for="template">Template<span ng-if="question.type=='YES_NO'"> (Yes)</span></label>
-                          <div class="col-md-9"><input id="template" type="text" maxlength="255" ng-model="question.template" class="form-control" /></div>
+                          <div class="col-md-9"><textarea msd-elastic id="template" ng-model="question.template" class="form-control"></textarea></div>
                         </div>
 
                         <!-- Yes/No only -->
                         <div ng-if="question.type=='YES_NO'" class="form-group">
                           <label class="control-label col-md-3" for="no-template">Template (No)</label>
-                          <div class="col-md-9"><input id="no-template" type="text" maxlength="255" ng-model="question.noTemplate" class="form-control" /></div>
+                          <div class="col-md-9"><textarea msd-elastic id="no-template" ng-model="question.noTemplate" class="form-control"></textarea></div>
                         </div>
 
                         <!-- Enumeration only -->
